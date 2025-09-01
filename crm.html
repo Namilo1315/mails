@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://namilo1315.github.io/cmr/img/logo.png" />
+
+  <title>Invitación Evento</title>
+  <style>
+    /* Animación sutil para "Estimado vecino" */
+    @keyframes moverLetras {
+      0% { transform: translateY(0); }
+      25% { transform: translateY(-3px); }
+      50% { transform: translateY(0); }
+      75% { transform: translateY(3px); }
+      100% { transform: translateY(0); }
+    }
+
+    body {
+      margin:0;
+      padding:0;
+      background-color:#ffffff;
+      font-family: Arial, sans-serif;
+      color:#333333;
+      text-align:center;
+    }
+
+    .container {
+      max-width:650px;
+      margin:10px auto;
+      padding:0;
+      background:#ffffff;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .header {
+      background:#ffffff;
+      padding:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:15px;
+    }
+
+    .header img {
+      width:60px;
+      height:auto;
+    }
+
+    .header h1 {
+      font-size:26px;
+      font-weight:bold;
+      color:#0077b6;
+      margin:0;
+      display:inline-block;
+      position: relative;
+      animation: moverLetras 4s infinite;
+    }
+
+    .header h1::after {
+      content:"";
+      display:block;
+      width:60%;
+      height:3px;
+      background:#0077b6;
+      margin:5px auto 0;
+      border-radius:2px;
+    }
+
+    .texto {
+      padding:13px 13px;
+      font-size:18px;
+      line-height:1.5;
+    }
+
+    .evento-img {
+      width:100%;
+      max-width:560px;
+      height:auto;
+      display:block;
+      margin:10px auto;
+      padding:5 5%; /* espacio a los costados en móvil */
+    }
+
+    .footer {
+      background:#ffffff;
+      padding:0px;
+    }
+
+    .footer .muni {
+      margin:0px 0;
+      font-size:16px;
+      font-weight:bold;
+      color:#0077b6;
+    }
+
+    .footer img {
+      width:50px;
+      height:auto;
+      margin-top:10px;
+    }
+
+    .contacto {
+    
+      font-size:16px;
+      color:#000000;
+      
+    }
+
+    /* Responsive */
+    @media (max-width:640px) {
+      .header h1 { font-size:24px; }
+      .texto { font-size:16px; }
+      .evento-img { padding:10 10%; }
+      .contacto { font-size:15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Encabezado con logo y texto animado -->
+    <div class="header">
+      <img src="https://namilo1315.github.io/crm/img/logo.png" alt="Logo Municipalidad">
+      <h1>Estimado vecino</h1>
+    </div>
+
+    <!-- Texto breve de invitación -->
+    <div class="texto">
+      Desde la Municipalidad de Maipú nos complace invitarle a un evento especial.  
+      Te invitamos a compartir esta jornada con nuestra comunidad.
+    </div>
+
+    <!-- Imagen del evento -->
+    <img class="evento-img" src="https://namilo1315.github.io/crm/img/01.png" alt="Evento">
+
+    <!-- Pie con logo -->
+    <div class="footer">
+      <p class="contacto">Pablo Pescara 190, Ciudad de Maipú, Mendoza</p>
+        <p class="contacto">Centro de Atención al Vecino</p>
+        <p class="contacto">0800 222 8030</p>
+             <p class="muni">Municipalidad de Maipú</p>
+      <img src="https://namilo1315.github.io/crm/img/logo.png" alt="Logo Municipalidad">
+    </div>
+
+
+  </div>
+</body>
+</html>
