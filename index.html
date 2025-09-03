@@ -26,7 +26,7 @@
     }
 
     .container {
-      max-width:650px;
+      max-width:550px;
       margin:10px auto;
       padding:0;
       background:#ffffff;
@@ -35,14 +35,6 @@
       box-shadow:0 4px 15px rgba(0,0,0,0.1);
     }
 
-    .header {
-      background:#ffffff;
-      padding:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:15px;
-    }
 
     .header img {
       width:60px;
@@ -69,15 +61,9 @@
       border-radius:2px;
     }
 
-    .texto {
-      padding:13px 13px;
-      font-size:18px;
-      line-height:1.5;
-    }
-
     .evento-img {
       width:100%;
-      max-width:560px;
+      max-width:500px;
       height:auto;
       display:block;
       margin:10px auto;
@@ -104,8 +90,8 @@
     }
 
     .contacto {
-    
-      font-size:16px;
+      font-weight: 560;
+      font-size:14px;
       color:#000000;
       
     }
@@ -122,15 +108,19 @@
 <body>
   <div class="container">
     <!-- Encabezado con logo y texto animado -->
-    <div class="header">
-      <img src="https://namilo1315.github.io/crm/img/logo.png" alt="Logo Municipalidad">
-      <h1>Estimado vecino</h1>
+     <!-- Encabezado -->
+     <div style="background:#ffffff; padding:12px; display:flex; align-items:center; justify-content:center; gap:15px;">
+      <img src="https://namilo1315.github.io/crm/img/logo.png" alt="Logo Municipalidad" style="width:60px; height:auto;">
+      <h1 style="font-size:26px; font-weight:bold; color:#0077b6; margin:0; display:inline-block; position:relative;">
+        Estimado vecino
+      </h1>
     </div>
 
-    <!-- Texto breve de invitación -->
-    <div class="texto">
-      Desde la Municipalidad de Maipú nos complace invitarle a un evento especial.  
-      Te esperamos para compartir esta jornada con nuestra comunidad.
+
+     <!-- Texto -->
+     <div style="padding:2px 13px; font-size:15px; line-height:1.5;font-weight: 560;">
+      Te invitamos a compartir juntos una nueva edición de El Camino de las Peñas.
+      Desde la Municipalidad de Maipú queremos que seas parte de esta jornada que celebra nuestras tradiciones, la música y el encuentro comunitario.
     </div>
 
     <!-- Imagen del evento -->
@@ -138,11 +128,16 @@
 
     <!-- Pie con logo -->
     <div class="footer">
-      <p class="contacto">Pablo Pescara 190, Ciudad de Maipú, Mendoza</p>
-        <p class="contacto">Centro de Atención al Vecino</p>
-        <p class="contacto">0800 222 8030</p>
-             <p class="muni">Municipalidad de Maipú</p>
-      <img src="https://namilo1315.github.io/crm/img/logo.png" alt="Logo Municipalidad">
+      
+        <p class="contacto">
+          🗓 Domingo 7 de septiembre – desde las 12:30 hs <br>
+          📍 Bodega Atilio Avena – Castro Barros 8115, Russell. <br>
+          🎶 Disfrutá de artistas locales, ballet y toda la calidez de nuestra gente. <br>
+          👉 Entrada gratuita | Reservá tu almuerzo al <span style="color:red; font-weight:bold;">2616590314</span>
+        
+      
+      <p style="margin:0; font-size:16px; font-weight:bold; color:#0077b6;">Municipalidad de Maipú</p>
+      <img src="https://namilo1315.github.io/crm/img/logo.png" alt="Logo Municipalidad" style="width:50px; height:auto; margin-top:10px;">
     </div>
   </div>
 </body>
