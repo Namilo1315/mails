@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Natalia López — Portafolio</title>
+  <meta name="description" content="Portafolio de Natalia López: Programadora Frontend (5+ años), Analista de Datos (Power BI) y Administrativa con amplio conocimiento en RRHH.">
+
+  <!-- Open Graph / Social Preview (cambiá og:url cuando publiques) -->
+  <meta property="og:title" content="Natalia López — Programadora Frontend · Power BI · RRHH">
+  <meta property="og:description" content="Soluciones frontend, tableros de datos y experiencia administrativa en RRHH.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tuusuario.github.io/portafolio-natalia/">
+  <meta property="og:image" content="social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Natalia López — Portafolio">
+  <meta name="twitter:description" content="Frontend · Power BI · RRHH">
+  <meta name="twitter:image" content="social-card.png">
+  <link rel="canonical" href="https://tuusuario.github.io/portafolio-natalia/">
+  <meta name="theme-color" content="#ff5f9a">
+
+  <!-- Favicon SVG con iniciales NL -->
+  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23ff7fab"/><stop offset="1" stop-color="%239f8bff"/></linearGradient></defs><rect width="64" height="64" rx="12" fill="url(%23g)"/><text x="50%" y="56%" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="white" font-weight="700">NL</text></svg>'/>
+
+  <style>
+    /* ===== Temas (claro / oscuro) ===== */
+    :root{
+      --wrap-max: 1280px;
+      --gutter: clamp(16px, 2vw, 28px);
+      --ink:#22262c; --muted:#566173; --panel:#ffffff; --panel-2:#fff; --border:#e0e6ef;
+      --rose:#ff5f9afc; --lilac:#9f8bff; --mint:#38cf86; --peach:#ffab5c; --sky:#36b5fb; --sun:#ffd166;
+      --chip:#ffffff; --shadow:0 12px 30px rgba(17,24,39,.10);
+      --radius:18px; --radius-sm:14px; --pad:clamp(16px, 2.2vw, 24px);
+      --bg-grad: linear-gradient(180deg,#ffd9ea, #ffffff 26%, #fff3da 100%);
+      --pattern: radial-gradient(12px 12px at 10px 10px, rgba(255,95,154,.12) 25%, transparent 26%) 0 0 / 32px 32px,
+                  radial-gradient(12px 12px at 22px 22px, rgba(54,181,251,.12) 25%, transparent 26%) 0 0 / 32px 32px;
+    }
+    [data-theme="dark"]{
+      --ink:#f1f4f8; --muted:#cfd6e6; --panel:#0f1524; --panel-2:#0c1220; --border:#212a42;
+      --chip:#0f1526; --shadow:0 12px 30px rgba(0,0,0,.38);
+      --bg-grad: radial-gradient(1200px 1200px at 110% -10%, rgba(255,95,154,.22), transparent 60%),
+                 radial-gradient(1200px 1200px at -20% 120%, rgba(255,209,102,.22), transparent 60%),
+                 linear-gradient(180deg,#090e1d,#0a1122 30%,#090e1d 100%);
+      /* rosa + luz (sin lila) */
+      --pattern: radial-gradient(12px 12px at 10px 10px, rgba(255,95,154,.28) 25%, transparent 26%) 0 0 / 32px 32px,
+                 radial-gradient(12px 12px at 22px 22px, rgba(255,209,102,.20) 25%, transparent 26%) 0 0 / 32px 32px;
+    }
+
+    /* ===== Base ===== */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--ink); line-height:1.6; background: var(--bg-grad);
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position:relative;
+    }
+    body::before{content:""; position:fixed; inset:0; pointer-events:none; background: var(--pattern); opacity:.6;}
+    img,svg,video,canvas{max-width:100%; height:auto}
+    a{color:#0f6cd6; text-decoration:none}
+    a:hover{text-decoration:underline}
+    :focus-visible{outline:3px solid var(--rose); outline-offset:2px}
+    :target{scroll-margin-top:90px}
+
+    .wrap{max-width:var(--wrap-max); margin-inline:auto; padding-inline:var(--gutter); padding-block: clamp(12px, 1.4vw, 22px)}
+    @supports(padding:max(0px)){
+      .wrap{padding-left: max(var(--gutter), env(safe-area-inset-left)); padding-right:max(var(--gutter), env(safe-area-inset-right));}
+    }
+
+    /* ===== Topbar sticky ===== */
+    .topbar{position:sticky; top:0; z-index:50; margin-bottom:14px}
+    .topbar .bar{display:flex; align-items:center; justify-content:space-between; gap:8px 10px; padding:10px 14px; border-radius:14px; background: var(--panel); border:1px solid var(--border); box-shadow: var(--shadow); flex-wrap:wrap}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:900}
+    .badge{display:inline-grid; place-items:center; width:34px; height:34px; border-radius:9px; color:#fff; font-weight:900; letter-spacing:.5px; background:linear-gradient(135deg, var(--rose), var(--lilac)); box-shadow:0 6px 18px rgba(255,95,154,.35)}
+    [data-theme="dark"] .badge{background:linear-gradient(135deg, var(--rose), #ff9fb0)}
+    .nav{display:flex; gap:8px; flex-wrap:wrap}
+    .nav a{padding:8px 12px; border-radius:999px;}
+    .nav .nav-btn{ background: var(--rose); color:#fff; border:none; box-shadow:0 6px 18px rgba(255,95,154,.28); font-weight:900 }
+    .nav .nav-btn:hover{ filter:brightness(1.05) }
+    [data-theme="dark"] .nav .nav-btn{ background: linear-gradient(90deg, var(--rose), #ff9fb0); color:#1a1120 }
+    .theme{display:flex; gap:8px; align-items:center}
+    .toggle{cursor:pointer; padding:8px 12px; border-radius:999px; border:1px solid var(--border); background:var(--chip); font-weight:800}
+    @media(max-width:640px){ .nav{width:100%; justify-content:center; order:3} .theme{order:2} }
+
+    /* ===== Header / Hero ===== */
+    header{
+      position:relative; display:grid; gap:clamp(14px, 2vw, 22px); align-items:center; grid-template-columns: 1.1fr .9fr;
+      background: linear-gradient(120deg,#ffcfe0, #e4dbff 55%, #d6efff);
+      border:1px solid var(--border); border-radius:22px; padding: clamp(16px, 3vw, 32px);
+      overflow:hidden; box-shadow: var(--shadow);
+    }
+    [data-theme="dark"] header{background: linear-gradient(120deg,#3a0f22,#112035 58%, #0f2335)}
+    @media(max-width:960px){ header{grid-template-columns:1fr; text-align:center} }
+    .name{ font-size: clamp(28px, 2.6vw + 12px, 46px); font-weight:900; letter-spacing:.2px; color:var(--ink) }
+    .subtitle{color:var(--muted); margin-top:6px; max-width: 60ch}
+
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    @media(max-width:960px){ .cta-row{justify-content:center} }
+    .btn{ position:relative; display:inline-flex; align-items:center; gap:10px; border:none; cursor:pointer; padding:12px 16px; border-radius:14px; font-weight:800; box-shadow: var(--shadow); transition: transform .12s ease, filter .2s ease, box-shadow .2s ease; }
+    .btn svg{flex:0 0 18px}
+    .btn.gradient{ color:#1f1f1f; background:linear-gradient(90deg, var(--rose), var(--lilac)); }
+    [data-theme="dark"] .btn.gradient{background:linear-gradient(90deg, var(--rose), #ff9fb0)}
+    .btn.gradient-2{ color:#1f1f1f; background:linear-gradient(90deg, var(--mint), var(--sky)); }
+    .btn.ghost{ color:var(--ink); background:var(--panel); border:1px solid var(--border) }
+    .btn:hover{ transform:translateY(-2px); filter:brightness(1.05) }
+
+    .avatar{ width: clamp(112px, 24vw, 180px); aspect-ratio:1/1; border-radius:24px; overflow:hidden; border:2px solid rgba(255,255,255,.85); box-shadow: var(--shadow); background: var(--panel-2); margin-left:auto }
+    .avatar img{width:100%; height:100%; object-fit:cover; display:block}
+    @media(max-width:960px){ .avatar{margin:0 auto} }
+
+    /* ===== Secciones & tarjetas ===== */
+    section{margin-top: clamp(28px, 5vw, 42px)}
+    h2{margin:0 0 16px; font-size: clamp(20px,1.2vw + 12px,26px)}
+    h3{margin:0 0 6px; font-size:18px}
+    .muted{color:var(--muted)}
+
+    .card{ border:1px solid var(--border); border-radius:var(--radius); padding:var(--pad); box-shadow: var(--shadow); background: var(--panel); }
+
+    /* Bloques por sección (ligeramente más oscuros en claro) */
+    .block{position:relative; overflow:hidden}
+    .block.rose{background: linear-gradient(180deg,#ffc9de, #fff 66%)}
+    .block.mint{background: linear-gradient(180deg,#d4f7e6, #fff 66%)}
+    .block.lilac{background: linear-gradient(180deg,#e6ddff, #fff 66%)}
+    .block.peach{background: linear-gradient(180deg,#ffe0c7, #fff 66%)}
+    [data-theme="dark"] .block.rose{background: linear-gradient(180deg,#2f1823,#0f1524 66%)}
+    [data-theme="dark"] .block.mint{background: linear-gradient(180deg,#0d2a1d,#0c1220 66%)}
+    [data-theme="dark"] .block.lilac{background: linear-gradient(180deg,#1e1e26,#0c1220 66%)}
+    [data-theme="dark"] .block.peach{background: linear-gradient(180deg,#2b1a12,#0f1524 66%)}
+
+    .chips{display:flex; flex-wrap:wrap; gap:10px}
+    .chip{ background:var(--chip); color:var(--ink); border:1px solid var(--border); padding:8px 12px; border-radius:999px; font-size:14px }
+
+    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; text-align:center}
+    @media(max-width:640px){ .kpis{grid-template-columns:1fr 1fr} }
+    .kpi{background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:clamp(12px, 2vw, 18px)}
+    .kpi b{display:block; font-size:clamp(18px, 1.6vw + 12px, 24px)}
+
+    .stack{display:flex; gap:10px; flex-wrap:wrap}
+    .pill{background:var(--panel); border:1px solid var(--border); padding:8px 12px; border-radius:10px; font-size:14px}
+
+    .timeline{display:grid; gap:14px}
+    .row{ background:var(--panel); border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px; display:grid; gap:8px; }
+    .row small{color:var(--muted)}
+    .row .tags{display:flex; gap:8px; flex-wrap:wrap}
+    .tag{ font-size:12px; background:var(--panel); border:1px solid var(--border); color:var(--ink); padding:6px 8px; border-radius:8px }
+
+    /* ===== Layout auxiliar ===== */
+    .grid{display:grid; gap:clamp(12px, 2vw, 18px)}
+    .grid-2{grid-template-columns:1.2fr .8fr}
+    @media(max-width:900px){ .grid-2{grid-template-columns:1fr} }
+
+    /* ===== PROYECTOS (auto-fit + más espacio) ===== */
+    .projects{ max-width:min(100%, 1320px); margin: clamp(18px, 4vw, 32px) auto 0; }
+    .projects h2{margin-bottom:clamp(10px, 1.6vw, 18px)}
+    .proj-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: clamp(12px, 2vw, 20px); align-items:stretch; }
+    .proj-card{ position:relative; padding:16px; border-radius:16px; overflow:hidden; border:1px solid var(--border); box-shadow: var(--shadow); background:var(--panel); text-align:left; }
+    .proj-card.color-1{ background: linear-gradient(180deg,#fff0f5,var(--panel)); }
+    .proj-card.color-2{ background: linear-gradient(180deg,#eff7ff,var(--panel)); }
+    .proj-card.color-3{ background: linear-gradient(180deg,#effff6,var(--panel)); }
+    .proj-card.color-4{ background: linear-gradient(180deg,#fff7ee,var(--panel)); }
+    .proj-card.color-5{ background: linear-gradient(180deg,#f5f2ff,var(--panel)); }
+    [data-theme="dark"] .proj-card.color-1{ background: linear-gradient(180deg,#341723,var(--panel)); }
+    [data-theme="dark"] .proj-card.color-2{ background: linear-gradient(180deg,#14202b,var(--panel)); }
+    [data-theme="dark"] .proj-card.color-3{ background: linear-gradient(180deg,#15261c,var(--panel)); }
+    [data-theme="dark"] .proj-card.color-4{ background: linear-gradient(180deg,#2b1811,var(--panel)); }
+    [data-theme="dark"] .proj-card.color-5{ background: linear-gradient(180deg,#2a1a21,var(--panel)); }
+    .proj-card:hover{ transform: translateY(-3px); box-shadow:0 16px 38px rgba(17,24,39,.12) }
+    .proj-title{ font-weight:800; margin-bottom:6px; color:#1a1a1a }
+    .proj-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px }
+    .proj-tag{ font-size:12px; background:var(--panel); border:1px solid var(--border); color:var(--ink); padding:6px 8px; border-radius:8px }
+    .proj-link{ display:inline-flex; align-items:center; gap:8px; margin-top:10px; font-weight:700; color:#0f6cd6 }
+
+    /* ===== Contacto enriquecido (mejor responsive) ===== */
+    .contact{padding-top: clamp(16px, 2.4vw, 26px)}
+    .contact-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:clamp(12px, 2vw, 18px)}
+    .contact .lead{font-weight:800; margin-bottom:10px}
+    .contact .mini{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .socials{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+    .social{display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px; font-weight:800; color:#1f1f1f; border:1px solid var(--border); background:#fff; box-shadow: var(--shadow)}
+    .social svg{width:18px;height:18px}
+    .social.lk{background:linear-gradient(90deg,#0ea5e9,#38bdf8); color:#fff; border:none}
+    .social.gh{background:#f4f6fb}
+    .social.ig{background:linear-gradient(90deg,#f58529,#dd2a7b,#8134af,#515bd4); color:#fff; border:none}
+
+    /* FAB WhatsApp (con ícono, respeta áreas seguras) */
+    .fab-whatsapp{position:fixed; right:max(18px, env(safe-area-inset-right)); bottom:max(18px, env(safe-area-inset-bottom)); z-index:60; display:inline-flex; align-items:center; gap:10px; padding:12px 14px; border-radius:999px; background:linear-gradient(90deg,#25D366,#7de3a6); color:#0c2415; font-weight:900; box-shadow:0 12px 30px rgba(37,211,102,.35); border:1px solid rgba(12,36,21,.15)}
+
+    footer{margin:40px 0 20px; color:var(--muted); text-align:center}
+
+    /* Micro-animaciones */
+    .hover-pop{transition:transform .12s ease, box-shadow .2s ease}
+    .hover-pop:hover{transform:translateY(-2px); box-shadow:0 12px 28px rgba(17,24,39,.12)}
+    .reveal{opacity:0; transform:translateY(12px); transition: opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1; transform:translateY(0)}
+    @media (prefers-reduced-motion: reduce){
+      .reveal{opacity:1; transform:none; transition:none}
+      .hover-pop{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="bar">
+        <div class="brand"><span class="badge">NL</span> Natalia López</div>
+        <div class="nav">
+          <a class="nav-btn" href="#proyectos">Proyectos</a>
+          <a class="nav-btn" href="#contacto">Contacto</a>
+          <a class="nav-btn" href="cv-natalia-lopez.pdf" target="_blank" rel="noopener">CV</a>
+        </div>
+        <div class="theme">
+          <button id="themeBtn" class="toggle" aria-label="Cambiar tema">☀️ / 🌙</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="hover-pop">
+      <div>
+        <div class="name">Natalia López</div>
+        <div class="subtitle">Programadora Frontend (5+ años) · Analista de Datos (Power BI) · Administrativa con amplio conocimiento en RRHH</div>
+        <div class="cta-row">
+          <a class="btn gradient" href="#proyectos" aria-label="Ver proyectos">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h10v2H7zM7 11h10v2H7zM7 15h7v2H7z"/></svg>
+            Ver proyectos
+          </a>
+          <a class="btn gradient-2" href="https://wa.me/5492616246767?text=Hola%20Natalia%2C%20vi%20tu%20portafolio" target="_blank" rel="noopener">
+            <svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M19.11 17.37c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.64.14-.19.28-.73.9-.9 1.09-.17.19-.33.21-.61.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.49-.64-.49-.16 0-.35-.02-.54-.02-.19 0-.49.07-.75.35-.26.28-1 1-1 2.44 0 1.44 1.03 2.84 1.17 3.03.14.19 2.03 3.1 4.92 4.34.69.3 1.22.48 1.64.62.69.22 1.32.19 1.82.12.56-.08 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.12-.26-.19-.54-.33z"/><path d="M16.04 4C9.94 4 5 8.94 5 15.04c0 1.95.51 3.78 1.4 5.36L5 28l7.8-1.38c1.53.84 3.29 1.32 5.17 1.32 6.1 0 11.04-4.94 11.04-11.04S22.14 4 16.04 4zm0 19.9c-1.62 0-3.12-.48-4.38-1.31l-.31-.2-4.63.82.87-4.52-.21-.33c-.84-1.34-1.33-2.93-1.33-4.62C6.05 9.95 10 6 16.04 6c4.7 0 9.04 3.34 9.04 9.04 0 5.7-4.34 8.86-9.04 8.86z"/></svg>
+            WhatsApp
+          </a>
+          <a class="btn ghost" href="cv-natalia-lopez.pdf" target="_blank" rel="noopener" aria-label="Abrir Currículum en PDF">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2.5L18.5 9H14z"/></svg>
+            Ver CV
+          </a>
+        </div>
+      </div>
+      <div class="avatar"><img src="natalia.jpeg" alt="Foto de Natalia López"></div>
+    </header>
+
+    <!-- KPIs / Métricas -->
+    <section class="card block rose reveal">
+      <h2>Métricas</h2>
+      <div class="kpis">
+        <div class="kpi"><b id="exp">5+ años</b><span class="muted">Programación Frontend</span></div>
+        <div class="kpi"><b id="dash">15+ tableros</b><span class="muted">Power BI & Reportes</span></div>
+        <div class="kpi"><b id="proj">8+ sistemas</b><span class="muted">Automatizaciones y apps</span></div>
+      </div>
+    </section>
+
+    <section class="grid grid-2">
+      <article class="card block mint reveal">
+        <h2>Sobre mí</h2>
+        <p>
+          Programadora Frontend con foco en soluciones claras y mantenibles. Analista de datos orientada a decisiones con Power BI.
+          Gestión administrativa con amplio conocimiento en RRHH. Trabajo en la Municipalidad de Maipú desarrollando
+          <b>sistemas por áreas</b> y operando con <b>CRM</b> para optimizar procesos y atención.
+        </p>
+        <div class="chips" aria-label="Competencias clave">
+          <span class="chip">HTML • CSS • JavaScript</span>
+          <span class="chip">Power BI • DAX • Modelado</span>
+          <span class="chip">CRM • Automatización</span>
+          <span class="chip">Gestión administrativa • RRHH</span>
+        </div>
+      </article>
+
+      <aside class="card block lilac reveal">
+        <h2>Stack & herramientas</h2>
+        <div class="stack">
+          <span class="pill">VS Code</span>
+          <span class="pill">Git/GitHub</span>
+          <span class="pill">Power BI</span>
+          <span class="pill">Excel avanzado</span>
+          <span class="pill">Bootstrap</span>
+          <span class="pill">Firebase (básico)</span>
+          <span class="pill">Speech Synthesis API</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Experiencia (Municipalidad) -->
+    <section class="card block peach reveal">
+      <h2>Experiencia</h2>
+      <div class="timeline">
+        <div class="row">
+          <h3>Programadora Frontend & Analista de Datos · Municipalidad de Maipú</h3>
+          <small>2019 — Actualidad</small>
+          <p>
+            Desarrollo y mantenimiento de sitios institucionales. Implementación y operación de <b>CRM</b>.
+            <b>Generación de sistemas por áreas</b> (Empleo, Comunicación, Juzgado, etc.).
+            Modelado de datos y tableros en <b>Power BI</b> para seguimiento de trámites, tiempos de respuesta y KPIs de gestión.
+          </p>
+          <div class="tags">
+            <span class="tag">Frontend</span><span class="tag">Power BI</span><span class="tag">CRM</span>
+            <span class="tag">Optimización</span><span class="tag">Automatización</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="card block lilac reveal projects">
+      <h2>Proyectos destacados</h2>
+      <div class="proj-grid">
+        <article class="proj-card color-1">
+          <div class="proj-title">PictoComunica — Creadora</div>
+          <p>App con pictogramas y síntesis de voz para comunicación asistida. Armado de frases, secciones y foco TEA.</p>
+          <div class="proj-tags"><span class="proj-tag">HTML/CSS/JS</span><span class="proj-tag">Accesibilidad</span><span class="proj-tag">Speech API</span></div>
+          <a class="proj-link" href="https://pictocomunica.com.ar" target="_blank" rel="noopener">pictocomunica.com.ar →</a>
+        </article>
+        <article class="proj-card color-2">
+          <div class="proj-title">Mailing institucional</div>
+          <p>Componentes HTML responsive para comunicaciones. Estilos inline compatibles con CRM/emailing.</p>
+          <div class="proj-tags"><span class="proj-tag">HTML Email</span><span class="proj-tag">Responsive</span><span class="proj-tag">CRM</span></div>
+          <a class="proj-link" href="https://namilo1315.github.io/mails/texto.html" target="_blank" rel="noopener">Ver ejemplo →</a>
+        </article>
+        <article class="proj-card color-3">
+          <div class="proj-title">Tableros de Gestión</div>
+          <p>KPIs operativos de atención al ciudadano. DAX, segmentación y seguimiento de tiempos de respuesta.</p>
+          <div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">DAX</span><span class="proj-tag">ETL</span></div>
+          <a class="proj-link" href="#" onclick="alert('Agrega un enlace público o capturas cuando quieras.');return false;">Ver muestra →</a>
+        </article>
+        <article class="proj-card color-4">
+          <div class="proj-title">Empleo Maipú</div>
+          <p>Registro y administración de CVs, descargas PDF (jsPDF) y UI alineada a procesos del área.</p>
+          <div class="proj-tags"><span class="proj-tag">Frontend</span><span class="proj-tag">UI/UX</span><span class="proj-tag">PDF</span></div>
+          <a class="proj-link" href="#" onclick="alert('Agrega el link de la demo o capturas.');return false;">Ver demo →</a>
+        </article>
+        
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="card block mint reveal contact">
+      <h2>Contacto</h2>
+      <div class="contact-grid">
+        <div>
+          <p class="lead">¡Hablemos!</p>
+          <p class="muted">Maipú, Mendoza, Argentina</p>
+          <div class="cta-row" style="margin-top:10px">
+            <a class="btn gradient-2" href="https://wa.me/5492616246767?text=Hola%20Natalia%2C%20vi%20tu%20portafolio" target="_blank" rel="noopener">
+              <svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M19.11 17.37c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.64.14-.19.28-.73.9-.9 1.09-.17.19-.33.21-.61.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.49-.64-.49-.16 0-.35-.02-.54-.02-.19 0-.49.07-.75.35-.26.28-1 1-1 2.44 0 1.44 1.03 2.84 1.17 3.03.14.19 2.03 3.1 4.92 4.34.69.3 1.22.48 1.64.62.69.22 1.32.19 1.82.12.56-.08 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.12-.26-.19-.54-.33z"/><path d="M16.04 4C9.94 4 5 8.94 5 15.04c0 1.95.51 3.78 1.4 5.36L5 28l7.8-1.38c1.53.84 3.29 1.32 5.17 1.32 6.1 0 11.04-4.94 11.04-11.04S22.14 4 16.04 4zm0 19.9c-1.62 0-3.12-.48-4.38-1.31l-.31-.2-4.63.82.87-4.52-.21-.33c-.84-1.34-1.33-2.93-1.33-4.62C6.05 9.95 10 6 16.04 6c4.7 0 9.04 3.34 9.04 9.04 0 5.7-4.34 8.86-9.04 8.86z"/></svg>
+              WhatsApp — (+54 9) 261 624 6767
+            </a>
+           <a class="btn ghost" href="mailto:natalia89751315@gmail.com" aria-label="Enviar correo a natalia89751315@gmail.com">
+  <!-- ícono sobretexto -->
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2v.01L12 11 4 6.01V6h16zM4 18V8.24l7.38 4.61a1 1 0 001.24 0L20 8.24V18H4z"/>
+  </svg>
+  natalia89751315@gmail.com
+</a>
+
+          </div>
+          <div class="mini">
+            <a class="pill" href="cv-natalia-lopez.pdf" target="_blank" rel="noopener">Currículum (PDF)</a>
+            <a class="pill" id="vcfBtn" href="#" download="NataliaLopez.vcf">Guardar contacto</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="lead">Redes</h3>
+          <div class="socials">
+            <a class="social lk" href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener" title="Agrega tu URL de LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.05c.53-1.01 1.83-2.07 3.76-2.07 4.02 0 4.76 2.65 4.76 6.1v6.33h-4v-5.61c0-1.34-.03-3.06-1.87-3.06-1.88 0-2.17 1.47-2.17 2.97v5.7H9v-12z"/></svg>
+              LinkedIn
+            </a>
+            <a class="social gh" href="https://github.com/namilo1315" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 00-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.74.08-.74 1.22.09 1.86 1.26 1.86 1.26 1.08 1.85 2.82 1.32 3.51 1.01.11-.79.42-1.32.76-1.63-2.66-.3-5.46-1.34-5.46-5.95 0-1.31.47-2.39 1.24-3.23-.12-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.86.12 3.16.77.84 1.24 1.92 1.24 3.23 0 4.62-2.8 5.65-5.47 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0012 .5z"/></svg>
+              GitHub
+            </a>
+            <a class="social ig" href="https://www.instagram.com/annmery.fragancias/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2.2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zm5.5-.9a1.1 1.1 0 110 2.2 1.1 1.1 0 010-2.2z"/></svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="reveal">
+      © <span id="year"></span> Natalia López · Disponible para proyectos frontend, data y procesos.
+    </footer>
+  </div>
+
+  <!-- Botón flotante de WhatsApp con ícono -->
+  <a class="fab-whatsapp" href="https://wa.me/5492616246767?text=Hola%20Natalia%2C%20vi%20tu%20portafolio" target="_blank" rel="noopener" aria-label="WhatsApp directo">
+    <svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" aria-hidden="true" style="margin-right:6px"><path d="M19.11 17.37c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.64.14-.19.28-.73.9-.9 1.09-.17.19-.33.21-.61.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.49-.64-.49-.16 0-.35-.02-.54-.02-.19 0-.49.07-.75.35-.26.28-1 1-1 2.44 0 1.44 1.03 2.84 1.17 3.03.14.19 2.03 3.1 4.92 4.34.69.3 1.22.48 1.64.62.69.22 1.32.19 1.82.12.56-.08 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.12-.26-.19-.54-.33z"/><path d="M16.04 4C9.94 4 5 8.94 5 15.04c0 1.95.51 3.78 1.4 5.36L5 28l7.8-1.38c1.53.84 3.29 1.32 5.17 1.32 6.1 0 11.04-4.94 11.04-11.04S22.14 4 16.04 4zm0 19.9c-1.62 0-3.12-.48-4.38-1.31l-.31-.2-4.63.82.87-4.52-.21-.33c-.84-1.34-1.33-2.93-1.33-4.62C6.05 9.95 10 6 16.04 6c4.7 0 9.04 3.34 9.04 9.04 0 5.7-4.34 8.86-9.04 8.86z"/></svg>
+    WhatsApp
+  </a>
+
+  <script>
+    // Toggle de tema con persistencia
+    const root = document.documentElement;
+    const btn = document.getElementById('themeBtn');
+    const saved = localStorage.getItem('nl-theme');
+    if(saved) root.setAttribute('data-theme', saved);
+    btn.addEventListener('click', ()=>{
+      const cur = root.getAttribute('data-theme') || 'light';
+      const next = cur === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('nl-theme', next);
+      btn.textContent = next === 'light' ? '☀️' : '🌙';
+    });
+
+    // Conteo en KPIs
+    function countUp(el, target, suffix){
+      let cur = 0; const step = Math.max(1, Math.floor(target/24));
+      const timer = setInterval(()=>{
+        cur += step; if(cur >= target){ cur = target; clearInterval(timer); }
+        el.textContent = cur + suffix;
+      }, 28);
+    }
+    countUp(document.getElementById('exp'), 5, '+ años');
+    countUp(document.getElementById('dash'), 15, '+ tableros');
+    countUp(document.getElementById('proj'), 8, '+ sistemas');
+
+    // vCard dinámico
+    const vcfBtn = document.getElementById('vcfBtn');
+    if(vcfBtn){
+      vcfBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const vcf = `BEGIN:VCARD
+VERSION:3.0
+N:López;Natalia;;;
+FN:Natalia López
+EMAIL;TYPE=INTERNET:natalia89751315@gmail.com
+TEL;TYPE=CELL:+5492616246767
+ADR;TYPE=HOME:;;Maipú;Mendoza;;Argentina
+TITLE:Programadora Frontend | Analista de Datos | Administrativa RRHH
+URL:https://pictocomunica.com.ar
+END:VCARD`;
+        const blob = new Blob([vcf], {type:'text/vcard'});
+        const url = URL.createObjectURL(blob);
+        e.currentTarget.href = url;
+      });
+    }
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, {threshold: .15});
+    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+    // Año en footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
