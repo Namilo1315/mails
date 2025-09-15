@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Comercio Dashboard (LocalStorage)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap 5 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+  <style>
+    :root{
+      --brand:#8b5cf6; --brand-2:#14b8a6; --ink:#0f172a; --muted:#64748b; --soft:#f8fafc; --card:#ffffff;
+    }
+    body{ background:var(--soft); color:var(--ink); }
+    .navbar{
+      background: linear-gradient(90deg, var(--brand) 0%, var(--brand-2) 100%);
+    }
+    .navbar-brand, .navbar .btn, .navbar .nav-link{ color:#fff !important; }
+    .btn-rounded{ border-radius:999px; }
+    .card{
+      background:var(--card); border:0; border-radius:1rem;
+      box-shadow:0 10px 30px rgba(17,24,39,.08);
+    }
+    .card h6{ color:var(--muted); letter-spacing:.2px; }
+    .kpi{ font-weight:800; font-size:1.7rem; color:var(--ink); }
+    .badge-soft{
+      background:rgba(139,92,246,.12); color:#6d28d9; border:1px dashed #8b5cf6;
+    }
+    .ai-bubble{
+      background:#fff; border-radius:1rem; padding:.9rem 1rem;
+      border:1px dashed #c7d2fe;
+    }
+    .footer-note{ font-size:.9rem; color:var(--muted); }
+    .chip{
+      display:inline-block; padding:.25rem .6rem; border-radius:999px;
+      background:#ecfeff; color:#0e7490; font-size:.8rem; border:1px solid #a5f3fc;
+    }
+
+    /* Temas de color */
+    .theme-candy{ --brand:#ec4899; --brand-2:#8b5cf6; }
+    .theme-ocean{ --brand:#06b6d4; --brand-2:#0ea5e9; }
+    .theme-sunset{ --brand:#f97316; --brand-2:#ef4444; }
+    .theme-jungle{ --brand:#10b981; --brand-2:#22c55e; }
+    .theme-noir{ --brand:#334155; --brand-2:#0f172a; --soft:#0b1220; --card:#0f172a; --ink:#e2e8f0; --muted:#94a3b8; }
+
+    .section-title{
+      font-weight:700; letter-spacing:.5px;
+    }
+
+    /* Pequeños acentos multicolor en títulos */
+    .accent{
+      background: linear-gradient(90deg, var(--brand), var(--brand-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+  </style>
+</head>
+<body class="theme-candy"><!-- cambia tema: theme-candy/ocean/sunset/jungle/noir -->
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#"><i class="bi bi-bar-chart-steps me-2"></i>Comercio Dashboard</a>
+
+      <div class="ms-auto d-flex gap-2 align-items-center">
+        <select id="selTheme" class="form-select form-select-sm w-auto">
+          <option value="theme-candy">Candy</option>
+          <option value="theme-ocean">Ocean</option>
+          <option value="theme-sunset">Sunset</option>
+          <option value="theme-jungle">Jungle</option>
+          <option value="theme-noir">Noir</option>
+        </select>
+        <button id="btnSeed" class="btn btn-light btn-sm btn-rounded"><i class="bi bi-stars me-1"></i>Demo</button>
+        <button id="btnExport" class="btn btn-outline-light btn-sm btn-rounded"><i class="bi bi-download me-1"></i>Exportar</button>
+        <label class="btn btn-outline-light btn-sm btn-rounded mb-0">
+          <i class="bi bi-upload me-1"></i>Importar <input id="importFile" type="file" hidden accept="application/json">
+        </label>
+        <button id="btnReset" class="btn btn-danger btn-sm btn-rounded"><i class="bi bi-trash3 me-1"></i>Reiniciar</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <div class="container my-4">
+
+    <!-- Filtros -->
+    <div class="row g-3 align-items-end mb-3">
+      <div class="col-12 col-xl-9">
+        <div class="row g-3">
+          <div class="col-12 col-md-3">
+            <label class="form-label">Rango</label>
+            <select id="selRango" class="form-select">
+              <option value="12">Últimos 12 meses</option>
+              <option value="6">Últimos 6 meses</option>
+              <option value="3">Últimos 3 meses</option>
+              <option value="1">Último mes</option>
+              <option value="all">Todo</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-3">
+            <label class="form-label">Año</label>
+            <input id="inpAnio" type="number" class="form-control" placeholder="2025">
+          </div>
+          <div class="col-12 col-md-3">
+            <label class="form-label">Sucursal (demo)</label>
+            <select id="selSucursal" class="form-select">
+              <option value="todas">Todas</option>
+              <option value="Centro">Centro</option>
+              <option value="Norte">Norte</option>
+              <option value="Sur">Sur</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-3">
+            <button id="btnAplicar" class="btn btn-primary w-100 btn-rounded"><i class="bi bi-funnel me-1"></i>Aplicar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-xl-3">
+        <div class="chip w-100 text-center">LocalStorage · Sin backend</div>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <h5 class="section-title accent mb-2">Indicadores clave</h5>
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-md-3">
+        <div class="card p-3">
+          <h6>Total Ventas</h6>
+          <div id="kpiTotal" class="kpi">$0</div>
+          <span id="kpiTotalTag" class="badge badge-soft mt-2">—</span>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="card p-3">
+          <h6>Ticket Promedio</h6>
+          <div id="kpiTicket" class="kpi">$0</div>
+          <span class="badge badge-soft mt-2">Promedio por venta</span>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="card p-3">
+          <h6>Top Producto</h6>
+          <div id="kpiTopProducto" class="kpi">—</div>
+          <span id="kpiTopCantidad" class="badge badge-soft mt-2">—</span>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="card p-3">
+          <h6>Cuentas por Cobrar</h6>
+          <div id="kpiCobranzas" class="kpi">$0</div>
+          <span class="badge badge-soft mt-2">Pendientes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráficos -->
+    <h5 class="section-title accent mb-2">Visualizaciones</h5>
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-lg-8">
+        <div class="card p-3">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 class="m-0">Ventas por Mes</h6>
+            <span class="badge bg-light text-dark">Línea</span>
+          </div>
+          <canvas id="chartVentasMes" height="120"></canvas>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card p-3">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 class="m-0">Mix por Categoría</h6>
+            <span class="badge bg-light text-dark">Doughnut</span>
+          </div>
+          <canvas id="chartMix" height="120"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gestión rápida (Alta de datos) -->
+    <h5 class="section-title accent mb-2">Cargar datos</h5>
+    <div class="row g-3 mb-3">
+      <!-- Producto -->
+      <div class="col-12 col-xl-3">
+        <div class="card p-3">
+          <h6 class="mb-2"><i class="bi bi-box-seam me-1"></i>Nuevo Producto</h6>
+          <div class="mb-2">
+            <label class="form-label">Nombre</label>
+            <input id="pNombre" class="form-control" placeholder="Ej: Yerba 1kg">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Categoría</label>
+            <input id="pCategoria" class="form-control" placeholder="Ej: Almacén">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Precio</label>
+            <input id="pPrecio" type="number" class="form-control" placeholder="0.00">
+          </div>
+          <button id="btnAddProducto" class="btn btn-success w-100 btn-rounded">Agregar</button>
+        </div>
+      </div>
+
+      <!-- Venta -->
+      <div class="col-12 col-xl-5">
+        <div class="card p-3">
+          <h6 class="mb-2"><i class="bi bi-receipt me-1"></i>Nueva Venta</h6>
+          <div class="row g-2 align-items-end">
+            <div class="col-12 col-md-4">
+              <label class="form-label">Fecha</label>
+              <input id="vFecha" type="date" class="form-control">
+            </div>
+            <div class="col-12 col-md-4">
+              <label class="form-label">Sucursal</label>
+              <select id="vSucursal" class="form-select">
+                <option>Centro</option><option>Norte</option><option>Sur</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-4">
+              <button id="btnAddItem" class="btn btn-outline-primary w-100 btn-rounded"><i class="bi bi-plus-lg me-1"></i>Ítem</button>
+            </div>
+          </div>
+          <div id="ventaItems" class="mt-2"></div>
+          <div class="d-flex justify-content-between mt-2">
+            <div class="footer-note">Total: <span id="vTotal" class="fw-bold">$0</span></div>
+            <button id="btnGuardarVenta" class="btn btn-primary btn-rounded">Guardar Venta</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CxC -->
+      <div class="col-12 col-xl-4">
+        <div class="card p-3">
+          <h6 class="mb-2"><i class="bi bi-cash-coin me-1"></i>Nueva Cuenta por Cobrar</h6>
+          <div class="mb-2">
+            <label class="form-label">Cliente</label>
+            <input id="cCliente" class="form-control" placeholder="Razón Social / Cliente">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Monto</label>
+            <input id="cMonto" type="number" class="form-control" placeholder="0.00">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Vencimiento</label>
+            <input id="cVto" type="date" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Estado</label>
+            <select id="cEstado" class="form-select">
+              <option>pendiente</option>
+              <option>atrasado</option>
+              <option>pagado</option>
+            </select>
+          </div>
+          <button id="btnAddCxc" class="btn btn-warning w-100 btn-rounded">Agregar CxC</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cuentas por Cobrar + Facturas -->
+    <h5 class="section-title accent mb-2">Gestión</h5>
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-lg-7">
+        <div class="card p-3">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 class="m-0">Cuentas por Cobrar</h6>
+            <span class="badge bg-warning-subtle text-warning">Pendientes</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-middle">
+              <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Monto</th>
+                <th>Vencimiento</th>
+                <th>Estado</th>
+              </tr>
+              </thead>
+              <tbody id="tbodyCobranzas"></tbody>
+            </table>
+          </div>
+          <div class="footer-note">Tip: cambia estados desde el formulario de arriba.</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-5">
+        <div class="card p-3">
+          <h6 class="mb-2"><i class="bi bi-file-earmark-arrow-up me-1"></i>Cargar Factura Online</h6>
+          <div class="row g-2">
+            <div class="col-12 col-md-6">
+              <label class="form-label">Cliente</label>
+              <input id="facCliente" class="form-control" placeholder="Razón Social / Cliente">
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label">Monto ($)</label>
+              <input id="facMonto" type="number" class="form-control" placeholder="0.00">
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label">Fecha</label>
+              <input id="facFecha" type="date" class="form-control">
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label">Archivo (PDF/JPG)</label>
+              <input id="facArchivo" type="file" class="form-control" accept=".pdf,.jpg,.jpeg,.png">
+            </div>
+            <div class="col-12">
+              <button id="btnSubirFactura" class="btn btn-primary w-100 btn-rounded">Subir Factura</button>
+            </div>
+          </div>
+          <div class="footer-note mt-2">El archivo se guarda como DataURL (demo) en localStorage.</div>
+
+          <div class="mt-3">
+            <h6 class="mb-2">Facturas cargadas</h6>
+            <ul id="listaFacturas" class="list-group small"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Asistente “IA” -->
+    <h5 class="section-title accent mb-2">Asistente de Datos (demo)</h5>
+    <div class="row g-3">
+      <div class="col-12">
+        <div class="card p-3">
+          <div class="row g-2">
+            <div class="col-12 col-lg-9">
+              <input id="aiPregunta" class="form-control" placeholder="Ej: ¿Cuál es el producto más vendido este año?">
+            </div>
+            <div class="col-12 col-lg-3">
+              <button id="btnAI" class="btn btn-outline-primary w-100 btn-rounded"><i class="bi bi-robot me-1"></i>Consultar</button>
+            </div>
+          </div>
+          <div id="aiRespuesta" class="ai-bubble mt-3">Esperando tu pregunta…</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-4 text-center footer-note">
+      Demo con LocalStorage — KPIs, gráficos, alta de productos/ventas/CxC, facturas y asistente.
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    // ====== Utils ======
+    const money = n => Number(n||0).toLocaleString('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0});
+    const esc = s => (s||'').replaceAll('<','&lt;').replaceAll('>','&gt;');
+    const monthName = i => new Date(2000, i, 1).toLocaleString('es-AR', { month: 'short' });
+    const todayISO = () => new Date().toISOString().slice(0,10);
+
+    // ====== Local DB ======
+    const DB_KEYS = ['productos','ventas','cuentas_cobrar','facturas'];
+    const dbGet = key => JSON.parse(localStorage.getItem(key) || '[]');
+    const dbSet = (key, value) => localStorage.setItem(key, JSON.stringify(value));
+    function ensureDB(){
+      DB_KEYS.forEach(k=>{ if(!localStorage.getItem(k)) dbSet(k,[]); });
+      if(!localStorage.getItem('theme')) localStorage.setItem('theme','theme-candy');
+    }
+
+    // ====== State/UI refs ======
+    let chartVentasMes, chartMix;
+    const selRango = document.getElementById('selRango');
+    const inpAnio = document.getElementById('inpAnio');
+    const selSucursal = document.getElementById('selSucursal');
+    const btnAplicar = document.getElementById('btnAplicar');
+    const kpiTotal = document.getElementById('kpiTotal');
+    const kpiTotalTag = document.getElementById('kpiTotalTag');
+    const kpiTicket = document.getElementById('kpiTicket');
+    const kpiTopProducto = document.getElementById('kpiTopProducto');
+    const kpiTopCantidad = document.getElementById('kpiTopCantidad');
+    const kpiCobranzas = document.getElementById('kpiCobranzas');
+    const tbodyCobranzas = document.getElementById('tbodyCobranzas');
+
+    // Gestión
+    // Producto
+    const pNombre = document.getElementById('pNombre');
+    const pCategoria = document.getElementById('pCategoria');
+    const pPrecio = document.getElementById('pPrecio');
+    const btnAddProducto = document.getElementById('btnAddProducto');
+
+    // Venta
+    const vFecha = document.getElementById('vFecha');
+    const vSucursal = document.getElementById('vSucursal');
+    const ventaItems = document.getElementById('ventaItems');
+    const vTotal = document.getElementById('vTotal');
+    const btnAddItem = document.getElementById('btnAddItem');
+    const btnGuardarVenta = document.getElementById('btnGuardarVenta');
+
+    // CxC
+    const cCliente = document.getElementById('cCliente');
+    const cMonto = document.getElementById('cMonto');
+    const cVto = document.getElementById('cVto');
+    const cEstado = document.getElementById('cEstado');
+    const btnAddCxc = document.getElementById('btnAddCxc');
+
+    // Facturas
+    const facCliente = document.getElementById('facCliente');
+    const facMonto = document.getElementById('facMonto');
+    const facFecha = document.getElementById('facFecha');
+    const facArchivo = document.getElementById('facArchivo');
+    const btnSubirFactura = document.getElementById('btnSubirFactura');
+    const listaFacturas = document.getElementById('listaFacturas');
+
+    // Navbar tools
+    const btnSeed = document.getElementById('btnSeed');
+    const btnReset = document.getElementById('btnReset');
+    const btnExport = document.getElementById('btnExport');
+    const importFile = document.getElementById('importFile');
+    const selTheme = document.getElementById('selTheme');
+
+    // ====== Init ======
+    ensureDB();
+    document.body.className = localStorage.getItem('theme') || 'theme-candy';
+    selTheme.value = document.body.className;
+
+    vFecha.value = todayISO();
+    cVto.value = todayISO();
+    facFecha.value = todayISO();
+
+    // Events
+    btnAplicar.addEventListener('click', renderAll);
+    btnAddProducto.addEventListener('click', addProducto);
+    btnAddItem.addEventListener('click', addVentaItem);
+    btnGuardarVenta.addEventListener('click', saveVenta);
+    btnAddCxc.addEventListener('click', addCxc);
+    btnSubirFactura.addEventListener('click', subirFactura);
+    btnSeed.addEventListener('click', seedDemo);
+    btnReset.addEventListener('click', resetDB);
+    btnExport.addEventListener('click', exportDB);
+    importFile.addEventListener('change', importDB);
+    selTheme.addEventListener('change', () => {
+      document.body.className = selTheme.value;
+      localStorage.setItem('theme', selTheme.value);
+    });
+
+    // ====== Render ======
+    renderAll();
+
+    function renderAll(){
+      const productos = dbGet('productos');
+      const ventasRaw = dbGet('ventas');
+      const cobranzas = dbGet('cuentas_cobrar');
+      const facturas = dbGet('facturas');
+
+      // Filtros
+      const filtroAnio = Number(inpAnio.value) || null;
+      const rango = selRango.value; // "12","6","3","1","all"
+      const suc = selSucursal.value;
+
+      let ventas = ventasRaw.map(v=> ({ ...v, _date: new Date(v.fecha) }));
+      if (filtroAnio) ventas = ventas.filter(v=> v._date.getFullYear() === filtroAnio);
+      if (suc !== 'todas') ventas = ventas.filter(v=> (v.sucursal||'Centro') === suc);
+
+      if (rango !== 'all'){
+        const n = Number(rango);
+        const ahora = new Date();
+        const cut = new Date(ahora.getFullYear(), ahora.getMonth()-(n-1), 1);
+        ventas = ventas.filter(v=> v._date >= cut);
+      }
+
+      // KPIs
+      const total = ventas.reduce((a,v)=> a + Number(v.total||0), 0);
+      const avg = ventas.length ? total/ventas.length : 0;
+      const { topNombre, topCantidad } = topProducto(ventas, productos);
+      kpiTotal.textContent = money(total);
+      kpiTotalTag.textContent = `${ventas.length} ventas`;
+      kpiTicket.textContent = money(avg);
+      kpiTopProducto.textContent = topNombre || '—';
+      kpiTopCantidad.textContent = topCantidad ? `${topCantidad} und.` : '—';
+
+      // CxC KPI + tabla
+      renderCobranzas(cobranzas);
+
+      // Gráficos
+      renderChartVentasMes(agrupaPorMes(ventas));
+      renderChartMix(ventas, productos);
+
+      // Facturas lista
+      renderFacturas(facturas);
+
+      // Refrescar selects de venta rows (por si hay nuevos productos)
+      refreshVentaRowsOptions();
+      calcVentaTotal();
+    }
+
+    function agrupaPorMes(ventas){
+      const map = new Map(); // "YYYY-M" -> total
+      ventas.forEach(v=>{
+        const d=v._date; const key=`${d.getFullYear()}-${d.getMonth()}`;
+        map.set(key, (map.get(key)||0) + Number(v.total||0));
+      });
+      return Array.from(map.entries()).sort(([a],[b])=>{
+        const [ay,am]=a.split('-').map(Number); const [by,bm]=b.split('-').map(Number);
+        return ay===by ? am-bm : ay-by;
+      }).map(([k,val])=>{
+        const [y,m]=k.split('-').map(Number);
+        return { label:`${monthName(m)} ${y}`, value:val };
+      });
+    }
+
+    function topProducto(ventas, productos){
+      const count = new Map(); // prodId -> cant
+      ventas.forEach(v=>{
+        (v.items||[]).forEach(it=>{
+          const id = it.productoId;
+          count.set(id, (count.get(id)||0) + Number(it.cantidad||0));
+        });
+      });
+      let topId=null, topCant=0;
+      count.forEach((cant,id)=>{ if(cant>topCant){ topCant=cant; topId=id; }});
+      const prod = productos.find(p=> p.id===topId);
+      return { topNombre: prod?.nombre || null, topCantidad: topCant || null };
+    }
+
+    function renderChartVentasMes(data){
+      const ctx = document.getElementById('chartVentasMes');
+      if (chartVentasMes) chartVentasMes.destroy();
+      chartVentasMes = new Chart(ctx,{
+        type:'line',
+        data:{ labels:data.map(d=>d.label), datasets:[{ label:'Ventas', data:data.map(d=>d.value) }] },
+        options:{ responsive:true, plugins:{ legend:{ display:false } }, scales:{ y:{ ticks:{ callback:v=> money(v) } } } }
+      });
+    }
+
+    function renderChartMix(ventas, productos){
+      const map = new Map(); // categoria -> total $
+      ventas.forEach(v=>{
+        (v.items||[]).forEach(it=>{
+          const prod = productos.find(p=> p.id===it.productoId);
+          const cat = prod?.categoria || 'Otros';
+          const subtotal = Number(it.cantidad||0) * Number(it.precio||0);
+          map.set(cat, (map.get(cat)||0) + subtotal);
+        });
+      });
+      const labels = Array.from(map.keys());
+      const values = Array.from(map.values());
+      const ctx = document.getElementById('chartMix');
+      if (chartMix) chartMix.destroy();
+      chartMix = new Chart(ctx,{
+        type:'doughnut',
+        data:{ labels, datasets:[{ data:values }] },
+        options:{ responsive:true, plugins:{ legend:{ position:'bottom' } } }
+      });
+    }
+
+    function renderCobranzas(cobranzas){
+      const pend = cobranzas.filter(c=> c.estado!=='pagado');
+      const totalPend = pend.reduce((acc,c)=> acc + Number(c.monto||0), 0);
+      kpiCobranzas.textContent = money(totalPend);
+
+      tbodyCobranzas.innerHTML='';
+      cobranzas
+        .sort((a,b)=> new Date(a.vencimiento) - new Date(b.vencimiento))
+        .forEach(c=>{
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${esc(c.cliente||'-')}</td>
+            <td>${money(c.monto||0)}</td>
+            <td>${c.vencimiento ? new Date(c.vencimiento).toLocaleDateString('es-AR') : '-'}</td>
+            <td><span class="badge ${c.estado==='pagado'?'bg-success':'bg-warning text-dark'}">${c.estado||'pendiente'}</span></td>
+          `;
+          tbodyCobranzas.appendChild(tr);
+        });
+    }
+
+    function renderFacturas(list){
+      listaFacturas.innerHTML = '';
+      list
+        .sort((a,b)=> new Date(b.fecha) - new Date(a.fecha))
+        .forEach((f, idx)=>{
+          const li=document.createElement('li');
+          const hasFile = !!f.archivoDataURL;
+          li.className='list-group-item d-flex justify-content-between align-items-center';
+          li.innerHTML = `
+            <div>
+              <div class="fw-bold">${esc(f.cliente)} — ${money(f.monto)}</div>
+              <div class="text-muted">${new Date(f.fecha).toLocaleDateString('es-AR')} ${hasFile?'· <span class="text-success">archivo</span>':''}</div>
+            </div>
+            <div class="d-flex gap-2">
+              ${hasFile?`<a class="btn btn-sm btn-outline-secondary" target="_blank" href="${f.archivoDataURL}"><i class="bi bi-box-arrow-up-right"></i></a>`:''}
+              <button class="btn btn-sm btn-outline-danger" onclick="deleteFactura(${idx})"><i class="bi bi-trash3"></i></button>
+            </div>
+          `;
+          listaFacturas.appendChild(li);
+        });
+    }
+    window.deleteFactura = function(index){
+      const arr = dbGet('facturas');
+      arr.splice(index,1);
+      dbSet('facturas', arr);
+      renderAll();
+    };
+
+    function refreshVentaRowsOptions(){
+      document.querySelectorAll('.venta-row select').forEach(sel=>{
+        const productos = dbGet('productos');
+        const current = sel.value;
+        sel.innerHTML = productos.map(p=> `<option value="${p.id}">${esc(p.nombre)} (${money(p.precio)})</option>`).join('');
+        if (current) sel.value = current;
+      });
+    }
+
+    // ====== Gestión de altas ======
+    function addProducto(){
+      const nombre = pNombre.value.trim();
+      const categoria = pCategoria.value.trim();
+      const precio = Number(pPrecio.value || 0);
+      if(!nombre || !categoria || precio<=0){ alert('Completá nombre, categoría y precio.'); return; }
+      const productos = dbGet('productos');
+      const id = crypto.randomUUID();
+      productos.push({ id, nombre, categoria, precio });
+      dbSet('productos', productos);
+      pNombre.value=''; pCategoria.value=''; pPrecio.value='';
+      renderAll();
+    }
+
+    function addVentaItem(){
+      const row = document.createElement('div');
+      row.className = 'venta-row row g-2 align-items-end';
+      row.innerHTML = `
+        <div class="col-12 col-md-6">
+          <label class="form-label">Producto</label>
+          <select class="form-select selProd"></select>
+        </div>
+        <div class="col-6 col-md-3">
+          <label class="form-label">Cantidad</label>
+          <input type="number" value="1" min="1" class="form-control inpCant">
+        </div>
+        <div class="col-6 col-md-3 d-flex gap-2">
+          <div>
+            <label class="form-label">Subtotal</label>
+            <div class="form-control-plaintext fw-bold subtotal">$0</div>
+          </div>
+          <button class="btn btn-outline-danger ms-auto btn-rounded" title="Quitar"><i class="bi bi-x-lg"></i></button>
+        </div>
+      `;
+      ventaItems.appendChild(row);
+      refreshVentaRowsOptions();
+      row.querySelector('.selProd').addEventListener('change', calcVentaTotal);
+      row.querySelector('.inpCant').addEventListener('input', calcVentaTotal);
+      row.querySelector('button').addEventListener('click', ()=>{ row.remove(); calcVentaTotal(); });
+      calcVentaTotal();
+    }
+
+    function calcVentaTotal(){
+      const productos = dbGet('productos');
+      let total = 0;
+      document.querySelectorAll('.venta-row').forEach(r=>{
+        const prodId = r.querySelector('.selProd').value;
+        const cant = Number(r.querySelector('.inpCant').value || 0);
+        const prod = productos.find(p=> p.id === prodId);
+        const sub = (prod?prod.precio:0) * cant;
+        r.querySelector('.subtotal').textContent = money(sub);
+        total += sub;
+      });
+      vTotal.textContent = money(total);
+    }
+
+    function saveVenta(){
+      const fecha = vFecha.value ? new Date(vFecha.value) : new Date();
+      const suc = vSucursal.value;
+      const productos = dbGet('productos');
+      const items = [];
+      document.querySelectorAll('.venta-row').forEach(r=>{
+        const prodId = r.querySelector('.selProd').value;
+        const cant = Number(r.querySelector('.inpCant').value || 0);
+        const prod = productos.find(p=> p.id === prodId);
+        if (prod && cant>0){
+          items.push({ productoId: prodId, cantidad: cant, precio: prod.precio });
+        }
+      });
+      if(!items.length){ alert('Agregá al menos un ítem.'); return; }
+      const total = items.reduce((a,it)=> a + it.cantidad*it.precio, 0);
+      const ventas = dbGet('ventas');
+      ventas.push({ fecha: fecha.toISOString(), sucursal: suc, total, items });
+      dbSet('ventas', ventas);
+      ventaItems.innerHTML=''; calcVentaTotal();
+      alert('Venta guardada');
+      renderAll();
+    }
+
+    function addCxc(){
+      const cliente = cCliente.value.trim();
+      const monto = Number(cMonto.value || 0);
+      const vencimiento = cVto.value ? new Date(cVto.value).toISOString() : new Date().toISOString();
+      const estado = cEstado.value;
+      if(!cliente || monto<=0){ alert('Completá cliente y monto.'); return; }
+      const arr = dbGet('cuentas_cobrar');
+      arr.push({ cliente, monto, vencimiento, estado });
+      dbSet('cuentas_cobrar', arr);
+      cCliente.value=''; cMonto.value=''; cVto.value=todayISO(); cEstado.value='pendiente';
+      renderAll();
+    }
+
+    function subirFactura(){
+      const cliente = facCliente.value.trim();
+      const monto = Number(facMonto.value || 0);
+      const fecha = facFecha.value ? new Date(facFecha.value).toISOString() : new Date().toISOString();
+      const file = facArchivo.files[0];
+      if(!cliente || monto<=0){ alert('Cliente y monto son obligatorios'); return; }
+
+      const guardar = (dataURL) => {
+        const arr = dbGet('facturas');
+        arr.push({ cliente, monto, fecha, archivoDataURL: dataURL || null });
+        dbSet('facturas', arr);
+        facCliente.value=''; facMonto.value=''; facFecha.value=todayISO(); facArchivo.value='';
+        renderAll();
+        alert('Factura cargada');
+      };
+
+      if (file){
+        const reader = new FileReader();
+        reader.onload = () => guardar(reader.result);
+        reader.onerror = () => { alert('No se pudo leer el archivo'); guardar(null); };
+        reader.readAsDataURL(file);
+      } else {
+        guardar(null);
+      }
+    }
+
+    // ====== Asistente (demo) ======
+    document.getElementById('btnAI').addEventListener('click', responderAI);
+    function responderAI(){
+      const q = (document.getElementById('aiPregunta').value || '').toLowerCase();
+      const ventas = dbGet('ventas').map(v=> ({ ...v, _date:new Date(v.fecha) }));
+      const productos = dbGet('productos');
+      let respuesta = 'No encontré una respuesta directa. Probá otra formulación.';
+
+      // producto más vendido
+      if (q.includes('producto') && q.includes('más vendido')){
+        const { topNombre, topCantidad } = topProducto(ventas, productos);
+        if (topNombre) respuesta = `El producto más vendido es **${topNombre}** con **${topCantidad} unidades**.`;
+      }
+
+      // total de ventas [año]
+      if (q.includes('total') && q.includes('venta')){
+        const m = q.match(/20\d{2}/);
+        let fil = ventas;
+        if (m){ const y = Number(m[0]); fil = ventas.filter(v=> v._date.getFullYear()===y); }
+        const total = fil.reduce((acc,v)=> acc + Number(v.total||0), 0);
+        respuesta = `El total de ventas ${m?('en '+m[0]+' '):''}es **${money(total)}** (${fil.length} operaciones).`;
+      }
+
+      // ticket promedio
+      if ((q.includes('ticket') && q.includes('prom')) || q.includes('promedio de venta')){
+        const total = ventas.reduce((acc,v)=> acc + Number(v.total||0), 0);
+        const avg = ventas.length ? total/ventas.length : 0;
+        respuesta = `El ticket promedio es **${money(avg)}**.`;
+      }
+
+      document.getElementById('aiRespuesta').innerHTML = respuesta;
+    }
+
+    // ====== Seed / Reset / Import-Export ======
+    function seedDemo(){
+      if(!confirm('Esto agregará datos de ejemplo (productos, ventas, CxC). ¿Continuar?')) return;
+      // Productos
+      const productos = [
+        { id: crypto.randomUUID(), nombre:'Yerba Buen Mate 1kg', categoria:'Almacén', precio:4900 },
+        { id: crypto.randomUUID(), nombre:'Harina 000 1kg',      categoria:'Almacén', precio:1500 },
+        { id: crypto.randomUUID(), nombre:'Aceite de Oliva 500ml', categoria:'Gourmet', precio:7200 },
+        { id: crypto.randomUUID(), nombre:'Vino Malbec 750ml',   categoria:'Bebidas', precio:5600 },
+        { id: crypto.randomUUID(), nombre:'Gaseosa Cola 2.25L',  categoria:'Bebidas', precio:3100 },
+      ];
+      dbSet('productos', productos);
+
+      // Ventas (12 meses, sucursales)
+      const hoy=new Date(); const ventas=[];
+      for(let m=0; m<12; m++){
+        const fecha=new Date(hoy.getFullYear(), hoy.getMonth()-m, Math.max(1,Math.floor(Math.random()*28)));
+        const n = 6 + Math.floor(Math.random()*10); // 6..15 ventas/mes
+        for(let i=0;i<n;i++){
+          const lineas = 1 + Math.floor(Math.random()*3);
+          const items=[]; let total=0;
+          for(let k=0;k<lineas;k++){
+            const idx=Math.floor(Math.random()*productos.length);
+            const p=productos[idx]; const cantidad=1+Math.floor(Math.random()*4);
+            const sub=cantidad*p.precio; total+=sub;
+            items.push({ productoId:p.id, cantidad, precio:p.precio });
+          }
+          const suc = ['Centro','Norte','Sur'][Math.floor(Math.random()*3)];
+          ventas.push({ fecha: fecha.toISOString(), sucursal:suc, total, items });
+        }
+      }
+      dbSet('ventas', ventas);
+
+      // CxC
+      const cxc = [
+        { cliente:'Mercado Norte', monto:120000, vencimiento: new Date(Date.now()+7*86400000).toISOString(),  estado:'pendiente' },
+        { cliente:'La Esquina',    monto:54000,  vencimiento: new Date(Date.now()+2*86400000).toISOString(),  estado:'pendiente' },
+        { cliente:'Distrib. Sol',  monto:80000,  vencimiento: new Date(Date.now()-3*86400000).toISOString(),  estado:'atrasado' },
+      ];
+      dbSet('cuentas_cobrar', cxc);
+
+      // Facturas vacío
+      dbSet('facturas', dbGet('facturas') || []);
+
+      renderAll();
+      alert('Datos demo cargados');
+    }
+
+    function resetDB(){
+      if(!confirm('Esto borrará TODOS los datos locales. ¿Continuar?')) return;
+      DB_KEYS.forEach(k=> localStorage.removeItem(k));
+      ensureDB();
+      renderAll();
+    }
+
+    function exportDB(){
+      const data = {};
+      DB_KEYS.forEach(k=> data[k] = dbGet(k));
+      const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'comercio_dashboard_backup.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function importDB(e){
+      const file = e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try{
+          const data = JSON.parse(reader.result);
+          DB_KEYS.forEach(k=> { if(Array.isArray(data[k])) dbSet(k, data[k]); });
+          renderAll();
+          alert('Datos importados');
+        } catch(err){
+          alert('Archivo inválido');
+        }
+      };
+      reader.readAsText(file);
+      e.target.value='';
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

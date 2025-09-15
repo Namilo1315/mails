@@ -1,140 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="https://namilo1315.github.io/cmr/img/logo.png" />
-
-  <title>Invitación Evento</title>
-  <style>
-    /* Animación sutil para "Estimado vecino" */
-    @keyframes moverLetras {
-      0% { transform: translateY(0); }
-      25% { transform: translateY(-3px); }
-      50% { transform: translateY(0); }
-      75% { transform: translateY(3px); }
-      100% { transform: translateY(0); }
-    }
-
-    body {
-      margin:0;
-      padding:0;
-      background-color:#ffffff;
-      font-family: Arial, sans-serif;
-      color:#333333;
-      text-align:center;
-    }
-
-    .container {
-      max-width:550px;
-      margin:10px auto;
-      padding:0;
-      background:#ffffff;
-      border-radius:10px;
-      overflow:hidden;
-      box-shadow:0 4px 15px rgba(0,0,0,0.1);
-    }
-
-
-    .header img {
-      width:60px;
-      height:auto;
-    }
-
-    .header h1 {
-      font-size:26px;
-      font-weight:bold;
-      color:#0077b6;
-      margin:0;
-      display:inline-block;
-      position: relative;
-      animation: moverLetras 4s infinite;
-    }
-
-    .header h1::after {
-      content:"";
-      display:block;
-      width:60%;
-      height:3px;
-      background:#0077b6;
-      margin:5px auto 0;
-      border-radius:2px;
-    }
-
-    .evento-img {
-      width:100%;
-      max-width:500px;
-      height:auto;
-      display:block;
-      margin:10px auto;
-      border-radius: 5px;
-      padding:5 5%; /* espacio a los costados en móvil */
-    }
-
-    .footer {
-      background:#ffffff;
-      padding:0px;
-    }
-
-    .footer .muni {
-      margin:0px 0;
-      font-size:16px;
-      font-weight:bold;
-      color:#0077b6;
-    }
-
-    .footer img {
-      width:50px;
-      height:auto;
-      margin-top:10px;
-    }
-
-   
-    /* Responsive */
-    @media (max-width:640px) {
-      .header h1 { font-size:24px; }
-      .texto { font-size:16px; }
-      .evento-img { padding:10 10%; }
-      .contacto { font-size:15px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- Encabezado con logo y texto animado -->
-     <!-- Encabezado -->
-     <div style="background:#ffffff; padding:12px; display:flex; align-items:center; justify-content:center; gap:15px;">
-      <img src="https://namilo1315.github.io/crm/img/logo.png" alt="Logo Municipalidad" style="width:60px; height:auto;">
-      <h1 style="font-size:26px; font-weight:bold; color:#0077b6; margin:0; display:inline-block; position:relative;">
-        Estimado vecino
-      </h1>
+  <head>
+    <meta charset="UTF-8">
+    <title>Maipú crece en obras</title>
+  </head>
+  <body style="margin:0; padding:0; background-color:#ffffff;">
+    <!-- Preheader -->
+    <div style="display:none; font-size:1px; color:#ffffff; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden;">
+      Maipú crece en obras: avanzamos con el asfalto en Luzuriaga.
     </div>
 
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#ffffff;">
+      <tr>
+        <td align="center">
+          <!-- Contenedor principal -->
+          <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px; border-collapse:collapse; background-color:#ffffff;">
 
-     <!-- Texto -->
-     <div style="padding:2px 13px; font-size:15px; line-height:1.5;font-weight: 560;">
-      Te invitamos a compartir juntos una nueva edición de El Camino de las Peñas.
-      Desde la Municipalidad de Maipú queremos que seas parte de esta jornada que celebra nuestras tradiciones, la música y el encuentro comunitario.
-    </div>
+            <!-- HEADER -->
+            <tr>
+              <td align="center">
+                <img src="https://publicassets.maipu.gob.ar/public/assets/4/6b5a5fb5-e400-4e0f-a4cc-3f5aea62ada9/68c432886ac00074526134.png" 
+                     alt="Header Municipalidad" 
+                     style="display:block; width:100%; max-width:600px; height:auto;">
+              </td>
+            </tr>
 
-    <!-- Imagen del evento -->
-    <img class="evento-img" src="https://namilo1315.github.io/crm/img/01.png" alt="Evento">
+            <!-- TÍTULO DESTACADO -->
+            <tr>
+              <td align="center" style="padding:20px;">
+                <h1 style="font-size:22px; font-family:Arial, sans-serif; color:#d62828; margin:0;">
+                  Maipú crece en obras: avanzamos con el asfalto en Luzuriaga
+                </h1>
+              </td>
+            </tr>
 
-    <!-- Pie con logo -->
-    <div class="footer">
-      
-      <p style="font-size:14px; color:#000000; margin:0 0 10px 0;font-weight: 560;">
-        🗓 Domingo 7 de septiembre – desde las 12:30 hs <br>
-        📍 Bodega Atilio Avena – Castro Barros 8115, Russell. <br>
-        🎶 Disfrutá de artistas locales, ballet y toda la calidez de nuestra gente. <br>
-        👉 Entrada gratuita | Reservá tu almuerzo al 
-        <span style="color:red; font-weight:bold;">2616590314</span>
-      </p>
-        
-      
-      <p style="margin:0; font-size:16px; font-weight:bold; color:#0077b6;">Municipalidad de Maipú</p>
-      <img src="https://namilo1315.github.io/crm/img/logo.png" alt="Logo Municipalidad" style="width:50px; height:auto; margin-top:10px;">
-    </div>
-  </div>
-</body>
+            <!-- TEXTO PRINCIPAL -->
+            <tr>
+              <td align="left" style="padding:0 20px 10px 20px;">
+                <p style="font-size:15px; font-family:Arial, sans-serif; color:#333333; line-height:1.6; margin:0;">
+                  Desde la Municipalidad de Maipú seguimos ejecutando el <strong>Plan Integral de Asfalto 2025–2026</strong>, 
+                  con el objetivo de transformar la infraestructura vial y mejorar la calidad de vida de nuestros vecinos.
+                  <br><br>
+                  En <strong>Luzuriaga</strong> estamos asfaltando las siguientes calles:
+                </p>
+              </td>
+            </tr>
+
+            <!-- LISTA DE CALLES ALINEADA A LA IZQUIERDA -->
+            <tr>
+              <td align="left" style="padding:0 20px 10px 40px;">
+                <ul style="margin:0; padding-left:18px; font-size:15px; font-family:Arial, sans-serif; 
+                           color:#333333; line-height:1.6; list-style-type:disc;">
+                  <li>Bandera de Los Andes</li>
+                  <li>Paso del Portillo</li>
+                  <li>Ruta de los Patos</li>
+                  <li>Paso de Guana</li>
+                  <li>Del Plumerillo</li>
+                  <li>Paso de los Andes</li>
+                  <li>Los Aromos</li>
+                  <li>Las Acacias</li>
+                  <li>El Norteño</li>
+                  <li>El Tucumano</li>
+                  <li>Lateral calle Gabrielli</li>
+                </ul>
+              </td>
+            </tr>
+
+            <!-- BENEFICIOS -->
+            <tr>
+              <td align="left" style="padding:10px 20px 20px 20px;">
+                <p style="font-size:15px; font-family:Arial, sans-serif; color:#333333; line-height:1.6; margin:0;">
+                  Estas obras son un paso más para tener <strong>barrios más seguros, transitables y conectados</strong>.
+                </p>
+              </td>
+            </tr>
+
+            <!-- CTA BOTÓN -->
+            <tr>
+              <td align="center" style="padding:10px 20px 30px 20px;">
+                <a href="https://www.maipu.gob.ar/novedades/" target="_blank"
+                   style="background-color:#0077b6; color:#ffffff; font-size:16px; font-family:Arial, sans-serif; 
+                          text-decoration:none; padding:14px 28px; border-radius:30px; display:inline-block; font-weight:bold;">
+                  👉 Conocé más sobre el Plan Integral de Asfalto
+                </a>
+              </td>
+            </tr>
+
+            <!-- FOOTER -->
+            <tr>
+              <td align="center">
+                <img src="https://publicassets.maipu.gob.ar/public/assets/3/1841c427-9f5d-4330-9f92-e250c574d8b1/68c4327259cab548141707.png" 
+                     alt="Footer Municipalidad" 
+                     style="display:block; width:100%; max-width:600px; height:auto;">
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>
