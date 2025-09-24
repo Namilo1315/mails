@@ -159,7 +159,7 @@
     @media(max-width:960px){ .diag-section{grid-template-columns:1fr} .diag-left{text-align:center} }
     .diag-left p{color:var(--muted); max-width:60ch}
     .diag-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-    .diag-carousel{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; perspective:1200px; transform: rotate(7deg) skewY(-3deg) }
+    .diag-carousel{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; perspective:1200px; transform: rotate(deg) skewY(-deg) }
     .diag-col{ height:420px; overflow:hidden; border-radius:16px; background:var(--panel); border:1px solid var(--border); box-shadow: var(--shadow); position:relative }
     .diag-track{display:flex; flex-direction:column; will-change:transform}
     @keyframes up{from{transform:translateY(0)} to{transform:translateY(-50%)}}
@@ -169,13 +169,13 @@
     .diag-col:hover .diag-track{ animation-play-state:paused }
     .diag-item{ flex:0 0 auto; height:128px; margin:10px; border-radius:12px; overflow:hidden; position:relative; box-shadow: 0 8px 18px rgba(17,24,39,.22); cursor:pointer; transition:transform .25s ease, box-shadow .25s ease }
     .diag-item img{width:100%; height:100%; object-fit:cover; display:block}
-    .diag-item::after{ content:attr(data-title); position:absolute; left:8px; bottom:8px; right:8px; font-size:13px; font-weight:800; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.5) }
+    .diag-item::after{ content:attr(data-title); position:absolute; left:8px; bottom:8px; right:8px; font-size:13px; font-weight:800; color:#00000000; text-shadow:0 2px 8px rgba(0, 0, 0, 0) }
     .diag-item:hover{ transform:scale(1.08); box-shadow:0 16px 34px rgba(17,24,39,.35) }
 
     /* ===== Modal ===== */
     .modal{ position:fixed; inset:0; background:rgba(0,0,0,.68); display:none; align-items:center; justify-content:center; z-index:80; padding:16px }
     .modal.open{display:flex}
-    .modal-card{ background:var(--panel); color:var(--ink); max-width:720px; width:min(96%, 720px); border-radius:18px; border:1px solid var(--border); box-shadow:0 20px 60px rgba(0,0,0,.45); overflow:hidden }
+    .modal-card{ background:var(--panel); color:var(--ink); max-width:720px; width:min(96%, 720px); border-radius:18px; border:2px solid white; box-shadow:0 20px 60px rgba(0,0,0,.45); overflow:hidden }
     .modal-media{ max-height:56vh; overflow:hidden; background:#000 }
     .modal-media img{ width:100%; height:100%; object-fit:cover; display:block }
     .modal-body{ padding:16px 18px }
@@ -286,7 +286,7 @@
           </a>
         </div>
       </div>
-      <div class="avatar"><img src="natalia.jpeg" alt="Foto de Natalia López"></div>
+      <div class="avatar"><img src="imagenes/natalia.jpeg" alt="Foto de Natalia López"></div>
     </header>
 
     <!-- SOBRE MÍ + HERRAMIENTAS -->
@@ -410,32 +410,32 @@
           <p>Aplicaciones web, dashboards y sistemas a medida. Clic para ver detalle y enlace.</p>
           <div class="diag-actions">
             <a class="btn gradient" href="https://pictocomunica.com.ar" target="_blank" rel="noopener">PictoComunica</a>
-            <a class="btn gradient-2" href="https://namilo1315.github.io/mails/texto.html" target="_blank" rel="noopener">Mailing</a>
+            <a class="btn gradient-2" href="#" target="_blank" rel="noopener">Mailing</a>
           </div>
         </div>
 
         <div class="diag-carousel" aria-label="Carrusel de proyectos">
           <div class="diag-col up" style="--speed:20s">
             <div class="diag-track">
-              <div class="diag-item" data-title="PictoComunica" data-desc="App con pictogramas y síntesis de voz." data-link="https://pictocomunica.com.ar"><img src="https://picsum.photos/id/201/600/400" alt="Vista previa PictoComunica" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="Mailing Institucional" data-desc="Plantillas responsive para CRM/email." data-link="https://namilo1315.github.io/mails/texto.html"><img src="https://picsum.photos/id/202/600/400" alt="Vista previa Mailing Institucional" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="Dashboard de Gestión" data-desc="KPIs operativos con Power BI." data-link="#"><img src="https://picsum.photos/id/203/600/400" alt="Vista previa Dashboard de Gestión" loading="lazy" draggable="false"></div>
+              <div class="diag-item" data-title="PictoComunica" data-desc="App con pictogramas, Tablero de Comunicación." data-link="https://pictocomunica.com.ar"><img src="imagenes/picto.PNG" alt="Vista previa PictoComunica" loading="lazy" draggable="false"></div>
+              <div class="diag-item" data-title="Dashboard Gestión" data-desc="Sistema de ventas." data-link="#"><img src="imagenes/dashboard.PNG" alt="Vista previa Mailing Institucional" loading="lazy" draggable="false"></div>
+              <div class="diag-item" data-title="Juzgado Vial" data-desc="Sistema Juzgado Vial" data-link="#"><img src="imagenes/juzgado.PNG" alt="Vista previa Dashboard de Gestión" loading="lazy" draggable="false"></div>
             </div>
           </div>
 
           <div class="diag-col down" style="--speed:22s">
             <div class="diag-track">
-              <div class="diag-item" data-title="Empleo Maipú" data-desc="Registro y administración de CVs." data-link="#"><img src="https://picsum.photos/id/204/600/400" alt="Vista previa Empleo Maipú" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="Análisis Vial" data-desc="Sistema de seguimiento de incidentes." data-link="#"><img src="https://picsum.photos/id/205/600/400" alt="Vista previa Análisis Vial" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="Guía de Comercios" data-desc="Directorio y filtros por rubro." data-link="#"><img src="https://picsum.photos/id/206/600/400" alt="Vista previa Guía de Comercios" loading="lazy" draggable="false"></div>
+              <div class="diag-item" data-title="Analisís Vial" data-desc="Registro de tareas" data-link="#"><img src="imagenes/metricas.PNG" alt="Vista previa Empleo Maipú" loading="lazy" draggable="false"></div>
+              <div class="diag-item" data-title=" Guia Comercios" data-desc="Directorio y filtros por rubro." data-link="#"><img src="imagenes/guia.PNG" alt="Vista previa Análisis Vial" loading="lazy" draggable="false"></div>
+              <div class="diag-item" data-title="Reclamos" data-desc="Analisís de Reclamos." data-link="#"><img src="imagenes/reclamos.PNG" alt="Vista previa Guía de Comercios" loading="lazy" draggable="false"></div>
             </div>
           </div>
 
           <div class="diag-col up" style="--speed:24s">
             <div class="diag-track">
-              <div class="diag-item" data-title="Estadísticas Sociales" data-desc="Reportes y visuales interactivos." data-link="#"><img src="https://picsum.photos/id/207/600/400" alt="Vista previa Estadísticas Sociales" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="Automatización de Procesos" data-desc="Flujos administrativos optimizados." data-link="#"><img src="https://picsum.photos/id/208/600/400" alt="Vista previa Automatización de Procesos" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="UI Institucional" data-desc="Componentes y estilos unificados." data-link="#"><img src="https://picsum.photos/id/209/600/400" alt="Vista previa UI Institucional" loading="lazy" draggable="false"></div>
+              <div class="diag-item" data-title="Menu Azul" data-desc="Carta Inclusiva" data-link="#"><img src="imagenes/menu.PNG" alt="Vista previa Estadísticas Sociales" loading="lazy" draggable="false"></div>
+              <div class="diag-item" data-title="PictoComunica" data-desc="tablero de Comunicación." data-link="#"><img src="imagenes/panel.PNG" alt="Vista previa Automatización de Procesos" loading="lazy" draggable="false"></div>
+              <div class="diag-item" data-title="Urb Institucional" data-desc="Página web URB" data-link="#"><img src="imagenes/urb.PNG" alt="Vista previa UI Institucional" loading="lazy" draggable="false"></div>
             </div>
           </div>
         </div>
