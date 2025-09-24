@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Natalia López — Portafolio</title>
-  <meta name="description" content="Portafolio de Natalia López: Desarrolladora Frontend, Especialista en Análisis de Datos (Power BI).">
+  <meta name="description" content="Portafolio de Natalia López: Desarrolladora Frontend, Especialista en Análisis de Datos (Power BI) y Administrativa.">
 
   <!-- Open Graph / Social Preview -->
-  <meta property="og:title" content="Natalia López — Desarrolladora · Análisis de Datos">
-  <meta property="og:description" content="Soluciones frontend, dashboards y automatización.">
+  <meta property="og:title" content="Natalia López — Desarrolladora · Análisis de Datos · Administración">
+  <meta property="og:description" content="Soluciones frontend, tableros de datos y gestión administrativa.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tuusuario.github.io/portafolio-natalia/">
   <meta property="og:image" content="social-card.png">
@@ -16,7 +16,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Natalia López — Portafolio">
-  <meta name="twitter:description" content="Desarrolladora · Análisis de Datos">
+  <meta name="twitter:description" content="Desarrolladora · Análisis de Datos · Administración">
   <meta name="twitter:image" content="social-card.png">
   <link rel="canonical" href="https://tuusuario.github.io/portafolio-natalia/">
   <meta name="theme-color" content="#ff5f9a">
@@ -27,24 +27,24 @@
   <style>
     /* ===== Temas (claro / oscuro) ===== */
     :root{
-      --wrap-max: 1280px;
-      --gutter: clamp(16px, 2vw, 28px);
-      --ink:#22262c; --muted:#566173; --panel:#ffffff; --panel-2:#fff; --border:#e0e6ef;
+      --wrap-max: 1200px;
+      --gutter: clamp(16px, 3vw, 36px);
+      --ink:#1c2430; --muted:#5c6678; --panel:#ffffff; --panel-2:#fff; --border:#e6ecf3;
       --rose:#ff5f9a; --lilac:#9f8bff; --mint:#38cf86; --peach:#ffab5c; --sky:#36b5fb; --sun:#ffd166;
-      --chip:#ffffff; --shadow:0 12px 30px rgba(17,24,39,.10);
+      --chip:#ffffff; --shadow:0 10px 26px rgba(17,24,39,.10);
       --radius:18px; --radius-sm:14px; --pad:clamp(16px, 2.2vw, 24px);
-      --bg-grad: linear-gradient(180deg,#ffd9ea, #ffffff 26%, #fff3da 100%);
-      --pattern: radial-gradient(12px 12px at 10px 10px, rgba(255,95,154,.12) 25%, transparent 26%) 0 0 / 32px 32px,
-                 radial-gradient(12px 12px at 22px 22px, rgba(54,181,251,.12) 25%, transparent 26%) 0 0 / 32px 32px;
+      --bg-grad: linear-gradient(180deg,#ffe5ef 0%, #ffffff 35%, #fff7e8 100%);
+      --pattern: radial-gradient(12px 12px at 10px 10px, rgba(255,95,154,.10) 25%, transparent 26%) 0 0 / 32px 32px,
+                 radial-gradient(12px 12px at 22px 22px, rgba(54,181,251,.10) 25%, transparent 26%) 0 0 / 32px 32px;
     }
     [data-theme="dark"]{
       --ink:#f1f4f8; --muted:#cfd6e6; --panel:#0f1524; --panel-2:#0c1220; --border:#212a42;
-      --chip:#0f1526; --shadow:0 12px 30px rgba(0,0,0,.38);
-      --bg-grad: radial-gradient(1200px 1200px at 110% -10%, rgba(255,95,154,.22), transparent 60%),
-                 radial-gradient(1200px 1200px at -20% 120%, rgba(255,209,102,.22), transparent 60%),
+      --chip:#0f1526; --shadow:0 10px 26px rgba(0,0,0,.38);
+      --bg-grad: radial-gradient(1200px 1200px at 110% -10%, rgba(255,95,154,.18), transparent 60%),
+                 radial-gradient(1200px 1200px at -20% 120%, rgba(255,209,102,.18), transparent 60%),
                  linear-gradient(180deg,#090e1d,#0a1122 30%,#090e1d 100%);
-      --pattern: radial-gradient(12px 12px at 10px 10px, rgba(255,95,154,.28) 25%, transparent 26%) 0 0 / 32px 32px,
-                 radial-gradient(12px 12px at 22px 22px, rgba(255,209,102,.20) 25%, transparent 26%) 0 0 / 32px 32px;
+      --pattern: radial-gradient(12px 12px at 10px 10px, rgba(255,95,154,.22) 25%, transparent 26%) 0 0 / 32px 32px,
+                 radial-gradient(12px 12px at 22px 22px, rgba(255,209,102,.18) 25%, transparent 26%) 0 0 / 32px 32px;
     }
 
     /* ===== Base ===== */
@@ -52,29 +52,35 @@
     html,body{height:100%}
     body{
       margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:var(--ink); line-height:1.6; background: var(--bg-grad);
+      color:var(--ink); line-height:1.65; background: var(--bg-grad);
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position:relative;
     }
-    body::before{content:""; position:fixed; inset:0; pointer-events:none; background: var(--pattern); opacity:.6;}
+    body::before{content:""; position:fixed; inset:0; pointer-events:none; background: var(--pattern); opacity:.5;}
     img,svg,video,canvas{max-width:100%; height:auto}
     a{color:#0f6cd6; text-decoration:none}
     a:hover{text-decoration:underline}
     :focus-visible{outline:3px solid var(--rose); outline-offset:2px}
     :target{scroll-margin-top:90px}
-    .wrap{max-width:var(--wrap-max); margin-inline:auto; padding-inline:var(--gutter); padding-block: clamp(12px, 1.4vw, 22px)}
+    .wrap{max-width:var(--wrap-max); margin-inline:auto; padding-inline:var(--gutter); padding-block: clamp(12px, 2vw, 24px)}
     @supports(padding:max(0px)){
       .wrap{padding-left:max(var(--gutter), env(safe-area-inset-left)); padding-right:max(var(--gutter), env(safe-area-inset-right));}
     }
 
     /* ===== Topbar sticky ===== */
     .topbar{position:sticky; top:0; z-index:50; margin-bottom:14px}
-    .topbar .bar{display:flex; align-items:center; justify-content:space-between; gap:8px 10px; padding:10px 14px; border-radius:14px; background: var(--panel); border:1px solid var(--border); box-shadow: var(--shadow); flex-wrap:wrap}
+    .topbar .bar{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px;
+      border-radius:16px; background: var(--panel); border:1px solid var(--border); box-shadow: var(--shadow); flex-wrap:wrap
+    }
     .brand{display:flex; align-items:center; gap:10px; font-weight:900}
-    .badge{display:inline-grid; place-items:center; width:34px; height:34px; border-radius:9px; color:#fff; font-weight:900; letter-spacing:.5px; background:linear-gradient(135deg, var(--rose), var(--lilac)); box-shadow:0 6px 18px rgba(255,95,154,.35)}
+    .badge{
+      display:inline-grid; place-items:center; width:36px; height:36px; border-radius:10px; color:#fff; font-weight:900; letter-spacing:.5px;
+      background:linear-gradient(135deg, var(--rose), var(--lilac)); box-shadow:0 6px 18px rgba(255,95,154,.35)
+    }
     [data-theme="dark"] .badge{background:linear-gradient(135deg, var(--rose), #ff9fb0)}
     .nav{display:flex; gap:8px; flex-wrap:wrap}
-    .nav a{padding:8px 12px; border-radius:999px;}
-    .nav .nav-btn{ background: var(--rose); color:#fff; border:none; box-shadow:0 6px 18px rgba(255,95,154,.28); font-weight:900 }
+    .nav a{padding:8px 12px; border-radius:999px}
+    .nav .nav-btn{ background: var(--rose); color:#fff; border:none; box-shadow:0 6px 18px rgba(255,95,154,.24); font-weight:900 }
     .nav .nav-btn:hover{ filter:brightness(1.05) }
     [data-theme="dark"] .nav .nav-btn{ background: linear-gradient(90deg, var(--rose), #ff9fb0); color:#1a1120 }
     .theme{display:flex; gap:8px; align-items:center}
@@ -83,59 +89,79 @@
 
     /* ===== Header / Hero ===== */
     header{
-      position:relative; display:grid; gap:clamp(14px, 2vw, 22px); align-items:center; grid-template-columns: 1.1fr .9fr;
-      background: linear-gradient(120deg,#ffcfe0, #e4dbff 55%, #d6efff);
-      border:1px solid var(--border); border-radius:22px; padding: clamp(16px, 3vw, 32px);
+      display:grid; gap:clamp(16px, 2.2vw, 24px); align-items:center; grid-template-columns: 1.05fr .95fr;
+      background: linear-gradient(120deg,#ffd3e4, #e8e3ff 55%, #d6efff);
+      border:1px solid var(--border); border-radius:22px; padding: clamp(18px, 3vw, 34px);
       overflow:hidden; box-shadow: var(--shadow);
     }
     [data-theme="dark"] header{background: linear-gradient(120deg,#3a0f22,#112035 58%, #0f2335)}
     @media(max-width:960px){ header{grid-template-columns:1fr; text-align:center} }
-    .name{ font-size: clamp(28px, 2.6vw + 12px, 46px); font-weight:900; letter-spacing:.2px; color:var(--ink) }
-    .subtitle{color:var(--muted); margin-top:6px; max-width: 60ch}
+    .name{ font-size: clamp(30px, 2.4vw + 16px, 48px); font-weight:900; letter-spacing:.2px }
+    .subtitle{color:var(--muted); margin-top:6px; max-width: 62ch}
     .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
     @media(max-width:960px){ .cta-row{justify-content:center} }
-    .btn{ position:relative; display:inline-flex; align-items:center; gap:10px; border:none; cursor:pointer; padding:12px 16px; border-radius:14px; font-weight:800; box-shadow: var(--shadow); transition: transform .12s ease, filter .2s ease, box-shadow .2s ease; }
+    .btn{ display:inline-flex; align-items:center; gap:10px; border:none; cursor:pointer; padding:12px 16px; border-radius:14px; font-weight:800; box-shadow: var(--shadow); transition: transform .12s ease, filter .2s ease }
     .btn svg{flex:0 0 18px}
-    .btn.gradient{ color:#1f1f1f; background:linear-gradient(90deg, var(--rose), var(--lilac)); }
+    .btn.gradient{ color:#1f1f1f; background:linear-gradient(90deg, var(--rose), var(--lilac)) }
     [data-theme="dark"] .btn.gradient{background:linear-gradient(90deg, var(--rose), #ff9fb0)}
-    .btn.gradient-2{ color:#1f1f1f; background:linear-gradient(90deg, var(--mint), var(--sky)); }
+    .btn.gradient-2{ color:#1f1f1f; background:linear-gradient(90deg, var(--mint), var(--sky)) }
     .btn.ghost{ color:var(--ink); background:var(--panel); border:1px solid var(--border) }
     .btn:hover{ transform:translateY(-2px); filter:brightness(1.05) }
-    .avatar{ width: clamp(112px, 24vw, 180px); aspect-ratio:1/1; border-radius:24px; overflow:hidden; border:2px solid rgba(255,255,255,.85); box-shadow: var(--shadow); background: var(--panel-2); margin-left:auto }
+
+    .avatar{ width: clamp(120px, 24vw, 180px); aspect-ratio:1/1; border-radius:24px; overflow:hidden; border:2px solid rgba(255,255,255,.85); box-shadow: var(--shadow); background: var(--panel-2); margin-left:auto }
     .avatar img{width:100%; height:100%; object-fit:cover; display:block}
     @media(max-width:960px){ .avatar{margin:0 auto} }
 
+    /* ===== Ribbon ===== */
+    .ribbon{
+      margin:14px 0 -6px; border:1px solid var(--border); background:linear-gradient(90deg,var(--mint),var(--sky));
+      color:#0d2432; padding:10px 14px; border-radius:12px; font-weight:900; display:flex; align-items:center; justify-content:space-between;
+      box-shadow: var(--shadow);
+    }
+    .ribbon small{opacity:.9}
+    .pulse{display:inline-block; width:10px; height:10px; border-radius:999px; background:#10b981; margin-right:8px; box-shadow:0 0 0 0 rgba(16,185,129,.8); animation:pulse 1.6s infinite}
+    @keyframes pulse{to{box-shadow:0 0 0 12px rgba(16,185,129,0)}}
+
     /* ===== Secciones & tarjetas ===== */
-    section{margin-top: clamp(28px, 5vw, 42px)}
-    h2{margin:0 0 16px; font-size: clamp(20px,1.2vw + 12px,26px)}
+    section{margin-top: clamp(30px, 5vw, 48px)}
+    h2{margin:0 0 14px; font-size: clamp(22px,1.1vw + 14px,28px)}
     h3{margin:0 0 6px; font-size:18px}
     .muted{color:var(--muted)}
-    .card{ border:1px solid var(--border); border-radius:var(--radius); padding:var(--pad); box-shadow: var(--shadow); background: var(--panel); }
+    .card{ border:1px solid var(--border); border-radius:var(--radius); padding:var(--pad); box-shadow: var(--shadow); background: var(--panel) }
 
-    /* ===== Layout auxiliar ===== */
-    .grid{display:grid; gap:clamp(12px, 2vw, 18px)}
-    .grid-2{grid-template-columns:1.2fr .8fr}
+    /* ===== Grid Sobre mí + Herramientas ===== */
+    .grid{display:grid; gap:clamp(14px, 2vw, 20px)}
+    .grid-2{grid-template-columns:1.05fr .95fr}
     @media(max-width:900px){ .grid-2{grid-template-columns:1fr} }
+    .about{display:grid; gap:14px; grid-template-columns:repeat(3,1fr)}
+    @media(max-width:860px){ .about{grid-template-columns:1fr} }
+    .about-item{ background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:14px; display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:flex-start; min-height:110px }
+    .about-icon{ width:36px; height:36px; border-radius:10px; display:grid; place-items:center; font-weight:900; background:linear-gradient(135deg,var(--rose),var(--lilac)); color:#1a1120 }
+    [data-theme="dark"] .about-icon{background:linear-gradient(135deg,var(--rose),#ff9fb0)}
+    .about-item h3{margin:0; font-size:16px}
+    .about-item p{margin:4px 0 0; color:var(--muted); font-size:14px}
 
-    /* ===== Chips / Pills ===== */
-    .chips{display:flex; flex-wrap:wrap; gap:10px}
-    .chip{ background:var(--chip); color:var(--ink); border:1px solid var(--border); padding:8px 12px; border-radius:999px; font-size:14px }
-    .pill{background:var(--panel); border:1px solid var(--border); padding:8px 12px; border-radius:10px; font-size:14px}
+    .tool-group{ background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:14px }
+    .tool-title{margin:0 0 8px; font-size:14px; font-weight:900; letter-spacing:.2px}
+    .chips{display:flex; flex-wrap:wrap; gap:8px}
+    .chip{ background:var(--chip); color:var(--ink); border:1px solid var(--border); padding:7px 11px; border-radius:999px; font-size:13px }
 
-    /* ===== SERVICIOS (Carrusel) ===== */
-    #servicios .srv-head{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; margin-bottom:10px}
+    /* ===== Servicios (Carrusel mejorado) ===== */
+    #servicios .srv-head{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; margin-bottom:8px}
     .srv-wrap{ position:relative }
     .srv-carousel{
-      display:flex; gap:12px; overflow-x:auto; padding:8px 8px 44px;
-      scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch; scroll-behavior:smooth;
-      scrollbar-gutter: stable;
+      display:flex; gap:14px; overflow-x:auto; padding:8px 8px 42px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+      scroll-behavior:smooth; scrollbar-gutter: stable; scroll-padding-inline: 12px;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
+              mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
     }
     .srv-carousel::-webkit-scrollbar{height:10px}
     .srv-carousel::-webkit-scrollbar-thumb{background:linear-gradient(90deg,var(--rose),var(--lilac)); border-radius:999px}
     .srv-card{
-      flex:0 0 auto; width: clamp(260px, 52vw, 360px);
+      flex:0 0 auto; width: clamp(260px, 54vw, 360px);
       background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:16px; box-shadow: var(--shadow);
-      display:flex; flex-direction:column; gap:10px; min-height:230px; scroll-snap-align:start; scroll-snap-stop:always;
+      display:flex; flex-direction:column; gap:10px; min-height:230px; position:relative;
+      scroll-snap-align:start; scroll-snap-stop:always;
     }
     @media(min-width:700px){ .srv-card{ width: clamp(300px, 44vw, 360px) } }
     @media(min-width:1040px){ .srv-card{ width: 360px } }
@@ -145,31 +171,45 @@
     .srv-desc{margin:0; color:var(--muted); font-size:14px}
     .srv-tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto}
     .srv-tag{font-size:12px; padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:var(--chip)}
-    .srv-nav{
-      position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none;
-    }
+
+    /* Controles laterales */
+    .srv-nav{ position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none }
     .srv-ctrl{
-      pointer-events:auto; width:42px; height:42px; border-radius:999px; border:1px solid var(--border); background:var(--panel);
+      pointer-events:auto; width:40px; height:40px; border-radius:999px; border:1px solid var(--border); background:var(--panel);
       box-shadow: var(--shadow); display:grid; place-items:center; cursor:pointer; font-weight:900; opacity:.98; transform:translateY(-12px)
     }
     .srv-ctrl:focus-visible{ outline:3px solid var(--rose) }
+    .srv-cta{
+      position:absolute; left:12px; bottom:6px; font-size:12px; padding:8px 12px; border-radius:999px; border:1px solid var(--border);
+      background:linear-gradient(90deg,var(--mint),var(--sky)); color:#0c2430; font-weight:900; box-shadow: var(--shadow)
+    }
 
     /* ===== Proyectos (Diagonal) ===== */
-    .diag-section{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(16px,3vw,26px); align-items:center}
+    .diag-section{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(16px,3vw,26px); align-items:center}
     @media(max-width:960px){ .diag-section{grid-template-columns:1fr} .diag-left{text-align:center} }
+    .diag-left h2{font-size: clamp(22px,1.6vw + 12px,30px)}
     .diag-left p{color:var(--muted); max-width:60ch}
     .diag-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+
     .diag-carousel{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; perspective:1200px; transform: rotate(7deg) skewY(-3deg) }
-    .diag-col{ height:420px; overflow:hidden; border-radius:16px; background:var(--panel); border:1px solid var(--border); box-shadow: var(--shadow); position:relative }
+    .diag-col{
+      height:420px; overflow:hidden; border-radius:16px; background:var(--panel); border:1px solid var(--border); box-shadow: var(--shadow); position:relative
+    }
     .diag-track{display:flex; flex-direction:column; will-change:transform}
     @keyframes up{from{transform:translateY(0)} to{transform:translateY(-50%)}}
     @keyframes down{from{transform:translateY(-50%)} to{transform:translateY(0)}}
     .diag-col.up .diag-track{ animation: up var(--speed,18s) linear infinite }
     .diag-col.down .diag-track{ animation: down var(--speed,18s) linear infinite }
     .diag-col:hover .diag-track{ animation-play-state:paused }
-    .diag-item{ flex:0 0 auto; height:128px; margin:10px; border-radius:12px; overflow:hidden; position:relative; box-shadow: 0 8px 18px rgba(17,24,39,.22); cursor:pointer; transition:transform .25s ease, box-shadow .25s ease }
+
+    .diag-item{
+      flex:0 0 auto; height:128px; margin:10px; border-radius:12px; overflow:hidden; position:relative;
+      box-shadow: 0 8px 18px rgba(17,24,39,.22); cursor:pointer; transition:transform .25s ease, box-shadow .25s ease
+    }
     .diag-item img{width:100%; height:100%; object-fit:cover; display:block}
-    .diag-item::after{ content:attr(data-title); position:absolute; left:8px; bottom:8px; right:8px; font-size:13px; font-weight:800; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.5) }
+    .diag-item::after{
+      content:attr(data-title); position:absolute; left:8px; bottom:8px; right:8px; font-size:13px; font-weight:800; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.5)
+    }
     .diag-item:hover{ transform:scale(1.08); box-shadow:0 16px 34px rgba(17,24,39,.35) }
 
     /* ===== Modal ===== */
@@ -184,7 +224,7 @@
     .btn-primary{ background:linear-gradient(90deg,var(--rose),var(--lilac)); color:#1a1120; border:none; padding:10px 14px; border-radius:12px; font-weight:900; cursor:pointer }
     .btn-secondary{ background:var(--panel); color:var(--ink); border:1px solid var(--border); padding:10px 14px; border-radius:12px; font-weight:800; cursor:pointer }
 
-    /* ===== Contacto (existente) ===== */
+    /* ===== Contacto ===== */
     .contact{padding-top: clamp(16px, 2.4vw, 26px)}
     .contact-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:clamp(12px, 2vw, 18px)}
     .contact .lead{font-weight:800; margin-bottom:10px}
@@ -194,28 +234,7 @@
     .social.gh{background:#f4f6fb}
     .social.ig{background:linear-gradient(90deg,#f58529,#dd2a7b,#8134af,#515bd4); color:#fff; border:none}
 
-    /* ===== Formulario ===== */
-    .form-card{ border:1px solid var(--border); border-radius:18px; padding:var(--pad); box-shadow: var(--shadow); background: var(--panel) }
-    .form-grid{ display:grid; gap:12px; grid-template-columns:repeat(2,1fr) }
-    .form-grid .full{ grid-column:1 / -1 }
-    @media(max-width:720px){ .form-grid{ grid-template-columns:1fr } }
-    .field{ display:flex; flex-direction:column; gap:6px }
-    .label{ font-weight:800; font-size:14px }
-    .input, .select, .textarea{
-      border:1px solid var(--border); background:var(--panel-2); color:var(--ink);
-      border-radius:12px; padding:12px 12px; font-size:14px; transition: box-shadow .15s ease, border-color .15s ease;
-    }
-    .textarea{ min-height:140px; resize:vertical }
-    .input:focus, .select:focus, .textarea:focus{ outline:none; border-color:var(--lilac); box-shadow:0 0 0 3px rgba(159,139,255,.25) }
-    .helper{ font-size:12px; color:var(--muted) }
-    .error{ font-size:12px; color:#b42318; display:none }
-    .btn-send{ display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; border:0; cursor:pointer; font-weight:900;
-      background:linear-gradient(90deg,var(--rose),var(--lilac)); color:#1a1120; box-shadow: var(--shadow) }
-    .btn-send:hover{ filter:brightness(1.05) }
-    .hp{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden }
-    .toast{ margin-top:10px; padding:10px 12px; border-radius:12px; border:1px solid var(--border); background:linear-gradient(90deg, var(--mint), var(--sky)); color:#0c2430; font-weight:900; display:none }
-
-    /* FAB WhatsApp + Footer */
+    /* FAB WhatsApp */
     .fab-whatsapp{position:fixed; right:max(18px, env(safe-area-inset-right)); bottom:max(18px, env(safe-area-inset-bottom)); z-index:60; display:inline-flex; align-items:center; gap:10px; padding:12px 14px; border-radius:999px; background:linear-gradient(90deg,#25D366,#7de3a6); color:#0c2415; font-weight:900; box-shadow:0 12px 30px rgba(37,211,102,.35); border:1px solid rgba(12,36,21,.15)}
     footer{margin:40px 0 20px; color:var(--muted); text-align:center}
 
@@ -230,23 +249,6 @@
       .hover-pop{transition:none}
       .diag-col.up .diag-track,.diag-col.down .diag-track{ animation-duration:0.001s }
     }
-
-    /* ======= Ajustes MODO CELULAR ======= */
-    @media (max-width:500px){
-      /* Redes: 3 botones en una fila */
-      .socials{display:grid; grid-template-columns:repeat(3, 1fr); gap:8px}
-      .social{justify-content:center; padding:10px 8px; font-size:13px}
-      .social svg{width:16px; height:16px}
-
-      /* Botones más compactos y WhatsApp en una línea */
-      .cta-row .btn{padding:10px 12px; font-size:14px}
-      .wa-inline{white-space:nowrap}
-
-      /* Herramientas: chips en una sola línea con scroll lateral (sin barra visible) */
-      .chips{flex-wrap:nowrap; overflow-x:auto; gap:8px; scrollbar-width:none}
-      .chips::-webkit-scrollbar{display:none}
-      .chip{flex:0 0 auto; padding:6px 10px; font-size:12px}
-    }
   </style>
 </head>
 <body>
@@ -259,6 +261,7 @@
           <a class="nav-btn" href="#servicios">Servicios</a>
           <a class="nav-btn" href="#proyectos">Proyectos</a>
           <a class="nav-btn" href="#contacto">Contacto</a>
+          <a class="nav-btn" href="cv-natalia-lopez.pdf" target="_blank" rel="noopener">CV</a>
         </nav>
         <div class="theme">
           <button id="themeBtn" class="toggle" aria-label="Cambiar tema">☀️ / 🌙</button>
@@ -269,8 +272,8 @@
     <!-- Hero -->
     <header class="hover-pop">
       <div>
-        <div class="name">Natalia López</div>
-        <div class="subtitle">Desarrolladora Frontend (5+ años) · Especialista en Análisis de Datos (Power BI)</div>
+        <h1 class="name">Natalia López</h1>
+        <p class="subtitle">Desarrolladora Frontend (5+ años) · Especialista en Análisis de Datos (Power BI)</p>
         <div class="cta-row">
           <a class="btn gradient" href="#proyectos" aria-label="Ver proyectos">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h10v2H7zM7 11h10v2H7zM7 15h7v2H7z"/></svg>
@@ -286,242 +289,217 @@
           </a>
         </div>
       </div>
-      <div class="avatar"><img src="natalia.jpeg" alt="Foto de Natalia López"></div>
+      <div class="avatar"><img src="natalia.jpeg" alt="Foto de Natalia López" loading="lazy"></div>
     </header>
 
-    <!-- SOBRE MÍ + HERRAMIENTAS -->
+    <!-- Ribbon -->
+    <div class="ribbon hover-pop" role="status" aria-live="polite">
+      <div><span class="pulse" aria-hidden="true"></span>Disponibilidad limitada para nuevos proyectos</div>
+      <small>Frontend · Dashboards · Automatización</small>
+    </div>
+
+    <!-- Sobre mí + Herramientas -->
     <section class="grid grid-2">
-      <article class="card reveal" style="background: linear-gradient(180deg,#d4f7e6, #fff 66%)">
+      <article class="card block mint reveal">
         <h2>Sobre mí</h2>
         <p>
-          Desarrolladora <b>Frontend</b> con experiencia en el desarrollo de <b>sistemas por áreas</b> y uso de <b>CRM</b> en la Municipalidad de Maipú. 
-          Hace 5 años inicié en programación, dicté talleres y cursos de Desarrollo Web, JavaScript y React. También trabajé freelance creando páginas y soluciones digitales. 
-          Busco seguir creciendo como desarrolladora web y aportar a proyectos con impacto.
+          Desarrolladora <b>Frontend</b> con experiencia en el desarrollo de <b>sistemas por áreas</b> y uso de <b>CRM</b> en la Municipalidad de Maipú.
+          Hace 5 años inicié en el mundo de la programación, dictando talleres de Introducción a la Programación y cursos de Desarrollo Web,
+          JavaScript y React para jóvenes y adultos. También he trabajado en proyectos freelance creando páginas y soluciones digitales.
+          Busco seguir creciendo como desarrolladora web y aportar a proyectos que generen impacto positivo en el ámbito digital.
         </p>
         <p>
-          Especialista en análisis de datos con <b>Power BI</b>, aplicando reportes interactivos y tableros para la toma de decisiones. 
-          Manejo <b>Python</b> para análisis y automatización, integrando estas herramientas para optimizar la gestión administrativa y generar soluciones eficientes.
+          Especialista en análisis de datos con <b>Power BI</b>, aplicando reportes interactivos y tableros para la toma de decisiones.
+          Manejo <b>Python</b> para análisis de datos y automatización de procesos, integrando estas herramientas para optimizar la gestión
+          administrativa y generar soluciones prácticas y eficientes.
         </p>
       </article>
 
-      <aside class="card reveal" aria-labelledby="tools-title" style="background: linear-gradient(180deg,#e6ddff, #fff 66%)">
+      <aside class="card block lilac reveal" aria-labelledby="tools-title">
         <h2 id="tools-title">Herramientas</h2>
         <div class="tools">
           <div class="tool-group">
-            <p class="tool-title"><b>Frontend</b></p>
+            <p class="tool-title">Frontend</p>
             <div class="chips">
               <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">Bootstrap</span>
             </div>
           </div>
           <div class="tool-group">
-            <p class="tool-title"><b>Datos & Automatización</b></p>
+            <p class="tool-title">Datos & Automatización</p>
             <div class="chips">
-              <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Modelado de datos</span><span class="chip">Python</span>
+              <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Modelado de datos</span><span class="chip">Python</span><span class="chip">Pandas (ETL)</span>
             </div>
           </div>
           <div class="tool-group">
-            <p class="tool-title"><b>Productividad</b></p>
+            <p class="tool-title">Productividad</p>
             <div class="chips">
-              <span class="chip">Git/GitHub</span><span class="chip">VS Code</span><span class="chip">CRM</span><span class="chip">Firebase (básico)</span>
+              <span class="chip">Git/GitHub</span><span class="chip">VS Code</span><span class="chip">Excel avanzado</span><span class="chip">CRM</span><span class="chip">Firebase (básico)</span>
             </div>
           </div>
         </div>
       </aside>
     </section>
 
-    <!-- SERVICIOS -->
-    <section id="servicios" class="card reveal" style="background: linear-gradient(180deg,#ffe0c7, #fff 66%)" aria-label="Servicios">
+    <!-- Servicios (Carrusel) -->
+    <section id="servicios" class="card block peach reveal" aria-label="Servicios">
       <div class="srv-head">
         <h2>MIS SERVICIOS</h2>
       </div>
 
       <div class="srv-wrap">
         <div class="srv-carousel" id="srvCarousel" tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Servicios disponibles">
-          <!-- Tarjetas (idénticas a tu versión) -->
+          <!-- Tarjetas -->
           <article class="srv-card">
             <div class="srv-icon">🧩</div>
             <h3 class="srv-title">Desarrollo Frontend</h3>
-            <p class="srv-desc">Sitios y apps web con HTML, CSS, JS y React. Componentes accesibles y responsive.</p>
-            <div class="srv-tags"><span class="srv-tag">HTML/CSS/JS</span><span class="srv-tag">React</span><span class="srv-tag">UI/UX</span></div>
+            <p class="srv-desc">Sitios y apps web con HTML, CSS, JavaScript y React. Componentes accesibles y responsive.</p>
+            <div class="srv-tags">
+              <span class="srv-tag">HTML/CSS/JS</span><span class="srv-tag">React</span><span class="srv-tag">UI/UX</span>
+            </div>
           </article>
+
           <article class="srv-card">
             <div class="srv-icon">📊</div>
             <h3 class="srv-title">Dashboards & KPIs</h3>
-            <p class="srv-desc">Power BI para indicadores y reportes ejecutivos. DAX y modelado.</p>
-            <div class="srv-tags"><span class="srv-tag">Power BI</span><span class="srv-tag">DAX</span><span class="srv-tag">Modelado</span></div>
+            <p class="srv-desc">Power BI para indicadores y reportes ejecutivos. DAX y modelado para analítica.</p>
+            <div class="srv-tags">
+              <span class="srv-tag">Power BI</span><span class="srv-tag">DAX</span><span class="srv-tag">Modelado</span>
+            </div>
           </article>
+
           <article class="srv-card">
             <div class="srv-icon">🐍</div>
             <h3 class="srv-title">Automatización con Python</h3>
-            <p class="srv-desc">Limpieza de datos, ETL y tareas periódicas automatizadas.</p>
-            <div class="srv-tags"><span class="srv-tag">Pandas</span><span class="srv-tag">ETL</span><span class="srv-tag">Automatización</span></div>
+            <p class="srv-desc">Limpieza de datos, ETL, reportes y tareas periódicas automatizadas.</p>
+            <div class="srv-tags">
+              <span class="srv-tag">Pandas</span><span class="srv-tag">ETL</span><span class="srv-tag">Automatización</span>
+            </div>
           </article>
+
           <article class="srv-card">
             <div class="srv-icon">🤝</div>
             <h3 class="srv-title">CRM & Flujos</h3>
-            <p class="srv-desc">Implementación de CRM y workflows para atención por áreas.</p>
-            <div class="srv-tags"><span class="srv-tag">Segmentación</span><span class="srv-tag">Workflows</span><span class="srv-tag">Integraciones</span></div>
+            <p class="srv-desc">Implementación de CRM y workflows para mejorar la atención por áreas.</p>
+            <div class="srv-tags">
+              <span class="srv-tag">Segmentación</span><span class="srv-tag">Workflows</span><span class="srv-tag">Integraciones</span>
+            </div>
           </article>
+
           <article class="srv-card">
             <div class="srv-icon">✉️</div>
             <h3 class="srv-title">Mailing HTML</h3>
-            <p class="srv-desc">Newsletters y plantillas responsive.</p>
-            <div class="srv-tags"><span class="srv-tag">HTML Email</span><span class="srv-tag">Responsive</span><span class="srv-tag">CRM</span></div>
+            <p class="srv-desc">Newsletters y plantillas responsive para campañas e institucionales.</p>
+            <div class="srv-tags">
+              <span class="srv-tag">HTML Email</span><span class="srv-tag">Responsive</span><span class="srv-tag">CRM</span>
+            </div>
           </article>
+
           <article class="srv-card">
             <div class="srv-icon">🚀</div>
             <h3 class="srv-title">SEO & Performance</h3>
-            <p class="srv-desc">Rendimiento, accesibilidad y metadatos on-page.</p>
-            <div class="srv-tags"><span class="srv-tag">Lighthouse</span><span class="srv-tag">A11y</span><span class="srv-tag">Metadata</span></div>
+            <p class="srv-desc">Mejoras de rendimiento, accesibilidad y metadatos on-page.</p>
+            <div class="srv-tags">
+              <span class="srv-tag">Lighthouse</span><span class="srv-tag">A11y</span><span class="srv-tag">Metadata</span>
+            </div>
           </article>
+
           <article class="srv-card">
             <div class="srv-icon">🗂️</div>
             <h3 class="srv-title">Hosting & Deploy</h3>
-            <p class="srv-desc">GitHub Pages y Firebase básico.</p>
-            <div class="srv-tags"><span class="srv-tag">GitHub Pages</span><span class="srv-tag">Firebase</span><span class="srv-tag">Dominio</span></div>
+            <p class="srv-desc">Publicación en GitHub Pages y configuraciones básicas en Firebase.</p>
+            <div class="srv-tags">
+              <span class="srv-tag">GitHub Pages</span><span class="srv-tag">Firebase</span><span class="srv-tag">Dominio</span>
+            </div>
           </article>
+
           <article class="srv-card">
             <div class="srv-icon">🎓</div>
             <h3 class="srv-title">Talleres & Cursos</h3>
-            <p class="srv-desc">Intro a la Programación, Desarrollo Web, JS y React.</p>
-            <div class="srv-tags"><span class="srv-tag">Capacitación</span><span class="srv-tag">Intro Prog</span><span class="srv-tag">JS/React</span></div>
+            <p class="srv-desc">Introducción a la Programación, Desarrollo Web, JavaScript y React.</p>
+            <div class="srv-tags">
+              <span class="srv-tag">Capacitación</span><span class="srv-tag">Intro Prog</span><span class="srv-tag">JS/React</span>
+            </div>
           </article>
+
           <article class="srv-card">
             <div class="srv-icon">💬</div>
             <h3 class="srv-title">Chatbot informativo</h3>
-            <p class="srv-desc">Flujos de preguntas frecuentes para atención.</p>
-            <div class="srv-tags"><span class="srv-tag">Flujos</span><span class="srv-tag">Menús</span><span class="srv-tag">WhatsApp</span></div>
+            <p class="srv-desc">Flujos de preguntas frecuentes para atención ciudadana o institucional.</p>
+            <div class="srv-tags">
+              <span class="srv-tag">Flujos</span><span class="srv-tag">Menús</span><span class="srv-tag">WhatsApp</span>
+            </div>
           </article>
         </div>
 
-        <!-- Flechas laterales (costados) -->
+        <!-- Fade + controles -->
         <div class="srv-nav" aria-hidden="false">
           <button class="srv-ctrl" id="srvPrev" aria-label="Anterior">◀</button>
           <button class="srv-ctrl" id="srvNext" aria-label="Siguiente">▶</button>
         </div>
+        <a class="srv-cta hover-pop" href="https://wa.me/5492616246767?text=Quiero%20pedir%20un%20presupuesto" target="_blank" rel="noopener">Pedir presupuesto</a>
       </div>
     </section>
 
-    <!-- PROYECTOS — Carrusel diagonal -->
-    <section id="proyectos" class="card reveal" style="background: linear-gradient(180deg,#e6ddff, #fff 66%)">
-      <div class="diag-section">
-        <div class="diag-left">
-          <h2>Mis proyectos</h2>
-          <p>Aplicaciones web, dashboards y sistemas a medida. Clic para ver detalle y enlace.</p>
-          <div class="diag-actions">
-            <a class="btn gradient" href="https://pictocomunica.com.ar" target="_blank" rel="noopener">PictoComunica</a>
-            <a class="btn gradient-2" href="https://namilo1315.github.io/mails/texto.html" target="_blank" rel="noopener">Mailing</a>
+    <!-- Proyectos (Diagonal) -->
+    <section id="proyectos" class="card block lilac reveal diag-section">
+      <div class="diag-left">
+        <h2>Mis proyectos</h2>
+        <p>Aplicaciones web, dashboards y sistemas a medida. Clic para ver detalle y enlace.</p>
+        <div class="diag-actions">
+          <a class="btn gradient" href="https://pictocomunica.com.ar" target="_blank" rel="noopener">PictoComunica</a>
+          <a class="btn gradient-2" href="https://namilo1315.github.io/mails/texto.html" target="_blank" rel="noopener">Mailing</a>
+        </div>
+      </div>
+
+      <div class="diag-carousel" aria-label="Carrusel de proyectos">
+        <div class="diag-col up" style="--speed:20s">
+          <div class="diag-track">
+            <div class="diag-item" data-title="PictoComunica" data-desc="App con pictogramas y síntesis de voz." data-link="https://pictocomunica.com.ar"><img src="https://picsum.photos/id/201/600/400" alt="Vista previa PictoComunica" draggable="false" loading="lazy"></div>
+            <div class="diag-item" data-title="Mailing Institucional" data-desc="Plantillas responsive para CRM/email." data-link="https://namilo1315.github.io/mails/texto.html"><img src="https://picsum.photos/id/202/600/400" alt="Vista previa Mailing Institucional" draggable="false" loading="lazy"></div>
+            <div class="diag-item" data-title="Dashboard de Gestión" data-desc="KPIs operativos con Power BI." data-link="#"><img src="https://picsum.photos/id/203/600/400" alt="Vista previa Dashboard de Gestión" draggable="false" loading="lazy"></div>
           </div>
         </div>
 
-        <div class="diag-carousel" aria-label="Carrusel de proyectos">
-          <div class="diag-col up" style="--speed:20s">
-            <div class="diag-track">
-              <div class="diag-item" data-title="PictoComunica" data-desc="App con pictogramas y síntesis de voz." data-link="https://pictocomunica.com.ar"><img src="https://picsum.photos/id/201/600/400" alt="Vista previa PictoComunica" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="Mailing Institucional" data-desc="Plantillas responsive para CRM/email." data-link="https://namilo1315.github.io/mails/texto.html"><img src="https://picsum.photos/id/202/600/400" alt="Vista previa Mailing Institucional" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="Dashboard de Gestión" data-desc="KPIs operativos con Power BI." data-link="#"><img src="https://picsum.photos/id/203/600/400" alt="Vista previa Dashboard de Gestión" loading="lazy" draggable="false"></div>
-            </div>
+        <div class="diag-col down" style="--speed:22s">
+          <div class="diag-track">
+            <div class="diag-item" data-title="Empleo Maipú" data-desc="Registro y administración de CVs." data-link="#"><img src="https://picsum.photos/id/204/600/400" alt="Vista previa Empleo Maipú" draggable="false" loading="lazy"></div>
+            <div class="diag-item" data-title="Análisis Vial" data-desc="Sistema de seguimiento de incidentes." data-link="#"><img src="https://picsum.photos/id/205/600/400" alt="Vista previa Análisis Vial" draggable="false" loading="lazy"></div>
+            <div class="diag-item" data-title="Guía de Comercios" data-desc="Directorio y filtros por rubro." data-link="#"><img src="https://picsum.photos/id/206/600/400" alt="Vista previa Guía de Comercios" draggable="false" loading="lazy"></div>
           </div>
+        </div>
 
-          <div class="diag-col down" style="--speed:22s">
-            <div class="diag-track">
-              <div class="diag-item" data-title="Empleo Maipú" data-desc="Registro y administración de CVs." data-link="#"><img src="https://picsum.photos/id/204/600/400" alt="Vista previa Empleo Maipú" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="Análisis Vial" data-desc="Sistema de seguimiento de incidentes." data-link="#"><img src="https://picsum.photos/id/205/600/400" alt="Vista previa Análisis Vial" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="Guía de Comercios" data-desc="Directorio y filtros por rubro." data-link="#"><img src="https://picsum.photos/id/206/600/400" alt="Vista previa Guía de Comercios" loading="lazy" draggable="false"></div>
-            </div>
-          </div>
-
-          <div class="diag-col up" style="--speed:24s">
-            <div class="diag-track">
-              <div class="diag-item" data-title="Estadísticas Sociales" data-desc="Reportes y visuales interactivos." data-link="#"><img src="https://picsum.photos/id/207/600/400" alt="Vista previa Estadísticas Sociales" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="Automatización de Procesos" data-desc="Flujos administrativos optimizados." data-link="#"><img src="https://picsum.photos/id/208/600/400" alt="Vista previa Automatización de Procesos" loading="lazy" draggable="false"></div>
-              <div class="diag-item" data-title="UI Institucional" data-desc="Componentes y estilos unificados." data-link="#"><img src="https://picsum.photos/id/209/600/400" alt="Vista previa UI Institucional" loading="lazy" draggable="false"></div>
-            </div>
+        <div class="diag-col up" style="--speed:24s">
+          <div class="diag-track">
+            <div class="diag-item" data-title="Estadísticas Sociales" data-desc="Reportes y visuales interactivos." data-link="#"><img src="https://picsum.photos/id/207/600/400" alt="Vista previa Estadísticas Sociales" draggable="false" loading="lazy"></div>
+            <div class="diag-item" data-title="Automatización de Procesos" data-desc="Flujos administrativos optimizados." data-link="#"><img src="https://picsum.photos/id/208/600/400" alt="Vista previa Automatización de Procesos" draggable="false" loading="lazy"></div>
+            <div class="diag-item" data-title="UI Institucional" data-desc="Componentes y estilos unificados." data-link="#"><img src="https://picsum.photos/id/209/600/400" alt="Vista previa UI Institucional" draggable="false" loading="lazy"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FORMULARIO con color como el resto -->
-    <section id="formulario" class="card reveal" style="background: linear-gradient(180deg,#ffcfe0, #fff 66%)">
-      <h2>Escribime</h2>
-      <form id="contactForm" class="form-card" novalidate>
-        <div class="form-grid">
-          <div class="field">
-            <label class="label" for="name">Nombre y apellido</label>
-            <input class="input" type="text" id="name" name="name" required placeholder="Ej: Ana Pérez" autocomplete="name">
-            <span class="error" id="err-name">Ingresá tu nombre.</span>
-          </div>
-
-          <div class="field">
-            <label class="label" for="email">Email</label>
-            <input class="input" type="email" id="email" name="email" required placeholder="tu@email.com" autocomplete="email">
-            <span class="error" id="err-email">Ingresá un email válido.</span>
-          </div>
-
-          <div class="field">
-            <label class="label" for="service">Interés</label>
-            <select class="select" id="service" name="service">
-              <option value="Frontend">Desarrollo Frontend</option>
-              <option value="Dashboards">Dashboards & KPIs</option>
-              <option value="Automatizacion">Automatización con Python</option>
-              <option value="CRM">CRM & Flujos</option>
-              <option value="Mailing">Mailing HTML</option>
-              <option value="SEO">SEO & Performance</option>
-              <option value="Hosting">Hosting & Deploy</option>
-              <option value="Talleres">Talleres & Cursos</option>
-              <option value="Chatbot">Chatbot informativo</option>
-              <option value="Otro">Otro</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label class="label" for="budget">Presupuesto (opcional)</label>
-            <select class="select" id="budget" name="budget">
-              <option value="Por definir">Por definir</option>
-              <option value="Hasta 150 USD">Hasta 150 USD</option>
-              <option value="150–500 USD">150–500 USD</option>
-              <option value="500–1500 USD">500–1500 USD</option>
-              <option value="1500+ USD">1500+ USD</option>
-            </select>
-          </div>
-
-          <div class="field full">
-            <label class="label" for="message">Mensaje</label>
-            <textarea class="textarea" id="message" name="message" required placeholder="Contame brevemente qué necesitás…"></textarea>
-            <span class="error" id="err-message">Escribí un mensaje.</span>
-            <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off">
-          </div>
-        </div>
-
-        <div class="cta-row" style="margin-top:12px">
-          <button class="btn-send" type="submit" id="sendBtn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
-            Enviar
-          </button>
-          <a class="btn ghost" id="whBtn" href="#" rel="noopener">Enviar por WhatsApp</a>
-        </div>
-
-        <div id="toast" class="toast" role="status" aria-live="polite">¡Mensaje enviado! Te respondo a la brevedad.</div>
-      </form>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto" class="card reveal" style="background: linear-gradient(180deg,#d4f7e6, #fff 66%)">
+    <!-- Contacto -->
+    <section id="contacto" class="card block mint reveal contact">
       <h2>Contacto</h2>
       <div class="contact-grid">
         <div>
           <p class="lead">¡Hablemos!</p>
           <p class="muted">Maipú, Mendoza, Argentina</p>
           <div class="cta-row" style="margin-top:10px">
-            <a class="btn gradient-2 wa-inline" href="https://wa.me/5492616246767?text=Hola%20Natalia%2C%20vi%20tu%20portafolio" target="_blank" rel="noopener">
+            <a class="btn gradient-2" href="https://wa.me/5492616246767?text=Hola%20Natalia%2C%20vi%20tu%20portafolio" target="_blank" rel="noopener">
               <svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M19.11 17.37c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.64.14-.19.28-.73.9-.9 1.09-.17.19-.33.21-.61.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.49-.64-.49-.16 0-.35-.02-.54-.02-.19 0-.49.07-.75.35-.26.28-1 1-1 2.44 0 1.44 1.03 2.84 1.17 3.03.14.19 2.03 3.1 4.92 4.34.69.3 1.22.48 1.64.62.69.22 1.32.19 1.82.12.56-.08 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.12-.26-.19-.54-.33z"/><path d="M16.04 4C9.94 4 5 8.94 5 15.04c0 1.95.51 3.78 1.4 5.36L5 28l7.8-1.38c1.53.84 3.29 1.32 5.17 1.32 6.1 0 11.04-4.94 11.04-11.04S22.14 4 16.04 4zm0 19.9c-1.62 0-3.12-.48-4.38-1.31l-.31-.2-4.63.82.87-4.52-.21-.33c-.84-1.34-1.33-2.93-1.33-4.62C6.05 9.95 10 6 16.04 6c4.7 0 9.04 3.34 9.04 9.04 0 5.7-4.34 8.86-9.04 8.86z"/></svg>
               WhatsApp — (+54 9) 261 624 6767
             </a>
             <a class="btn ghost" href="mailto:natalia89751315@gmail.com" aria-label="Enviar correo a natalia89751315@gmail.com">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2v.01L12 11 4 6.01V6h16zM4 18V8.24l7.38 4.61a1 1 0 001.24 0L20 8.24V18H4z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2v.01L12 11 4 6.01V6h16zM4 18V8.24l7.38 4.61a1 1 0 001.24 0L20 8.24V18H4z"/>
+              </svg>
               natalia89751315@gmail.com
             </a>
+          </div>
+          <div class="mini">
+            <a class="pill" href="cv-natalia-lopez.pdf" target="_blank" rel="noopener">Currículum (PDF)</a>
+            <a class="pill" id="vcfBtn" href="#" download="NataliaLopez.vcf">Guardar contacto</a>
           </div>
         </div>
         <div>
@@ -536,7 +514,7 @@
               GitHub
             </a>
             <a class="social ig" href="https://www.instagram.com/annmery.fragancias/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-1.34-3-3-3H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2.2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zm5.5-.9a1.1 1.1 0 110 2.2 1.1 1.1 0 010-2.2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2.2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zm5.5-.9a1.1 1.1 0 110 2.2 1.1 1.1 0 010-2.2z"/></svg>
               Instagram
             </a>
           </div>
@@ -571,11 +549,11 @@
   </div>
 
   <script>
-    // ===== Toggle de tema con persistencia
+    // ===== Tema con persistencia (y texto del botón correcto) =====
     const root = document.documentElement;
     const themeBtn = document.getElementById('themeBtn');
-    const saved = localStorage.getItem('nl-theme');
-    if(saved) root.setAttribute('data-theme', saved);
+    const savedTheme = localStorage.getItem('nl-theme');
+    if(savedTheme) root.setAttribute('data-theme', savedTheme);
     themeBtn.textContent = (root.getAttribute('data-theme') || 'light') === 'light' ? '☀️' : '🌙';
     themeBtn.addEventListener('click', ()=>{
       const cur = root.getAttribute('data-theme') || 'light';
@@ -585,7 +563,28 @@
       themeBtn.textContent = next === 'light' ? '☀️' : '🌙';
     });
 
-    // ===== Reveal on scroll
+    // ===== vCard dinámico =====
+    const vcfBtn = document.getElementById('vcfBtn');
+    if(vcfBtn){
+      vcfBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const vcf = `BEGIN:VCARD
+VERSION:3.0
+N:López;Natalia;;;
+FN:Natalia López
+EMAIL;TYPE=INTERNET:natalia89751315@gmail.com
+TEL;TYPE=CELL:+5492616246767
+ADR;TYPE=HOME:;;Maipú;Mendoza;;Argentina
+TITLE:Desarrolladora | Especialista en Análisis de Datos
+URL:https://pictocomunica.com.ar
+END:VCARD`;
+        const blob = new Blob([vcf], {type:'text/vcard'});
+        const url = URL.createObjectURL(blob);
+        e.currentTarget.href = url;
+      });
+    }
+
+    // ===== Reveal on scroll =====
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
     }, {threshold: .15});
@@ -594,13 +593,13 @@
     // Año footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ===== Carrusel diagonal: duplicar ítems para loop
+    // ===== Carrusel diagonal: duplicar ítems para loop =====
     document.querySelectorAll('.diag-track').forEach(track=>{
       const children = Array.from(track.children);
       children.forEach(ch => track.appendChild(ch.cloneNode(true)));
     });
 
-    // ===== Modal de proyecto
+    // ===== Modal de proyecto =====
     const modal = document.getElementById('projModal');
     const modalImg = document.getElementById('projImg');
     const modalTitle = document.getElementById('projTitle');
@@ -622,9 +621,10 @@
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden','true');
       document.body.style.overflow='';
-      modalImg.src = ''; modalImg.alt = '';
+      modalImg.src = '';
+      modalImg.alt = '';
     }
-    closeBtn.addEventListener('click', closeModal);
+    if(closeBtn) closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
     window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
 
@@ -640,7 +640,7 @@
       });
     });
 
-    // ===== Carrusel de Servicios: autoplay + drag + teclado + flechas laterales
+    // ===== Carrusel de Servicios: autoplay + drag + teclado + botones =====
     const srvCarousel = document.getElementById('srvCarousel');
     const srvPrev = document.getElementById('srvPrev');
     const srvNext = document.getElementById('srvNext');
@@ -648,14 +648,15 @@
     function stepSize(){
       const card = srvCarousel.querySelector('.srv-card');
       if(!card) return 320;
-      const gap = parseInt(getComputedStyle(srvCarousel).gap || '12', 10);
+      const styles = getComputedStyle(srvCarousel);
+      const gap = parseInt(styles.gap || '14', 10);
       return card.getBoundingClientRect().width + gap;
     }
     function scrollNext(){ srvCarousel.scrollBy({left: stepSize(), behavior:'smooth'}); }
     function scrollPrev(){ srvCarousel.scrollBy({left: -stepSize(), behavior:'smooth'}); }
 
-    srvPrev.addEventListener('click', scrollPrev);
-    srvNext.addEventListener('click', scrollNext);
+    srvPrev?.addEventListener('click', scrollPrev);
+    srvNext?.addEventListener('click', scrollNext);
 
     // Teclado
     srvCarousel.addEventListener('keydown', (e)=>{
@@ -673,9 +674,9 @@
     srvCarousel.addEventListener('pointermove', (e)=> moveDrag(e.clientX));
     ['pointerup','pointercancel','pointerleave'].forEach(ev=> srvCarousel.addEventListener(ev, endDrag));
 
-    // Autoplay más rápido
+    // Autoplay con pausa al hover/focus
     let autoTimer = null;
-    const AUTO_MS = 1600;
+    const AUTO_MS = 2800;
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function startAuto(){
@@ -691,96 +692,11 @@
       }, AUTO_MS);
     }
     function stopAuto(){ if(autoTimer){ clearInterval(autoTimer); autoTimer = null; } }
+
     ['mouseenter','focusin'].forEach(ev=> srvCarousel.addEventListener(ev, stopAuto));
     ['mouseleave','focusout'].forEach(ev=> srvCarousel.addEventListener(ev, startAuto));
     window.addEventListener('visibilitychange', ()=>{ document.hidden ? stopAuto() : startAuto(); });
     startAuto();
-
-    // ===== Formulario: validación + mailto + Formspree opcional
-    const FORMSPREE_ID = ""; // Si usás Formspree, poné el ID
-    const form = document.getElementById('contactForm');
-    const toast = document.getElementById('toast');
-    const whBtn = document.getElementById('whBtn');
-
-    function showError(id, show){
-      const el = document.getElementById(id);
-      if(el) el.style.display = show ? 'block' : 'none';
-    }
-
-    function validate(){
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
-      let ok = true;
-
-      showError('err-name', !name);
-      showError('err-email', !/^\S+@\S+\.\S+$/.test(email));
-      showError('err-message', !message);
-
-      if(form.company.value) ok = false; // honeypot
-      return ok;
-    }
-
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      if(!validate()) return;
-
-      const data = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        service: form.service.value,
-        budget: form.budget.value,
-        message: form.message.value.trim(),
-      };
-
-      if(FORMSPREE_ID){
-        try{
-          const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-            method:'POST',
-            headers:{ 'Content-Type':'application/json', 'Accept':'application/json' },
-            body: JSON.stringify(data)
-          });
-          if(res.ok){
-            toast.style.display = 'block';
-            form.reset();
-            setTimeout(()=> toast.style.display='none', 4200);
-          }else{
-            window.location.href = buildMailto(data);
-          }
-        }catch{
-          window.location.href = buildMailto(data);
-        }
-      }else{
-        window.location.href = buildMailto(data);
-      }
-    });
-
-    function buildMailto(d){
-      const to = "natalia89751315@gmail.com";
-      const subject = encodeURIComponent(`Contacto desde tu portafolio — ${d.service}`);
-      const body = encodeURIComponent(
-        `Hola Natalia,%0D%0A%0D%0A` +
-        `Mi nombre: ${d.name}%0D%0A` +
-        `Email: ${d.email}%0D%0A` +
-        `Interés: ${d.service}%0D%0A` +
-        `Presupuesto: ${d.budget}%0D%0A%0D%0A` +
-        `Mensaje:%0D%0A${d.message}%0D%0A%0D%0A` +
-        `Enviado desde el portafolio.`
-      );
-      return `mailto:${to}?subject=${subject}&body=${body}`;
-    }
-
-    // WhatsApp prefill con datos del formulario
-    whBtn.addEventListener('click', (e)=>{
-      e.preventDefault();
-      if(!validate()) return;
-      const name = form.name.value.trim();
-      const service = form.service.value;
-      const budget = form.budget.value;
-      const message = form.message.value.trim();
-      const txt = encodeURIComponent(`Hola Natalia, soy ${name}.%0AInterés: ${service}.%0APresupuesto: ${budget}.%0AMensaje: ${message}`);
-      window.open(`https://wa.me/5492616246767?text=${txt}`, '_blank', 'noopener');
-    });
   </script>
 </body>
 </html>
