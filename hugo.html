@@ -1055,7 +1055,206 @@
       for(let i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i); 
       return bytes; 
     }
-  </script>
+ /* ========= DICTADO POR VOZ (ES + símbolos + mayúsculas) ========= */
+const voiceBtn = $('voiceFab');
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+const fieldOrder = [
+  'cli_nombre','cli_doc','cli_dom','cli_contacto',
+  'exp_tipo','exp_juzgado','exp_num','exp_caratula','exp_fecha','exp_obs'
+];
+
+function isEditable(el){ return el && (el.tagName==='INPUT' || el.tagName==='TEXTAREA'); }
+function firstEmptyField(){ for(const id of fieldOrder){ const el=$(id); if(el && !el.value) return el; } return $(fieldOrder[0]); }
+function nextField(fromId){ let i=fieldOrder.indexOf(fromId); for(let j=i+1;j<fieldOrder.length;j++){ const el=$(fieldOrder[j]); if(el) return el; } return null; }
+function focusAndCenter(el){ if(!el) return; el.focus(); el.scrollIntoView({behavior:'smooth', block:'center'}); }
+
+function monthEsToNum(m){ const M={'enero':1,'febrero':2,'marzo':3,'abril':4,'mayo':5,'junio':6,'julio':7,'agosto':8,'septiembre':9,'setiembre':9,'octubre':10,'noviembre':11,'diciembre':12}; return M[(m||'').toLowerCase()]||null; }
+function parseDateEs(t){
+  t=t.trim().toLowerCase();
+  let m=t.match(/\b(\d{1,2})[\/\- ](\d{1,2})[\/\- ](\d{2,4})\b/);
+  if(m){ const d=m[1].padStart(2,'0'), mo=m[2].padStart(2,'0'), y=(m[3].length===2?('20'+m[3]):m[3]); return `${y}-${mo}-${d}`; }
+  m=t.match(/\b(\d{1,2})\s*(de)?\s*([a-záéíóú]+)\s*(de)?\s*(\d{2,4})\b/);
+  if(m){ const d=m[1].padStart(2,'0'), mo=String(monthEsToNum(m[3])||1).padStart(2,'0'), y=(m[5].length===2?('20'+m[5]):m[5]); return `${y}-${mo}-${d}`; }
+  m=t.match(/\b(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})\b/);
+  if(m){ const y=m[1], mo=m[2].padStart(2,'0'), d=m[3].padStart(2,'0'); return `${y}-${mo}-${d}`; }
+  return '';
+}
+
+/* Conversión de voz -> símbolos + control de mayúsculas */
+function toSymbols(text){
+  // Tokenizamos conservando original y una copia normalizada sin tildes
+  const orig = text.trim().split(/\s+/);
+  const norm = orig.map(t=> t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''));
+
+  const out=[]; let i=0;
+  let capNext=false, allCaps=false;
+
+  const setCapNext = ()=>{ capNext=true; };
+  const setAllCaps = v=>{ allCaps=v; };
+
+  const map3 = {
+    'punto y coma': ';',
+    'dos puntos y': ':'  // por si alguien dice raro, igual no se usará casi
+  };
+  const map2 = {
+    'punto y': '.', // fallback raro
+    'dos puntos': ':',
+    'guion bajo': '_',
+    'barra invertida': '\\',
+    'abre parentesis': '(',
+    'cierra parentesis': ')',
+    'abre corchete': '[',
+    'cierra corchete': ']',
+    'comilla doble': '"',
+    'comilla simple': "'",
+    'nueva linea': '\n',
+    'salto linea': '\n',
+    'salto de': '\n',
+    'con mayuscula': null,      // acción
+    'todo mayusculas': null,    // acción
+    'activar mayusculas': null, // acción
+    'desactivar mayusculas': null, // acción
+  };
+  const map1 = {
+    'punto': '.',
+    'coma': ',',
+    'guion': '-', 'guión': '-',
+    'slash': '/', 'barra': '/',
+    'porcentaje': '%', 'por ciento': '%',
+    'arroba': '@', 'hashtag': '#', 'numeral': '#',
+    'dos': null, // evitar que "dos puntos" se rompa cuando ya se capturó como 2-palabras
+    'puntos': null,
+    'parentesis': null, 'corchete': null,
+    'abre': null, 'cierra': null,
+    'comillas': '"',
+    'puntos suspensivos': '…',
+    'mayuscula': null, 'mayusculas': null,
+    'linea': '\n',
+    'enter': '\n'
+  };
+
+  const isCmdCap = phrase => /^(mayuscula|con mayuscula)$/.test(phrase);
+  const isAllCapsOn = phrase => /^(todo mayusculas|activar mayusculas)$/.test(phrase);
+  const isAllCapsOff = phrase => /^(desactivar mayusculas|normal)$/.test(phrase);
+
+  const pushWord = (word)=>{
+    if(!word) return;
+    if(allCaps) out.push(word.toUpperCase());
+    else if(capNext){ out.push(word.charAt(0).toUpperCase()+word.slice(1)); capNext=false; }
+    else out.push(word);
+  };
+
+  while(i<norm.length){
+    const t1 = norm[i]||'';
+    const t2 = (norm[i]||'')+' '+(norm[i+1]||'');
+    const t3 = (norm[i]||'')+' '+(norm[i+1]||'')+' '+(norm[i+2]||'');
+
+    if(map3[t3]!==undefined){ 
+      const v=map3[t3]; if(v) out.push(v); i+=3; continue; 
+    }
+    if(map2[t2]!==undefined){
+      // acciones mayúsculas en 2 palabras
+      if(isCmdCap(t2)){ setCapNext(); i+=2; continue; }
+      if(isAllCapsOn(t2)){ setAllCaps(true); i+=2; continue; }
+      if(isAllCapsOff(t2)){ setAllCaps(false); i+=2; continue; }
+      const v=map2[t2]; if(v){ out.push(v); } 
+      i+=2; continue;
+    }
+    if(map1[t1]!==undefined){
+      if(isCmdCap(t1)){ setCapNext(); i+=1; continue; }
+      if(isAllCapsOn(t1)){ setAllCaps(true); i+=1; continue; }
+      if(isAllCapsOff(t1)){ setAllCaps(false); i+=1; continue; }
+      const v=map1[t1]; if(v){ out.push(v); }
+      i+=1; continue;
+    }
+
+    // palabras normales: aplicar capitalización si corresponde
+    pushWord(orig[i]);
+    i+=1;
+  }
+
+  // Ensamblado y limpieza de espacios con signos
+  let s = out.join(' ');
+  s = s
+    .replace(/\s+([.,;:!?%])\b/g,'$1')       // sin espacio antes de puntuación
+    .replace(/\s+([)\]\}»])/g,'$1')          // sin espacio antes de cierres
+    .replace(/([(\[{\«])\s+/g,'$1')          // sin espacio después de aperturas
+    .replace(/\s*\n\s*/g,'\n');              // limpia nueva línea
+
+  return s;
+}
+
+/* Reconocimiento */
+let rec=null, listening=false;
+
+if(!SpeechRecognition){
+  voiceBtn.hidden = true;
+}else{
+  function startRec(){
+    if(!rec){
+      rec = new SpeechRecognition();
+      rec.lang = 'es-AR';
+      rec.interimResults = false;
+      rec.maxAlternatives = 1;
+      rec.continuous = true;
+
+      rec.addEventListener('result', onSpeechResult);
+      rec.addEventListener('start', ()=>{ listening=true; voiceBtn.classList.add('listening'); voiceBtn.textContent='■ Detener'; toast('🎤 Dictado activo. Decí “siguiente”, “borrar” o “cancelar”.'); });
+      rec.addEventListener('end',   ()=>{ listening=false; voiceBtn.classList.remove('listening'); voiceBtn.textContent='🎤 Dictar'; });
+      rec.addEventListener('error', (e)=>{ listening=false; voiceBtn.classList.remove('listening'); voiceBtn.textContent='🎤 Dictar'; toast('No se pudo dictar ('+(e.error||'error')+')','err'); });
+    }
+    let el = document.activeElement;
+    if(!isEditable(el)){ el = firstEmptyField(); }
+    focusAndCenter(el);
+    rec.start();
+  }
+  function stopRec(){ try{ rec && rec.stop(); }catch{} }
+
+  voiceBtn.addEventListener('click', ()=>{ listening ? stopRec() : startRec(); });
+
+  function onSpeechResult(ev){
+    const raw = Array.from(ev.results).slice(ev.resultIndex).map(r=>r[0]?.transcript||'').join(' ').trim();
+    if(!raw) return;
+
+    // Campo activo (o el primero vacío)
+    let el = document.activeElement;
+    if(!isEditable(el)){ el = firstEmptyField(); focusAndCenter(el); }
+
+    const tNorm = raw.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+
+    // Comandos globales
+    if(/^(siguiente|next)$/.test(tNorm)){ const nx = nextField(el.id); if(nx){ focusAndCenter(nx); toast('➡️ Siguiente campo'); } else { stopRec(); toast('✅ Dictado finalizado'); } return; }
+    if(/^(borrar|limpiar)$/.test(tNorm)){ el.value=''; el.dispatchEvent(new Event('input',{bubbles:true})); toast('🧹 Campo limpiado'); return; }
+    if(/^(cancelar|terminar|stop)$/.test(tNorm)){ stopRec(); toast('✋ Dictado detenido'); return; }
+
+    // Texto con símbolos + mayúsculas
+    let val = toSymbols(raw);
+
+    // Reglas por campo
+    if(el.id==='cli_doc' || el.id==='cli_contacto'){
+      val = val.replace(/\D/g,'');
+    }else if(el.id==='exp_fecha'){
+      const parsed = parseDateEs(val);
+      if(parsed) val = parsed;
+    }
+
+    // Escribir (con espacio solo para campos no numéricos ni fecha)
+    if(el.id==='cli_doc' || el.id==='cli_contacto' || el.id==='exp_fecha'){
+      el.value = (el.value || '') + val;
+    }else{
+      el.value = el.value ? (el.value + ' ' + val) : val;
+    }
+    el.dispatchEvent(new Event('input',{bubbles:true}));
+
+    // Avance automático a siguiente campo
+    const nx = nextField(el.id);
+    if(nx){ focusAndCenter(nx); }
+    else { stopRec(); toast('✅ Dictado finalizado'); }
+  }
+}
+</script>
+
 </body>
 </html>
 
