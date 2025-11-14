@@ -88,6 +88,26 @@ tbody tr:hover{background:#f2f6fb}
 .badge.ok{background:#e6f4ea;color:var(--ok)}
 .badge.warn{background:#fff4d6;color:var(--warn)}
 .footer-note{color:#555;font-size:12px;margin:10px 6px}
+/* === Forzar escala global al 90% en todos los navegadores === */
+:root{ --zoom: .90; }
+
+/* Chrome / Edge / Opera */
+html { zoom: var(--zoom); }
+
+/* Firefox y otros que no soportan zoom */
+@supports not (zoom: 1) {
+  /* Escalamos TODO el body y compensamos el ancho para que no quede margen derecho */
+  html, body { overflow-x: hidden; }
+  body {
+    transform: scale(var(--zoom));
+    transform-origin: top left;
+    width: calc(100% / var(--zoom));   /* 111.111% cuando --zoom=0.90 */
+  }
+}
+
+/* (Opcional) si algún canvas queda muy alto, podés bajarlo un poquito */
+.card canvas { height: 300px !important; }
+
 </style>
 </head>
 <body>
