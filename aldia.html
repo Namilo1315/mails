@@ -17,44 +17,14 @@
         font-family:Arial, Helvetica, sans-serif;
       }
 
-      .outer{
-        width:100%;
-        background:#ffffff;
-      }
-
-      .wrap{
-        width:100%;
-        max-width:600px;
-        margin:0 auto;
-        padding:0;
-        box-sizing:border-box;
-      }
-
-      .card{
-        background:#ffffff;
-      }
-
-      .slide-link{
-        text-decoration:none;
-        display:block;
-      }
-
-      .img{
+      .slide-frame{
         border-radius:14px;
-      }
-
-      amp-carousel{
-        width:100%;
-      }
-
-      .btn-wrap{
-        text-align:center;
-        padding:18px 0 10px 0;
+        overflow:hidden;
       }
 
       .btn{
         display:inline-block;
-        background:#ef7d00;
+        background-color:#ef7d00;
         color:#ffffff;
         text-decoration:none;
         font-size:16px;
@@ -66,77 +36,97 @@
     </style>
   </head>
 
-  <body>
-    <div class="outer">
-      <div class="wrap">
-        <div class="card">
+  <body style="margin:0; padding:0; background-color:#ffffff;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#ffffff;">
+      <tr>
+        <td align="center" style="padding:10px 6px;">
 
-          <amp-carousel
-            width="600"
-            height="720"
-            layout="responsive"
-            type="slides"
-            controls
-            role="region"
-            aria-label="Galería Maipú"
-          >
-            <a href="https://www.maipu.gob.ar/maipu-ofrece-facilidades-de-pago-para-evitar-multas-y-regularizar-deudas/" target="_blank" class="slide-link">
-              <amp-img
-                src="https://publicassets.maipu.gob.ar/public/assets/60/48cb12b7-e0ac-4d23-a778-94df4ef725b4/69ea83d6b1ef3900812002.jpeg"
-                width="600"
-                height="720"
-                layout="responsive"
-                alt="Imagen 1"
-                class="img"
-              ></amp-img>
-            </a>
+          <!-- Contenedor principal -->
+          <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
+                 style="max-width:600px; border-collapse:collapse; background-color:#ffffff;">
 
-            <a href="https://www.maipu.gob.ar/maipu-ofrece-facilidades-de-pago-para-evitar-multas-y-regularizar-deudas/" target="_blank" class="slide-link">
-              <amp-img
-                src="https://publicassets.maipu.gob.ar/public/assets/61/4c3a5448-64cb-4203-b24a-446cb3158c80/69ea83ef30851199719129.jpeg"
-                width="600"
-                height="720"
-                layout="responsive"
-                alt="Imagen 2"
-                class="img"
-              ></amp-img>
-            </a>
+            <!-- GALERÍA CON FLECHAS -->
+            <tr>
+              <td align="center" style="padding:0;">
+                <amp-carousel
+                  width="600"
+                  height="900"
+                  layout="responsive"
+                  type="slides"
+                  controls
+                  role="region"
+                  aria-label="Galería Maipú"
+                >
 
-            <a href="https://www.maipu.gob.ar/maipu-ofrece-facilidades-de-pago-para-evitar-multas-y-regularizar-deudas/" target="_blank" class="slide-link">
-              <amp-img
-                src="https://publicassets.maipu.gob.ar/public/assets/62/d3a1862a-4261-4d35-a08c-00f715f7bb88/69ea8405875a8077944374.jpeg"
-                width="600"
-                height="720"
-                layout="responsive"
-                alt="Imagen 3"
-                class="img"
-              ></amp-img>
-            </a>
+                  <div class="slide-frame">
+                    <a href="" target="_blank" style="text-decoration:none; display:block;">
+                      <amp-img
+                        src="https://publicassets.maipu.gob.ar/public/assets/60/48cb12b7-e0ac-4d23-a778-94df4ef725b4/69ea83d6b1ef3900812002.jpeg"
+                        width="600"
+                        height="900"
+                        layout="responsive"
+                        alt="Imagen 1"
+                        style="display:block; object-fit:cover;"
+                      ></amp-img>
+                    </a>
+                  </div>
 
-            <a href="https://www.maipu.gob.ar/maipu-ofrece-facilidades-de-pago-para-evitar-multas-y-regularizar-deudas/" target="_blank" class="slide-link">
-              <amp-img
-                src="https://publicassets.maipu.gob.ar/public/assets/63/8141cf9d-24c9-4bca-bf06-93ca4a722fca/69ea841f9e3ec093339412.jpeg"
-                width="600"
-                height="720"
-                layout="responsive"
-                alt="Imagen 4"
-                class="img"
-              ></amp-img>
-            </a>
-          </amp-carousel>
+                  <div class="slide-frame">
+                    <a href="" target="_blank" style="text-decoration:none; display:block;">
+                      <amp-img
+                        src="https://publicassets.maipu.gob.ar/public/assets/61/4c3a5448-64cb-4203-b24a-446cb3158c80/69ea83ef30851199719129.jpeg"
+                        width="600"
+                        height="900"
+                        layout="responsive"
+                        alt="Imagen 2"
+                        style="display:block; object-fit:cover;"
+                      ></amp-img>
+                    </a>
+                  </div>
 
-          <div class="btn-wrap">
-            <a
-              href="https://www.maipu.gob.ar/maipu-ofrece-facilidades-de-pago-para-evitar-multas-y-regularizar-deudas/"
-              target="_blank"
-              class="btn"
-            >
-              Ver más
-            </a>
-          </div>
+                  <div class="slide-frame">
+                    <a href="" target="_blank" style="text-decoration:none; display:block;">
+                      <amp-img
+                        src="https://publicassets.maipu.gob.ar/public/assets/62/d3a1862a-4261-4d35-a08c-00f715f7bb88/69ea8405875a8077944374.jpeg"
+                        width="600"
+                        height="900"
+                        layout="responsive"
+                        alt="Imagen 3"
+                        style="display:block; object-fit:cover;"
+                      ></amp-img>
+                    </a>
+                  </div>
 
-        </div>
-      </div>
-    </div>
+                  <div class="slide-frame">
+                    <a href="" target="_blank" style="text-decoration:none; display:block;">
+                      <amp-img
+                        src="https://publicassets.maipu.gob.ar/public/assets/63/8141cf9d-24c9-4bca-bf06-93ca4a722fca/69ea841f9e3ec093339412.jpeg"
+                        width="600"
+                        height="900"
+                        layout="responsive"
+                        alt="Imagen 4"
+                        style="display:block; object-fit:cover;"
+                      ></amp-img>
+                    </a>
+                  </div>
+
+                </amp-carousel>
+              </td>
+            </tr>
+
+            <!-- BOTÓN -->
+            <tr>
+              <td align="center" style="padding:18px 0 0 0;">
+                <a href="https://www.maipu.gob.ar/maipu-ofrece-facilidades-de-pago-para-evitar-multas-y-regularizar-deudas/" target="_blank" class="btn">
+                  Ver más
+                </a>
+              </td>
+            </tr>
+
+          </table>
+
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
