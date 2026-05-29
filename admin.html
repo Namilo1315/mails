@@ -1,0 +1,1953 @@
+
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Municipalidad de Maipú
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <style>
+   :root {
+  --azul:#0076bd;
+  --azul-oscuro:#062d4f;
+  --azul-profundo:#071f36;
+  --celeste:#13a8e2;
+  --verde:#70bf36;
+  --naranja:#f69a13;
+  --amarillo:#ffd166;
+  --blanco:#ffffff;
+  --gris:#f3f8fc;
+  --gris-borde:#dceaf3;
+  --texto:#112c42;
+  --muted:#667986;
+  --shadow:0 18px 45px rgba(5, 45, 79, .13);
+}
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html {
+  scroll-behavior:smooth;
+}
+body {
+  font-family:"Manrope", sans-serif;
+  background:#fff;
+  color:var(--texto);
+  overflow-x:hidden;
+}
+a {
+  text-decoration:none;
+  color:inherit;
+}
+img {
+  max-width:100%;
+  display:block;
+}
+.ticker {
+  height:24px;
+  overflow:hidden;
+  background:linear-gradient(90deg,#0069a9,#139fe0);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.25);
+}
+.ticker-track {
+  display:flex;
+  width:max-content;
+  white-space:nowrap;
+  animation:ticker 28s linear infinite;
+}
+.ticker span {
+  display:inline-flex;
+  align-items:center;
+  padding:0 34px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.ticker span::after {
+  content:"";
+  width:5px;
+  height:5px;
+  background:#fff;
+  opacity:.85;
+  border-radius:50%;
+  margin-left:34px;
+}
+@keyframes ticker {
+  from {
+    transform:translateX(0);
+  }
+  to {
+    transform:translateX(-50%);
+  }
+}
+.topbar {
+  background:#071f36;
+  color:#d9ebf6;
+  padding:10px 5vw;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  font-size:13px;
+  font-weight:700;
+}
+.topbar-left, .topbar-right {
+  display:flex;
+  align-items:center;
+  gap:22px;
+  flex-wrap:wrap;
+}
+.topbar i {
+  color:var(--celeste);
+  margin-right:7px;
+}
+.topbar a {
+  color:#fff;
+  font-weight:800;
+}
+.socials {
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.socials a {
+  color:#fff;
+  opacity:.9;
+  font-size:15px;
+}
+.header {
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#fff;
+  box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+.nav {
+  min-height:94px;
+  padding:5px 5vw;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+.brand {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  min-width:max-content;
+}
+.brand img {
+  width:98px;
+  height:auto;
+  object-fit:contain;
+  border-radius:0;
+  background:transparent;
+}
+.menu {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:25px;
+  font-size:14px;
+  font-weight:900;
+  color:#152f45;
+  flex:1;
+}
+.menu a {
+  position:relative;
+  padding:10px 0;
+}
+.menu a::after {
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--azul),var(--verde));
+  border-radius:99px;
+  transition:.25s;
+}
+.menu a:hover::after, .menu a.activo::after {
+  width:100%;
+}
+.acciones {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:13px 20px;
+  border:none;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.25s;
+  white-space:nowrap;
+}
+.btn:hover {
+  transform:translateY(-2px);
+}
+.btn-azul {
+  background:var(--azul);
+  color:#fff;
+  box-shadow:0 12px 26px rgba(0,118,189,.25);
+}
+.btn-verde {
+  background:var(--verde);
+  color:#fff;
+  box-shadow:0 12px 26px rgba(112,191,54,.25);
+}
+.btn-naranja {
+  background:var(--naranja);
+  color:#fff;
+  box-shadow:0 12px 26px rgba(246,154,19,.25);
+}
+.btn-blanco {
+  background:#fff;
+  color:var(--azul);
+  border:1px solid rgba(0,118,189,.25);
+}
+.menu-mobile {
+  display:none;
+  font-size:30px;
+  color:var(--azul);
+}
+.hero {
+  position:relative;
+  min-height:460px;
+  overflow:hidden;
+  color:#fff;
+  background:#07375c;
+}
+.hero-slide {
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity .8s ease;
+  background-size:cover;
+  background-position:center;
+}
+.hero-slide.active {
+  opacity:1;
+}
+.hero-slide::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgb(5, 35, 58) 0%, rgba(5, 63, 102, 0) 42%, rgba(0, 117, 189, 0) 100%);
+}
+.slide-1 {
+  background-image: url("assets/img/portada.png");
+}
+.slide-2 {
+  background-image: url("assets/img/portada.png");
+}
+.slide-3 {
+  background-image: url("assets/img/portada.png");
+}
+.hero-content {
+  position:relative;
+  z-index:3;
+  min-height:460px;
+  display:flex;
+  align-items:center;
+  padding:78px 5vw 88px;
+  max-width:1180px;
+}
+.hero-text {
+  max-width:720px;
+}
+.hero h1 {
+  font-size:clamp(42px,6vw,72px);
+  line-height:1.02;
+  letter-spacing:-.065em;
+  font-weight:900;
+  margin-bottom:18px;
+  text-shadow:0 8px 24px rgba(0,0,0,.28);
+}
+.hero p {
+  font-size:20px;
+  line-height:1.55;
+  color:#eef9ff;
+  max-width:600px;
+  font-weight:700;
+  margin-bottom:30px;
+}
+.hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+.hero-arrow {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:5;
+  width:46px;
+  height:46px;
+  border:none;
+  border-radius:50%;
+  background:rgba(7,31,54,.75);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  cursor:pointer;
+  transition:.25s;
+}
+.hero-arrow:hover {
+  background:var(--azul);
+}
+.hero-arrow.prev {
+  left:22px;
+}
+.hero-arrow.next {
+  right:22px;
+}
+.hero-dots {
+  position:absolute;
+  left:50%;
+  bottom:22px;
+  transform:translateX(-50%);
+  z-index:6;
+  display:flex;
+  gap:10px;
+}
+.hero-dots button {
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  border:2px solid #fff;
+  background:transparent;
+  cursor:pointer;
+  transition:.25s;
+}
+.hero-dots button.active {
+  width:30px;
+  border-radius:99px;
+  background:#fff;
+}
+.quick-strip {
+  background:#fff;
+  border-bottom:1px solid var(--gris-borde);
+  box-shadow:0 8px 24px rgba(0,0,0,.04);
+}
+.quick-strip-grid {
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+.quick-strip-card {
+  min-height:96px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:18px 24px;
+  border-left:1px solid var(--gris-borde);
+}
+.quick-strip-card:last-child {
+  border-right:1px solid var(--gris-borde);
+}
+.quick-strip-card i {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+  flex:0 0 auto;
+  border:1px solid currentColor;
+}
+.quick-strip-card:nth-child(1) i {
+  color:var(--azul);
+  background:#eaf7ff;
+}
+.quick-strip-card:nth-child(2) i {
+  color:var(--verde);
+  background:#edf9e9;
+}
+.quick-strip-card:nth-child(3) i {
+  color:var(--naranja);
+  background:#fff3e0;
+}
+.quick-strip-card:nth-child(4) i {
+  color:var(--azul);
+  background:#eaf7ff;
+}
+.quick-strip-card strong {
+  display:block;
+  font-size:16px;
+  color:#102a40;
+  margin-bottom:3px;
+}
+.quick-strip-card span {
+  display:block;
+  color:#738794;
+  font-size:13px;
+  font-weight:650;
+}
+.section {
+  padding:70px 5vw;
+}
+.section-light {
+  background:linear-gradient(180deg,#f6fbff,#fff);
+}
+.section-gray {
+  background:#f4f8fb;
+}
+.section-head {
+  max-width:1180px;
+  margin:0 auto 34px;
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:28px;
+}
+.eyebrow {
+  color:var(--azul);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:13px;
+  font-weight:1000;
+  margin-bottom:8px;
+}
+h2 {
+  font-size:clamp(32px,4vw,50px);
+  line-height:1;
+  letter-spacing:-.06em;
+  font-weight:900;
+  color:var(--azul-profundo);
+  position:relative;
+  padding-bottom:15px;
+}
+h2::after {
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:88px;
+  height:5px;
+  border-radius:99px;
+  background:linear-gradient(90deg,var(--azul),var(--verde),var(--naranja));
+}
+.section-head p {
+  color:var(--muted);
+  max-width:540px;
+  font-weight:650;
+  line-height:1.65;
+}
+.iconos-grid {
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.icon-card {
+  background:#fff;
+  border:1px solid var(--gris-borde);
+  border-radius:18px;
+  padding:22px;
+  min-height:166px;
+  box-shadow:0 10px 26px rgba(5,45,79,.07);
+  transition:.25s;
+  position:relative;
+  overflow:hidden;
+}
+.icon-card::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  height:5px;
+  width:100%;
+  background:linear-gradient(90deg,var(--azul),var(--verde));
+}
+.icon-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 16px 35px rgba(5,45,79,.13);
+}
+.icon-card i {
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:#eaf7ff;
+  color:var(--azul);
+  font-size:25px;
+  margin-bottom:14px;
+}
+.icon-card:nth-child(2) i, .icon-card:nth-child(8) i {
+  background:#fff3e0;
+  color:var(--naranja);
+}
+.icon-card:nth-child(4) i, .icon-card:nth-child(5) i {
+  background:#edf9e9;
+  color:var(--verde);
+}
+.icon-card h3 {
+  color:#122d43;
+  font-size:20px;
+  line-height:1.12;
+  margin-bottom:8px;
+  font-weight:900;
+}
+.icon-card p {
+  color:#6d7e8a;
+  font-size:14px;
+  line-height:1.45;
+  font-weight:650;
+}
+.news-grid {
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.news-card {
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--gris-borde);
+  box-shadow:0 12px 30px rgba(5,45,79,.08);
+  transition:.25s;
+}
+.news-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 18px 38px rgba(5,45,79,.14);
+}
+.news-img {
+  height:220px;
+  background-size:cover;
+  background-position:center;
+}
+.news-img.n1 {
+  background-image: linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.16)), url("https://images.unsplash.com/photo-1571019613914-85f342c6a11e?auto=format&fit=crop&w=900&q=80");
+}
+.news-img.n2 {
+  background-image: linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.16)), url("https://images.unsplash.com/photo-1571019613914-85f342c6a11e?auto=format&fit=crop&w=900&q=80");
+}
+.news-img.n3 {
+  background-image: linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.16)), url("https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=900&q=80");
+}
+.news-body {
+  padding:24px;
+}
+.pill {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  background:#eaf7ff;
+  color:var(--azul);
+  border-radius:999px;
+  padding:7px 12px;
+  font-size:12px;
+  font-weight:1000;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.news-body h3 {
+  color:#122d43;
+  font-size:22px;
+  line-height:1.15;
+  font-weight:900;
+  margin-bottom:12px;
+}
+.news-body p {
+  color:#6d7e8a;
+  font-size:14px;
+  line-height:1.55;
+  font-weight:650;
+  margin-bottom:18px;
+}
+.news-footer {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#748897;
+  font-size:13px;
+  font-weight:800;
+}
+.news-footer a {
+  color:var(--azul);
+  font-weight:1000;
+}
+.contact-strip {
+  background:#fff;
+  border-top:1px solid var(--gris-borde);
+  border-bottom:1px solid var(--gris-borde);
+}
+.contact-grid {
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+.contact-card {
+  display:flex;
+  gap:16px;
+  align-items:center;
+  padding:28px 24px;
+  border-left:1px solid var(--gris-borde);
+}
+.contact-card:last-child {
+  border-right:1px solid var(--gris-borde);
+}
+.contact-card i {
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#eaf7ff;
+  color:var(--azul);
+  font-size:28px;
+  flex:0 0 auto;
+}
+.contact-card:nth-child(2) i {
+  background:#e9f8e7;
+  color:#25d366;
+}
+.contact-card strong {
+  display:block;
+  color:#122d43;
+  font-size:17px;
+  margin-bottom:4px;
+  font-weight:900;
+}
+.contact-card span {
+  display:block;
+  color:#6d7e8a;
+  font-size:14px;
+  font-weight:650;
+}
+.emergencias {
+  background:#fff;
+  padding:60px 5vw;
+}
+.emergencias-wrap {
+  max-width:1180px;
+  margin:0 auto;
+  background:#f7fbfe;
+  border:1px solid var(--gris-borde);
+  border-radius:20px;
+  padding:26px;
+  box-shadow:var(--shadow);
+}
+.emergencias-head {
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:24px;
+}
+.emergencias-head h2 {
+  font-size:34px;
+}
+.emergencias-head p {
+  max-width:460px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.55;
+  font-weight:650;
+}
+.emergencias-grid {
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:12px;
+}
+.emergencia-card {
+  background:#fff;
+  border:1px solid #deebf2;
+  border-radius:16px;
+  min-height:126px;
+  padding:16px 10px;
+  text-align:center;
+  box-shadow:0 8px 18px rgba(5,45,79,.06);
+  position:relative;
+  overflow:hidden;
+}
+.emergencia-card::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg,var(--naranja),var(--verde));
+}
+.emergencia-card i {
+  display:block;
+  color:var(--azul);
+  font-size:24px;
+  margin-bottom:8px;
+}
+.emergencia-card h3 {
+  color:#15364c;
+  font-size:13px;
+  line-height:1.15;
+  margin-bottom:8px;
+  font-weight:900;
+}
+.emergencia-card strong {
+  display:block;
+  color:var(--azul);
+  font-size:25px;
+  line-height:1;
+  font-weight:900;
+}
+.emergencia-card span {
+  display:block;
+  margin-top:5px;
+  color:#6d7c86;
+  font-size:11px;
+  line-height:1.25;
+  font-weight:800;
+}
+footer {
+  background:#071f36;
+  color:#cddce5;
+  padding:48px 5vw 26px;
+}
+.footer-grid {
+  max-width:1180px;
+  margin:0 auto 28px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr .8fr .8fr;
+  gap:30px;
+}
+.footer-brand {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:16px;
+}
+.footer-brand img {
+  width:105px;
+  height:auto;
+  object-fit:contain;
+  background:#fff;
+  padding:8px;
+}
+footer h3 {
+  color:#fff;
+  font-size:17px;
+  margin-bottom:13px;
+}
+footer p {
+  color:#b7c8d2;
+  font-size:14px;
+  line-height:1.65;
+  font-weight:600;
+  max-width:430px;
+}
+footer ul {
+  list-style:none;
+  display:grid;
+  gap:8px;
+  color:#b7c8d2;
+  font-size:14px;
+  font-weight:650;
+}
+.footer-copy {
+  max-width:1180px;
+  margin:0 auto;
+  border-top:1px solid rgba(255,255,255,.12);
+  padding-top:18px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  color:#96a8b4;
+  font-size:13px;
+  font-weight:700;
+}
+.wp-float, .ia-float {
+  position:fixed;
+  right:22px;
+  z-index:200;
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:29px;
+  box-shadow:0 14px 30px rgba(0,0,0,.22);
+  cursor:pointer;
+  transition:.25s;
+  border:none;
+}
+.wp-float {
+  bottom:22px;
+  border-radius:50%;
+  background:#25d366;
+}
+.ia-float {
+  bottom:90px;
+  border-radius:18px;
+  background:linear-gradient(135deg,var(--celeste),var(--azul));
+}
+.wp-float:hover, .ia-float:hover {
+  transform:scale(1.06);
+}
+.chatbot {
+  position:fixed;
+  right:22px;
+  bottom:160px;
+  width:360px;
+  max-width:calc(100vw - 32px);
+  background:#fff;
+  border:1px solid var(--gris-borde);
+  box-shadow:0 22px 55px rgba(4,49,82,.24);
+  z-index:300;
+  display:none;
+  overflow:hidden;
+  border-radius:18px;
+}
+.chatbot.activo {
+  display:block;
+}
+.chat-head {
+  background:linear-gradient(135deg,var(--azul),var(--celeste));
+  color:#fff;
+  padding:16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.chat-head strong {
+  display:block;
+  font-size:16px;
+  line-height:1;
+}
+.chat-head span {
+  display:block;
+  margin-top:4px;
+  font-size:12px;
+  opacity:.9;
+  font-weight:700;
+}
+.chat-close {
+  border:none;
+  background:rgba(255,255,255,.18);
+  color:#fff;
+  width:34px;
+  height:34px;
+  cursor:pointer;
+  font-size:22px;
+  border-radius:8px;
+}
+.chat-body {
+  height:310px;
+  overflow-y:auto;
+  padding:16px;
+  background:#f7fbfe;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.msg {
+  max-width:88%;
+  padding:11px 13px;
+  font-size:14px;
+  line-height:1.45;
+  font-weight:650;
+  border-radius:14px;
+}
+.bot {
+  background:#fff;
+  color:#244150;
+  border:1px solid #dfeef6;
+  align-self:flex-start;
+}
+.user {
+  background:var(--azul);
+  color:#fff;
+  align-self:flex-end;
+}
+.preguntas {
+  padding:12px 16px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  background:#fff;
+  border-top:1px solid var(--gris-borde);
+}
+.preguntas button {
+  border:1px solid #cfe7f5;
+  background:#eaf8ff;
+  color:var(--azul);
+  padding:8px 10px;
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+  border-radius:999px;
+}
+.chat-input {
+  display:flex;
+  gap:8px;
+  padding:12px;
+  border-top:1px solid var(--gris-borde);
+  background:#fff;
+}
+.chat-input input {
+  flex:1;
+  border:1px solid #d7e8f2;
+  padding:12px;
+  font-family:inherit;
+  font-size:14px;
+  outline:none;
+  border-radius:10px;
+}
+.chat-input button {
+  border:none;
+  background:var(--azul);
+  color:#fff;
+  width:46px;
+  font-size:19px;
+  cursor:pointer;
+  border-radius:10px;
+}
+
+.banner-maipu-section {
+  width:100%;
+  padding:28px 5vw;
+  background:#f4f8fb;
+  display:flex;
+  justify-content:center;
+}
+.banner-maipu-link {
+  display:block;
+  width:100%;
+  max-width:1180px;
+  height:190px;
+  overflow:hidden;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 14px 34px rgba(5,45,79,.12);
+  transition:.25s ease;
+}
+.banner-maipu-link:hover {
+  transform:translateY(-3px);
+  box-shadow:0 20px 44px rgba(5,45,79,.18);
+}
+.banner-maipu-link img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+@media(max-width:768px) {
+  .banner-maipu-section {
+    padding:18px 16px;
+  }
+  .banner-maipu-link {
+    height:150px;
+    border-radius:12px;
+  }
+}
+@media(max-width:480px) {
+  .banner-maipu-link {
+    height:125px;
+  }
+}
+
+@media(max-width:1120px) {
+  .menu {
+    gap:16px;
+    font-size:13px;
+  }
+  .iconos-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+  .emergencias-grid {
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+@media(max-width:930px) {
+  .topbar {
+    justify-content:center;
+    text-align:center;
+  }
+  .topbar-left, .topbar-right {
+    justify-content:center;
+  }
+  .menu, .acciones .btn-blanco {
+    display:none;
+  }
+  .menu-mobile {
+    display:block;
+  }
+  .hero-content {
+    min-height:500px;
+  }
+  .quick-strip-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+  .section-head, .emergencias-head {
+    display:block;
+  }
+  .section-head p, .emergencias-head p {
+    margin-top:14px;
+  }
+  .news-grid, .contact-grid, .footer-grid {
+    grid-template-columns:1fr;
+  }
+  .contact-card {
+    border-right:1px solid var(--gris-borde);
+  }
+}
+@media(max-width:640px) {
+  .ticker {
+    height:30px;
+  }
+  .ticker span {
+    font-size:11px;
+    padding:0 20px;
+  }
+  .topbar {
+    padding:8px 18px;
+    font-size:12px;
+  }
+  .nav {
+    padding:12px 18px;
+    min-height:78px;
+  }
+  .brand img {
+    width:94px;
+  }
+  .acciones .btn-azul {
+    display:none;
+  }
+  .hero {
+    min-height:auto;
+  }
+  .hero-content {
+    min-height:auto;
+    padding:64px 20px 80px;
+  }
+  .hero h1 {
+    font-size:42px;
+  }
+  .hero p {
+    font-size:16px;
+  }
+  .hero-actions .btn {
+    width:100%;
+  }
+  .hero-arrow {
+    width:38px;
+    height:38px;
+    font-size:18px;
+  }
+  .hero-arrow.prev {
+    left:10px;
+  }
+  .hero-arrow.next {
+    right:10px;
+  }
+  .quick-strip-grid, .iconos-grid, .emergencias-grid {
+    grid-template-columns:1fr;
+  }
+  .section, .emergencias {
+    padding:52px 20px;
+  }
+  h2 {
+    font-size:32px;
+  }
+  .news-img {
+    height:205px;
+  }
+  .chatbot {
+    right:16px;
+    bottom:148px;
+  }
+  .wp-float {
+    width:54px;
+    height:54px;
+    right:16px;
+    bottom:16px;
+  }
+  .ia-float {
+    width:54px;
+    height:54px;
+    right:16px;
+    bottom:82px;
+  }
+}
+  </style>
+ </head>
+ <body>
+  <div class="ticker">
+   <div class="ticker-track">
+    <span>
+     Maipú crece con vos
+    </span>
+    <span>
+     Maipú crece con vos
+    </span>
+    <span>
+     Maipú crece con vos
+    </span>
+    <span>
+     Maipú crece con vos
+    </span>
+    <span>
+     Maipú crece con vos
+    </span>
+    <span>
+     Maipú crece con vos
+    </span>
+    <span>
+     Maipú crece con vos
+    </span>
+    <span>
+     Maipú crece con vos
+    </span>
+   </div>
+  </div>
+  <div class="topbar">
+   <div class="topbar-left">
+    <span>
+     <i class="bi bi-geo-alt">
+     </i>
+     Pablo Pescara 190, Maipú, Mendoza
+    </span>
+    <span>
+     <i class="bi bi-clock">
+     </i>
+     Lun-Vie 8:00 a 18:00 hs.
+    </span>
+    <span>
+     <i class="bi bi-telephone">
+     </i>
+     0800 222 8030
+    </span>
+   </div>
+   <div class="topbar-right">
+    <a href="https://wa.me/542617166619" target="_blank">
+     <i class="bi bi-whatsapp">
+     </i>
+     WhatsApp 261 716-6619
+    </a>
+    <div class="socials">
+     <a href="#">
+      <i class="bi bi-facebook">
+      </i>
+     </a>
+     <a href="#">
+      <i class="bi bi-instagram">
+      </i>
+     </a>
+     <a href="#">
+      <i class="bi bi-youtube">
+      </i>
+     </a>
+     <a href="#">
+      <i class="bi bi-envelope">
+      </i>
+     </a>
+    </div>
+   </div>
+  </div>
+  <header class="header">
+   <nav class="nav">
+    <a class="brand" href="#">
+     <img alt="Maipú Crece" src="assets/img/logo-maipu.png"/>
+    </a>
+    <div class="menu">
+     <a class="activo" href="#">
+      Inicio
+     </a>
+     <a href="#iconos">
+      Licencia de Conducir
+     </a>
+     <a href="#iconos">
+      Rentas
+     </a>
+     <a href="#noticias">
+      Noticias
+     </a>
+     <a href="#iconos">
+      Salud
+     </a>
+     <a href="#iconos">
+      Educación
+     </a>
+     <a href="#turismo">
+      Turismo
+     </a>
+     <a href="#contacto">
+      Contacto
+     </a>
+    </div>
+    <div class="acciones">
+     <a class="btn btn-blanco" href="#">
+      <i class="bi bi-search">
+      </i>
+      Buscar
+     </a>
+     <a class="btn btn-azul" href="#">
+      <i class="bi bi-credit-card-2-front-fill">
+      </i>
+      Pago en línea
+     </a>
+     <div class="menu-mobile">
+      <i class="bi bi-list">
+      </i>
+     </div>
+    </div>
+   </nav>
+  </header>
+  <main>
+   <section class="hero">
+    <div class="hero-slide slide-1 active">
+    </div>
+    <div class="hero-slide slide-2">
+    </div>
+    <div class="hero-slide slide-3">
+    </div>
+    <button aria-label="Anterior" class="hero-arrow prev" id="prevSlide">
+     <i class="bi bi-chevron-left">
+     </i>
+    </button>
+    <button aria-label="Siguiente" class="hero-arrow next" id="nextSlide">
+     <i class="bi bi-chevron-right">
+     </i>
+    </button>
+    <div class="hero-content">
+     <div class="hero-text">
+      <h1>
+       Maipú más cerca, simple y conectado.
+      </h1>
+      <p>
+       Servicios y trámites más ágiles para  <br>construir juntos un mejor Maipú.
+      </p>
+      <div class="hero-actions">
+       <a class="btn btn-verde" href="#iconos">
+        <i class="bi bi-file-earmark-text">
+        </i>
+        Iniciar trámite
+       </a>
+       <a class="btn btn-azul" href="#">
+        <i class="bi bi-credit-card-2-front-fill">
+        </i>
+        Pago en línea
+       </a>
+       <a class="btn btn-naranja" href="#contacto">
+        <i class="bi bi-person-lines-fill">
+        </i>
+        Atención al vecino
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="hero-dots" id="heroDots">
+     <button aria-label="Slide 1" class="active">
+     </button>
+     <button aria-label="Slide 2">
+     </button>
+     <button aria-label="Slide 3">
+     </button>
+    </div>
+   </section>
+   <section class="quick-strip">
+    <div class="quick-strip-grid">
+     <a class="quick-strip-card" href="#iconos">
+      <i class="bi bi-mortarboard-fill">
+      </i>
+      <div>
+       <strong>
+        Educación
+       </strong>
+       <span>
+        Escuelas, jardines y programas
+       </span>
+      </div>
+     </a>
+     <a class="quick-strip-card" href="#emergencias">
+      <i class="bi bi-shield-check">
+      </i>
+      <div>
+       <strong>
+        Seguridad
+       </strong>
+       <span>
+        Emergencias y prevención
+       </span>
+      </div>
+     </a>
+     <a class="quick-strip-card" href="#iconos">
+      <i class="bi bi-heart-pulse-fill">
+      </i>
+      <div>
+       <strong>
+        Salud
+       </strong>
+       <span>
+        Atención y campañas
+       </span>
+      </div>
+     </a>
+     <a class="quick-strip-card" href="#iconos">
+      <i class="bi bi-bus-front-fill">
+      </i>
+      <div>
+       <strong>
+        Transporte
+       </strong>
+       <span>
+        Líneas y recorridos
+       </span>
+      </div>
+     </a>
+    </div>
+   </section>
+
+   
+   <section class="section section-light" id="noticias">
+    <div class="section-head">
+     <div>
+
+      
+      <div class="eyebrow">
+       Novedades
+      </div>
+      <h2>
+       Noticias destacadas
+      </h2>
+     </div>
+     <p>
+      Información oficial, servicios, eventos y actividades.
+     </p>
+    </div>
+    <div class="news-grid">
+     <article class="news-card">
+      <div class="news-img n1">
+      </div>
+      <div class="news-body">
+       <span class="pill">
+        <i class="bi bi-exclamation-triangle-fill">
+        </i>
+        Salud y prevención
+       </span>
+       <h3>
+        Maipú Municipio brinda recomendaciones para cuidarse del monóxido de carbono
+       </h3>
+       <p>
+        Consejos importantes para prevenir intoxicaciones durante los días fríos.
+       </p>
+       <div class="news-footer">
+        <span>
+         <i class="bi bi-calendar3">
+         </i>
+         Mayo 2026
+        </span>
+        <a href="#">
+         Leer más
+         <i class="bi bi-arrow-right">
+         </i>
+        </a>
+       </div>
+      </div>
+     </article>
+     <article class="news-card">
+      <div class="news-img n2">
+      </div>
+      <div class="news-body">
+       <span class="pill">
+        <i class="bi bi-cone-striped">
+        </i>
+        Obras
+       </span>
+       <h3>
+        Maipú inauguró un nuevo playón deportivo en El Pedregal
+       </h3>
+       <p>
+        Un nuevo espacio comunitario para el deporte, la recreación y el encuentro vecinal.
+       </p>
+       <div class="news-footer">
+        <span>
+         <i class="bi bi-calendar3">
+         </i>
+         Mayo 2026
+        </span>
+        <a href="#">
+         Leer más
+         <i class="bi bi-arrow-right">
+         </i>
+        </a>
+       </div>
+      </div>
+     </article>
+     <article class="news-card">
+      <div class="news-img n3">
+      </div>
+      <div class="news-body">
+       <span class="pill">
+        <i class="bi bi-heart-pulse-fill">
+        </i>
+        Salud animal
+       </span>
+       <h3>
+        Salud animal: Maipú amplía su red de atención y prevención para mascotas
+       </h3>
+       <p>
+        Servicios de cuidado, prevención, vacunación y atención para animales.
+       </p>
+       <div class="news-footer">
+        <span>
+         <i class="bi bi-calendar3">
+         </i>
+         Abril 2026
+        </span>
+        <a href="#">
+         Leer más
+         <i class="bi bi-arrow-right">
+         </i>
+        </a>
+       </div>
+      </div>
+     </article>
+    </div>
+   </section>
+
+   <!-- BANNER CENTRADO -->
+   <section class="banner-maipu-section">
+    <a class="banner-maipu-link" href="https://docs.google.com/forms/d/e/1FAIpQLSey439WBoaEj4unjMOIIUVw8FTubTXilxSA7C4xsGIkXgadVw/viewform" target="_blank">
+     <img alt="Banner Municipalidad de Maipú" src="assets/img/banner.jpeg"/>
+    </a>
+   </section>
+
+   <section class="section section-gray" id="iconos">
+    <div class="section-head">
+     <div>
+      <div class="eyebrow">
+       Accesos municipales
+      </div>
+      <h2>
+       Trámites, servicios y áreas
+      </h2>
+     </div>
+     <p>
+      Accesos claros para que vecinos y vecinas encuentren rápido la información que necesitan.
+     </p>
+    </div>
+    <div class="iconos-grid">
+     <a class="icon-card" href="#">
+      <i class="bi bi-car-front-fill">
+      </i>
+      <h3>
+       Licencia de Conducir
+      </h3>
+      <p>
+       Requisitos, renovación, turnos y consultas sobre licencias.
+      </p>
+     </a>
+     <a class="icon-card" href="#">
+      <i class="bi bi-bank2">
+      </i>
+      <h3>
+       Rentas
+      </h3>
+      <p>
+       Consultas tributarias, tasas municipales y gestiones online.
+      </p>
+     </a>
+     <a class="icon-card" href="#noticias">
+      <i class="bi bi-newspaper">
+      </i>
+      <h3>
+       Noticias
+      </h3>
+      <p>
+       Novedades oficiales, campañas, obras, eventos y comunicados.
+      </p>
+     </a>
+     <a class="icon-card" href="#">
+      <i class="bi bi-heart-pulse-fill">
+      </i>
+      <h3>
+       Salud
+      </h3>
+      <p>
+       Centros de atención, campañas sanitarias y prevención.
+      </p>
+     </a>
+     <a class="icon-card" href="#">
+      <i class="bi bi-mortarboard-fill">
+      </i>
+      <h3>
+       Educación
+      </h3>
+      <p>
+       Programas, cursos, talleres, escuelas, jardines y becas.
+      </p>
+     </a>
+     <a class="icon-card" href="#turismo">
+      <i class="bi bi-camera-fill">
+      </i>
+      <h3>
+       Turismo
+      </h3>
+      <p>
+       Historia, cultura, bodegas, paseos y puntos de interés.
+      </p>
+     </a>
+     <a class="icon-card" href="#">
+      <i class="bi bi-geo-alt-fill">
+      </i>
+      <h3>
+       Delegaciones
+      </h3>
+      <p>
+       Atención territorial, trámites y servicios por distrito.
+      </p>
+     </a>
+     <a class="icon-card" href="#">
+      <i class="bi bi-theater-masks">
+      </i>
+      <h3>
+       Teatro Imperial
+      </h3>
+      <p>
+       Agenda cultural, espectáculos, cine y actividades artísticas.
+      </p>
+     </a>
+    </div>
+   </section>
+   <section class="section" id="turismo">
+    <div class="section-head">
+     <div>
+      <div class="eyebrow">
+       Turismo y ciudad
+      </div>
+      <h2>
+       Conocé Maipú
+      </h2>
+     </div>
+     <p>
+      Un espacio para destacar lugares turísticos, historia, cultura, bodegas y puntos de interés.
+     </p>
+    </div>
+    <div class="iconos-grid">
+     <article class="icon-card">
+      <i class="bi bi-cup-straw">
+      </i>
+      <h3>
+       Camino del vino
+      </h3>
+      <p>
+       Maipú es parte esencial de la identidad vitivinícola de Mendoza.
+      </p>
+     </article>
+     <article class="icon-card">
+      <i class="bi bi-tree-fill">
+      </i>
+      <h3>
+       Espacios verdes
+      </h3>
+      <p>
+       Plazas, parques y espacios para disfrutar en comunidad.
+      </p>
+     </article>
+     <article class="icon-card">
+      <i class="bi bi-building-fill">
+      </i>
+      <h3>
+       Patrimonio
+      </h3>
+      <p>
+       Historia, cultura, museos y edificios representativos.
+      </p>
+     </article>
+     <article class="icon-card">
+      <i class="bi bi-calendar-event-fill">
+      </i>
+      <h3>
+       Agenda
+      </h3>
+      <p>
+       Eventos, actividades, propuestas culturales y deportivas.
+      </p>
+     </article>
+    </div>
+   </section>
+   <section class="contact-strip" id="contacto">
+    <div class="contact-grid">
+     <div class="contact-card">
+      <i class="bi bi-headset">
+      </i>
+      <div>
+       <strong>
+        Atención al Vecino
+       </strong>
+       <span>
+        Estamos para ayudarte de lunes a viernes.
+       </span>
+      </div>
+     </div>
+     <div class="contact-card">
+      <i class="bi bi-whatsapp">
+      </i>
+      <div>
+       <strong>
+        WhatsApp
+       </strong>
+       <span>
+        261 716-6619 · Consultas rápidas.
+       </span>
+      </div>
+     </div>
+     <div class="contact-card">
+      <i class="bi bi-geo-alt-fill">
+      </i>
+      <div>
+       <strong>
+        Pablo Pescara 190
+       </strong>
+       <span>
+        Ciudad de Maipú, Mendoza.
+       </span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="emergencias" id="emergencias">
+    <div class="emergencias-wrap">
+     <div class="emergencias-head">
+      <div>
+       <div class="eyebrow">
+        Teléfonos útiles
+       </div>
+       <h2>
+        Emergencias
+       </h2>
+      </div>
+      <p>
+       Canales de contacto visibles para situaciones urgentes y atención ciudadana.
+      </p>
+     </div>
+     <div class="emergencias-grid">
+      <article class="emergencia-card">
+       <i class="bi bi-telephone-inbound-fill">
+       </i>
+       <h3>
+        Emergencias
+       </h3>
+       <strong>
+        911
+       </strong>
+      </article>
+      <article class="emergencia-card">
+       <i class="bi bi-person-heart">
+       </i>
+       <h3>
+        Violencia de Género
+       </h3>
+       <strong>
+        144
+       </strong>
+      </article>
+      <article class="emergencia-card">
+       <i class="bi bi-shield-fill-check">
+       </i>
+       <h3>
+        Maltrato Infantil
+       </h3>
+       <strong>
+        102
+       </strong>
+      </article>
+      <article class="emergencia-card">
+       <i class="bi bi-headset">
+       </i>
+       <h3>
+        Atención Ciudadana
+       </h3>
+       <strong>
+        147
+       </strong>
+       <span>
+        0800 222 7800
+       </span>
+      </article>
+      <article class="emergencia-card">
+       <i class="bi bi-fire">
+       </i>
+       <h3>
+        Bomberos
+       </h3>
+       <strong>
+        100
+       </strong>
+       <span>
+        0261 - 4980999
+       </span>
+      </article>
+      <article class="emergencia-card">
+       <i class="bi bi-exclamation-triangle-fill">
+       </i>
+       <h3>
+        Defensa Civil
+       </h3>
+       <strong>
+        103
+       </strong>
+       <span>
+        0261 - 4987647
+       </span>
+      </article>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="footer-grid">
+    <div>
+     <div class="footer-brand">
+      <img alt="Maipú Crece" src="assets/img/logo-maipu.png"/>
+     </div>
+     <p>
+      Portal municipal para acercar trámites, servicios, noticias, atención ciudadana e información útil a vecinos y vecinas.
+     </p>
+    </div>
+    <div>
+     <h3>
+      Trámites
+     </h3>
+     <ul>
+      <li>
+       Pago en Línea
+      </li>
+      <li>
+       Rentas
+      </li>
+      <li>
+       Licencia de Conducir
+      </li>
+      <li>
+       Guía de Trámites
+      </li>
+     </ul>
+    </div>
+    <div>
+     <h3>
+      Municipio
+     </h3>
+     <ul>
+      <li>
+       Noticias
+      </li>
+      <li>
+       Delegaciones
+      </li>
+      <li>
+       Transparencia
+      </li>
+      <li>
+       Datos Abiertos
+      </li>
+     </ul>
+    </div>
+    <div>
+     <h3>
+      Ciudad
+     </h3>
+     <ul>
+      <li>
+       Salud
+      </li>
+      <li>
+       Educación
+      </li>
+      <li>
+       Turismo
+      </li>
+      <li>
+       Teatro Imperial
+      </li>
+     </ul>
+    </div>
+   </div>
+   <div class="footer-copy">
+    <span>
+     Municipalidad de Maipú · Mendoza
+    </span>
+    <span>
+     Maipú crece con vos
+    </span>
+   </div>
+  </footer>
+  <button aria-label="Asistente IA" class="ia-float" id="abrirChat">
+   <i class="bi bi-robot">
+   </i>
+  </button>
+  <a aria-label="WhatsApp" class="wp-float" href="https://wa.me/542617166619" target="_blank">
+   <i class="bi bi-whatsapp">
+   </i>
+  </a>
+  <div class="chatbot" id="chatbot">
+   <div class="chat-head">
+    <div>
+     <strong>
+      Asistente IA Municipal
+     </strong>
+     <span>
+      Orientación rápida para vecinos
+     </span>
+    </div>
+    <button class="chat-close" id="cerrarChat">
+     ×
+    </button>
+   </div>
+   <div class="chat-body" id="chatBody">
+    <div class="msg bot">
+     Hola, soy el asistente virtual de Maipú. Puedo orientarte sobre pagos, rentas, licencia, salud, educación, turismo, delegaciones y teléfonos útiles.
+    </div>
+   </div>
+   <div class="preguntas">
+    <button data-question="¿Dónde pago tasas municipales?">
+     Pago en línea
+    </button>
+    <button data-question="¿Cómo renuevo la licencia de conducir?">
+     Licencia
+    </button>
+    <button data-question="¿Dónde consulto rentas?">
+     Rentas
+    </button>
+    <button data-question="¿Qué teléfonos de emergencia hay?">
+     Emergencias
+    </button>
+    <button data-question="¿Dónde queda la Municipalidad?">
+     Ubicación
+    </button>
+   </div>
+   <div class="chat-input">
+    <input id="chatInput" placeholder="Escribí tu consulta..." type="text"/>
+    <button id="enviarChat">
+     <i class="bi bi-send-fill">
+     </i>
+    </button>
+   </div>
+  </div>
+  <script>
+   const slides = document.querySelectorAll(".hero-slide");
+const dots = document.querySelectorAll("#heroDots button");
+const prevSlide = document.getElementById("prevSlide");
+const nextSlide = document.getElementById("nextSlide");
+let slideActual = 0;
+function mostrarSlide(index){
+  slides.forEach(slide => slide.classList.remove("active"));
+  dots.forEach(dot => dot.classList.remove("active"));
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+  slideActual = index;
+} function siguienteSlide(){
+  let nuevo = slideActual + 1;
+  if(nuevo >= slides.length){
+    nuevo = 0;
+  } mostrarSlide(nuevo);
+} function anteriorSlide(){
+  let nuevo = slideActual - 1;
+  if(nuevo < 0){
+    nuevo = slides.length - 1;
+  } mostrarSlide(nuevo);
+} nextSlide.addEventListener("click", siguienteSlide);
+prevSlide.addEventListener("click", anteriorSlide);
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => mostrarSlide(index));
+});
+setInterval(siguienteSlide, 5500);
+const abrirChat = document.getElementById("abrirChat");
+const cerrarChat = document.getElementById("cerrarChat");
+const chatbot = document.getElementById("chatbot");
+const chatBody = document.getElementById("chatBody");
+const chatInput = document.getElementById("chatInput");
+const enviarChat = document.getElementById("enviarChat");
+const preguntas = document.querySelectorAll(".preguntas button");
+abrirChat.addEventListener("click", () => {
+  chatbot.classList.toggle("activo");
+  chatInput.focus();
+});
+cerrarChat.addEventListener("click", () => {
+  chatbot.classList.remove("activo");
+});
+preguntas.forEach((boton) => {
+  boton.addEventListener("click", () => {
+    enviarMensaje(boton.dataset.question);
+  });
+});
+enviarChat.addEventListener("click", () => {
+  enviarMensaje(chatInput.value);
+});
+chatInput.addEventListener("keypress", (e) => {
+  if(e.key === "Enter"){
+    enviarMensaje(chatInput.value);
+  }
+});
+function agregarMensaje(texto, tipo){
+  const div = document.createElement("div");
+  div.className = "msg " + tipo;
+  div.innerHTML = texto;
+  chatBody.appendChild(div);
+  chatBody.scrollTop = chatBody.scrollHeight;
+} function enviarMensaje(texto){
+  const pregunta = texto.trim();
+  if(!pregunta){
+    return;
+  } agregarMensaje(pregunta, "user");
+  chatInput.value = "";
+  setTimeout(() => {
+    agregarMensaje(responder(pregunta), "bot");
+  }, 350);
+} function responder(texto){
+  const t = texto.toLowerCase();
+  if(t.includes("pago") || t.includes("pagar") || t.includes("tasas")){
+    return "Para pagos municipales, usá el acceso <b>Pago en Línea</b>. Ahí podés consultar tasas, servicios y deudas disponibles.";
+  } if(t.includes("licencia") || t.includes("conducir") || t.includes("carnet")){
+    return "Para licencia de conducir, ingresá a <b>Licencia de Conducir</b>. Allí se pueden consultar requisitos, renovación y turnos.";
+  } if(t.includes("renta") || t.includes("rentas")){
+    return "Para consultas tributarias, entrá en <b>Rentas</b>. Podés revisar información sobre tasas, pagos y gestiones municipales.";
+  } if(t.includes("salud") || t.includes("médico") || t.includes("medico")){
+    return "En el área de <b>Salud</b> se puede informar sobre centros de atención, campañas sanitarias y prevención.";
+  } if(t.includes("educacion") || t.includes("educación") || t.includes("escuela")){
+    return "En <b>Educación</b> podés encontrar programas, talleres, cursos, escuelas, jardines y becas.";
+  } if(t.includes("turismo") || t.includes("bodega") || t.includes("conocer")){
+    return "En la sección <b>Turismo</b> podés encontrar información sobre historia, cultura, bodegas y puntos de interés de Maipú.";
+  } if(t.includes("delegacion") || t.includes("delegación") || t.includes("delegaciones")){
+    return "En <b>Delegaciones</b> podés consultar atención territorial, trámites y servicios por distrito.";
+  } if(t.includes("teatro") || t.includes("imperial")){
+    return "En <b>Teatro Imperial</b> se puede mostrar agenda cultural, espectáculos, cine y actividades artísticas.";
+  } if(t.includes("emergencia") || t.includes("bombero") || t.includes("defensa") || t.includes("violencia")){
+    return "Teléfonos útiles:<br><b>Emergencias:</b> 911<br><b>Violencia de Género:</b> 144<br><b>Maltrato Infantil:</b> 102<br><b>Bomberos:</b> 100 / 0261 - 4980999<br><b>Defensa Civil:</b> 103 / 0261 - 4987647.";
+  } if(t.includes("ubicacion") || t.includes("ubicación") || t.includes("direccion") || t.includes("dirección")){
+    return "La Municipalidad de Maipú se encuentra en <b>Pablo Pescara 190, Ciudad de Maipú, Mendoza</b>.";
+  } return "Puedo orientarte sobre <b>Pago en Línea, Rentas, Licencia de Conducir, Salud, Educación, Turismo, Delegaciones, Teatro Imperial, Emergencias y ubicación</b>.";
+}
+  </script>
+ </body>
+</html>
