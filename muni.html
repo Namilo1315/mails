@@ -1,0 +1,3580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Municipalidad de Maipú</title>
+  <meta name="description" content="Portal municipal de Maipú, Mendoza. Trámites, servicios, noticias, atención ciudadana y teléfonos útiles." />
+  <link rel="icon" type="image/png" href="assets/img/logo-maipu.png">
+  <link rel="apple-touch-icon" href="assets/img/logo-maipu.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --azul: #0076bd;
+      --azul-2: #13a8e2;
+      --azul-oscuro: #071f36;
+      --azul-profundo: #062d4f;
+      --verde: #70bf36;
+      --naranja: #f69a13;
+      --amarillo: #ffd166;
+      --blanco: #ffffff;
+      --gris: #f4f8fb;
+      --gris-2: #eef6fb;
+      --borde: #dceaf3;
+      --texto: #112c42;
+      --muted: #667986;
+      --shadow: 0 18px 45px rgba(5, 45, 79, .13);
+      --shadow-soft: 0 10px 28px rgba(5, 45, 79, .09);
+      --radius: 18px;
+      --container: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      background: #fff;
+      color: var(--texto);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* AVISO SUPERIOR */
+    .notice {
+      background: linear-gradient(90deg, #f69a13, #f6b13d);
+      color: #fff;
+      padding: 10px 0;
+      position: relative;
+      z-index: 250;
+    }
+
+    .notice.oculto {
+      display: none;
+    }
+
+    .notice-inner {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .notice-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .notice-text span {
+      background: rgba(0, 0, 0, .16);
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .notice-close {
+      border: 0;
+      background: rgba(255, 255, 255, .18);
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+    }
+
+    .notice-close i {
+      margin: 0;
+      line-height: 1;
+    }
+
+    /* TICKER */
+    .ticker {
+      height: 26px;
+      overflow: hidden;
+      background: linear-gradient(90deg, #0069a9, #13a8e2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      white-space: nowrap;
+      animation: ticker 32s linear infinite;
+    }
+
+    .ticker span {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 34px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .ticker span::after {
+      content: "";
+      width: 5px;
+      height: 5px;
+      background: #fff;
+      opacity: .85;
+      border-radius: 50%;
+      margin-left: 34px;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* TOPBAR */
+    .topbar {
+      background: var(--azul-oscuro);
+      color: #d9ebf6;
+      padding: 10px 0;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .topbar-inner {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-left,
+    .topbar-right,
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .topbar i {
+      color: var(--azul-2);
+      margin-right: 6px;
+    }
+
+    .topbar a {
+      color: #fff;
+    }
+
+    .socials {
+      gap: 10px;
+    }
+
+    .socials a {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .12);
+      transition: .25s;
+      line-height: 1;
+    }
+
+    .socials a i {
+      margin: 0 !important;
+      color: #fff;
+      line-height: 1;
+      font-size: 15px;
+      display: block;
+    }
+
+    .socials a:hover {
+      background: var(--azul);
+      transform: translateY(-2px);
+    }
+
+    /* HEADER */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .08);
+    }
+
+    .nav {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: max-content;
+    }
+
+    .brand img {
+      width: 102px;
+      height: auto;
+      object-fit: contain;
+     
+    }
+
+    .brand-text {
+      display: grid;
+      line-height: 1.05;
+    }
+
+    .brand-text strong {
+      color: var(--azul-profundo);
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 900;
+      color: #152f45;
+      flex: 1;
+    }
+
+    .menu a {
+      position: relative;
+      padding: 10px 0;
+      white-space: nowrap;
+    }
+
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--azul), var(--verde));
+      border-radius: 99px;
+      transition: .25s;
+    }
+
+    .menu a:hover::after,
+    .menu a.activo::after {
+      width: 100%;
+    }
+
+    .acciones {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 18px;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: .25s;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn i {
+      line-height: 1;
+    }
+
+    .btn-azul {
+      background: var(--azul);
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(0, 118, 189, .25);
+    }
+
+    .btn-verde {
+      background: var(--verde);
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(112, 191, 54, .25);
+    }
+
+    .btn-naranja {
+      background: var(--naranja);
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(246, 154, 19, .25);
+    }
+
+    .btn-blanco {
+      background: #fff;
+      color: var(--azul);
+      border: 1px solid rgba(0, 118, 189, .25);
+    }
+
+    .menu-mobile {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--borde);
+      background: #fff;
+      color: var(--azul);
+      border-radius: 12px;
+      font-size: 27px;
+      cursor: pointer;
+      place-items: center;
+      line-height: 1;
+    }
+
+    .menu-mobile i {
+      margin: 0;
+      line-height: 1;
+    }
+
+    /* HERO CARRUSEL */
+    .hero {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      color: #fff;
+      background: #07375c;
+      isolation: isolate;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+      transition: opacity .85s ease;
+      z-index: -3;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    .hero-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(5, 35, 58, .95) 0%, rgba(5, 63, 102, 0) 42%, rgba(0, 117, 189, .16) 100%),
+        radial-gradient(circle at 80% 16%, rgba(112, 191, 54, .30), transparent 32%);
+      z-index: 1;
+    }
+
+    .slide-1 {
+      background-image: url("assets/img/portada.png");
+    }
+
+    .slide-2 {
+      background-image: url("assets/img/portada.png");
+    }
+
+    .slide-3 {
+      background-image: url("assets/img/portada.png");
+    }
+
+    .hero-content {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      padding: 68px 0 108px;
+      position: relative;
+      z-index: 4;
+    }
+
+    .hero-text {
+      max-width: 760px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .22);
+      backdrop-filter: blur(10px);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 18px;
+    }
+
+    .hero-badge i {
+      line-height: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.01;
+      letter-spacing: -.065em;
+      font-weight: 900;
+      margin-bottom: 18px;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, .28);
+    }
+
+    .hero h1 span {
+      color: #b6f08d;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.55;
+      color: #eef9ff;
+      max-width: 650px;
+      font-weight: 750;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 8;
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(7, 31, 54, .72);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .hero-arrow i {
+      margin: 0;
+      line-height: 1;
+    }
+
+    .hero-arrow:hover {
+      background: var(--azul);
+    }
+
+    .hero-arrow.prev {
+      left: 20px;
+    }
+
+    .hero-arrow.next {
+      right: 20px;
+    }
+
+    .hero-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 54px;
+      transform: translateX(-50%);
+      z-index: 8;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-dots button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: transparent;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .hero-dots button.active {
+      width: 30px;
+      border-radius: 99px;
+      background: #fff;
+    }
+
+    .hero-wave {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 60px;
+      z-index: 7;
+      pointer-events: none;
+    }
+
+    .hero-wave svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ACCESOS RAPIDOS */
+    .quick-strip {
+      background:
+        radial-gradient(circle at 10% 0%, rgba(19, 168, 226, .10), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #f5fbff 100%);
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(220, 234, 243, .9);
+      box-shadow: 0 10px 26px rgba(5, 45, 79, .05);
+    }
+
+    .quick-strip-grid {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .quick-strip-card {
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 18px 12px;
+      border-radius: 22px;
+      border: 1px solid rgba(220, 234, 243, .95);
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 12px 26px rgba(5, 45, 79, .08);
+      transition: .25s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quick-strip-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(19, 168, 226, .16), transparent 45%);
+      opacity: 0;
+      transition: .25s ease;
+    }
+
+    .quick-strip-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 118, 189, .25);
+      box-shadow: 0 18px 36px rgba(5, 45, 79, .14);
+    }
+
+    .quick-strip-card:hover::before {
+      opacity: 1;
+    }
+
+    .quick-strip-card i {
+      width: 58px;
+      height: 58px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      font-size: 29px;
+      flex: 0 0 auto;
+      margin: 0;
+      line-height: 1;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 12px 24px rgba(5, 45, 79, .16);
+    }
+
+    .quick-strip-card strong {
+      display: block;
+      font-size: 14px;
+      color: #102a40;
+      line-height: 1.15;
+      font-weight: 900;
+      position: relative;
+      z-index: 1;
+    }
+
+    .quick-strip-card:nth-child(1) i,
+    .quick-strip-card:nth-child(4) i {
+      background: linear-gradient(135deg, var(--azul-2), var(--azul));
+    }
+
+    .quick-strip-card:nth-child(2) i,
+    .quick-strip-card:nth-child(6) i {
+      background: linear-gradient(135deg, #9bd84c, var(--verde));
+    }
+
+    .quick-strip-card:nth-child(3) i,
+    .quick-strip-card:nth-child(5) i {
+      background: linear-gradient(135deg, #ffb43b, var(--naranja));
+    }
+
+    /* SECCIONES */
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-light {
+      background: linear-gradient(180deg, #f6fbff, #fff);
+    }
+
+    .section-gray {
+      background: #f4f8fb;
+    }
+
+    .section-head {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      color: var(--azul);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 13px;
+      font-weight: 1000;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 1;
+      letter-spacing: -.06em;
+      font-weight: 900;
+      color: var(--azul-profundo);
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 88px;
+      height: 5px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--azul), var(--verde), var(--naranja));
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 540px;
+      font-weight: 650;
+      line-height: 1.65;
+    }
+
+    .cards-grid {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .icon-card {
+      background: #fff;
+      border: 1px solid var(--borde);
+      border-radius: var(--radius);
+      padding: 22px;
+      min-height: 168px;
+      box-shadow: var(--shadow-soft);
+      transition: .25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .icon-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 5px;
+      width: 100%;
+      background: linear-gradient(90deg, var(--azul), var(--verde));
+    }
+
+    .icon-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 35px rgba(5, 45, 79, .13);
+    }
+
+    .icon-card i {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #eaf7ff;
+      color: var(--azul);
+      font-size: 25px;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+
+    .icon-card:nth-child(2) i,
+    .icon-card:nth-child(8) i {
+      background: #fff3e0;
+      color: var(--naranja);
+    }
+
+    .icon-card:nth-child(4) i,
+    .icon-card:nth-child(5) i {
+      background: #edf9e9;
+      color: var(--verde);
+    }
+
+    .icon-card h3 {
+      color: #122d43;
+      font-size: 20px;
+      line-height: 1.12;
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+
+    .icon-card p {
+      color: #6d7e8a;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    /* NOTICIAS */
+    .news-grid {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .news-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--borde);
+      box-shadow: var(--shadow-soft);
+      transition: .25s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 38px rgba(5, 45, 79, .14);
+    }
+
+    .news-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .news-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .18));
+    }
+
+    .news-img.n1 {
+      background-image: url("https://www.maipu.gob.ar/wp-content/uploads/2026/05/Monoxido-de-carbono.jpeg");
+    }
+
+    .news-img.n2 {
+      background-image: url("https://www.maipu.gob.ar/wp-content/uploads/2026/02/PORTADAS_1173-x-310.png");
+    }
+
+    .news-img.n3 {
+      background-image: url("https://www.maipu.gob.ar/wp-content/uploads/2026/04/GIF-RECOLECTORTES.gif");
+    }
+
+    .news-body {
+      padding: 24px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #eaf7ff;
+      color: var(--azul);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 1000;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .pill i {
+      line-height: 1;
+    }
+
+    .news-body h3 {
+      color: #122d43;
+      font-size: 22px;
+      line-height: 1.15;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .news-body p {
+      color: #6d7e8a;
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 650;
+      margin-bottom: 18px;
+    }
+
+    .news-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      color: #748897;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .news-footer a {
+      color: var(--azul);
+      font-weight: 1000;
+      white-space: nowrap;
+    }
+
+    /* BANNERS */
+    .banner-maipu-section,
+    .banner-veterinaria-section {
+      width: 100%;
+      padding: 32px 0;
+      background: #f4f8fb;
+      display: flex;
+      justify-content: center;
+    }
+
+    .banner-maipu-link,
+    .banner-veterinaria-link {
+      display: block;
+      width: min(var(--container), calc(100% - 40px));
+      overflow: hidden;
+      border-radius: 22px;
+      background: #ffffff;
+      box-shadow: 0 18px 42px rgba(5, 45, 79, .16);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .banner-maipu-link:hover,
+    .banner-veterinaria-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 54px rgba(5, 45, 79, .22);
+    }
+
+    .banner-maipu-link img,
+    .banner-veterinaria-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      background: #fff;
+    }
+
+    .banner-maipu-link img {
+      max-height: 310px;
+    }
+
+    .banner-veterinaria-img {
+      max-height: 360px;
+    }
+
+
+    /* DESTACADOS CON IMÁGENES */
+    .destacados-maipu-section {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(19, 168, 226, .10), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f4f8fb 100%);
+      padding: 68px 0;
+    }
+
+    .destacados-maipu-grid {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .destacado-maipu-card {
+      background: #ffffff;
+      border: 1px solid var(--borde);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(5, 45, 79, .11);
+      transition: .25s ease;
+      position: relative;
+    }
+
+    .destacado-maipu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 50px rgba(5, 45, 79, .16);
+    }
+
+    .destacado-maipu-img {
+      height: 230px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .destacado-maipu-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.24));
+    }
+
+    .destacado-maipu-img.comunidad {
+      background-image: url("https://www.maipu.gob.ar/wp-content/uploads/2026/05/KTA_8886.jpg");
+    }
+
+    .destacado-maipu-img.deporte {
+      background-image: url("https://www.maipu.gob.ar/wp-content/uploads/2026/05/Inauguracion-playon-deportivo-El-Pedregal.jpg");
+    }
+
+    .destacado-maipu-img.veterinaria {
+      background-image: url("https://www.maipu.gob.ar/wp-content/uploads/2025/07/Centro-de-Atencion-Primaria-Veterinaria-Maipu-2.jpeg");
+    }
+
+    .destacado-maipu-body {
+      padding: 22px;
+    }
+
+    .destacado-maipu-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #eaf7ff;
+      color: var(--azul);
+      font-size: 11px;
+      font-weight: 1000;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .destacado-maipu-tag i {
+      line-height: 1;
+    }
+
+    .destacado-maipu-card:nth-child(2) .destacado-maipu-tag {
+      background: #edf9e9;
+      color: var(--verde);
+    }
+
+    .destacado-maipu-card:nth-child(3) .destacado-maipu-tag {
+      background: #fff3e0;
+      color: var(--naranja);
+    }
+
+    .destacado-maipu-body h3 {
+      color: #122d43;
+      font-size: 21px;
+      line-height: 1.15;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .destacado-maipu-body p {
+      color: #6d7e8a;
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 650;
+      margin-bottom: 16px;
+    }
+
+    .destacado-maipu-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--azul);
+      font-size: 14px;
+      font-weight: 1000;
+    }
+
+    .destacado-maipu-link i {
+      line-height: 1;
+    }
+
+    /* SERVICIOS CON SOLAPAS */
+    .servicios-tabs-section {
+      background:
+        radial-gradient(circle at 12% 10%, rgba(112, 191, 54, .22), transparent 28%),
+        linear-gradient(135deg, #071f36 0%, #0b416e 48%, #13a8e2 100%);
+      color: #fff;
+      padding: 74px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .servicios-tabs-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .08;
+      background-image: radial-gradient(circle at 20% 20%, #fff 0 2px, transparent 2px);
+      background-size: 28px 28px;
+    }
+
+    .servicios-tabs-inner {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .servicios-tabs-intro h2 {
+      color: #fff;
+    }
+
+    .servicios-tabs-intro h2 span {
+      color: #b6f08d;
+    }
+
+    .servicios-tabs-intro p {
+      color: rgba(255, 255, 255, .84);
+      line-height: 1.7;
+      font-weight: 650;
+      margin: 18px 0 22px;
+    }
+
+    .tabs-box {
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .20);
+      border-radius: 24px;
+      padding: 16px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .22);
+    }
+
+    .tabs-nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tab-btn {
+      border: 1px solid rgba(255, 255, 255, .20);
+      background: rgba(255, 255, 255, .10);
+      color: #fff;
+      padding: 12px 10px;
+      border-radius: 14px;
+      font-size: 13px;
+      line-height: 1.15;
+      font-weight: 900;
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      background: #fff;
+      color: var(--azul);
+      transform: translateY(-2px);
+    }
+
+    .tab-panel {
+      display: none;
+      background: rgba(255, 255, 255, .96);
+      color: #102a40;
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .tab-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .tab-link {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 15px;
+      background: #f7fbfe;
+      border: 1px solid #dfeef6;
+      transition: .25s ease;
+    }
+
+    .tab-link:hover {
+      background: #eaf7ff;
+      transform: translateY(-2px);
+      border-color: rgba(0, 118, 189, .22);
+    }
+
+    .tab-link i {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--azul-2), var(--azul));
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .tab-link:nth-child(2n) i {
+      background: linear-gradient(135deg, #9bd84c, var(--verde));
+    }
+
+    .tab-link:nth-child(3n) i {
+      background: linear-gradient(135deg, #ffb43b, var(--naranja));
+    }
+
+    .tab-link strong {
+      display: block;
+      color: #102a40;
+      font-size: 15px;
+      font-weight: 900;
+      margin-bottom: 3px;
+    }
+
+    .tab-link span {
+      display: block;
+      color: #6d7e8a;
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    /* CONTACTO */
+    .contact-strip {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(19, 168, 226, .10), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
+      border-top: 1px solid rgba(220, 234, 243, .75);
+      border-bottom: 1px solid rgba(220, 234, 243, .75);
+      padding: 34px 0;
+    }
+
+    .contact-grid {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .contact-card {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 20px 22px;
+      min-height: 104px;
+      border: 1px solid rgba(220, 234, 243, .95);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(5, 45, 79, .08);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -45px -55px auto;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: rgba(19, 168, 226, .08);
+      pointer-events: none;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 118, 189, .22);
+      box-shadow: 0 18px 38px rgba(5, 45, 79, .14);
+    }
+
+    .contact-card i {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #eaf7ff, #d8f1ff);
+      color: var(--azul);
+      font-size: 26px;
+      flex: 0 0 auto;
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-card:nth-child(2) i {
+      background: linear-gradient(135deg, #e9f8e7, #cff5d6);
+      color: #25d366;
+    }
+
+    .contact-card:nth-child(3) i {
+      background: linear-gradient(135deg, #fff3e0, #ffe1ad);
+      color: var(--naranja);
+    }
+
+    .contact-card div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-card strong {
+      display: block;
+      color: #122d43;
+      font-size: 18px;
+      margin-bottom: 4px;
+      font-weight: 1000;
+      line-height: 1.15;
+    }
+
+    .contact-card span {
+      display: block;
+      color: #6d7e8a;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    /* EMERGENCIAS */
+    .emergencias {
+      background: #fff;
+      padding: 56px 0;
+    }
+
+    .emergencias-wrap {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
+      border: 1px solid rgba(220, 234, 243, .95);
+      border-radius: 26px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .emergencias-wrap::before {
+      content: "";
+      position: absolute;
+      inset: auto -70px -120px auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(19, 168, 226, .12);
+      pointer-events: none;
+    }
+
+    .emergencias-head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .emergencias-head h2 {
+      font-size: 34px;
+    }
+
+    .emergencias-head p {
+      max-width: 470px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 650;
+    }
+
+    .emergencias-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      background: linear-gradient(90deg, #f3f8fb, #ffffff);
+      border-radius: 22px;
+      padding: 18px;
+      border: 1px solid #e0edf5;
+    }
+
+    .emergencia-card {
+      min-height: 132px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+      padding: 14px 10px;
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid #e0edf5;
+      box-shadow: 0 10px 24px rgba(5, 45, 79, .07);
+      transition: .25s ease;
+    }
+
+    .emergencia-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 34px rgba(5, 45, 79, .14);
+    }
+
+    .emergencia-card i {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      margin: 0;
+      background: linear-gradient(135deg, var(--azul-2), var(--azul));
+      box-shadow: 0 12px 24px rgba(0, 118, 189, .22);
+    }
+
+    .emergencia-card:nth-child(2) i,
+    .emergencia-card:nth-child(5) i {
+      background: linear-gradient(135deg, #ffb43b, var(--naranja));
+      box-shadow: 0 12px 24px rgba(246, 154, 19, .24);
+    }
+
+    .emergencia-card:nth-child(3) i,
+    .emergencia-card:nth-child(6) i {
+      background: linear-gradient(135deg, #9bd84c, var(--verde));
+      box-shadow: 0 12px 24px rgba(112, 191, 54, .24);
+    }
+
+    .emergencia-card h3 {
+      color: #15364c;
+      font-size: 13px;
+      line-height: 1.15;
+      font-weight: 900;
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .emergencia-card strong {
+      display: block;
+      color: var(--azul);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 1000;
+    }
+
+    .emergencia-card span {
+      display: block;
+      margin-top: -2px;
+      color: #6d7c86;
+      font-size: 11px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--azul-oscuro);
+      color: #cddce5;
+      padding: 48px 0 26px;
+    }
+
+    .footer-grid {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto 28px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr .8fr;
+      gap: 30px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand img {
+      width: 108px;
+      height: auto;
+      object-fit: contain;
+      background: #fff;
+      padding: 8px;
+      border-radius: 12px;
+    }
+
+    footer h3 {
+      color: #fff;
+      font-size: 17px;
+      margin-bottom: 13px;
+    }
+
+    footer p {
+      color: #b7c8d2;
+      font-size: 14px;
+      line-height: 1.65;
+      font-weight: 600;
+      max-width: 430px;
+    }
+
+    footer ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: #b7c8d2;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    footer li a:hover {
+      color: #fff;
+    }
+
+    .footer-copy {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: #96a8b4;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* FLOTANTES */
+    .wp-float,
+    .ia-float,
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      z-index: 200;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 29px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .22);
+      cursor: pointer;
+      transition: .25s;
+      border: none;
+    }
+
+    .wp-float i,
+    .ia-float i,
+    .back-to-top i {
+      margin: 0;
+      line-height: 1;
+      display: block;
+    }
+
+    .wp-float {
+      bottom: 22px;
+      border-radius: 50%;
+      background: #25d366;
+    }
+
+    .ia-float {
+      bottom: 92px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--azul-2), var(--azul));
+    }
+
+    .back-to-top {
+      width: 34px;
+      height: 34px;
+      bottom: 162px;
+      right: 34px;
+      border-radius: 11px;
+      background: var(--azul-oscuro);
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .wp-float:hover,
+    .ia-float:hover,
+    .back-to-top:hover {
+      transform: scale(1.06);
+    }
+
+    /* CHATBOT */
+    .chatbot {
+      position: fixed;
+      right: 22px;
+      bottom: 166px;
+      width: 365px;
+      max-width: calc(100vw - 32px);
+      background: #fff;
+      border: 1px solid var(--borde);
+      box-shadow: 0 22px 55px rgba(4, 49, 82, .24);
+      z-index: 300;
+      display: none;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .chatbot.activo {
+      display: block;
+    }
+
+    .chat-head {
+      background: linear-gradient(135deg, var(--azul), var(--azul-2));
+      color: #fff;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-head strong {
+      display: block;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .chat-head span {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      opacity: .9;
+      font-weight: 700;
+    }
+
+    .chat-close {
+      border: none;
+      background: rgba(255, 255, 255, .18);
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      font-size: 22px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      line-height: 1;
+    }
+
+    .chat-body {
+      height: 310px;
+      overflow-y: auto;
+      padding: 16px;
+      background: #f7fbfe;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .msg {
+      max-width: 88%;
+      padding: 11px 13px;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 650;
+      border-radius: 14px;
+    }
+
+    .bot {
+      background: #fff;
+      color: #244150;
+      border: 1px solid #dfeef6;
+      align-self: flex-start;
+    }
+
+    .user {
+      background: var(--azul);
+      color: #fff;
+      align-self: flex-end;
+    }
+
+    .preguntas {
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: #fff;
+      border-top: 1px solid var(--borde);
+    }
+
+    .preguntas button {
+      border: 1px solid #cfe7f5;
+      background: #eaf8ff;
+      color: var(--azul);
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      border-radius: 999px;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid var(--borde);
+      background: #fff;
+    }
+
+    .chat-input input {
+      flex: 1;
+      border: 1px solid #d7e8f2;
+      padding: 12px;
+      font-size: 14px;
+      outline: none;
+      border-radius: 10px;
+      min-width: 0;
+    }
+
+    .chat-input button {
+      border: none;
+      background: var(--azul);
+      color: #fff;
+      width: 46px;
+      font-size: 19px;
+      cursor: pointer;
+      border-radius: 10px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+    }
+
+    .chat-input button i {
+      margin: 0;
+      line-height: 1;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1120px) {
+      .menu {
+        gap: 14px;
+        font-size: 13px;
+      }
+
+      .quick-strip-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .emergencias-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .tabs-nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .topbar-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .topbar-left,
+      .topbar-right {
+        justify-content: center;
+      }
+
+      .menu-mobile {
+        display: grid;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #fff;
+        border: 1px solid var(--borde);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        padding: 8px;
+      }
+
+      .menu.abierto {
+        display: flex;
+      }
+
+      .menu a {
+        padding: 14px 16px;
+        border-radius: 12px;
+      }
+
+      .menu a::after {
+        display: none;
+      }
+
+      .menu a:hover,
+      .menu a.activo {
+        background: #eaf7ff;
+        color: var(--azul);
+      }
+
+      .acciones .btn-blanco {
+        display: none;
+      }
+
+      .hero-content {
+        min-height: 500px;
+        padding-top: 56px;
+      }
+
+      .section-head,
+      .emergencias-head {
+        display: block;
+      }
+
+      .section-head p,
+      .emergencias-head p {
+        margin-top: 14px;
+      }
+
+      .news-grid,
+      .contact-grid,
+      .footer-grid,
+      .servicios-tabs-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        border-right: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .quick-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tab-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container,
+      .nav,
+      .topbar-inner,
+      .hero-content,
+      .quick-strip-grid,
+      .section-head,
+      .cards-grid,
+      .news-grid,
+      .contact-grid,
+      .emergencias-wrap,
+      .footer-grid,
+      .footer-copy,
+      .servicios-tabs-inner,
+      .banner-maipu-link,
+      .banner-veterinaria-link {
+        width: calc(100% - 32px);
+      }
+
+      .notice-inner {
+        align-items: flex-start;
+      }
+
+      .notice-text {
+        align-items: flex-start;
+        font-size: 12px;
+      }
+
+      .ticker {
+        height: 30px;
+      }
+
+      .ticker span {
+        font-size: 11px;
+        padding: 0 20px;
+      }
+
+      .topbar {
+        font-size: 12px;
+      }
+
+      .topbar-left,
+      .topbar-right,
+      .socials {
+        gap: 10px;
+      }
+
+      .nav {
+        min-height: 76px;
+        gap: 12px;
+      }
+
+      .brand img {
+        width: 96px;
+      }
+
+      .brand-text {
+        display: none;
+      }
+
+      .acciones .btn-azul {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-slide {
+        background-position: center top;
+      }
+
+      .hero-content {
+        min-height: auto;
+        padding: 58px 0 100px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+        letter-spacing: -.055em;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .hero-arrow.prev {
+        left: 10px;
+      }
+
+      .hero-arrow.next {
+        right: 10px;
+      }
+
+      .hero-dots {
+        bottom: 44px;
+      }
+
+      .section,
+      .emergencias,
+      .servicios-tabs-section {
+        padding: 52px 0;
+      }
+
+      h2,
+      .emergencias-head h2 {
+        font-size: 32px;
+      }
+
+      .news-img {
+        height: 205px;
+      }
+
+      .banner-maipu-section,
+      .banner-veterinaria-section {
+        padding: 20px 0;
+      }
+
+      .banner-maipu-link,
+      .banner-veterinaria-link {
+        border-radius: 15px;
+      }
+
+      .banner-maipu-link img,
+      .banner-veterinaria-img {
+        max-height: none;
+      }
+
+      .contact-card {
+        padding: 22px 18px;
+      }
+
+      .emergencias-wrap {
+        padding: 18px;
+      }
+
+      .emergencias-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 14px;
+        gap: 12px;
+      }
+
+      .emergencia-card {
+        min-height: 120px;
+      }
+
+      .emergencia-card i {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+      }
+
+      .wp-float,
+      .ia-float {
+        width: 54px;
+        height: 54px;
+        right: 16px;
+      }
+
+      .wp-float {
+        bottom: 16px;
+      }
+
+      .ia-float {
+        bottom: 82px;
+      }
+
+      .back-to-top {
+        width: 38px;
+        height: 38px;
+        right: 24px;
+        bottom: 148px;
+        font-size: 16px;
+        border-radius: 12px;
+      }
+
+      .chatbot {
+        right: 16px;
+        bottom: 146px;
+        width: calc(100vw - 32px);
+        max-height: calc(100vh - 168px);
+      }
+
+      .chat-body {
+        height: 260px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-badge {
+        font-size: 10px;
+      }
+
+      .quick-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .quick-strip-card {
+        min-height: 98px;
+        padding: 14px 8px;
+      }
+
+      .quick-strip-card i {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+
+      .quick-strip-card strong {
+        font-size: 12px;
+      }
+
+      .tabs-box {
+        padding: 12px;
+      }
+
+      .tabs-nav {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .tab-btn {
+        font-size: 12px;
+        padding: 10px 8px;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  
+    /* DROPDOWN SERVICIOS DEL NAV */
+    .menu-dropdown {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-drop-btn {
+      border: 0;
+      background: transparent;
+      color: #152f45;
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 0;
+      position: relative;
+    }
+
+    .menu-drop-btn::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--azul), var(--verde));
+      border-radius: 99px;
+      transition: .25s;
+    }
+
+    .menu-dropdown:hover .menu-drop-btn::after,
+    .menu-dropdown.open .menu-drop-btn::after {
+      width: 100%;
+    }
+
+    .menu-drop-btn i {
+      font-size: 12px;
+      line-height: 1;
+      transition: .25s;
+    }
+
+    .menu-dropdown.open .menu-drop-btn i,
+    .menu-dropdown:hover .menu-drop-btn i {
+      transform: rotate(180deg);
+    }
+
+    .menu-drop-panel {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      width: 330px;
+      background: #fff;
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      box-shadow: 0 24px 55px rgba(5, 45, 79, .20);
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: .22s ease;
+      z-index: 260;
+    }
+
+    .menu-dropdown:hover .menu-drop-panel,
+    .menu-dropdown.open .menu-drop-panel {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .menu-drop-panel a {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 14px;
+      color: #15364c;
+      font-size: 13px;
+      font-weight: 900;
+      transition: .22s;
+    }
+
+    .menu-drop-panel a::after {
+      display: none;
+    }
+
+    .menu-drop-panel a:hover {
+      background: #eef8ff;
+      color: var(--azul);
+      transform: translateX(3px);
+    }
+
+    .menu-drop-panel a i {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: #eaf7ff;
+      color: var(--azul);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .menu-drop-panel a:nth-child(2n) i {
+      background: #edf9e9;
+      color: var(--verde);
+    }
+
+    .menu-drop-panel a:nth-child(3n) i {
+      background: #fff3e0;
+      color: var(--naranja);
+    }
+
+    /* SECCIÓN RECOMENDADA PARA VECINOS */
+    .vecinos-section {
+      background:
+        radial-gradient(circle at top left, rgba(112, 191, 54, .16), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #f5fbff 100%);
+      padding: 72px 0;
+    }
+
+    .vecinos-wrap {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .vecinos-panel {
+      background: linear-gradient(135deg, var(--azul-profundo), var(--azul));
+      color: #fff;
+      border-radius: 26px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vecinos-panel::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -90px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .vecinos-panel .eyebrow {
+      color: #b6f08d;
+    }
+
+    .vecinos-panel h2 {
+      color: #fff;
+      max-width: 480px;
+    }
+
+    .vecinos-panel p {
+      margin-top: 18px;
+      color: rgba(255, 255, 255, .84);
+      line-height: 1.7;
+      font-weight: 650;
+      max-width: 520px;
+    }
+
+    .vecinos-panel .btn {
+      margin-top: 22px;
+    }
+
+    .vecinos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .vecino-card {
+      background: #fff;
+      border: 1px solid var(--borde);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: var(--shadow-soft);
+      transition: .25s ease;
+      display: grid;
+      gap: 10px;
+    }
+
+    .vecino-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 34px rgba(5, 45, 79, .13);
+    }
+
+    .vecino-card i {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--azul-2), var(--azul));
+      font-size: 23px;
+      line-height: 1;
+    }
+
+    .vecino-card:nth-child(2) i,
+    .vecino-card:nth-child(5) i {
+      background: linear-gradient(135deg, #9bd84c, var(--verde));
+    }
+
+    .vecino-card:nth-child(3) i,
+    .vecino-card:nth-child(6) i {
+      background: linear-gradient(135deg, #ffb43b, var(--naranja));
+    }
+
+    .vecino-card strong {
+      color: #122d43;
+      font-size: 17px;
+      line-height: 1.15;
+      font-weight: 900;
+    }
+
+    .vecino-card span {
+      color: #6d7e8a;
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    /* AJUSTES ESPECIALES MODO CELULAR */
+    @media (max-width: 980px) {
+      .menu-drop-btn {
+        width: 100%;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-radius: 12px;
+      }
+
+      .menu-drop-btn::after {
+        display: none;
+      }
+
+      .menu-dropdown {
+        display: block;
+        width: 100%;
+      }
+
+      .menu-drop-panel {
+        position: static;
+        width: 100%;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        display: none;
+        margin-top: 6px;
+        border-radius: 16px;
+        box-shadow: none;
+        background: #f7fbfe;
+      }
+
+      .menu-dropdown.open .menu-drop-panel {
+        display: grid;
+        transform: none;
+      }
+
+      .menu-dropdown.open .menu-drop-btn,
+      .menu-drop-btn:hover {
+        background: #eaf7ff;
+        color: var(--azul);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .vecinos-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .notice,
+      .ticker {
+        display: none;
+      }
+
+      .topbar {
+        padding: 7px 0;
+        background: linear-gradient(90deg, var(--azul-oscuro), var(--azul));
+      }
+
+      .topbar-inner {
+        width: 100%;
+        justify-content: center;
+        gap: 0;
+      }
+
+      .topbar-left {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .topbar-address,
+      .topbar-hours,
+      .topbar-right {
+        display: none !important;
+      }
+
+      .topbar-phone {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 1000;
+        letter-spacing: .02em;
+      }
+
+      .topbar-phone i {
+        color: #fff;
+      }
+
+      .nav {
+        width: 100%;
+        padding: 0 12px;
+        min-height: 66px;
+      }
+
+      .brand img {
+        width: 82px;
+      }
+
+      .acciones {
+        gap: 8px;
+      }
+
+      .acciones .btn-pago-online {
+        display: inline-flex !important;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border-radius: 14px;
+        flex: 0 0 auto;
+      }
+
+      .acciones .btn-pago-online span {
+        display: none;
+      }
+
+      .acciones .btn-pago-online i {
+        font-size: 18px;
+      }
+
+      .menu-mobile {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+      }
+
+      .menu {
+        width: calc(100vw - 24px);
+        left: 12px;
+        right: 12px;
+      }
+
+      .hero {
+        min-height: 470px;
+      }
+
+      .hero-slide {
+        background-size: cover;
+        background-position: center top;
+        transform: none;
+      }
+
+      .hero-slide::after {
+        background: linear-gradient(180deg, rgba(5,35,58,.18) 0%, rgba(5,35,58,.45) 48%, rgba(5,35,58,.82) 100%);
+      }
+
+      .hero-content {
+        width: calc(100% - 28px);
+        min-height: 470px;
+        align-items: end;
+        padding: 0 0 88px;
+      }
+
+      .hero-badge {
+        font-size: 10px;
+        padding: 7px 10px;
+        margin-bottom: 12px;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+        line-height: 1.03;
+        letter-spacing: -.045em;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        font-size: 14px;
+        line-height: 1.45;
+        margin-bottom: 16px;
+        max-width: 330px;
+      }
+
+      .hero-actions {
+        gap: 8px;
+      }
+
+      .hero-actions .btn {
+        width: auto;
+        flex: 1 1 auto;
+        padding: 11px 10px;
+        font-size: 12px;
+      }
+
+      .hero-actions .btn:nth-child(2) {
+        flex: 0 0 52px;
+        width: 52px;
+      }
+
+      .hero-actions .btn:nth-child(2) span {
+        display: none;
+      }
+
+      .hero-arrow {
+        display: none;
+      }
+
+      .hero-dots {
+        bottom: 34px;
+      }
+
+      .hero-wave {
+        height: 46px;
+      }
+
+      .quick-strip {
+        padding-top: 18px;
+      }
+
+      .quick-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .quick-strip-card {
+        min-height: 104px;
+      }
+
+      .quick-strip-card i {
+        width: 54px;
+        height: 54px;
+        font-size: 26px;
+      }
+
+      .vecinos-section {
+        padding: 52px 0;
+      }
+
+      .vecinos-wrap {
+        width: calc(100% - 32px);
+      }
+
+      .vecinos-panel {
+        padding: 24px;
+      }
+
+      .vecinos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* CORRECCIÓN BOTONES HERO EN CELULAR */
+    @media (max-width: 640px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .hero-actions .btn,
+      .hero-actions .btn:nth-child(2) {
+        width: min(235px, 100%) !important;
+        flex: 0 0 auto !important;
+        padding: 10px 13px !important;
+        font-size: 12px !important;
+        justify-content: center;
+        border-radius: 12px;
+      }
+
+      .hero-actions .btn i {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .destacados-maipu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .destacado-maipu-img {
+        height: 210px;
+      }
+    }
+
+    @media (min-width: 721px) and (max-width: 980px) {
+      .destacados-maipu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .destacados-maipu-section {
+        padding: 52px 0;
+      }
+
+      .destacados-maipu-grid {
+        width: calc(100% - 32px);
+      }
+
+      .destacado-maipu-card {
+        border-radius: 20px;
+      }
+
+      .destacado-maipu-img {
+        height: 195px;
+      }
+    }
+
+
+    /* OCULTAR FLECHA VOLVER ARRIBA EN CELULAR */
+    @media (max-width: 640px) {
+      .back-to-top {
+        display: none !important;
+      }
+    }
+
+
+    /* CORRECCIÓN FINAL: CONTACTO SEPARADO Y SIN FLECHA DE SUBIR */
+    .contact-strip {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(19, 168, 226, .08), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f6fbff 100%) !important;
+      border: none !important;
+      padding: 36px 0 34px !important;
+    }
+
+    .contact-grid {
+      width: min(var(--container), calc(100% - 40px)) !important;
+      margin: 0 auto !important;
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 24px !important;
+      border: none !important;
+      background: transparent !important;
+    }
+
+    .contact-card {
+      display: flex !important;
+      align-items: center !important;
+      gap: 16px !important;
+      min-height: 104px !important;
+      padding: 20px 22px !important;
+      border: none !important;
+      border-left: none !important;
+      border-right: none !important;
+      border-top: none !important;
+      border-bottom: none !important;
+      border-radius: 22px !important;
+      background: #ffffff !important;
+      box-shadow: 0 14px 32px rgba(5, 45, 79, .10) !important;
+      outline: 1px solid rgba(220, 234, 243, .88) !important;
+      overflow: hidden !important;
+      position: relative !important;
+      transition: transform .25s ease, box-shadow .25s ease, outline-color .25s ease !important;
+    }
+
+    .contact-card:first-child,
+    .contact-card:last-child {
+      border: none !important;
+      border-left: none !important;
+      border-right: none !important;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px) !important;
+      outline-color: rgba(0, 118, 189, .24) !important;
+      box-shadow: 0 20px 42px rgba(5, 45, 79, .15) !important;
+    }
+
+    .back-to-top {
+      display: none !important;
+    }
+
+    @media (max-width: 980px) {
+      .contact-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .contact-grid {
+        width: calc(100% - 32px) !important;
+        gap: 14px !important;
+      }
+
+      .contact-strip {
+        padding: 28px 0 !important;
+      }
+
+      .contact-card {
+        min-height: 96px !important;
+        padding: 18px !important;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="notice" id="notice">
+    <div class="notice-inner">
+      <div class="notice-text">
+        <span>Información</span>
+        <p>Portal municipal en actualización. Algunos accesos pueden redirigir a plataformas oficiales externas.</p>
+      </div>
+      <button class="notice-close" id="cerrarNotice" aria-label="Cerrar aviso"><i class="bi bi-x-lg"></i></button>
+    </div>
+  </div>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Maipú crece con vos</span>
+      <span>Trámites simples</span>
+      <span>Atención al vecino</span>
+      <span>Servicios municipales</span>
+      <span>Maipú crece con vos</span>
+      <span>Trámites simples</span>
+      <span>Atención al vecino</span>
+      <span>Servicios municipales</span>
+      <span>Maipú crece con vos</span>
+      <span>Trámites simples</span>
+      <span>Atención al vecino</span>
+      <span>Servicios municipales</span>
+      <span>Maipú crece con vos</span>
+      <span>Trámites simples</span>
+      <span>Atención al vecino</span>
+      <span>Servicios municipales</span>
+    </div>
+  </div>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span class="topbar-item topbar-address"><i class="bi bi-geo-alt"></i>Pablo Pescara 190, Maipú, Mendoza</span>
+        <span class="topbar-item topbar-hours"><i class="bi bi-clock"></i>Lun-Vie 8:00 a 18:00 hs.</span>
+        <span class="topbar-item topbar-phone"><i class="bi bi-telephone"></i>0800 222 8030 Atención al Vecino</span>
+      </div>
+      <div class="topbar-right">
+        <a class="topbar-whatsapp" href="https://wa.me/542616246767" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i>WhatsApp 261 6246767</a>
+        <div class="socials" aria-label="Redes sociales">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="Correo"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio">
+        <img src="assets/img/logo-maipu.png" alt="Maipú Crece">
+        <div class="brand-text">
+          <strong>Municipalidad de Maipú</strong>
+          <span>Gestión y servicios</span>
+        </div>
+      </a>
+
+      <div class="menu" id="menuPrincipal">
+        <a class="activo" href="#inicio">Inicio</a>
+        <a href="#tramites">Trámites</a>
+        <a href="#noticias">Noticias</a>
+
+        <div class="menu-dropdown">
+          <button class="menu-drop-btn" type="button" aria-expanded="false">
+            Servicios <i class="bi bi-chevron-down"></i>
+          </button>
+          <div class="menu-drop-panel">
+            <a href="#tramites"><i class="bi bi-file-earmark-text"></i><span>Guía de Trámites</span></a>
+            <a href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener"><i class="bi bi-credit-card-2-front-fill"></i><span>Pago de tasas</span></a>
+            <a href="#tramites"><i class="bi bi-car-front-fill"></i><span>Licencia de conducir</span></a>
+            <a href="#tramites"><i class="bi bi-shop"></i><span>Habilitación comercial</span></a>
+            <a href="#servicios"><i class="bi bi-paw-fill"></i><span>Móvil Veterinario</span></a>
+            <a href="#servicios"><i class="bi bi-shield-plus"></i><span>Vacunación</span></a>
+            <a href="#vecinos"><i class="bi bi-lightbulb-fill"></i><span>Gestiones frecuentes</span></a>
+            <a href="#emergencias"><i class="bi bi-telephone-inbound-fill"></i><span>Teléfonos útiles</span></a>
+          </div>
+        </div>
+
+        <a href="#ciudad">Ciudad</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <div class="acciones">
+        <a class="btn btn-blanco" href="#noticias"><i class="bi bi-search"></i>Buscar</a>
+        <a class="btn btn-azul btn-pago-online" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener"><i class="bi bi-credit-card-2-front-fill"></i><span>Pago en línea</span></a>
+        <button class="menu-mobile" id="abrirMenu" aria-label="Abrir menú" aria-expanded="false"><i class="bi bi-list"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-slide slide-1 active" aria-hidden="true"></div>
+      <div class="hero-slide slide-2" aria-hidden="true"></div>
+      <div class="hero-slide slide-3" aria-hidden="true"></div>
+
+      <button class="hero-arrow prev" id="prevSlide" aria-label="Anterior">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <button class="hero-arrow next" id="nextSlide" aria-label="Siguiente">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge"><i class="bi bi-building-check"></i> Municipalidad de Maipú</div>
+          <h1>Maipú más cerca, <span>simple y conectado.</span></h1>
+          <p>Accesos claros para realizar trámites, consultar servicios y encontrar información municipal útil en un solo lugar.</p>
+          <div class="hero-actions">
+            <a class="btn btn-verde" href="#tramites"><i class="bi bi-file-earmark-text"></i>Iniciar trámite</a>
+            <a class="btn btn-azul" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener"><i class="bi bi-credit-card-2-front-fill"></i>Pago en línea</a>
+            <a class="btn btn-naranja" href="#contacto"><i class="bi bi-person-lines-fill"></i>Atención al vecino</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-dots" id="heroDots" aria-label="Indicadores del carrusel">
+        <button class="active" aria-label="Slide 1"></button>
+        <button aria-label="Slide 2"></button>
+        <button aria-label="Slide 3"></button>
+      </div>
+
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" fill="#ffffff" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="quick-strip" aria-label="Accesos rápidos">
+      <div class="quick-strip-grid">
+        <a class="quick-strip-card" href="#servicios">
+          <i class="bi bi-paw-fill"></i>
+          <strong>Móvil Veterinario</strong>
+        </a>
+        <a class="quick-strip-card" href="#servicios">
+          <i class="bi bi-shield-plus"></i>
+          <strong>Vacunación</strong>
+        </a>
+        <a class="quick-strip-card" href="#servicios">
+          <i class="bi bi-mortarboard-fill"></i>
+          <strong>Cursos</strong>
+        </a>
+        <a class="quick-strip-card" href="#servicios">
+          <i class="bi bi-heart-pulse-fill"></i>
+          <strong>Salud</strong>
+        </a>
+        <a class="quick-strip-card" href="#ciudad">
+          <i class="bi bi-camera-fill"></i>
+          <strong>Turismo</strong>
+        </a>
+        <a class="quick-strip-card" href="#emergencias">
+          <i class="bi bi-shield-check"></i>
+          <strong>Seguridad</strong>
+        </a>
+      </div>
+    </section>
+
+      <!-- BANNER COMERCIOS Y DESCUENTOS -->
+      <section class="banner-maipu-section">
+        <a class="banner-maipu-link" href="https://docs.google.com/forms/d/e/1FAIpQLSey439WBoaEj4unjMOIIUVw8FTubTXilxSA7C4xsGIkXgadVw/viewform" target="_blank" rel="noopener">
+          <img src="assets/img/banner.jpeg" alt="Banner de comercios y descuentos - Municipalidad de Maipú">
+        </a>
+      </section>
+
+    <section class="section section-light" id="noticias">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Novedades</div>
+          <h2>Noticias destacadas</h2>
+        </div>
+        <p>Información oficial, campañas, obras, servicios y actividades importantes para vecinos y vecinas.</p>
+      </div>
+
+      <div class="news-grid">
+        <article class="news-card">
+          <div class="news-img n1"></div>
+          <div class="news-body">
+            <span class="pill"><i class="bi bi-exclamation-triangle-fill"></i>Salud y prevención</span>
+            <h3>Recomendaciones para prevenir el monóxido de carbono</h3>
+            <p>Consejos importantes para calefaccionar los hogares de forma segura durante los días fríos.</p>
+            <div class="news-footer">
+              <span><i class="bi bi-calendar3"></i> Mayo 2026</span>
+              <a href="#">Leer más <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-img n2"></div>
+          <div class="news-body">
+            <span class="pill"><i class="bi bi-cone-striped"></i>Obras</span>
+            <h3>Maipú avanza con obras y espacios comunitarios</h3>
+            <p>Mejoras urbanas, infraestructura y nuevos espacios de encuentro en distintos puntos del departamento.</p>
+            <div class="news-footer">
+              <span><i class="bi bi-calendar3"></i> Mayo 2026</span>
+              <a href="#">Leer más <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-img n3"></div>
+          <div class="news-body">
+            <span class="pill"><i class="bi bi-truck"></i>Servicios</span>
+            <h3>Información sobre recolección y servicios municipales</h3>
+            <p>Canales y recomendaciones para consultar recorridos, reclamos y servicios de mantenimiento urbano.</p>
+            <div class="news-footer">
+              <span><i class="bi bi-calendar3"></i> Abril 2026</span>
+              <a href="#">Leer más <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  
+
+    <section class="section section-gray" id="tramites">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Accesos municipales</div>
+          <h2>Trámites y servicios</h2>
+        </div>
+        <p>Accesos claros para que cada vecino encuentre rápido la gestión que necesita realizar.</p>
+      </div>
+
+      <div class="cards-grid">
+        <a class="icon-card" href="#">
+          <i class="bi bi-car-front-fill"></i>
+          <h3>Licencia de Conducir</h3>
+          <p>Requisitos, renovación, turnos y consultas sobre licencias.</p>
+        </a>
+        <a class="icon-card" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener">
+          <i class="bi bi-bank2"></i>
+          <h3>Rentas</h3>
+          <p>Consultas tributarias, tasas municipales y gestiones online.</p>
+        </a>
+        <a class="icon-card" href="#noticias">
+          <i class="bi bi-newspaper"></i>
+          <h3>Noticias</h3>
+          <p>Novedades oficiales, campañas, obras, eventos y comunicados.</p>
+        </a>
+        <a class="icon-card" href="#servicios">
+          <i class="bi bi-heart-pulse-fill"></i>
+          <h3>Salud</h3>
+          <p>Centros de atención, campañas sanitarias y prevención.</p>
+        </a>
+        <a class="icon-card" href="#servicios">
+          <i class="bi bi-mortarboard-fill"></i>
+          <h3>Educación</h3>
+          <p>Programas, cursos, talleres, escuelas, jardines y becas.</p>
+        </a>
+        <a class="icon-card" href="#ciudad">
+          <i class="bi bi-camera-fill"></i>
+          <h3>Turismo</h3>
+          <p>Historia, cultura, bodegas, paseos y puntos de interés.</p>
+        </a>
+        <a class="icon-card" href="#contacto">
+          <i class="bi bi-geo-alt-fill"></i>
+          <h3>Delegaciones</h3>
+          <p>Atención territorial, trámites y servicios por distrito.</p>
+        </a>
+        <a class="icon-card" href="#ciudad">
+          <i class="bi bi-ticket-perforated-fill"></i>
+          <h3>Teatro Imperial</h3>
+          <p>Agenda cultural, espectáculos, cine y actividades artísticas.</p>
+        </a>
+      </div>
+    </section>
+ 
+    <section class="servicios-tabs-section" id="servicios">
+      <div class="servicios-tabs-inner">
+        <div class="servicios-tabs-intro">
+          <div class="eyebrow" style="color:#b6f08d;">Servicios municipales</div>
+          <h2>Gestiones y <span>áreas</span></h2>
+          <p>Accesos organizados por solapas para que el vecino encuentre rápido trámites, salud, turismo, servicios y canales de atención.</p>
+          <a class="btn btn-verde" href="#contacto"><i class="bi bi-chat-dots-fill"></i>Consultar ahora</a>
+        </div>
+
+        <div class="tabs-box">
+          <div class="tabs-nav" aria-label="Solapas de servicios">
+            <button class="tab-btn active" data-tab="tab-tramites" type="button">Trámites</button>
+            <button class="tab-btn" data-tab="tab-salud" type="button">Salud y comunidad</button>
+            <button class="tab-btn" data-tab="tab-ciudad" type="button">Ciudad y turismo</button>
+            <button class="tab-btn" data-tab="tab-atencion" type="button">Atención</button>
+          </div>
+
+          <div class="tab-panel active" id="tab-tramites">
+            <div class="tab-list">
+              <a class="tab-link" href="#tramites"><i class="bi bi-file-earmark-text"></i><div><strong>Guía de Trámites</strong><span>Consultas, requisitos y gestiones municipales.</span></div></a>
+              <a class="tab-link" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener"><i class="bi bi-credit-card-2-front-fill"></i><div><strong>Pago de tasas</strong><span>Rentas, pagos y consultas tributarias.</span></div></a>
+              <a class="tab-link" href="#tramites"><i class="bi bi-car-front-fill"></i><div><strong>Licencia de conducir</strong><span>Turnos, renovación y requisitos.</span></div></a>
+              <a class="tab-link" href="#tramites"><i class="bi bi-shop"></i><div><strong>Habilitación comercial</strong><span>Información para comercios y emprendimientos.</span></div></a>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-salud">
+            <div class="tab-list">
+              <a class="tab-link" href="#servicios"><i class="bi bi-paw-fill"></i><div><strong>Móvil Veterinario</strong><span>Atención animal, prevención y campañas para mascotas.</span></div></a>
+              <a class="tab-link" href="#servicios"><i class="bi bi-shield-plus"></i><div><strong>Vacunación</strong><span>Campañas, salud y prevención comunitaria.</span></div></a>
+              <a class="tab-link" href="#servicios"><i class="bi bi-heart-pulse-fill"></i><div><strong>Salud</strong><span>Centros, controles, programas y prevención.</span></div></a>
+              <a class="tab-link" href="#servicios"><i class="bi bi-people-fill"></i><div><strong>Atención social</strong><span>Orientación y acompañamiento para vecinos.</span></div></a>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-ciudad">
+            <div class="tab-list">
+              <a class="tab-link" href="#ciudad"><i class="bi bi-camera-fill"></i><div><strong>Turismo</strong><span>Bodegas, cultura, paseos y puntos de interés.</span></div></a>
+              <a class="tab-link" href="#ciudad"><i class="bi bi-tree-fill"></i><div><strong>Espacios verdes</strong><span>Plazas, parques y lugares para disfrutar.</span></div></a>
+              <a class="tab-link" href="#ciudad"><i class="bi bi-ticket-perforated-fill"></i><div><strong>Teatro Imperial</strong><span>Agenda cultural, cine y espectáculos.</span></div></a>
+              <a class="tab-link" href="#noticias"><i class="bi bi-newspaper"></i><div><strong>Noticias</strong><span>Novedades oficiales y actividades municipales.</span></div></a>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-atencion">
+            <div class="tab-list">
+              <a class="tab-link" href="#contacto"><i class="bi bi-headset"></i><div><strong>Centro de Atención</strong><span>Consultas, reclamos y derivación de áreas.</span></div></a>
+              <a class="tab-link" href="https://wa.me/542617166619" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i><div><strong>WhatsApp</strong><span>Atención rápida desde el celular.</span></div></a>
+              <a class="tab-link" href="#emergencias"><i class="bi bi-shield-check"></i><div><strong>Seguridad</strong><span>Teléfonos útiles y contactos importantes.</span></div></a>
+              <a class="tab-link" href="#contacto"><i class="bi bi-geo-alt-fill"></i><div><strong>Delegaciones</strong><span>Atención territorial por distrito.</span></div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<section class="section" id="ciudad">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Turismo y ciudad</div>
+          <h2>Conocé Maipú</h2>
+        </div>
+        <p>Un espacio para destacar lugares turísticos, historia, cultura, bodegas y puntos de interés.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="icon-card">
+          <i class="bi bi-cup-straw"></i>
+          <h3>Camino del vino</h3>
+          <p>Maipú es parte esencial de la identidad vitivinícola de Mendoza.</p>
+        </article>
+        <article class="icon-card">
+          <i class="bi bi-tree-fill"></i>
+          <h3>Espacios verdes</h3>
+          <p>Plazas, parques y espacios para disfrutar en comunidad.</p>
+        </article>
+        <article class="icon-card">
+          <i class="bi bi-building-fill"></i>
+          <h3>Patrimonio</h3>
+          <p>Historia, cultura, museos y edificios representativos.</p>
+        </article>
+        <article class="icon-card">
+          <i class="bi bi-calendar-event-fill"></i>
+          <h3>Agenda</h3>
+          <p>Eventos, actividades, propuestas culturales y deportivas.</p>
+        </article>
+      </div>
+    </section>
+
+     <!-- BANNER MÓVIL VETERINARIO -->
+<section class="banner-veterinaria-section">
+  <a href="#servicios" class="banner-veterinaria-link" aria-label="Móvil de Castración y Veterinaria">
+    <img 
+      src="assets/img/banner-veterinaria.png" 
+      alt="Móvil de Castración y Veterinaria - Municipalidad de Maipú"
+      class="banner-veterinaria-img"
+    >
+  </a>
+</section>
+
+
+    <!-- DESTACADOS MUNICIPALES DEBAJO DEL BANNER VETERINARIO -->
+    <section class="destacados-maipu-section" id="acciones-maipu">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Maipú en acción</div>
+          <h2>Más Novedades</h2>
+        </div>
+        <p>Acciones municipales para acompañar a los vecinos: comunidad, deporte, espacios públicos y atención veterinaria.</p>
+      </div>
+
+      <div class="destacados-maipu-grid">
+        <article class="destacado-maipu-card">
+          <div class="destacado-maipu-img comunidad"></div>
+          <div class="destacado-maipu-body">
+            <span class="destacado-maipu-tag"><i class="bi bi-people-fill"></i> Comunidad</span>
+            <h3>Programas y servicios cerca de los vecinos</h3>
+            <p>Actividades, operativos y propuestas municipales pensadas para acompañar a las familias de Maipú en distintos distritos.</p>
+            <a class="destacado-maipu-link" href="#servicios">Ver servicios <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="destacado-maipu-card">
+          <div class="destacado-maipu-img deporte"></div>
+          <div class="destacado-maipu-body">
+            <span class="destacado-maipu-tag"><i class="bi bi-trophy-fill"></i> Deporte y obras</span>
+            <h3>Nuevos espacios para disfrutar en comunidad</h3>
+            <p>Obras, playones deportivos y espacios públicos que fortalecen el encuentro, la recreación y la vida de barrio.</p>
+            <a class="destacado-maipu-link" href="#ciudad">Conocé la ciudad <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="destacado-maipu-card">
+          <div class="destacado-maipu-img veterinaria"></div>
+          <div class="destacado-maipu-body">
+            <span class="destacado-maipu-tag"><i class="bi bi-paw-fill"></i> Veterinaria</span>
+            <h3>Atención y prevención para mascotas</h3>
+            <p>Campañas, controles y servicios veterinarios municipales para promover el cuidado responsable de perros y gatos.</p>
+            <a class="destacado-maipu-link" href="#servicios">Móvil veterinario <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="vecinos-section" id="vecinos">
+      <div class="vecinos-wrap">
+        <div class="vecinos-panel">
+          <div class="eyebrow">Para vecinos</div>
+          <h2>Gestiones frecuentes en un solo lugar</h2>
+          <p>Un espacio pensado para resolver rápido lo que más se consulta: pagos, turnos, reclamos, atención, servicios municipales y teléfonos útiles.</p>
+          <a class="btn btn-verde" href="#servicios"><i class="bi bi-grid-1x2-fill"></i>Ver servicios</a>
+        </div>
+
+        <div class="vecinos-grid">
+          <a class="vecino-card" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener">
+            <i class="bi bi-credit-card-2-front-fill"></i>
+            <strong>Pago en línea</strong>
+            <span>Consultá y aboná tasas municipales desde la web.</span>
+          </a>
+
+          <a class="vecino-card" href="#tramites">
+            <i class="bi bi-file-earmark-text"></i>
+            <strong>Guía de trámites</strong>
+            <span>Requisitos, consultas y accesos organizados por área.</span>
+          </a>
+
+          <a class="vecino-card" href="#contacto">
+            <i class="bi bi-headset"></i>
+            <strong>Atención al vecino</strong>
+            <span>Canales de consulta, reclamos y orientación municipal.</span>
+          </a>
+
+          <a class="vecino-card" href="#emergencias">
+            <i class="bi bi-telephone-inbound-fill"></i>
+            <strong>Teléfonos útiles</strong>
+            <span>Emergencias, bomberos, defensa civil y líneas importantes.</span>
+          </a>
+
+          <a class="vecino-card" href="#servicios">
+            <i class="bi bi-paw-fill"></i>
+            <strong>Móvil Veterinario</strong>
+            <span>Servicios para mascotas, prevención y campañas municipales.</span>
+          </a>
+
+          <a class="vecino-card" href="#ciudad">
+            <i class="bi bi-camera-fill"></i>
+            <strong>Turismo y ciudad</strong>
+            <span>Agenda, espacios verdes, cultura y lugares para conocer.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="emergencias" id="emergencias">
+      <div class="emergencias-wrap">
+        <div class="emergencias-head">
+          <div>
+            <div class="eyebrow">Teléfonos útiles</div>
+            <h2>Emergencias</h2>
+          </div>
+          <p>Contactos importantes siempre visibles, con el mismo espíritu de acceso rápido de la web municipal.</p>
+        </div>
+
+        <div class="emergencias-grid">
+          <a class="emergencia-card" href="tel:911">
+            <i class="bi bi-telephone-inbound-fill"></i>
+            <h3>Emergencias</h3>
+            <strong>911</strong>
+          </a>
+          <a class="emergencia-card" href="tel:144">
+            <i class="bi bi-person-heart"></i>
+            <h3>Violencia de Género</h3>
+            <strong>144</strong>
+          </a>
+          <a class="emergencia-card" href="tel:102">
+            <i class="bi bi-shield-fill-check"></i>
+            <h3>Maltrato Infantil</h3>
+            <strong>102</strong>
+          </a>
+          <a class="emergencia-card" href="tel:147">
+            <i class="bi bi-headset"></i>
+            <h3>Atención Ciudadana</h3>
+            <strong>147</strong>
+            <span>0800 222 7800</span>
+          </a>
+          <a class="emergencia-card" href="tel:100">
+            <i class="bi bi-fire"></i>
+            <h3>Bomberos</h3>
+            <strong>100</strong>
+            <span>0261 - 4980999</span>
+          </a>
+          <a class="emergencia-card" href="tel:103">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <h3>Defensa Civil</h3>
+            <strong>103</strong>
+            <span>0261 - 4987647</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+<section class="contact-strip" id="contacto">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <i class="bi bi-headset"></i>
+          <div>
+            <strong>Atención al Vecino</strong>
+            <span>Estamos para ayudarte de lunes a viernes.</span>
+          </div>
+        </div>
+        <a class="contact-card" href="https://wa.me/542617166619" target="_blank" rel="noopener">
+          <i class="bi bi-whatsapp"></i>
+          <div>
+            <strong>WhatsApp</strong>
+            <span>261 716-6619 · Consultas rápidas.</span>
+          </div>
+        </a>
+        <div class="contact-card">
+          <i class="bi bi-geo-alt-fill"></i>
+          <div>
+            <strong>Pablo Pescara 190</strong>
+            <span>Ciudad de Maipú, Mendoza.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/img/logo-maipu.png" alt="Maipú Crece">
+        </div>
+        <p>Portal municipal para acercar trámites, servicios, noticias, atención ciudadana e información útil a vecinos y vecinas.</p>
+      </div>
+      <div>
+        <h3>Trámites</h3>
+        <ul>
+          <li><a href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener">Pago en Línea</a></li>
+          <li><a href="#tramites">Rentas</a></li>
+          <li><a href="#tramites">Licencia de Conducir</a></li>
+          <li><a href="#tramites">Guía de Trámites</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Municipio</h3>
+        <ul>
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#contacto">Delegaciones</a></li>
+          <li><a href="#">Transparencia</a></li>
+          <li><a href="#">Datos Abiertos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Maipú</h3>
+        <ul>
+          <li><a href="#servicios">Salud</a></li>
+          <li><a href="#servicios">Educación</a></li>
+          <li><a href="#ciudad">Turismo</a></li>
+          <li><a href="#ciudad">Teatro Imperial</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>Municipalidad de Maipú · Mendoza</span>
+      <span>Maipú crece con vos</span>
+    </div>
+  </footer>
+
+  <button aria-label="Asistente IA" class="ia-float" id="abrirChat">
+    <i class="bi bi-robot"></i>
+  </button>
+
+  <a aria-label="WhatsApp" class="wp-float" href="https://wa.me/542617166619" target="_blank" rel="noopener">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+
+  <div class="chatbot" id="chatbot">
+    <div class="chat-head">
+      <div>
+        <strong>Asistente IA Municipal</strong>
+        <span>Orientación rápida para vecinos</span>
+      </div>
+      <button class="chat-close" id="cerrarChat" aria-label="Cerrar chat">×</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot">Hola, soy el asistente virtual de Maipú. Puedo orientarte sobre pagos, rentas, licencia, salud, educación, turismo, delegaciones y teléfonos útiles.</div>
+    </div>
+    <div class="preguntas">
+      <button data-question="¿Dónde pago tasas municipales?">Pago en línea</button>
+      <button data-question="¿Cómo renuevo la licencia de conducir?">Licencia</button>
+      <button data-question="¿Dónde consulto rentas?">Rentas</button>
+      <button data-question="¿Qué teléfonos de emergencia hay?">Emergencias</button>
+      <button data-question="¿Dónde queda la Municipalidad?">Ubicación</button>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" placeholder="Escribí tu consulta..." type="text">
+      <button id="enviarChat" aria-label="Enviar mensaje"><i class="bi bi-send-fill"></i></button>
+    </div>
+  </div>
+
+  <script>
+    const notice = document.getElementById("notice");
+    const cerrarNotice = document.getElementById("cerrarNotice");
+    const abrirMenu = document.getElementById("abrirMenu");
+    const menuPrincipal = document.getElementById("menuPrincipal");
+
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+    const menuDropdowns = document.querySelectorAll(".menu-dropdown");
+    const menuDropButtons = document.querySelectorAll(".menu-drop-btn");
+
+    tabButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.tab;
+
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        tabPanels.forEach(panel => panel.classList.remove("active"));
+
+        button.classList.add("active");
+        document.getElementById(target).classList.add("active");
+      });
+    });
+
+    menuDropButtons.forEach(button => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        const dropdown = button.closest(".menu-dropdown");
+        const abierto = dropdown.classList.toggle("open");
+        button.setAttribute("aria-expanded", abierto ? "true" : "false");
+
+        menuDropdowns.forEach(item => {
+          if (item !== dropdown) {
+            item.classList.remove("open");
+            const btn = item.querySelector(".menu-drop-btn");
+            if (btn) btn.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".menu-dropdown")) {
+        menuDropdowns.forEach(item => {
+          item.classList.remove("open");
+          const btn = item.querySelector(".menu-drop-btn");
+          if (btn) btn.setAttribute("aria-expanded", "false");
+        });
+      }
+    });
+
+
+    if (localStorage.getItem("notice-maipu-cerrado") === "si") {
+      notice.classList.add("oculto");
+    }
+
+    cerrarNotice.addEventListener("click", () => {
+      notice.classList.add("oculto");
+      localStorage.setItem("notice-maipu-cerrado", "si");
+    });
+
+    abrirMenu.addEventListener("click", () => {
+      const abierto = menuPrincipal.classList.toggle("abierto");
+      abrirMenu.setAttribute("aria-expanded", abierto ? "true" : "false");
+      abrirMenu.innerHTML = abierto ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+    });
+
+    document.querySelectorAll("#menuPrincipal a").forEach(link => {
+      link.addEventListener("click", () => {
+        menuPrincipal.classList.remove("abierto");
+        abrirMenu.setAttribute("aria-expanded", "false");
+        abrirMenu.innerHTML = '<i class="bi bi-list"></i>';
+      });
+    });
+
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll("#heroDots button");
+    const prevSlide = document.getElementById("prevSlide");
+    const nextSlide = document.getElementById("nextSlide");
+    let slideActual = 0;
+
+    function mostrarSlide(index) {
+      slides.forEach(slide => slide.classList.remove("active"));
+      dots.forEach(dot => dot.classList.remove("active"));
+      slides[index].classList.add("active");
+      dots[index].classList.add("active");
+      slideActual = index;
+    }
+
+    function siguienteSlide() {
+      let nuevo = slideActual + 1;
+      if (nuevo >= slides.length) nuevo = 0;
+      mostrarSlide(nuevo);
+    }
+
+    function anteriorSlide() {
+      let nuevo = slideActual - 1;
+      if (nuevo < 0) nuevo = slides.length - 1;
+      mostrarSlide(nuevo);
+    }
+
+    nextSlide.addEventListener("click", siguienteSlide);
+    prevSlide.addEventListener("click", anteriorSlide);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => mostrarSlide(index));
+    });
+
+    setInterval(siguienteSlide, 5500);
+
+
+    const abrirChat = document.getElementById("abrirChat");
+    const cerrarChat = document.getElementById("cerrarChat");
+    const chatbot = document.getElementById("chatbot");
+    const chatBody = document.getElementById("chatBody");
+    const chatInput = document.getElementById("chatInput");
+    const enviarChat = document.getElementById("enviarChat");
+    const preguntas = document.querySelectorAll(".preguntas button");
+
+    abrirChat.addEventListener("click", () => {
+      chatbot.classList.toggle("activo");
+      if (chatbot.classList.contains("activo")) {
+        setTimeout(() => chatInput.focus(), 80);
+      }
+    });
+
+    cerrarChat.addEventListener("click", () => {
+      chatbot.classList.remove("activo");
+    });
+
+    preguntas.forEach((boton) => {
+      boton.addEventListener("click", () => enviarMensaje(boton.dataset.question));
+    });
+
+    enviarChat.addEventListener("click", () => enviarMensaje(chatInput.value));
+
+    chatInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") enviarMensaje(chatInput.value);
+    });
+
+    function agregarMensaje(texto, tipo) {
+      const div = document.createElement("div");
+      div.className = "msg " + tipo;
+      div.innerHTML = texto;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function enviarMensaje(texto) {
+      const pregunta = texto.trim();
+      if (!pregunta) return;
+      agregarMensaje(pregunta, "user");
+      chatInput.value = "";
+      setTimeout(() => agregarMensaje(responder(pregunta), "bot"), 350);
+    }
+
+    function responder(texto) {
+      const t = texto.toLowerCase();
+
+      if (t.includes("pago") || t.includes("pagar") || t.includes("tasas")) {
+        return 'Para pagos municipales, usá el acceso <b>Pago en Línea</b>. También podés ingresar desde el botón azul del inicio.';
+      }
+
+      if (t.includes("licencia") || t.includes("conducir") || t.includes("carnet")) {
+        return 'Para licencia de conducir, ingresá a <b>Licencia de Conducir</b>. Allí se pueden consultar requisitos, renovación y turnos.';
+      }
+
+      if (t.includes("renta") || t.includes("rentas")) {
+        return 'Para consultas tributarias, entrá en <b>Rentas</b>. Podés revisar información sobre tasas, pagos y gestiones municipales.';
+      }
+
+      if (t.includes("salud") || t.includes("médico") || t.includes("medico")) {
+        return 'En el área de <b>Salud</b> se puede informar sobre centros de atención, campañas sanitarias y prevención.';
+      }
+
+      if (t.includes("educacion") || t.includes("educación") || t.includes("escuela")) {
+        return 'En <b>Educación</b> podés encontrar programas, talleres, cursos, escuelas, jardines y becas.';
+      }
+
+      if (t.includes("turismo") || t.includes("bodega") || t.includes("conocer")) {
+        return 'En la sección <b>Turismo</b> podés encontrar información sobre historia, cultura, bodegas y puntos de interés de Maipú.';
+      }
+
+      if (t.includes("veterinario") || t.includes("mascota") || t.includes("animal")) {
+        return 'El <b>Móvil Veterinario</b> puede incluir atención animal, vacunación, castración y campañas de prevención para mascotas.';
+      }
+
+      if (t.includes("delegacion") || t.includes("delegación") || t.includes("delegaciones")) {
+        return 'En <b>Delegaciones</b> podés consultar atención territorial, trámites y servicios por distrito.';
+      }
+
+      if (t.includes("teatro") || t.includes("imperial")) {
+        return 'En <b>Teatro Imperial</b> se puede mostrar agenda cultural, espectáculos, cine y actividades artísticas.';
+      }
+
+      if (t.includes("emergencia") || t.includes("bombero") || t.includes("defensa") || t.includes("violencia")) {
+        return 'Teléfonos útiles:<br><b>Emergencias:</b> 911<br><b>Violencia de Género:</b> 144<br><b>Maltrato Infantil:</b> 102<br><b>Bomberos:</b> 100 / 0261 - 4980999<br><b>Defensa Civil:</b> 103 / 0261 - 4987647.';
+      }
+
+      if (t.includes("ubicacion") || t.includes("ubicación") || t.includes("direccion") || t.includes("dirección")) {
+        return 'La Municipalidad de Maipú se encuentra en <b>Pablo Pescara 190, Ciudad de Maipú, Mendoza</b>.';
+      }
+
+      return 'Puedo orientarte sobre <b>Pago en Línea, Rentas, Licencia de Conducir, Salud, Educación, Turismo, Móvil Veterinario, Emergencias y ubicación</b>.';
+    }
+  </script>
+</body>
+</html>
