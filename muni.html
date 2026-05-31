@@ -402,7 +402,7 @@
     /* HERO CARRUSEL */
     .hero {
       position: relative;
-      min-height: 520px;
+      min-height: 430px;
       overflow: hidden;
       color: #fff;
       background: #07375c;
@@ -449,10 +449,10 @@
     .hero-content {
       width: min(var(--container), calc(100% - 40px));
       margin: 0 auto;
-      min-height: 520px;
+      min-height: 430px;
       display: flex;
       align-items: center;
-      padding: 68px 0 108px;
+      padding: 58px 0 85px;
       position: relative;
       z-index: 4;
     }
@@ -2748,6 +2748,729 @@
       }
     }
 
+    /* ================================
+       AJUSTES FINALES: MOBILE + CHAT + CARDS
+       ================================ */
+
+    .menu {
+      z-index: 500;
+    }
+
+    .menu.abierto {
+      display: flex !important;
+    }
+
+    .ia-float,
+    .wp-float {
+      z-index: 900;
+    }
+
+    .chatbot {
+      z-index: 1200;
+    }
+
+    /* Gestiones frecuentes: queda solo el cartel principal */
+    .vecinos-wrap {
+      grid-template-columns: 1fr;
+      max-width: 880px;
+    }
+
+    .vecinos-grid {
+      display: none !important;
+    }
+
+    .vecinos-panel {
+      min-height: auto;
+    }
+
+    .vecinos-panel .btn {
+      width: fit-content;
+    }
+
+    /* Quitar definitivamente flecha volver arriba */
+    .back-to-top {
+      display: none !important;
+    }
+
+    @media (max-width: 980px) {
+      .header {
+        z-index: 1000;
+      }
+
+      .menu {
+        z-index: 1001;
+      }
+
+      .menu.abierto {
+        display: flex !important;
+      }
+
+      .menu-dropdown.open .menu-drop-panel {
+        display: grid !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      /* Cards de trámites y ciudad más compactas */
+      .cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px;
+      }
+
+      .icon-card {
+        min-height: auto !important;
+        padding: 12px 14px !important;
+        display: grid !important;
+        grid-template-columns: 44px 1fr !important;
+        align-items: center !important;
+        gap: 12px !important;
+        border-radius: 16px !important;
+      }
+
+      .icon-card::before {
+        width: 4px !important;
+        height: 100% !important;
+        background: linear-gradient(180deg, var(--azul), var(--verde), var(--naranja)) !important;
+      }
+
+      .icon-card i {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 20px !important;
+        margin: 0 !important;
+        border-radius: 13px !important;
+      }
+
+      .icon-card h3 {
+        font-size: 15px !important;
+        margin: 0 !important;
+        line-height: 1.2 !important;
+      }
+
+      .icon-card p {
+        display: none !important;
+      }
+
+      /* Servicios con solapas: items compactos */
+      .tab-list {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+      }
+
+      .tab-link {
+        grid-template-columns: 40px 1fr !important;
+        padding: 9px 10px !important;
+        border-radius: 14px !important;
+      }
+
+      .tab-link i {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 19px !important;
+        border-radius: 12px !important;
+      }
+
+      .tab-link strong {
+        font-size: 14px !important;
+        margin: 0 !important;
+      }
+
+      .tab-link span {
+        display: none !important;
+      }
+
+      .servicios-tabs-section {
+        padding: 46px 0 !important;
+      }
+
+      .tabs-box {
+        border-radius: 20px !important;
+      }
+
+      /* Gestiones frecuentes solo cartel también en celular */
+      .vecinos-wrap {
+        grid-template-columns: 1fr !important;
+        width: calc(100% - 32px) !important;
+      }
+
+      .vecinos-panel {
+        padding: 24px !important;
+        border-radius: 22px !important;
+      }
+
+      .vecinos-panel p {
+        font-size: 14px !important;
+      }
+
+      .vecinos-panel .btn {
+        width: 100%;
+      }
+
+      /* Flotantes con prioridad de click */
+      .ia-float,
+      .wp-float {
+        z-index: 900 !important;
+        pointer-events: auto !important;
+      }
+
+      .chatbot {
+        z-index: 1200 !important;
+      }
+    }
+
+
+
+    /* ================================
+       AJUSTE FINAL HEADER MUNICIPAL
+       Solo modifica barra superior/header.
+       No toca portada, curva, carrusel ni botones del hero.
+       ================================ */
+
+    .ticker {
+      height: 18px !important;
+      background: linear-gradient(90deg, #0069a9, #13a8e2, #70bf36) !important;
+    }
+
+    .ticker span {
+      font-size: 9px !important;
+      padding: 0 26px !important;
+      letter-spacing: .08em !important;
+    }
+
+    .ticker span::after {
+      width: 4px !important;
+      height: 4px !important;
+      margin-left: 26px !important;
+    }
+
+    .header {
+      background: rgba(255, 255, 255, .985) !important;
+      border-bottom: 1px solid rgba(220, 234, 243, .95) !important;
+      box-shadow: 0 8px 22px rgba(5, 45, 79, .08) !important;
+    }
+
+    .nav {
+      min-height: 72px !important;
+      padding-left: 18px !important;
+    }
+
+    .brand {
+      margin-left: 8px !important;
+      gap: 12px !important;
+    }
+
+    .brand img {
+      width: 88px !important;
+    }
+
+    .brand-text strong {
+      font-size: 17px !important;
+      letter-spacing: -.02em !important;
+    }
+
+    .brand-text span {
+      font-size: 10px !important;
+      letter-spacing: .10em !important;
+    }
+
+    .menu {
+      gap: 24px !important;
+    }
+
+    .menu a,
+    .menu-drop-btn {
+      font-size: 14px !important;
+    }
+
+    .acciones .btn {
+      padding: 12px 17px !important;
+      border-radius: 11px !important;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+      }
+
+      .brand {
+        margin-left: 0 !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        padding: 6px 0 !important;
+      }
+
+      .header {
+        box-shadow: 0 6px 18px rgba(5, 45, 79, .08) !important;
+      }
+
+      .nav {
+        width: 100% !important;
+        min-height: 64px !important;
+        padding: 0 12px !important;
+        gap: 10px !important;
+      }
+
+      .brand {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        gap: 9px !important;
+      }
+
+      .brand img {
+        width: 56px !important;
+        flex: 0 0 auto !important;
+      }
+
+      .brand-text {
+        display: grid !important;
+        min-width: 0 !important;
+        line-height: 1.05 !important;
+      }
+
+      .brand-text strong {
+        display: block !important;
+        color: var(--azul-profundo) !important;
+        font-size: 13px !important;
+        font-weight: 1000 !important;
+        letter-spacing: -.03em !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 142px !important;
+      }
+
+      .brand-text span {
+        display: block !important;
+        color: var(--muted) !important;
+        font-size: 8px !important;
+        font-weight: 900 !important;
+        text-transform: uppercase !important;
+        letter-spacing: .07em !important;
+        white-space: nowrap !important;
+      }
+
+      .acciones {
+        flex: 0 0 auto !important;
+        gap: 7px !important;
+      }
+
+      .acciones .btn-pago-online,
+      .menu-mobile {
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 13px !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .brand img {
+        width: 52px !important;
+      }
+
+      .brand-text strong {
+        max-width: 122px !important;
+        font-size: 12px !important;
+      }
+
+      .brand-text span {
+        font-size: 7.5px !important;
+      }
+
+      .acciones .btn-pago-online,
+      .menu-mobile {
+        width: 40px !important;
+        height: 40px !important;
+      }
+    }
+
+
+  
+
+    /* AJUSTE FINAL: GESTIONES FRECUENTES A TODO EL ANCHO DEL CONTENEDOR */
+    .vecinos-section {
+      padding: 72px 0 !important;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(112, 191, 54, .18), transparent 32%),
+        radial-gradient(circle at 92% 20%, rgba(19, 168, 226, .14), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f5fbff 100%) !important;
+    }
+
+    .vecinos-wrap {
+      width: calc(100% - 40px) !important;
+      max-width: none !important;
+      margin: 0 auto !important;
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+    }
+
+    .vecinos-panel {
+      width: 100% !important;
+      min-height: 340px !important;
+      padding: 44px 56px !important;
+      border-radius: 30px !important;
+      background:
+        radial-gradient(circle at 91% 80%, rgba(255, 255, 255, .18), transparent 22%),
+        linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul) 58%, #149bda 100%) !important;
+      box-shadow: 0 24px 60px rgba(5, 45, 79, .16) !important;
+    }
+
+    .vecinos-panel h2 {
+      max-width: 760px !important;
+      font-size: clamp(34px, 4.7vw, 62px) !important;
+    }
+
+    .vecinos-panel p {
+      max-width: 720px !important;
+      font-size: 17px !important;
+    }
+
+    .vecinos-panel .btn {
+      width: fit-content !important;
+      min-width: 146px;
+    }
+
+    @media (max-width: 640px) {
+      .vecinos-section {
+        padding: 46px 0 !important;
+      }
+
+      .vecinos-wrap {
+        width: calc(100% - 20px) !important;
+      }
+
+      .vecinos-panel {
+        min-height: auto !important;
+        padding: 28px 22px !important;
+        border-radius: 24px !important;
+      }
+
+      .vecinos-panel h2 {
+        font-size: 34px !important;
+      }
+
+      .vecinos-panel p {
+        font-size: 14px !important;
+      }
+
+      .vecinos-panel .btn {
+        width: 100% !important;
+      }
+    }
+    
+
+  
+
+    /* AJUSTE: CARTEL DE SERVICIOS MÁS ANCHO EN COMPUTADORA */
+    @media (min-width: 981px) {
+      .servicios-tabs-inner {
+        width: min(1280px, calc(100% - 40px));
+        grid-template-columns: .72fr 1.28fr;
+        gap: 44px;
+      }
+
+      .servicios-tabs-section {
+        padding: 74px 0;
+      }
+
+      .tabs-box {
+        min-height: 286px;
+      }
+    }
+
+    /* MODAL MUNICIPAL PERSONALIZADO */
+    .municipal-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 25, 39, .62);
+      backdrop-filter: blur(8px);
+      z-index: 900;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+    }
+
+    .municipal-modal-overlay.activo {
+      display: flex;
+    }
+
+    .municipal-modal {
+      width: min(760px, 100%);
+      max-height: min(86vh, 780px);
+      overflow: hidden;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 34px 90px rgba(0, 0, 0, .34);
+      border: 1px solid rgba(220, 234, 243, .95);
+      position: relative;
+      animation: modalIn .22s ease;
+    }
+
+    @keyframes modalIn {
+      from { transform: translateY(14px) scale(.98); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .municipal-modal-head {
+      background:
+        radial-gradient(circle at 90% 0%, rgba(112, 191, 54, .28), transparent 34%),
+        linear-gradient(135deg, var(--azul-profundo), var(--azul));
+      color: #fff;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .municipal-modal-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .municipal-modal-brand img {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 18px;
+      padding: 8px;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, .18);
+      flex: 0 0 auto;
+    }
+
+    .municipal-modal-brand span {
+      display: inline-flex;
+      color: #b6f08d;
+      font-size: 12px;
+      font-weight: 1000;
+      text-transform: uppercase;
+      letter-spacing: .10em;
+      margin-bottom: 6px;
+    }
+
+    .municipal-modal-brand h3 {
+      font-size: clamp(24px, 4vw, 36px);
+      line-height: 1.05;
+      font-weight: 1000;
+      letter-spacing: -.04em;
+      color: #fff;
+    }
+
+    .municipal-modal-close {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .16);
+      color: #fff;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      flex: 0 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .municipal-modal-body {
+      padding: 24px;
+      max-height: calc(86vh - 142px);
+      overflow-y: auto;
+    }
+
+    .municipal-modal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #eaf7ff;
+      color: var(--azul);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 1000;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .municipal-modal-body p {
+      color: #516b7b;
+      font-size: 15px;
+      line-height: 1.65;
+      font-weight: 650;
+      margin-bottom: 14px;
+    }
+
+    .municipal-modal-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .modal-info-item {
+      background: #f7fbfe;
+      border: 1px solid #dfeef6;
+      border-radius: 17px;
+      padding: 13px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .modal-info-item i {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--azul-2), var(--azul));
+      font-size: 18px;
+    }
+
+    .modal-info-item strong {
+      display: block;
+      color: #122d43;
+      font-size: 13px;
+      line-height: 1.2;
+      font-weight: 1000;
+    }
+
+    .modal-info-item span {
+      display: block;
+      color: #6d7e8a;
+      font-size: 12px;
+      line-height: 1.3;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .municipal-modal-list {
+      margin: 14px 0 20px;
+      display: grid;
+      gap: 9px;
+      list-style: none;
+    }
+
+    .municipal-modal-list li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 8px;
+      color: #385466;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .municipal-modal-list li::before {
+      content: "✓";
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--verde);
+      font-size: 12px;
+      font-weight: 1000;
+    }
+
+    .municipal-modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .modal-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 12px 16px;
+      border-radius: 13px;
+      font-size: 14px;
+      font-weight: 1000;
+      border: 0;
+      cursor: pointer;
+      transition: .22s ease;
+    }
+
+    .modal-action:hover {
+      transform: translateY(-2px);
+    }
+
+    .modal-action.primary {
+      background: var(--azul);
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(0, 118, 189, .22);
+    }
+
+    .modal-action.secondary {
+      background: #eaf7ff;
+      color: var(--azul);
+      border: 1px solid #cfe7f5;
+    }
+
+    .area-modal-card,
+    [data-modal] {
+      cursor: pointer;
+    }
+
+    @media (max-width: 640px) {
+      .municipal-modal-overlay {
+        padding: 12px 10px 2px !important;
+        align-items: flex-end !important;
+      }
+
+      .municipal-modal {
+        border-radius: 22px 22px 16px 16px;
+        max-height: 88vh;
+      }
+
+      .municipal-modal-head {
+        padding: 18px;
+      }
+
+      .municipal-modal-brand img {
+        width: 58px;
+        height: 58px;
+        border-radius: 14px;
+      }
+
+      .municipal-modal-brand h3 {
+        font-size: 24px;
+      }
+
+      .municipal-modal-body {
+        padding: 18px;
+        max-height: calc(88vh - 104px);
+      }
+
+      .municipal-modal-info {
+        grid-template-columns: 1fr;
+      }
+
+      .municipal-modal-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2877,27 +3600,27 @@
 
     <section class="quick-strip" aria-label="Accesos rápidos">
       <div class="quick-strip-grid">
-        <a class="quick-strip-card" href="#servicios">
+        <a class="quick-strip-card" href="#" data-modal="veterinario">
           <i class="bi bi-paw-fill"></i>
           <strong>Móvil Veterinario</strong>
         </a>
-        <a class="quick-strip-card" href="#servicios">
+        <a class="quick-strip-card" href="#" data-modal="vacunacion">
           <i class="bi bi-shield-plus"></i>
           <strong>Vacunación</strong>
         </a>
-        <a class="quick-strip-card" href="#servicios">
+        <a class="quick-strip-card" href="#" data-modal="educacion">
           <i class="bi bi-mortarboard-fill"></i>
           <strong>Cursos</strong>
         </a>
-        <a class="quick-strip-card" href="#servicios">
+        <a class="quick-strip-card" href="#" data-modal="salud">
           <i class="bi bi-heart-pulse-fill"></i>
           <strong>Salud</strong>
         </a>
-        <a class="quick-strip-card" href="#ciudad">
+        <a class="quick-strip-card" href="#" data-modal="turismo">
           <i class="bi bi-camera-fill"></i>
           <strong>Turismo</strong>
         </a>
-        <a class="quick-strip-card" href="#emergencias">
+        <a class="quick-strip-card" href="#" data-modal="seguridad">
           <i class="bi bi-shield-check"></i>
           <strong>Seguridad</strong>
         </a>
@@ -2974,42 +3697,42 @@
       </div>
 
       <div class="cards-grid">
-        <a class="icon-card" href="#">
+        <a class="icon-card" href="#" data-modal="licencia">
           <i class="bi bi-car-front-fill"></i>
           <h3>Licencia de Conducir</h3>
           <p>Requisitos, renovación, turnos y consultas sobre licencias.</p>
         </a>
-        <a class="icon-card" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener">
+        <a class="icon-card" href="#" data-modal="rentas">
           <i class="bi bi-bank2"></i>
           <h3>Rentas</h3>
           <p>Consultas tributarias, tasas municipales y gestiones online.</p>
         </a>
-        <a class="icon-card" href="#noticias">
+        <a class="icon-card" href="#" data-modal="noticias">
           <i class="bi bi-newspaper"></i>
           <h3>Noticias</h3>
           <p>Novedades oficiales, campañas, obras, eventos y comunicados.</p>
         </a>
-        <a class="icon-card" href="#servicios">
+        <a class="icon-card" href="#" data-modal="salud">
           <i class="bi bi-heart-pulse-fill"></i>
           <h3>Salud</h3>
           <p>Centros de atención, campañas sanitarias y prevención.</p>
         </a>
-        <a class="icon-card" href="#servicios">
+        <a class="icon-card" href="#" data-modal="educacion">
           <i class="bi bi-mortarboard-fill"></i>
           <h3>Educación</h3>
           <p>Programas, cursos, talleres, escuelas, jardines y becas.</p>
         </a>
-        <a class="icon-card" href="#ciudad">
+        <a class="icon-card" href="#" data-modal="turismo">
           <i class="bi bi-camera-fill"></i>
           <h3>Turismo</h3>
           <p>Historia, cultura, bodegas, paseos y puntos de interés.</p>
         </a>
-        <a class="icon-card" href="#contacto">
+        <a class="icon-card" href="#" data-modal="delegaciones">
           <i class="bi bi-geo-alt-fill"></i>
           <h3>Delegaciones</h3>
           <p>Atención territorial, trámites y servicios por distrito.</p>
         </a>
-        <a class="icon-card" href="#ciudad">
+        <a class="icon-card" href="#" data-modal="teatro">
           <i class="bi bi-ticket-perforated-fill"></i>
           <h3>Teatro Imperial</h3>
           <p>Agenda cultural, espectáculos, cine y actividades artísticas.</p>
@@ -3036,42 +3759,43 @@
 
           <div class="tab-panel active" id="tab-tramites">
             <div class="tab-list">
-              <a class="tab-link" href="#tramites"><i class="bi bi-file-earmark-text"></i><div><strong>Guía de Trámites</strong><span>Consultas, requisitos y gestiones municipales.</span></div></a>
-              <a class="tab-link" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener"><i class="bi bi-credit-card-2-front-fill"></i><div><strong>Pago de tasas</strong><span>Rentas, pagos y consultas tributarias.</span></div></a>
-              <a class="tab-link" href="#tramites"><i class="bi bi-car-front-fill"></i><div><strong>Licencia de conducir</strong><span>Turnos, renovación y requisitos.</span></div></a>
-              <a class="tab-link" href="#tramites"><i class="bi bi-shop"></i><div><strong>Habilitación comercial</strong><span>Información para comercios y emprendimientos.</span></div></a>
+              <a class="tab-link" href="#" data-modal="guia"><i class="bi bi-file-earmark-text"></i><div><strong>Guía de Trámites</strong><span>Consultas, requisitos y gestiones municipales.</span></div></a>
+              <a class="tab-link" href="#" data-modal="pago"><i class="bi bi-credit-card-2-front-fill"></i><div><strong>Pago de tasas</strong><span>Rentas, pagos y consultas tributarias.</span></div></a>
+              <a class="tab-link" href="#" data-modal="licencia"><i class="bi bi-car-front-fill"></i><div><strong>Licencia de conducir</strong><span>Turnos, renovación y requisitos.</span></div></a>
+              <a class="tab-link" href="#" data-modal="habilitacion"><i class="bi bi-shop"></i><div><strong>Habilitación comercial</strong><span>Información para comercios y emprendimientos.</span></div></a>
             </div>
           </div>
 
           <div class="tab-panel" id="tab-salud">
             <div class="tab-list">
-              <a class="tab-link" href="#servicios"><i class="bi bi-paw-fill"></i><div><strong>Móvil Veterinario</strong><span>Atención animal, prevención y campañas para mascotas.</span></div></a>
-              <a class="tab-link" href="#servicios"><i class="bi bi-shield-plus"></i><div><strong>Vacunación</strong><span>Campañas, salud y prevención comunitaria.</span></div></a>
-              <a class="tab-link" href="#servicios"><i class="bi bi-heart-pulse-fill"></i><div><strong>Salud</strong><span>Centros, controles, programas y prevención.</span></div></a>
-              <a class="tab-link" href="#servicios"><i class="bi bi-people-fill"></i><div><strong>Atención social</strong><span>Orientación y acompañamiento para vecinos.</span></div></a>
+              <a class="tab-link" href="#" data-modal="veterinario"><i class="bi bi-paw-fill"></i><div><strong>Móvil Veterinario</strong><span>Atención animal, prevención y campañas para mascotas.</span></div></a>
+              <a class="tab-link" href="#" data-modal="vacunacion"><i class="bi bi-shield-plus"></i><div><strong>Vacunación</strong><span>Campañas, salud y prevención comunitaria.</span></div></a>
+              <a class="tab-link" href="#" data-modal="salud"><i class="bi bi-heart-pulse-fill"></i><div><strong>Salud</strong><span>Centros, controles, programas y prevención.</span></div></a>
+              <a class="tab-link" href="#" data-modal="social"><i class="bi bi-people-fill"></i><div><strong>Atención social</strong><span>Orientación y acompañamiento para vecinos.</span></div></a>
             </div>
           </div>
 
           <div class="tab-panel" id="tab-ciudad">
             <div class="tab-list">
-              <a class="tab-link" href="#ciudad"><i class="bi bi-camera-fill"></i><div><strong>Turismo</strong><span>Bodegas, cultura, paseos y puntos de interés.</span></div></a>
-              <a class="tab-link" href="#ciudad"><i class="bi bi-tree-fill"></i><div><strong>Espacios verdes</strong><span>Plazas, parques y lugares para disfrutar.</span></div></a>
-              <a class="tab-link" href="#ciudad"><i class="bi bi-ticket-perforated-fill"></i><div><strong>Teatro Imperial</strong><span>Agenda cultural, cine y espectáculos.</span></div></a>
-              <a class="tab-link" href="#noticias"><i class="bi bi-newspaper"></i><div><strong>Noticias</strong><span>Novedades oficiales y actividades municipales.</span></div></a>
+              <a class="tab-link" href="#" data-modal="turismo"><i class="bi bi-camera-fill"></i><div><strong>Turismo</strong><span>Bodegas, cultura, paseos y puntos de interés.</span></div></a>
+              <a class="tab-link" href="#" data-modal="espacios"><i class="bi bi-tree-fill"></i><div><strong>Espacios verdes</strong><span>Plazas, parques y lugares para disfrutar.</span></div></a>
+              <a class="tab-link" href="#" data-modal="teatro"><i class="bi bi-ticket-perforated-fill"></i><div><strong>Teatro Imperial</strong><span>Agenda cultural, cine y espectáculos.</span></div></a>
+              <a class="tab-link" href="#" data-modal="noticias"><i class="bi bi-newspaper"></i><div><strong>Noticias</strong><span>Novedades oficiales y actividades municipales.</span></div></a>
             </div>
           </div>
 
           <div class="tab-panel" id="tab-atencion">
             <div class="tab-list">
-              <a class="tab-link" href="#contacto"><i class="bi bi-headset"></i><div><strong>Centro de Atención</strong><span>Consultas, reclamos y derivación de áreas.</span></div></a>
-              <a class="tab-link" href="https://wa.me/542617166619" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i><div><strong>WhatsApp</strong><span>Atención rápida desde el celular.</span></div></a>
-              <a class="tab-link" href="#emergencias"><i class="bi bi-shield-check"></i><div><strong>Seguridad</strong><span>Teléfonos útiles y contactos importantes.</span></div></a>
-              <a class="tab-link" href="#contacto"><i class="bi bi-geo-alt-fill"></i><div><strong>Delegaciones</strong><span>Atención territorial por distrito.</span></div></a>
+              <a class="tab-link" href="#" data-modal="atencion"><i class="bi bi-headset"></i><div><strong>Centro de Atención</strong><span>Consultas, reclamos y derivación de áreas.</span></div></a>
+              <a class="tab-link" href="#" data-modal="whatsapp"><i class="bi bi-whatsapp"></i><div><strong>WhatsApp</strong><span>Atención rápida desde el celular.</span></div></a>
+              <a class="tab-link" href="#" data-modal="seguridad"><i class="bi bi-shield-check"></i><div><strong>Seguridad</strong><span>Teléfonos útiles y contactos importantes.</span></div></a>
+              <a class="tab-link" href="#" data-modal="delegaciones"><i class="bi bi-geo-alt-fill"></i><div><strong>Delegaciones</strong><span>Atención territorial por distrito.</span></div></a>
             </div>
           </div>
         </div>
       </div>
     </section>
+
 
 
 <section class="section" id="ciudad">
@@ -3084,22 +3808,22 @@
       </div>
 
       <div class="cards-grid">
-        <article class="icon-card">
+        <article class="icon-card area-modal-card" data-modal="camino-vino" tabindex="0" role="button">
           <i class="bi bi-cup-straw"></i>
           <h3>Camino del vino</h3>
           <p>Maipú es parte esencial de la identidad vitivinícola de Mendoza.</p>
         </article>
-        <article class="icon-card">
+        <article class="icon-card area-modal-card" data-modal="espacios" tabindex="0" role="button">
           <i class="bi bi-tree-fill"></i>
           <h3>Espacios verdes</h3>
           <p>Plazas, parques y espacios para disfrutar en comunidad.</p>
         </article>
-        <article class="icon-card">
+        <article class="icon-card area-modal-card" data-modal="patrimonio" tabindex="0" role="button">
           <i class="bi bi-building-fill"></i>
           <h3>Patrimonio</h3>
           <p>Historia, cultura, museos y edificios representativos.</p>
         </article>
-        <article class="icon-card">
+        <article class="icon-card area-modal-card" data-modal="agenda" tabindex="0" role="button">
           <i class="bi bi-calendar-event-fill"></i>
           <h3>Agenda</h3>
           <p>Eventos, actividades, propuestas culturales y deportivas.</p>
@@ -3167,47 +3891,9 @@
       <div class="vecinos-wrap">
         <div class="vecinos-panel">
           <div class="eyebrow">Para vecinos</div>
-          <h2>Gestiones frecuentes en un solo lugar</h2>
+          <h2>Todo en un solo lugar</h2>
           <p>Un espacio pensado para resolver rápido lo que más se consulta: pagos, turnos, reclamos, atención, servicios municipales y teléfonos útiles.</p>
           <a class="btn btn-verde" href="#servicios"><i class="bi bi-grid-1x2-fill"></i>Ver servicios</a>
-        </div>
-
-        <div class="vecinos-grid">
-          <a class="vecino-card" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener">
-            <i class="bi bi-credit-card-2-front-fill"></i>
-            <strong>Pago en línea</strong>
-            <span>Consultá y aboná tasas municipales desde la web.</span>
-          </a>
-
-          <a class="vecino-card" href="#tramites">
-            <i class="bi bi-file-earmark-text"></i>
-            <strong>Guía de trámites</strong>
-            <span>Requisitos, consultas y accesos organizados por área.</span>
-          </a>
-
-          <a class="vecino-card" href="#contacto">
-            <i class="bi bi-headset"></i>
-            <strong>Atención al vecino</strong>
-            <span>Canales de consulta, reclamos y orientación municipal.</span>
-          </a>
-
-          <a class="vecino-card" href="#emergencias">
-            <i class="bi bi-telephone-inbound-fill"></i>
-            <strong>Teléfonos útiles</strong>
-            <span>Emergencias, bomberos, defensa civil y líneas importantes.</span>
-          </a>
-
-          <a class="vecino-card" href="#servicios">
-            <i class="bi bi-paw-fill"></i>
-            <strong>Móvil Veterinario</strong>
-            <span>Servicios para mascotas, prevención y campañas municipales.</span>
-          </a>
-
-          <a class="vecino-card" href="#ciudad">
-            <i class="bi bi-camera-fill"></i>
-            <strong>Turismo y ciudad</strong>
-            <span>Agenda, espacios verdes, cultura y lugares para conocer.</span>
-          </a>
         </div>
       </div>
     </section>
@@ -3330,6 +4016,26 @@
     </div>
   </footer>
 
+
+  <div class="municipal-modal-overlay" id="municipalModal" aria-hidden="true">
+    <div class="municipal-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+      <div class="municipal-modal-head">
+        <div class="municipal-modal-brand">
+          <img src="assets/img/logo-maipu.png" alt="Maipú Crece">
+          <div>
+            <span id="modalBadge">Municipalidad de Maipú</span>
+            <h3 id="modalTitulo">Área municipal</h3>
+          </div>
+        </div>
+        <button class="municipal-modal-close" id="cerrarMunicipalModal" aria-label="Cerrar información">×</button>
+      </div>
+      <div class="municipal-modal-body">
+        <div class="municipal-modal-badge" id="modalCategoria"><i class="bi bi-info-circle-fill"></i> Información municipal</div>
+        <div id="modalContenido"></div>
+      </div>
+    </div>
+  </div>
+
   <button aria-label="Asistente IA" class="ia-float" id="abrirChat">
     <i class="bi bi-robot"></i>
   </button>
@@ -3364,209 +4070,574 @@
   </div>
 
   <script>
-    const notice = document.getElementById("notice");
-    const cerrarNotice = document.getElementById("cerrarNotice");
-    const abrirMenu = document.getElementById("abrirMenu");
-    const menuPrincipal = document.getElementById("menuPrincipal");
+    document.addEventListener("DOMContentLoaded", () => {
+      const notice = document.getElementById("notice");
+      const cerrarNotice = document.getElementById("cerrarNotice");
+      const abrirMenu = document.getElementById("abrirMenu");
+      const menuPrincipal = document.getElementById("menuPrincipal");
 
-    const tabButtons = document.querySelectorAll(".tab-btn");
-    const tabPanels = document.querySelectorAll(".tab-panel");
-    const menuDropdowns = document.querySelectorAll(".menu-dropdown");
-    const menuDropButtons = document.querySelectorAll(".menu-drop-btn");
-
-    tabButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const target = button.dataset.tab;
-
-        tabButtons.forEach(btn => btn.classList.remove("active"));
-        tabPanels.forEach(panel => panel.classList.remove("active"));
-
-        button.classList.add("active");
-        document.getElementById(target).classList.add("active");
-      });
-    });
-
-    menuDropButtons.forEach(button => {
-      button.addEventListener("click", (e) => {
-        e.preventDefault();
-        const dropdown = button.closest(".menu-dropdown");
-        const abierto = dropdown.classList.toggle("open");
-        button.setAttribute("aria-expanded", abierto ? "true" : "false");
-
-        menuDropdowns.forEach(item => {
-          if (item !== dropdown) {
-            item.classList.remove("open");
-            const btn = item.querySelector(".menu-drop-btn");
-            if (btn) btn.setAttribute("aria-expanded", "false");
-          }
-        });
-      });
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".menu-dropdown")) {
-        menuDropdowns.forEach(item => {
-          item.classList.remove("open");
-          const btn = item.querySelector(".menu-drop-btn");
-          if (btn) btn.setAttribute("aria-expanded", "false");
-        });
-      }
-    });
-
-
-    if (localStorage.getItem("notice-maipu-cerrado") === "si") {
-      notice.classList.add("oculto");
-    }
-
-    cerrarNotice.addEventListener("click", () => {
-      notice.classList.add("oculto");
-      localStorage.setItem("notice-maipu-cerrado", "si");
-    });
-
-    abrirMenu.addEventListener("click", () => {
-      const abierto = menuPrincipal.classList.toggle("abierto");
-      abrirMenu.setAttribute("aria-expanded", abierto ? "true" : "false");
-      abrirMenu.innerHTML = abierto ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
-    });
-
-    document.querySelectorAll("#menuPrincipal a").forEach(link => {
-      link.addEventListener("click", () => {
+      function cerrarMenuMobile() {
+        if (!menuPrincipal || !abrirMenu) return;
         menuPrincipal.classList.remove("abierto");
         abrirMenu.setAttribute("aria-expanded", "false");
         abrirMenu.innerHTML = '<i class="bi bi-list"></i>';
+      }
+
+      function abrirCerrarMenuMobile(event) {
+        if (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        if (!menuPrincipal || !abrirMenu) return;
+
+        const abierto = menuPrincipal.classList.toggle("abierto");
+        abrirMenu.setAttribute("aria-expanded", abierto ? "true" : "false");
+        abrirMenu.innerHTML = abierto ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+      }
+
+      if (notice && cerrarNotice) {
+        try {
+          if (localStorage.getItem("notice-maipu-cerrado") === "si") {
+            notice.classList.add("oculto");
+          }
+
+          cerrarNotice.addEventListener("click", () => {
+            notice.classList.add("oculto");
+            localStorage.setItem("notice-maipu-cerrado", "si");
+          });
+        } catch (error) {
+          cerrarNotice.addEventListener("click", () => {
+            notice.classList.add("oculto");
+          });
+        }
+      }
+
+      if (abrirMenu && menuPrincipal) {
+        abrirMenu.addEventListener("click", abrirCerrarMenuMobile);
+
+        document.querySelectorAll("#menuPrincipal a").forEach(link => {
+          link.addEventListener("click", () => {
+            cerrarMenuMobile();
+            document.querySelectorAll(".menu-dropdown").forEach(dropdown => {
+              dropdown.classList.remove("open");
+              const btn = dropdown.querySelector(".menu-drop-btn");
+              if (btn) btn.setAttribute("aria-expanded", "false");
+            });
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".nav")) {
+            cerrarMenuMobile();
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 980) {
+            cerrarMenuMobile();
+          }
+        });
+      }
+
+      /* Dropdown Servicios */
+      const menuDropdowns = document.querySelectorAll(".menu-dropdown");
+      const menuDropButtons = document.querySelectorAll(".menu-drop-btn");
+
+      menuDropButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+
+          const dropdown = button.closest(".menu-dropdown");
+          if (!dropdown) return;
+
+          const abierto = dropdown.classList.toggle("open");
+          button.setAttribute("aria-expanded", abierto ? "true" : "false");
+
+          menuDropdowns.forEach(item => {
+            if (item !== dropdown) {
+              item.classList.remove("open");
+              const btn = item.querySelector(".menu-drop-btn");
+              if (btn) btn.setAttribute("aria-expanded", "false");
+            }
+          });
+        });
       });
-    });
 
-    const slides = document.querySelectorAll(".hero-slide");
-    const dots = document.querySelectorAll("#heroDots button");
-    const prevSlide = document.getElementById("prevSlide");
-    const nextSlide = document.getElementById("nextSlide");
-    let slideActual = 0;
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".menu-dropdown")) {
+          menuDropdowns.forEach(item => {
+            item.classList.remove("open");
+            const btn = item.querySelector(".menu-drop-btn");
+            if (btn) btn.setAttribute("aria-expanded", "false");
+          });
+        }
+      });
 
-    function mostrarSlide(index) {
-      slides.forEach(slide => slide.classList.remove("active"));
-      dots.forEach(dot => dot.classList.remove("active"));
-      slides[index].classList.add("active");
-      dots[index].classList.add("active");
-      slideActual = index;
-    }
+      /* Solapas de servicios */
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const tabPanels = document.querySelectorAll(".tab-panel");
 
-    function siguienteSlide() {
-      let nuevo = slideActual + 1;
-      if (nuevo >= slides.length) nuevo = 0;
-      mostrarSlide(nuevo);
-    }
+      tabButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const target = button.dataset.tab;
+          const panel = document.getElementById(target);
 
-    function anteriorSlide() {
-      let nuevo = slideActual - 1;
-      if (nuevo < 0) nuevo = slides.length - 1;
-      mostrarSlide(nuevo);
-    }
+          if (!panel) return;
 
-    nextSlide.addEventListener("click", siguienteSlide);
-    prevSlide.addEventListener("click", anteriorSlide);
+          tabButtons.forEach(btn => btn.classList.remove("active"));
+          tabPanels.forEach(item => item.classList.remove("active"));
 
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => mostrarSlide(index));
-    });
-
-    setInterval(siguienteSlide, 5500);
+          button.classList.add("active");
+          panel.classList.add("active");
+        });
+      });
 
 
-    const abrirChat = document.getElementById("abrirChat");
-    const cerrarChat = document.getElementById("cerrarChat");
-    const chatbot = document.getElementById("chatbot");
-    const chatBody = document.getElementById("chatBody");
-    const chatInput = document.getElementById("chatInput");
-    const enviarChat = document.getElementById("enviarChat");
-    const preguntas = document.querySelectorAll(".preguntas button");
+      /* Modales personalizados de áreas municipales */
+      const modalData = {
+        licencia: {
+          title: "Licencia de Conducir",
+          category: "Trámite municipal",
+          text: [
+            "Solo podrán realizar el trámite las personas que posean domicilio en el departamento de Maipú en su último DNI.",
+            "Recordá sacar turno con anticipación. La página habilita turnos los viernes con una posterioridad aproximada de 21 días."
+          ],
+          items: [
+            ["bi-geo-alt-fill", "Lugar", "Paganotto 442, Maipú"],
+            ["bi-clock-fill", "Horario", "Atención de 8 a 12 h"],
+            ["bi-whatsapp", "Consultas", "2617166636"],
+            ["bi-envelope-fill", "Mail", "licencias@maipu.gob.ar"]
+          ],
+          list: [
+            "Renovación, original, ampliación, canje o reimpresión de licencia.",
+            "Revisá requisitos generales, aranceles y documentación antes de asistir.",
+            "Las licencias profesionales interjurisdiccionales se tramitan de manera online desde el portal nacional correspondiente."
+          ],
+          actions: [
+            {label:"Solicitar turno", icon:"bi-calendar-check-fill", href:"#", type:"primary"},
+            {label:"Consultar por WhatsApp", icon:"bi-whatsapp", href:"https://wa.me/542617166636", type:"secondary"}
+          ]
+        },
+        guia: {
+          title: "Guía de Trámites",
+          category: "Orientación al vecino",
+          text: ["Encontrá requisitos, pasos, documentación y canales de consulta para iniciar gestiones municipales de forma más simple."],
+          items: [["bi-file-earmark-text", "Gestiones", "Trámites municipales"], ["bi-person-lines-fill", "Atención", "Derivación por área"], ["bi-clock", "Consulta", "Disponible online"], ["bi-info-circle", "Requisitos", "Documentación y pasos"]],
+          list: ["Licencias, rentas, habilitaciones, turnos y consultas generales.", "Ideal para revisar qué necesitás antes de presentarte."],
+          actions: [{label:"Ver sección de trámites", icon:"bi-arrow-down-circle-fill", href:"#tramites", type:"primary"}]
+        },
+        pago: {
+          title: "Pago de tasas",
+          category: "Rentas municipales",
+          text: ["Acceso para consultar y pagar tasas municipales, deudas y servicios disponibles desde la plataforma de Rentas."],
+          items: [["bi-credit-card-2-front-fill", "Pago", "Online"], ["bi-bank2", "Área", "Rentas"], ["bi-receipt", "Comprobantes", "Consultas tributarias"], ["bi-shield-check", "Canal", "Plataforma municipal"]],
+          list: ["Ingresá con los datos solicitados por el sistema.", "Verificá el período y el concepto antes de confirmar el pago."],
+          actions: [{label:"Abrir Pago en Línea", icon:"bi-box-arrow-up-right", href:"https://vps.infogov.com.ar/rentas/maipu/#/public/home", type:"primary"}]
+        },
+        rentas: {
+          title: "Rentas",
+          category: "Consulta tributaria",
+          text: ["Área para consultas sobre tasas, pagos, deuda, estados de cuenta y gestiones tributarias municipales."],
+          items: [["bi-bank2", "Área", "Rentas"], ["bi-credit-card", "Pagos", "Tasas municipales"], ["bi-receipt", "Consultas", "Comprobantes y deuda"], ["bi-laptop", "Canal", "Online"]],
+          list: ["Consultá tu situación y accedé a pagos disponibles.", "Conservá el comprobante de cada operación."],
+          actions: [{label:"Ir a Rentas", icon:"bi-box-arrow-up-right", href:"https://vps.infogov.com.ar/rentas/maipu/#/public/home", type:"primary"}]
+        },
+        habilitacion: {
+          title: "Habilitación comercial",
+          category: "Comercios y emprendimientos",
+          text: ["Orientación para comercios, emprendimientos y actividades económicas que necesitan habilitación o información municipal."],
+          items: [["bi-shop", "Área", "Comercio"], ["bi-file-earmark-check", "Gestión", "Habilitación"], ["bi-clipboard-check", "Requisitos", "Documentación"], ["bi-people", "Atención", "Asesoramiento"]],
+          list: ["Revisá documentación, rubro, ubicación y requisitos previos.", "Consultá antes de iniciar actividades para evitar demoras."],
+          actions: [{label:"Consultar atención", icon:"bi-headset", href:"#contacto", type:"primary"}]
+        },
+        veterinario: {
+          title: "Móvil Veterinario",
+          category: "Cuidado animal",
+          text: ["Servicio pensado para acercar atención, prevención y campañas para mascotas a distintos puntos del departamento."],
+          items: [["bi-paw-fill", "Mascotas", "Perros y gatos"], ["bi-heart-pulse", "Atención", "Prevención"], ["bi-calendar-event", "Operativos", "Por cronograma"], ["bi-geo-alt", "Territorio", "Distritos de Maipú"]],
+          list: ["Campañas de cuidado responsable.", "Información sobre castración, vacunación y controles según operativo.", "Consultá fechas y lugares disponibles."],
+          actions: [{label:"Consultar operativo", icon:"bi-whatsapp", href:"https://wa.me/542617166619", type:"primary"}]
+        },
+        vacunacion: {
+          title: "Vacunación",
+          category: "Salud y prevención",
+          text: ["Información sobre campañas, prevención y operativos de vacunación para la comunidad."],
+          items: [["bi-shield-plus", "Prevención", "Campañas"], ["bi-hospital", "Salud", "Atención primaria"], ["bi-calendar-week", "Cronograma", "Fechas disponibles"], ["bi-geo", "Puntos", "Espacios de atención"]],
+          list: ["Consultá cronogramas vigentes.", "Llevá documentación necesaria según campaña.", "Seguí las recomendaciones del área de Salud."],
+          actions: [{label:"Consultar por WhatsApp", icon:"bi-whatsapp", href:"https://wa.me/542617166619", type:"primary"}]
+        },
+        salud: {
+          title: "Salud",
+          category: "Atención y prevención",
+          text: ["Accesos a información sobre centros de atención, controles, campañas sanitarias y programas de prevención."],
+          items: [["bi-heart-pulse-fill", "Área", "Salud"], ["bi-hospital-fill", "Atención", "Centros y programas"], ["bi-clipboard-pulse", "Controles", "Prevención"], ["bi-megaphone", "Campañas", "Información oficial"]],
+          list: ["Orientación sobre atención primaria.", "Campañas de prevención y salud comunitaria.", "Derivación a canales oficiales de consulta."],
+          actions: [{label:"Ver servicios", icon:"bi-grid-1x2-fill", href:"#servicios", type:"primary"}]
+        },
+        social: {
+          title: "Atención social",
+          category: "Acompañamiento",
+          text: ["Espacio de orientación y acompañamiento para vecinos y vecinas que necesitan asistencia o derivación a áreas municipales."],
+          items: [["bi-people-fill", "Atención", "Orientación"], ["bi-person-heart", "Acompañamiento", "Vecinos"], ["bi-chat-dots", "Consulta", "Derivación"], ["bi-house-heart", "Comunidad", "Programas sociales"]],
+          list: ["Consultas, reclamos y orientación por necesidad.", "Derivación a áreas municipales correspondientes."],
+          actions: [{label:"Contactar atención", icon:"bi-headset", href:"#contacto", type:"primary"}]
+        },
+        educacion: {
+          title: "Cursos y educación",
+          category: "Formación y comunidad",
+          text: ["Información sobre cursos, talleres, capacitaciones y propuestas educativas para jóvenes y adultos."],
+          items: [["bi-mortarboard-fill", "Área", "Educación"], ["bi-journal-text", "Cursos", "Capacitaciones"], ["bi-people", "Destinatarios", "Jóvenes y adultos"], ["bi-calendar", "Inscripción", "Según convocatoria"]],
+          list: ["Talleres, programas y formación laboral.", "Consultá requisitos e inscripción según cada propuesta."],
+          actions: [{label:"Consultar cursos", icon:"bi-whatsapp", href:"https://wa.me/542617166619", type:"primary"}]
+        },
+        turismo: {
+          title: "Turismo",
+          category: "Conocé Maipú",
+          text: ["Maipú combina historia, cultura, bodegas, olivicultura, paseos y experiencias vinculadas a la identidad mendocina."],
+          items: [["bi-camera-fill", "Experiencias", "Paseos y cultura"], ["bi-cup-straw", "Vino", "Bodegas"], ["bi-tree", "Aire libre", "Espacios verdes"], ["bi-geo-alt", "Destino", "Maipú, Mendoza"]],
+          list: ["Recorridos, puntos de interés y actividades culturales.", "Ideal para vecinos, visitantes y turistas."],
+          actions: [{label:"Ver ciudad", icon:"bi-arrow-down-circle-fill", href:"#ciudad", type:"primary"}]
+        },
+        espacios: {
+          title: "Espacios verdes",
+          category: "Ciudad y comunidad",
+          text: ["Plazas, parques y lugares de encuentro para disfrutar en familia, hacer actividad física y compartir en comunidad."],
+          items: [["bi-tree-fill", "Espacios", "Plazas y parques"], ["bi-people", "Comunidad", "Encuentro"], ["bi-bicycle", "Actividad", "Recreación"], ["bi-brightness-high", "Uso", "Aire libre"]],
+          list: ["Cuidado y mantenimiento de espacios públicos.", "Actividades recreativas, deportivas y comunitarias."],
+          actions: [{label:"Consultar novedades", icon:"bi-newspaper", href:"#noticias", type:"primary"}]
+        },
+        teatro: {
+          title: "Teatro Imperial",
+          category: "Cultura",
+          text: ["Agenda cultural, espectáculos, cine, música y propuestas artísticas para vecinos y visitantes."],
+          items: [["bi-ticket-perforated-fill", "Agenda", "Cultura"], ["bi-film", "Cine", "Funciones"], ["bi-music-note-beamed", "Arte", "Espectáculos"], ["bi-calendar-event", "Programación", "Eventos"]],
+          list: ["Consultá cartelera y actividades.", "Espacio histórico y cultural del departamento."],
+          actions: [{label:"Ver agenda", icon:"bi-calendar-event", href:"#ciudad", type:"primary"}]
+        },
+        noticias: {
+          title: "Noticias",
+          category: "Información oficial",
+          text: ["Novedades oficiales, campañas, obras, eventos, comunicados y acciones municipales actualizadas."],
+          items: [["bi-newspaper", "Novedades", "Municipio"], ["bi-megaphone", "Comunicados", "Oficiales"], ["bi-calendar3", "Eventos", "Agenda"], ["bi-building", "Gestión", "Obras y servicios"]],
+          list: ["Información útil para vecinos y vecinas.", "Campañas, servicios, obras y actividades."],
+          actions: [{label:"Ir a noticias", icon:"bi-arrow-down-circle-fill", href:"#noticias", type:"primary"}]
+        },
+        atencion: {
+          title: "Centro de Atención al Vecino",
+          category: "Informes y reclamos",
+          text: ["Canal para informes, reclamos, consultas y derivación a áreas municipales."],
+          items: [["bi-telephone-fill", "0800", "0800 222 8030"], ["bi-whatsapp", "WhatsApp", "261 716-6619"], ["bi-geo-alt-fill", "Dirección", "Pablo Pescara 190"], ["bi-envelope-fill", "Mail", "info@maipu.gob.ar"]],
+          list: ["Consultas generales y orientación de trámites.", "Derivación a áreas correspondientes."],
+          actions: [{label:"Enviar WhatsApp", icon:"bi-whatsapp", href:"https://wa.me/542617166619", type:"primary"}]
+        },
+        whatsapp: {
+          title: "WhatsApp municipal",
+          category: "Consulta rápida",
+          text: ["Comunicate desde el celular para orientación general, consultas y atención al vecino."],
+          items: [["bi-whatsapp", "Número", "261 716-6619"], ["bi-chat-dots", "Consulta", "Rápida"], ["bi-person-lines-fill", "Atención", "Vecinos"], ["bi-clock", "Horario", "Según atención municipal"]],
+          list: ["Escribí con datos claros sobre tu consulta.", "Indicá trámite, dirección o área si corresponde."],
+          actions: [{label:"Abrir WhatsApp", icon:"bi-whatsapp", href:"https://wa.me/542617166619", type:"primary"}]
+        },
+        seguridad: {
+          title: "Seguridad y emergencias",
+          category: "Teléfonos útiles",
+          text: ["Accesos rápidos a teléfonos importantes para emergencias, atención ciudadana y prevención."],
+          items: [["bi-telephone-inbound-fill", "Emergencias", "911"], ["bi-person-heart", "Violencia de género", "144"], ["bi-shield-fill-check", "Maltrato infantil", "102"], ["bi-headset", "Atención", "147 / 0800 222 7800"]],
+          list: ["Usá cada número según el tipo de situación.", "En caso de urgencia real, llamá a emergencias."],
+          actions: [{label:"Ver emergencias", icon:"bi-arrow-down-circle-fill", href:"#emergencias", type:"primary"}]
+        },
+        delegaciones: {
+          title: "Delegaciones",
+          category: "Atención territorial",
+          text: ["Atención municipal cercana por distrito para consultas, trámites y servicios territoriales."],
+          items: [["bi-geo-alt-fill", "Territorio", "Distritos"], ["bi-building", "Municipio", "Atención cercana"], ["bi-person-lines-fill", "Consultas", "Trámites"], ["bi-chat-dots", "Derivación", "Áreas municipales"]],
+          list: ["Consultá según tu zona o distrito.", "Ideal para orientación cercana sin trasladarte al centro."],
+          actions: [{label:"Consultar atención", icon:"bi-headset", href:"#contacto", type:"primary"}]
+        },
+        "camino-vino": {
+          title: "Camino del vino",
+          category: "Turismo local",
+          text: ["Maipú forma parte de la identidad vitivinícola de Mendoza, con bodegas, historia y experiencias turísticas."],
+          items: [["bi-cup-straw", "Vino", "Bodegas"], ["bi-camera", "Turismo", "Experiencias"], ["bi-geo", "Destino", "Maipú"], ["bi-tree", "Paisaje", "Oasis productivo"]],
+          list: ["Recorridos vinculados a la cultura del vino.", "Puntos de interés para vecinos y visitantes."],
+          actions: [{label:"Ver turismo", icon:"bi-camera", href:"#ciudad", type:"primary"}]
+        },
+        patrimonio: {
+          title: "Patrimonio",
+          category: "Historia y cultura",
+          text: ["Espacios, edificios e historias que forman parte de la identidad de Maipú y su comunidad."],
+          items: [["bi-building-fill", "Patrimonio", "Historia"], ["bi-book", "Cultura", "Identidad"], ["bi-geo-alt", "Lugares", "Puntos de interés"], ["bi-people", "Comunidad", "Memoria local"]],
+          list: ["Museos, edificios, recorridos y sitios representativos.", "Promoción de la historia departamental."],
+          actions: [{label:"Conocer más", icon:"bi-arrow-down-circle-fill", href:"#ciudad", type:"primary"}]
+        },
+        agenda: {
+          title: "Agenda municipal",
+          category: "Eventos y actividades",
+          text: ["Eventos, actividades, propuestas culturales, deportivas y recreativas para la comunidad."],
+          items: [["bi-calendar-event-fill", "Agenda", "Eventos"], ["bi-music-note-beamed", "Cultura", "Actividades"], ["bi-trophy", "Deportes", "Propuestas"], ["bi-people", "Comunidad", "Participación"]],
+          list: ["Consultá fechas, lugares y convocatorias.", "Actividades para distintos públicos y edades."],
+          actions: [{label:"Ver novedades", icon:"bi-newspaper", href:"#noticias", type:"primary"}]
+        }
+      };
 
-    abrirChat.addEventListener("click", () => {
-      chatbot.classList.toggle("activo");
-      if (chatbot.classList.contains("activo")) {
-        setTimeout(() => chatInput.focus(), 80);
+      const municipalModal = document.getElementById("municipalModal");
+      const cerrarMunicipalModal = document.getElementById("cerrarMunicipalModal");
+      const modalTitulo = document.getElementById("modalTitulo");
+      const modalCategoria = document.getElementById("modalCategoria");
+      const modalContenido = document.getElementById("modalContenido");
+
+      function crearModalHTML(data) {
+        const items = (data.items || []).map(item => `
+          <div class="modal-info-item">
+            <i class="bi ${item[0]}"></i>
+            <div><strong>${item[1]}</strong><span>${item[2]}</span></div>
+          </div>
+        `).join("");
+
+        const paragraphs = (data.text || []).map(txt => `<p>${txt}</p>`).join("");
+        const list = (data.list || []).map(txt => `<li>${txt}</li>`).join("");
+        const actions = (data.actions || []).map(action => `
+          <a class="modal-action ${action.type || 'secondary'}" href="${action.href || '#'}" ${String(action.href || '').startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>
+            <i class="bi ${action.icon || 'bi-arrow-right'}"></i>${action.label}
+          </a>
+        `).join("");
+
+        return `
+          ${paragraphs}
+          ${items ? `<div class="municipal-modal-info">${items}</div>` : ''}
+          ${list ? `<ul class="municipal-modal-list">${list}</ul>` : ''}
+          ${actions ? `<div class="municipal-modal-actions">${actions}</div>` : ''}
+        `;
+      }
+
+      function abrirModalMunicipal(clave) {
+        const data = modalData[clave];
+        if (!data || !municipalModal || !modalTitulo || !modalContenido || !modalCategoria) return;
+
+        modalTitulo.textContent = data.title;
+        modalCategoria.innerHTML = `<i class="bi bi-info-circle-fill"></i> ${data.category || 'Información municipal'}`;
+        modalContenido.innerHTML = crearModalHTML(data);
+        municipalModal.classList.add("activo");
+        municipalModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function cerrarModalMunicipal() {
+        if (!municipalModal) return;
+        municipalModal.classList.remove("activo");
+        municipalModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll("[data-modal]").forEach(elemento => {
+        elemento.addEventListener("click", (event) => {
+          event.preventDefault();
+          abrirModalMunicipal(elemento.dataset.modal);
+        });
+
+        elemento.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            abrirModalMunicipal(elemento.dataset.modal);
+          }
+        });
+      });
+
+      if (cerrarMunicipalModal) {
+        cerrarMunicipalModal.addEventListener("click", cerrarModalMunicipal);
+      }
+
+      if (municipalModal) {
+        municipalModal.addEventListener("click", (event) => {
+          if (event.target === municipalModal) cerrarModalMunicipal();
+        });
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") cerrarModalMunicipal();
+      });
+
+      /* Carrusel portada */
+      const slides = document.querySelectorAll(".hero-slide");
+      const dots = document.querySelectorAll("#heroDots button");
+      const prevSlide = document.getElementById("prevSlide");
+      const nextSlide = document.getElementById("nextSlide");
+      let slideActual = 0;
+
+      function mostrarSlide(index) {
+        if (!slides.length) return;
+
+        slides.forEach(slide => slide.classList.remove("active"));
+        dots.forEach(dot => dot.classList.remove("active"));
+
+        slides[index].classList.add("active");
+        if (dots[index]) dots[index].classList.add("active");
+
+        slideActual = index;
+      }
+
+      function siguienteSlide() {
+        if (!slides.length) return;
+        let nuevo = slideActual + 1;
+        if (nuevo >= slides.length) nuevo = 0;
+        mostrarSlide(nuevo);
+      }
+
+      function anteriorSlide() {
+        if (!slides.length) return;
+        let nuevo = slideActual - 1;
+        if (nuevo < 0) nuevo = slides.length - 1;
+        mostrarSlide(nuevo);
+      }
+
+      if (nextSlide) nextSlide.addEventListener("click", siguienteSlide);
+      if (prevSlide) prevSlide.addEventListener("click", anteriorSlide);
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => mostrarSlide(index));
+      });
+
+      if (slides.length > 1) {
+        setInterval(siguienteSlide, 5500);
+      }
+
+      /* Chatbot */
+      const abrirChat = document.getElementById("abrirChat");
+      const cerrarChat = document.getElementById("cerrarChat");
+      const chatbot = document.getElementById("chatbot");
+      const chatBody = document.getElementById("chatBody");
+      const chatInput = document.getElementById("chatInput");
+      const enviarChat = document.getElementById("enviarChat");
+      const preguntas = document.querySelectorAll(".preguntas button");
+
+      function abrirCerrarChat(event) {
+        if (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        if (!chatbot) return;
+
+        chatbot.classList.toggle("activo");
+
+        if (chatbot.classList.contains("activo") && chatInput) {
+          setTimeout(() => chatInput.focus(), 120);
+        }
+      }
+
+      function cerrarChatbot() {
+        if (chatbot) chatbot.classList.remove("activo");
+      }
+
+      if (abrirChat) {
+        abrirChat.addEventListener("click", abrirCerrarChat);
+      }
+
+      if (cerrarChat) {
+        cerrarChat.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          cerrarChatbot();
+        });
+      }
+
+      preguntas.forEach(boton => {
+        boton.addEventListener("click", () => {
+          enviarMensaje(boton.dataset.question || boton.textContent);
+        });
+      });
+
+      if (enviarChat) {
+        enviarChat.addEventListener("click", () => {
+          enviarMensaje(chatInput ? chatInput.value : "");
+        });
+      }
+
+      if (chatInput) {
+        chatInput.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            enviarMensaje(chatInput.value);
+          }
+        });
+      }
+
+      function agregarMensaje(texto, tipo) {
+        if (!chatBody) return;
+
+        const div = document.createElement("div");
+        div.className = "msg " + tipo;
+        div.innerHTML = texto;
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      function enviarMensaje(texto) {
+        const pregunta = String(texto || "").trim();
+
+        if (!pregunta) return;
+
+        agregarMensaje(pregunta, "user");
+
+        if (chatInput) chatInput.value = "";
+
+        setTimeout(() => {
+          agregarMensaje(responder(pregunta), "bot");
+        }, 350);
+      }
+
+      function responder(texto) {
+        const t = texto.toLowerCase();
+
+        if (t.includes("pago") || t.includes("pagar") || t.includes("tasas")) {
+          return 'Para pagos municipales, usá el acceso <b>Pago en Línea</b>. También podés ingresar desde el botón azul del inicio.';
+        }
+
+        if (t.includes("licencia") || t.includes("conducir") || t.includes("carnet")) {
+          return 'Para licencia de conducir, ingresá a <b>Licencia de Conducir</b>. Allí se pueden consultar requisitos, renovación y turnos.';
+        }
+
+        if (t.includes("renta") || t.includes("rentas")) {
+          return 'Para consultas tributarias, entrá en <b>Rentas</b>. Podés revisar información sobre tasas, pagos y gestiones municipales.';
+        }
+
+        if (t.includes("salud") || t.includes("médico") || t.includes("medico")) {
+          return 'En el área de <b>Salud</b> se puede informar sobre centros de atención, campañas sanitarias y prevención.';
+        }
+
+        if (t.includes("educacion") || t.includes("educación") || t.includes("escuela")) {
+          return 'En <b>Educación</b> podés encontrar programas, talleres, cursos, escuelas, jardines y becas.';
+        }
+
+        if (t.includes("turismo") || t.includes("bodega") || t.includes("conocer")) {
+          return 'En la sección <b>Turismo</b> podés encontrar información sobre historia, cultura, bodegas y puntos de interés de Maipú.';
+        }
+
+        if (t.includes("veterinario") || t.includes("mascota") || t.includes("animal")) {
+          return 'El <b>Móvil Veterinario</b> puede incluir atención animal, vacunación, castración y campañas de prevención para mascotas.';
+        }
+
+        if (t.includes("delegacion") || t.includes("delegación") || t.includes("delegaciones")) {
+          return 'En <b>Delegaciones</b> podés consultar atención territorial, trámites y servicios por distrito.';
+        }
+
+        if (t.includes("teatro") || t.includes("imperial")) {
+          return 'En <b>Teatro Imperial</b> se puede mostrar agenda cultural, espectáculos, cine y actividades artísticas.';
+        }
+
+        if (t.includes("emergencia") || t.includes("bombero") || t.includes("defensa") || t.includes("violencia")) {
+          return 'Teléfonos útiles:<br><b>Emergencias:</b> 911<br><b>Violencia de Género:</b> 144<br><b>Maltrato Infantil:</b> 102<br><b>Bomberos:</b> 100 / 0261 - 4980999<br><b>Defensa Civil:</b> 103 / 0261 - 4987647.';
+        }
+
+        if (t.includes("ubicacion") || t.includes("ubicación") || t.includes("direccion") || t.includes("dirección")) {
+          return 'La Municipalidad de Maipú se encuentra en <b>Pablo Pescara 190, Ciudad de Maipú, Mendoza</b>.';
+        }
+
+        return 'Puedo orientarte sobre <b>Pago en Línea, Rentas, Licencia de Conducir, Salud, Educación, Turismo, Móvil Veterinario, Emergencias y ubicación</b>.';
       }
     });
-
-    cerrarChat.addEventListener("click", () => {
-      chatbot.classList.remove("activo");
-    });
-
-    preguntas.forEach((boton) => {
-      boton.addEventListener("click", () => enviarMensaje(boton.dataset.question));
-    });
-
-    enviarChat.addEventListener("click", () => enviarMensaje(chatInput.value));
-
-    chatInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") enviarMensaje(chatInput.value);
-    });
-
-    function agregarMensaje(texto, tipo) {
-      const div = document.createElement("div");
-      div.className = "msg " + tipo;
-      div.innerHTML = texto;
-      chatBody.appendChild(div);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    function enviarMensaje(texto) {
-      const pregunta = texto.trim();
-      if (!pregunta) return;
-      agregarMensaje(pregunta, "user");
-      chatInput.value = "";
-      setTimeout(() => agregarMensaje(responder(pregunta), "bot"), 350);
-    }
-
-    function responder(texto) {
-      const t = texto.toLowerCase();
-
-      if (t.includes("pago") || t.includes("pagar") || t.includes("tasas")) {
-        return 'Para pagos municipales, usá el acceso <b>Pago en Línea</b>. También podés ingresar desde el botón azul del inicio.';
-      }
-
-      if (t.includes("licencia") || t.includes("conducir") || t.includes("carnet")) {
-        return 'Para licencia de conducir, ingresá a <b>Licencia de Conducir</b>. Allí se pueden consultar requisitos, renovación y turnos.';
-      }
-
-      if (t.includes("renta") || t.includes("rentas")) {
-        return 'Para consultas tributarias, entrá en <b>Rentas</b>. Podés revisar información sobre tasas, pagos y gestiones municipales.';
-      }
-
-      if (t.includes("salud") || t.includes("médico") || t.includes("medico")) {
-        return 'En el área de <b>Salud</b> se puede informar sobre centros de atención, campañas sanitarias y prevención.';
-      }
-
-      if (t.includes("educacion") || t.includes("educación") || t.includes("escuela")) {
-        return 'En <b>Educación</b> podés encontrar programas, talleres, cursos, escuelas, jardines y becas.';
-      }
-
-      if (t.includes("turismo") || t.includes("bodega") || t.includes("conocer")) {
-        return 'En la sección <b>Turismo</b> podés encontrar información sobre historia, cultura, bodegas y puntos de interés de Maipú.';
-      }
-
-      if (t.includes("veterinario") || t.includes("mascota") || t.includes("animal")) {
-        return 'El <b>Móvil Veterinario</b> puede incluir atención animal, vacunación, castración y campañas de prevención para mascotas.';
-      }
-
-      if (t.includes("delegacion") || t.includes("delegación") || t.includes("delegaciones")) {
-        return 'En <b>Delegaciones</b> podés consultar atención territorial, trámites y servicios por distrito.';
-      }
-
-      if (t.includes("teatro") || t.includes("imperial")) {
-        return 'En <b>Teatro Imperial</b> se puede mostrar agenda cultural, espectáculos, cine y actividades artísticas.';
-      }
-
-      if (t.includes("emergencia") || t.includes("bombero") || t.includes("defensa") || t.includes("violencia")) {
-        return 'Teléfonos útiles:<br><b>Emergencias:</b> 911<br><b>Violencia de Género:</b> 144<br><b>Maltrato Infantil:</b> 102<br><b>Bomberos:</b> 100 / 0261 - 4980999<br><b>Defensa Civil:</b> 103 / 0261 - 4987647.';
-      }
-
-      if (t.includes("ubicacion") || t.includes("ubicación") || t.includes("direccion") || t.includes("dirección")) {
-        return 'La Municipalidad de Maipú se encuentra en <b>Pablo Pescara 190, Ciudad de Maipú, Mendoza</b>.';
-      }
-
-      return 'Puedo orientarte sobre <b>Pago en Línea, Rentas, Licencia de Conducir, Salud, Educación, Turismo, Móvil Veterinario, Emergencias y ubicación</b>.';
-    }
   </script>
 </body>
 </html>
