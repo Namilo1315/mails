@@ -5285,6 +5285,135 @@
     font-size: 9.4px;
   }
 }
+/* =====================================
+   ARREGLO FINAL CELULAR
+   Vamos Argentina derecho, centrado y más abajo
+===================================== */
+
+@media (max-width: 700px) {
+  .mam26-contenido {
+    position: relative !important;
+    display: block !important;
+    min-height: 510px !important;
+    padding: 0 14px 54px !important;
+    overflow: visible !important;
+  }
+
+  .mam26-texto {
+    position: relative !important;
+    z-index: 40 !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: 0 !important;
+    top: 95px !important; /* SUBÍ O BAJÁ DESDE ACÁ */
+  }
+
+  .mam26-vamos {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 36px !important;
+    line-height: 1 !important;
+    letter-spacing: -1px !important;
+    margin: 0 auto !important;
+    white-space: nowrap !important;
+    transform: none !important; /* LO DEJA DERECHO */
+    animation: none !important; /* LE SACA EL MOVIMIENTO TORCIDO */
+  }
+
+  .mam26-argentina {
+    display: inline !important;
+    font-size: inherit !important;
+    margin-left: 5px !important;
+    margin-top: 0 !important;
+    color: #22a0cf !important;
+    -webkit-text-stroke: .7px rgba(255,255,255,.55) !important;
+  }
+
+  .mam26-municipio {
+    text-align: left !important;
+    font-size: 29px !important;
+    line-height: 1.02 !important;
+    margin-top: 38px !important;
+    margin-left: 6px !important;
+    max-width: 230px !important;
+  }
+
+  .mam26-linea-color {
+    width: 165px !important;
+    height: 6px !important;
+    margin: 16px 0 16px 6px !important;
+  }
+
+  .mam26-mensaje {
+    text-align: left !important;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+    max-width: 185px !important;
+    margin-top: 16px !important;
+    margin-left: 6px !important;
+  }
+}
+
+/* CELULARES MÁS CHICOS */
+@media (max-width: 430px) {
+  .mam26-modal {
+    min-height: 520px !important;
+  }
+
+  .mam26-contenido {
+    min-height: 520px !important;
+  }
+
+  .mam26-texto {
+    top: 115px !important; /* MÁS NÚMERO = MÁS ABAJO */
+  }
+
+  .mam26-vamos {
+    font-size: 34px !important;
+  }
+
+  .mam26-municipio {
+    font-size: 28px !important;
+    margin-top: 38px !important;
+  }
+
+  .mam26-mensaje {
+    font-size: 13px !important;
+    max-width: 175px !important;
+    margin-top: 16px !important;
+  }
+}
+
+/* CELULARES MUY CHICOS */
+@media (max-width: 360px) {
+  .mam26-modal {
+    min-height: 530px !important;
+  }
+
+  .mam26-contenido {
+    min-height: 530px !important;
+  }
+
+  .mam26-texto {
+    top: 125px !important; /* ACÁ LO BAJÉ MÁS */
+  }
+
+  .mam26-vamos {
+    font-size: 32px !important;
+  }
+
+  .mam26-municipio {
+    font-size: 27px !important;
+    margin-top: 40px !important;
+  }
+
+  .mam26-mensaje {
+    font-size: 13px !important;
+    max-width: 165px !important;
+    margin-top: 18px !important;
+  }
+}
 </style>
 
 <section class="mam26-welcome" id="mam26Welcome">
