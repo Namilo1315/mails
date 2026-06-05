@@ -1,0 +1,3794 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Municipalidad de Maipú | Portal Municipal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --azul: #0072bc;
+        --azul2: #0d8fd3;
+        --azulOsc: #082946;
+        --verde: #72c943;
+        --verde2: #a8df57;
+        --naranja: #f59b12;
+        --amarillo: #ffd25a;
+        --celeste: #eef8ff;
+        --gris: #f5f8fc;
+        --borde: #dfe8f2;
+        --texto: #16243b;
+        --muted: #657487;
+        --shadow: 0 14px 34px rgba(10, 35, 70, 0.1);
+        --shadow2: 0 8px 20px rgba(10, 35, 70, 0.075);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--texto);
+        background: #ffffff;
+        overflow-x: hidden;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      button,
+      input,
+      textarea,
+      select {
+        font-family: inherit;
+      }
+      .container {
+        width: min(1180px, 92%);
+        margin: auto;
+      } /* BARRA SUPERIOR */
+      .top-strip {
+        background: linear-gradient(90deg, #128fd0, #68bf42);
+        color: white;
+        font-size: 10.5px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.35px;
+        overflow: hidden;
+      }
+      .top-strip .container {
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        white-space: nowrap;
+      }
+      .topbar {
+        background: #062743;
+        color: white;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .topbar .container {
+        min-height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .top-info,
+      .top-social {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .topbar span {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .top-social a {
+        width: 29px;
+        height: 29px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        transition: 0.2s ease;
+      }
+      .top-social a:hover {
+        background: rgba(255, 255, 255, 0.12);
+      } /* HEADER */
+      .header {
+        background: white;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 6px 22px rgba(12, 35, 70, 0.08);
+      }
+      .nav {
+        min-height: 66px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      .brand img {
+        width: 64px;
+      }
+      .brand strong {
+        display: block;
+        color: #173a5f;
+        font-size: 15px;
+        line-height: 1.05;
+        font-weight: 900;
+      }
+      .brand small {
+        display: block;
+        color: #50708f;
+        font-size: 10px;
+        line-height: 1;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+      .menu {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: #243a59;
+        margin-left: auto;
+      }
+      .nav-item {
+        position: relative;
+      }
+      .nav-link {
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font-weight: 800;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        padding: 22px 0;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--azul);
+      }
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 11px;
+        width: 100%;
+        height: 4px;
+        border-radius: 6px;
+        background: linear-gradient(90deg, var(--azul), var(--verde));
+      }
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        width: 370px;
+        background: white;
+        border: 1px solid var(--borde);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        padding: 12px;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.18s ease;
+        z-index: 1002;
+      }
+      .nav-item:hover .dropdown,
+      .nav-item.open .dropdown {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+      }
+      .dropdown-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .drop-btn {
+        border: 1px solid var(--borde);
+        background: #fff;
+        border-radius: 13px;
+        padding: 12px;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        transition: 0.2s ease;
+      }
+      .drop-btn:hover {
+        background: var(--celeste);
+        transform: translateY(-2px);
+      }
+      .drop-btn i {
+        width: 33px;
+        height: 33px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        color: white;
+        flex: 0 0 33px;
+        background: linear-gradient(135deg, var(--azul), var(--azul2));
+      }
+      .drop-btn b {
+        display: block;
+        color: #173350;
+        font-size: 13px;
+        margin-bottom: 3px;
+      }
+      .drop-btn small {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.25;
+      }
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        flex-shrink: 0;
+      }
+      .search-btn,
+      .pay-btn,
+      .admin-btn {
+        height: 39px;
+        border-radius: 10px;
+        padding: 0 14px;
+        border: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+      .search-btn {
+        background: white;
+        color: var(--azul);
+        border: 1px solid #cfe0ef;
+      }
+      .pay-btn {
+        background: linear-gradient(135deg, var(--azul), var(--azul2));
+        color: white;
+        box-shadow: 0 10px 20px rgba(0, 114, 188, 0.2);
+      }
+      .admin-btn {
+        background: #0b2341;
+        color: white;
+      }
+      .hamb {
+        display: none;
+        width: 42px;
+        height: 42px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--azul);
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+      } /* BUSCADOR GLOBAL */
+      .search-panel {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 20, 38, 0.62);
+        z-index: 3500;
+        display: none;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 88px 20px 20px;
+      }
+      .search-panel.show {
+        display: flex;
+      }
+      .search-box {
+        width: min(900px, 100%);
+        background: white;
+        border-radius: 22px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+        overflow: hidden;
+      }
+      .search-head {
+        padding: 18px;
+        border-bottom: 1px solid var(--borde);
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .search-head input {
+        flex: 1;
+        height: 48px;
+        border: 1px solid var(--borde);
+        border-radius: 12px;
+        padding: 0 15px;
+        outline: none;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .close-search {
+        width: 45px;
+        height: 45px;
+        border: 0;
+        border-radius: 50%;
+        background: var(--azul);
+        color: white;
+        cursor: pointer;
+        font-size: 21px;
+      }
+      .search-results {
+        padding: 16px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        max-height: 420px;
+        overflow: auto;
+      }
+      .search-result {
+        border: 1px solid var(--borde);
+        border-radius: 14px;
+        background: #fff;
+        padding: 13px;
+        cursor: pointer;
+        display: flex;
+        gap: 10px;
+        text-align: left;
+        align-items: flex-start;
+      }
+      .search-result:hover {
+        background: var(--celeste);
+      }
+      .search-result i {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        color: white;
+        background: linear-gradient(135deg, var(--azul), var(--azul2));
+        display: grid;
+        place-items: center;
+        flex: 0 0 34px;
+      }
+      .search-result b {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 3px;
+        color: #173350;
+      }
+      .search-result small {
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.3;
+        display: block;
+      } /* HERO */
+      .hero {
+        position: relative;
+        background:
+          linear-gradient(
+            90deg,
+            rgba(6, 29, 52, 0.72),
+            rgba(6, 29, 52, 0.34),
+            rgba(6, 29, 52, 0.18)
+          ),
+          var(--hero-image, url("assets/img/portada.png")) center/cover
+            no-repeat;
+        min-height: 365px;
+        overflow: hidden;
+        transition: background-image 0.3s ease;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        left: -8%;
+        right: -8%;
+        bottom: -76px;
+        height: 120px;
+        background: white;
+        border-radius: 50% 50% 0 0;
+        z-index: 1;
+      }
+      .hero .container {
+        position: relative;
+        z-index: 2;
+        min-height: 365px;
+        display: flex;
+        align-items: center;
+      }
+      .hero-content {
+        color: white;
+        max-width: 660px;
+        padding: 34px 0 50px;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 999px;
+        padding: 9px 14px;
+        font-size: 12px;
+        font-weight: 900;
+        margin-bottom: 14px;
+        backdrop-filter: blur(5px);
+      }
+      .hero h1 {
+        font-size: clamp(40px, 5.6vw, 66px);
+        line-height: 0.94;
+        font-weight: 900;
+        letter-spacing: -2px;
+        margin-bottom: 14px;
+      }
+      .hero h1 span {
+        display: block;
+        color: #c7f36b;
+      }
+      .hero p {
+        color: #f3f8ff;
+        font-size: 16px;
+        line-height: 1.48;
+        max-width: 640px;
+        margin-bottom: 21px;
+        font-weight: 600;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        border: 0;
+        border-radius: 10px;
+        min-height: 43px;
+        padding: 0 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 900;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-green {
+        background: linear-gradient(135deg, var(--verde), var(--verde2));
+        color: white;
+      }
+      .btn-blue {
+        background: linear-gradient(135deg, var(--azul), var(--azul2));
+        color: white;
+      }
+      .btn-orange {
+        background: linear-gradient(135deg, var(--naranja), #ffb427);
+        color: white;
+      }
+      .btn-white {
+        background: white;
+        color: var(--azul);
+      }
+      .hero-dots {
+        display: flex;
+        gap: 9px;
+        margin-top: 17px;
+      }
+      .hero-dots button {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 0;
+        background: rgba(255, 255, 255, 0.45);
+        cursor: pointer;
+      }
+      .hero-dots button.active {
+        width: 30px;
+        border-radius: 30px;
+        background: white;
+      } /* ACCESOS */
+      .quick-wrap {
+        position: relative;
+        z-index: 5;
+        margin-top: -22px;
+      }
+      .quick-grid {
+        background: white;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        padding: 12px;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 10px;
+      }
+      .quick-card {
+        border: 1px solid var(--borde);
+        background: white;
+        border-radius: 14px;
+        min-height: 86px;
+        padding: 9px 6px;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+      .quick-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow2);
+      }
+      .qicon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        color: white;
+        font-size: 20px;
+      }
+      .bg-orange {
+        background: linear-gradient(135deg, var(--naranja), #ffb427);
+      }
+      .bg-blue {
+        background: linear-gradient(135deg, var(--azul), var(--azul2));
+      }
+      .bg-green {
+        background: linear-gradient(135deg, var(--verde), var(--verde2));
+      }
+      .bg-dark {
+        background: linear-gradient(135deg, #082946, #1c4b76);
+      }
+      .quick-card span {
+        font-size: 12px;
+        font-weight: 900;
+        color: #193451;
+        line-height: 1.15;
+      } /* SECCIONES */
+      section {
+        padding: 24px 0;
+      }
+      .title-row {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 13px;
+      }
+      .section-title {
+        font-size: 28px;
+        color: #122b49;
+        font-weight: 900;
+        letter-spacing: -0.8px;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 8px;
+        line-height: 1.1;
+      }
+      .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 74px;
+        height: 5px;
+        border-radius: 20px;
+        background: linear-gradient(
+          90deg,
+          var(--azul),
+          var(--verde),
+          var(--naranja)
+        );
+      }
+      .section-lead {
+        margin-top: 4px;
+        margin-bottom: 14px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+        max-width: 790px;
+      }
+      .section-link {
+        color: var(--azul);
+        font-size: 13px;
+        font-weight: 900;
+      } /* BANNER PRINCIPAL */
+      .main-banner,
+      .vet-banner {
+        min-height: 230px;
+        border-radius: 22px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: var(--shadow);
+        background: #eef5fb;
+      }
+      .main-banner img,
+      .vet-banner img {
+        width: 100%;
+        height: 100%;
+        min-height: 230px;
+        object-fit: cover;
+      }
+      .main-banner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(7, 32, 58, 0.78),
+          rgba(7, 32, 58, 0.18)
+        );
+      }
+      .banner-content {
+        position: absolute;
+        left: 28px;
+        bottom: 26px;
+        z-index: 2;
+        color: white;
+        max-width: 560px;
+      }
+      .banner-content h2 {
+        font-size: 34px;
+        line-height: 1;
+        margin-bottom: 9px;
+        letter-spacing: -1px;
+      }
+      .banner-content p {
+        color: #eaf4ff;
+        line-height: 1.45;
+        font-size: 15px;
+        margin-bottom: 14px;
+      } /* NOTICIAS */
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .news-card {
+        background: white;
+        border: 1px solid var(--borde);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow2);
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+      .news-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow);
+      }
+      .news-img {
+        height: 135px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      .news-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.38));
+      }
+      .tag {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        z-index: 2;
+        border-radius: 8px;
+        padding: 5px 8px;
+        font-size: 11px;
+        color: white;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      .tag.orange {
+        background: var(--naranja);
+      }
+      .tag.green {
+        background: var(--verde);
+      }
+      .tag.blue {
+        background: var(--azul);
+      }
+      .news-body {
+        padding: 12px;
+      }
+      .news-date {
+        font-size: 11px;
+        color: #8b97a8;
+        margin-bottom: 6px;
+        display: block;
+      }
+      .news-body h3 {
+        font-size: 15px;
+        line-height: 1.25;
+        color: #173350;
+        margin-bottom: 7px;
+      }
+      .news-body p {
+        font-size: 12.5px;
+        line-height: 1.4;
+        color: #687789;
+        margin-bottom: 10px;
+      }
+      .read-more {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 900;
+        color: var(--azul);
+      } /* GUÍA */
+      .guide-layout {
+        display: grid;
+        grid-template-columns: 1fr 330px;
+        gap: 14px;
+        align-items: start;
+      }
+      .box {
+        background: white;
+        border: 1px solid var(--borde);
+        border-radius: 18px;
+        box-shadow: var(--shadow2);
+        padding: 14px;
+      }
+      .guide-search {
+        display: grid;
+        grid-template-columns: 1fr 110px;
+        gap: 10px;
+        margin: 14px 0 11px;
+      }
+      .guide-search input {
+        height: 42px;
+        border: 1px solid #d7e4f1;
+        border-radius: 10px;
+        padding: 0 14px;
+        outline: none;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .guide-search input:focus {
+        border-color: var(--azul);
+        box-shadow: 0 0 0 4px rgba(0, 114, 188, 0.08);
+      }
+      .guide-search button {
+        border: 0;
+        background: #8bc53f;
+        color: white;
+        font-weight: 900;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-bottom: 12px;
+      }
+      .chip {
+        border: 1px solid #d7e4f1;
+        background: white;
+        color: #354d6a;
+        border-radius: 10px;
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+      .chip.active {
+        background: var(--azul);
+        border-color: var(--azul);
+        color: white;
+      }
+      .guide-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 9px;
+      }
+      .guide-item,
+      .inst-card {
+        background: white;
+        border: 1px solid var(--borde);
+        border-radius: 13px;
+        padding: 11px;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.2s ease;
+        min-height: 78px;
+        display: grid;
+        place-items: center;
+      }
+      .guide-item:hover,
+      .inst-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow2);
+        background: #fbfdff;
+      }
+      .guide-item i,
+      .inst-card i {
+        color: var(--azul);
+        font-size: 22px;
+        margin-bottom: 5px;
+        display: block;
+      }
+      .guide-item span,
+      .inst-card span {
+        font-size: 12px;
+        line-height: 1.15;
+        color: #193451;
+        font-weight: 900;
+      }
+      .inst-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 9px;
+        margin-top: 14px;
+      } /* VETERINARIA */
+      .vet-banner {
+        min-height: 260px;
+        background: linear-gradient(135deg, #009fe3, #72c943);
+      }
+      .vet-banner img {
+        min-height: 260px;
+        opacity: 0.95;
+        filter: saturate(1.12) contrast(1.04);
+      }
+      .vet-banner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 114, 188, 0.3),
+          rgba(114, 201, 67, 0.16)
+        );
+        pointer-events: none;
+      }
+      .vet-button-only {
+        position: absolute;
+        left: 28px;
+        bottom: 24px;
+        z-index: 3;
+      } /* SERVICIOS */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .service-card {
+        background: white;
+        border: 1px solid var(--borde);
+        border-radius: 16px;
+        padding: 14px;
+        box-shadow: var(--shadow2);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.2s ease;
+        min-height: 104px;
+      }
+      .service-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+      .service-card .icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        color: white;
+        flex: 0 0 44px;
+        font-size: 21px;
+      }
+      .service-card h3 {
+        font-size: 15px;
+        color: #173350;
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+      .service-card p {
+        font-size: 12.5px;
+        color: #687789;
+        line-height: 1.4;
+      } /* 12 CUOTAS */
+      .cuotas-banner {
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+        min-height: 265px;
+        background:
+          radial-gradient(
+              circle,
+              rgba(255, 255, 255, 0.28) 2px,
+              transparent 2.5px
+            )
+            0 0/27px 27px,
+          linear-gradient(135deg, #0082c6 0%, #00a8dc 52%, #37c7e8 100%);
+        box-shadow: var(--shadow);
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        align-items: center;
+        border: 8px solid white;
+        outline: 1px solid #d7eefb;
+      }
+      .cuotas-content {
+        position: relative;
+        z-index: 2;
+        padding: 28px 30px;
+        color: white;
+        max-width: 760px;
+      }
+      .cuotas-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 15px;
+        border-radius: 999px;
+        background: #84c341;
+        color: white;
+        border: 4px solid white;
+        font-size: 15px;
+        font-weight: 900;
+        margin-bottom: 14px;
+        text-transform: uppercase;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      }
+      .cuotas-content h2 {
+        font-size: clamp(38px, 6vw, 70px);
+        line-height: 0.88;
+        margin-bottom: 12px;
+        letter-spacing: -2px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      .cuotas-content h2 span {
+        display: block;
+        color: white;
+        font-size: 0.62em;
+        letter-spacing: -1px;
+      }
+      .cuotas-box {
+        background: var(--naranja);
+        border: 8px solid white;
+        border-radius: 28px;
+        padding: 20px;
+        box-shadow: 0 16px 28px rgba(0, 0, 0, 0.18);
+        max-width: 620px;
+        position: relative;
+      }
+      .cuotas-box::after {
+        content: "\F26A";
+        font-family: "bootstrap-icons";
+        position: absolute;
+        right: -28px;
+        top: -30px;
+        width: 74px;
+        height: 74px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #72c943;
+        border: 7px solid white;
+        color: white;
+        font-size: 36px;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      }
+      .cuotas-line {
+        display: block;
+        font-size: 22px;
+        font-weight: 900;
+        text-transform: uppercase;
+        border-top: 4px dotted rgba(255, 255, 255, 0.85);
+        border-bottom: 4px dotted rgba(255, 255, 255, 0.85);
+        padding: 11px 0;
+        margin: 10px 0;
+      }
+      .cuotas-small {
+        font-size: 15px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      .cuotas-info {
+        margin-top: 16px;
+        display: grid;
+        gap: 10px;
+        max-width: 650px;
+      }
+      .cuotas-pill {
+        background: #84c341;
+        border: 5px solid white;
+        border-radius: 999px;
+        padding: 10px 16px;
+        color: white;
+        font-weight: 900;
+        font-size: 19px;
+        text-align: center;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      }
+      .cuotas-text {
+        color: white;
+        font-weight: 800;
+        line-height: 1.4;
+        font-size: 15px;
+        text-align: center;
+      }
+      .cuotas-actions {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .cuotas-toro {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 14px 14px 0;
+      }
+      .cuotas-toro img {
+        max-width: 285px;
+        width: 100%;
+        filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.24));
+      } /* TURISMO */
+      .tour-grid {
+        display: grid;
+        grid-template-columns: 190px repeat(4, 1fr);
+        gap: 12px;
+        align-items: stretch;
+        margin-top: 14px;
+      }
+      .tour-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--azul);
+      }
+      .tour-title i {
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+      .tour-title h2 {
+        font-size: 29px;
+        line-height: 1;
+        font-weight: 900;
+        letter-spacing: -0.8px;
+      }
+      .tour-card {
+        border: 1px solid var(--borde);
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow2);
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+      .tour-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+      .tour-card img {
+        width: 100%;
+        height: 116px;
+        object-fit: cover;
+      }
+      .tour-card div {
+        padding: 12px;
+      }
+      .tour-card h3 {
+        font-size: 15px;
+        color: #173350;
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+      .tour-card p {
+        font-size: 12.5px;
+        line-height: 1.35;
+        color: #687789;
+      } /* ATENCIÓN */
+      .attention {
+        background: linear-gradient(135deg, #eaf6ff, #fff);
+        border: 1px solid #d8ecff;
+        border-radius: 18px;
+        box-shadow: var(--shadow2);
+        display: grid;
+        grid-template-columns: 1.05fr 1fr 1fr 1.25fr;
+        overflow: hidden;
+      }
+      .att-col {
+        padding: 17px 15px;
+        min-height: 84px;
+        border-right: 1px solid #dbe9f6;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .att-col:last-child {
+        border-right: 0;
+      }
+      .att-title {
+        font-size: 20px;
+        color: var(--azul);
+        font-weight: 900;
+      }
+      .att-col i {
+        color: var(--azul);
+        font-size: 25px;
+      }
+      .att-col b {
+        display: block;
+        color: #173350;
+        margin-bottom: 3px;
+      }
+      .att-col small {
+        display: block;
+        color: #687789;
+        font-size: 12.5px;
+        line-height: 1.35;
+      }
+      .att-highlight {
+        background: linear-gradient(135deg, var(--azul), var(--azul2));
+        color: white;
+      }
+      .att-highlight i,
+      .att-highlight b,
+      .att-highlight small {
+        color: white;
+      } /* FOOTER */
+      footer {
+        background: #081d37;
+        color: white;
+        margin-top: 20px;
+        padding-top: 34px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr 1fr;
+        gap: 22px;
+        padding-bottom: 28px;
+      }
+      .footer-brand img {
+        width: 95px;
+        background: white;
+        border-radius: 10px;
+        padding: 6px;
+        margin-bottom: 12px;
+      }
+      footer h4 {
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+      footer p,
+      footer li {
+        font-size: 13px;
+        line-height: 1.7;
+        color: #d2dbe8;
+        list-style: none;
+      }
+      .numbers {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 14px;
+      }
+      .numbers li {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .numbers b {
+        color: #ffb427;
+      }
+      .footer-bottom {
+        background: #061426;
+        color: #d2dbe8;
+        padding: 12px 0;
+        font-size: 12px;
+      }
+      .footer-bottom .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      } /* BOTONES FLOTANTES */
+      .float-help,
+      .float-wp {
+        position: fixed;
+        right: 18px;
+        z-index: 2500;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: white;
+        box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
+      }
+      .float-help {
+        bottom: 92px;
+        width: 52px;
+        height: 52px;
+        background: linear-gradient(135deg, #2aa8f5, #0c8fd5);
+        font-size: 23px;
+      }
+      .float-wp {
+        bottom: 18px;
+        width: 58px;
+        height: 58px;
+        background: #25d366;
+        font-size: 30px;
+      } /* MODAL GENERAL */
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(6, 19, 36, 0.68);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 5000;
+      }
+      .modal.show {
+        display: flex;
+      }
+      .modal-box {
+        width: min(900px, 100%);
+        max-height: 92vh;
+        overflow: auto;
+        background: white;
+        border-radius: 22px;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+      }
+      .modal-head {
+        background: linear-gradient(135deg, var(--azul), var(--azulOsc));
+        color: white;
+        padding: 24px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .modal-title-wrap {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .modal-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.16);
+        display: grid;
+        place-items: center;
+        font-size: 24px;
+        flex: 0 0 auto;
+      }
+      .modal-head h2 {
+        font-size: 27px;
+        margin-bottom: 6px;
+        line-height: 1.15;
+      }
+      .modal-head p {
+        color: #dceeff;
+        line-height: 1.4;
+      }
+      .modal-close {
+        width: 40px;
+        height: 40px;
+        border: 0;
+        border-radius: 50%;
+        background: white;
+        color: var(--azul);
+        font-size: 22px;
+        cursor: pointer;
+        flex: 0 0 auto;
+      }
+      .modal-body {
+        padding: 22px;
+      }
+      .modal-body p {
+        color: #4f5c71;
+        line-height: 1.6;
+        margin-bottom: 14px;
+      }
+      .modal-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin: 16px 0;
+      }
+      .modal-info {
+        border: 1px solid var(--borde);
+        background: #fbfdff;
+        border-radius: 14px;
+        padding: 14px;
+      }
+      .modal-info b {
+        display: block;
+        color: #1b3554;
+        margin-bottom: 6px;
+      }
+      .modal-info small {
+        display: block;
+        color: #6a7689;
+        line-height: 1.4;
+      }
+      .modal-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .modal-note {
+        background: #fff4e5;
+        border: 1px solid #ffd89d;
+        color: #7a4a00;
+        border-radius: 14px;
+        padding: 14px;
+        line-height: 1.5;
+        margin-top: 10px;
+      }
+      .modal-news-img {
+        width: 100%;
+        max-height: 360px;
+        object-fit: cover;
+        border-radius: 16px;
+        margin-bottom: 18px;
+        border: 1px solid var(--borde);
+      } /* PANEL ADMIN */
+      .admin-panel {
+        position: fixed;
+        inset: 0;
+        background: rgba(6, 19, 36, 0.7);
+        display: none;
+        z-index: 6000;
+        overflow: auto;
+        padding: 20px;
+      }
+      .admin-panel.show {
+        display: block;
+      }
+      .admin-shell {
+        width: min(1180px, 100%);
+        background: #fff;
+        border-radius: 24px;
+        margin: auto;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+      }
+      .admin-head {
+        background: linear-gradient(135deg, #082946, #0072bc);
+        color: white;
+        padding: 22px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .admin-head h2 {
+        font-size: 26px;
+        margin-bottom: 6px;
+      }
+      .admin-head p {
+        color: #dceeff;
+        line-height: 1.4;
+      }
+      .admin-close {
+        border: 0;
+        background: white;
+        color: var(--azul);
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        font-size: 22px;
+        cursor: pointer;
+        flex: 0 0 auto;
+      }
+      .admin-body {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 18px;
+        align-items: start;
+      }
+      .admin-card {
+        border: 1px solid var(--borde);
+        border-radius: 18px;
+        padding: 16px;
+        background: #fbfdff;
+      }
+      .admin-card h3 {
+        color: #173350;
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+      .form-grid {
+        display: grid;
+        gap: 10px;
+      }
+      .form-row {
+        display: grid;
+        gap: 6px;
+      }
+      .form-row label {
+        font-size: 13px;
+        font-weight: 900;
+        color: #31445f;
+      }
+      .form-row input,
+      .form-row textarea,
+      .form-row select {
+        width: 100%;
+        border: 1px solid #d7e4f1;
+        border-radius: 11px;
+        padding: 11px 12px;
+        outline: none;
+        font-size: 14px;
+        background: white;
+      }
+      .form-row textarea {
+        min-height: 110px;
+        resize: vertical;
+        line-height: 1.5;
+      }
+      .admin-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .admin-list {
+        display: grid;
+        gap: 10px;
+        max-height: 550px;
+        overflow: auto;
+        padding-right: 4px;
+      }
+      .admin-list-item {
+        display: grid;
+        grid-template-columns: 90px 1fr auto;
+        gap: 12px;
+        align-items: center;
+        border: 1px solid var(--borde);
+        border-radius: 14px;
+        padding: 10px;
+        background: white;
+      }
+      .admin-list-item img {
+        width: 90px;
+        height: 58px;
+        object-fit: cover;
+        border-radius: 10px;
+        background: #eef5fb;
+      }
+      .admin-list-item b {
+        display: block;
+        font-size: 14px;
+        color: #173350;
+        margin-bottom: 3px;
+      }
+      .admin-list-item small {
+        display: block;
+        color: var(--muted);
+        line-height: 1.35;
+        font-size: 12px;
+      }
+      .admin-icon-btn {
+        border: 0;
+        background: var(--azul);
+        color: white;
+        border-radius: 10px;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+      }
+      .admin-icon-btn.delete {
+        background: #e74c3c;
+      }
+      .admin-small {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.4;
+        margin-top: 8px;
+      } /* RESPONSIVE */
+      @media (max-width: 1100px) {
+        .menu {
+          gap: 14px;
+        }
+        .quick-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .news-grid,
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .guide-layout,
+        .cuotas-banner,
+        .tour-grid {
+          grid-template-columns: 1fr;
+        }
+        .attention {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .search-results {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .admin-body {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 780px) {
+        .top-strip,
+        .topbar {
+          display: none;
+        }
+        .nav {
+          min-height: 66px;
+        }
+        .brand img {
+          width: 56px;
+        }
+        .brand strong {
+          font-size: 13px;
+        }
+        .brand small {
+          font-size: 9.5px;
+        }
+        .hamb {
+          display: grid;
+          place-items: center;
+        }
+        .menu {
+          position: fixed;
+          top: 66px;
+          left: 0;
+          right: 0;
+          background: white;
+          box-shadow: var(--shadow);
+          flex-direction: column;
+          align-items: stretch;
+          padding: 14px 18px;
+          gap: 0;
+          transform: translateY(-140%);
+          transition: 0.25s ease;
+          max-height: calc(100vh - 66px);
+          overflow: auto;
+        }
+        .menu.open {
+          transform: translateY(0);
+        }
+        .nav-link {
+          padding: 12px 0;
+          justify-content: space-between;
+          width: 100%;
+        }
+        .nav-link.active::after {
+          display: none;
+        }
+        .dropdown {
+          position: static;
+          transform: none;
+          width: 100%;
+          opacity: 1;
+          pointer-events: auto;
+          display: none;
+          box-shadow: none;
+          margin: 4px 0 10px;
+        }
+        .nav-item.open .dropdown {
+          display: block;
+          transform: none;
+        }
+        .nav-item:hover .dropdown {
+          transform: none;
+        }
+        .dropdown-grid {
+          grid-template-columns: 1fr;
+        }
+        .header-actions {
+          margin-left: auto;
+        }
+        .search-btn,
+        .admin-btn {
+          display: none;
+        }
+        .pay-btn {
+          height: 37px;
+          padding: 0 12px;
+          font-size: 12px;
+        }
+        .hero {
+          min-height: 330px;
+        }
+        .hero .container {
+          min-height: 330px;
+        }
+        .hero h1 {
+          font-size: 38px;
+        }
+        .hero p {
+          font-size: 14.5px;
+        }
+        .hero-content {
+          padding: 32px 0 48px;
+        }
+        .quick-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        section {
+          padding: 22px 0;
+        }
+        .news-grid,
+        .services-grid,
+        .guide-grid,
+        .inst-grid,
+        .attention,
+        .footer-grid,
+        .modal-grid,
+        .search-results {
+          grid-template-columns: 1fr;
+        }
+        .guide-search {
+          grid-template-columns: 1fr;
+        }
+        .main-banner,
+        .vet-banner {
+          min-height: 230px;
+        }
+        .main-banner img,
+        .vet-banner img {
+          min-height: 230px;
+        }
+        .banner-content {
+          left: 20px;
+          bottom: 20px;
+          right: 20px;
+        }
+        .banner-content h2 {
+          font-size: 27px;
+        }
+        .cuotas-content {
+          padding: 22px;
+        }
+        .cuotas-content h2 {
+          font-size: 38px;
+        }
+        .cuotas-box {
+          border-width: 6px;
+          padding: 16px;
+        }
+        .cuotas-box::after {
+          width: 56px;
+          height: 56px;
+          right: -20px;
+          top: -24px;
+          font-size: 27px;
+          border-width: 5px;
+        }
+        .cuotas-pill {
+          font-size: 16px;
+          border-width: 4px;
+        }
+        .cuotas-toro img {
+          max-width: 220px;
+        }
+        .att-col {
+          border-right: 0;
+          border-bottom: 1px solid #dbe9f6;
+        }
+        .modal-title-wrap {
+          flex-direction: column;
+        }
+        .admin-list-item {
+          grid-template-columns: 72px 1fr;
+        }
+        .admin-list-item img {
+          width: 72px;
+          height: 54px;
+        }
+        .admin-list-item > div:last-child {
+          grid-column: 1 / -1;
+          display: flex;
+          gap: 8px;
+        }
+      }
+
+      /* AJUSTES SOLICITADOS - LIMPIO FINAL */
+      .dropdown-wide {
+        width: 520px;
+      }
+
+      .admin-dot {
+        width: 13px;
+        height: 13px;
+        min-width: 13px;
+        padding: 0;
+        border-radius: 50%;
+        background: var(--azul);
+        box-shadow: 0 0 0 4px rgba(0, 114, 188, 0.12);
+        font-size: 0;
+      }
+
+      body img,
+      .main-banner img,
+      .vet-banner img,
+      .tour-card img,
+      .modal-news-img {
+        opacity: 1 !important;
+        filter: none !important;
+        brightness: 100%;
+      }
+
+      .hero {
+        background:
+          linear-gradient(
+            90deg,
+            rgba(6, 29, 52, 0.72),
+            rgba(6, 29, 52, 0.46),
+            rgba(6, 29, 52, 0.82)
+          ),
+          var(--hero-image, url("assets/img/portada.png")) center/cover
+            no-repeat;
+      }
+
+      .main-banner::after,
+      .vet-banner::after,
+      .news-img::after {
+        display: none;
+      }
+
+      .banner-content {
+        background: rgba(6, 29, 52, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 18px;
+        padding: 18px;
+        backdrop-filter: blur(4px);
+      }
+
+      .news-img {
+        background-position: center;
+      }
+
+      .quick-card span,
+      .guide-item span,
+      .inst-card span,
+      .service-card h3,
+      .tour-card h3,
+      .drop-btn b,
+      .news-body h3 {
+        color: #07182d !important;
+        font-weight: 900;
+      }
+
+      .service-card p,
+      .tour-card p,
+      .news-body p {
+        color: #526174;
+      }
+
+      .mobile-guide-select {
+        display: none;
+      }
+
+      .cuotas-banner {
+        min-height: 300px;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .cuotas-content {
+        max-width: 780px;
+      }
+
+      .cuotas-box {
+        max-width: 560px;
+      }
+
+      .cuotas-toro {
+        align-items: center;
+        justify-content: center;
+        padding: 12px 22px;
+      }
+
+      .cuotas-toro img {
+        max-width: 250px;
+        width: 100%;
+        object-fit: contain;
+      }
+
+      .tour-grid {
+        grid-template-columns: 220px repeat(4, minmax(0, 1fr));
+      }
+
+      .tour-card img {
+        height: 140px;
+      }
+
+      @media (max-width: 780px) {
+        .container {
+          width: min(94%, 520px);
+        }
+
+        .nav {
+          min-height: 64px;
+          gap: 8px;
+        }
+
+        .brand img {
+          width: 52px;
+        }
+
+        .brand strong {
+          font-size: 12px;
+        }
+
+        .brand small {
+          display: none;
+        }
+
+        .header-actions {
+          gap: 7px;
+        }
+
+        .pay-btn,
+        .hamb {
+          width: 42px;
+          height: 42px;
+          min-width: 42px;
+          border-radius: 12px;
+          padding: 0;
+          display: grid;
+          place-items: center;
+        }
+
+        .pay-btn {
+          font-size: 0;
+        }
+
+        .pay-btn i,
+        .hamb i {
+          font-size: 20px;
+        }
+
+        .admin-dot {
+          width: 10px;
+          height: 10px;
+          min-width: 10px;
+          box-shadow: 0 0 0 3px rgba(0, 114, 188, 0.13);
+        }
+
+        .menu {
+          top: 64px;
+          max-height: calc(100vh - 64px);
+        }
+
+        .dropdown-wide {
+          width: 100%;
+        }
+
+        .hero,
+        .hero .container {
+          min-height: 415px;
+        }
+
+        .hero {
+          background-position: center;
+        }
+
+        .hero-content {
+          max-width: 100%;
+          padding: 28px 0 56px;
+        }
+
+        .hero h1 {
+          font-size: 31px;
+          letter-spacing: -1.2px;
+        }
+
+        .hero p {
+          font-size: 13.5px;
+        }
+
+        .hero-actions .btn {
+          width: 100%;
+          min-height: 38px;
+        }
+
+        .quick-wrap {
+          margin-top: -14px;
+        }
+
+        .quick-card span,
+        .service-card h3,
+        .guide-item span,
+        .inst-card span {
+          color: #07182d !important;
+        }
+
+        .section-link {
+          display: none;
+        }
+
+        .main-banner,
+        .vet-banner {
+          min-height: auto;
+          background: #fff;
+        }
+
+        .main-banner img,
+        .vet-banner img {
+          width: 100%;
+          height: auto;
+          min-height: 0;
+          object-fit: contain;
+        }
+
+        .main-banner {
+          display: grid;
+        }
+
+        .banner-content {
+          position: static;
+          margin: 0;
+          border-radius: 0 0 20px 20px;
+          background: #082946;
+          color: #fff;
+        }
+
+        .banner-content h2 {
+          font-size: 23px;
+        }
+
+        .vet-button-only {
+          left: 14px;
+          bottom: 14px;
+        }
+
+        .guide-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .guide-search {
+          grid-template-columns: 1fr;
+        }
+
+        .mobile-guide-select {
+          display: grid;
+          grid-template-columns: 1fr 48px;
+          gap: 8px;
+          margin-bottom: 4px;
+        }
+
+        .mobile-guide-select select,
+        .mobile-guide-select button {
+          height: 46px;
+          border-radius: 12px;
+          border: 1px solid #d7e4f1;
+          background: white;
+          color: #07182d;
+          font-weight: 900;
+          padding: 0 12px;
+        }
+
+        .mobile-guide-select button {
+          border: 0;
+          background: linear-gradient(135deg, var(--azul), var(--azul2));
+          color: white;
+          font-size: 18px;
+        }
+
+        .chips,
+        .guide-grid,
+        .transparency-box {
+          display: none !important;
+        }
+
+        .services-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .service-card {
+          min-height: 122px;
+          padding: 12px 8px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          text-align: center;
+          gap: 8px;
+        }
+
+        .service-card .icon {
+          width: 42px;
+          height: 42px;
+          flex: 0 0 42px;
+        }
+
+        .service-card h3 {
+          font-size: 13px;
+          line-height: 1.15;
+          margin-bottom: 3px;
+        }
+
+        .service-card p {
+          font-size: 11.2px;
+          line-height: 1.25;
+        }
+
+        .cuotas-banner {
+          grid-template-columns: 1fr;
+          border-width: 5px;
+          min-height: auto;
+          padding-bottom: 0;
+        }
+
+        .cuotas-content {
+          padding: 18px 14px 8px;
+        }
+
+        .cuotas-kicker {
+          font-size: 12px;
+          border-width: 3px;
+          margin-bottom: 10px;
+        }
+
+        .cuotas-box {
+          border-width: 5px;
+          border-radius: 22px;
+          padding: 14px;
+        }
+
+        .cuotas-content h2 {
+          font-size: 34px;
+        }
+
+        .cuotas-line {
+          font-size: 15px;
+          padding: 8px 0;
+        }
+
+        .cuotas-small {
+          font-size: 12px;
+        }
+
+        .cuotas-info {
+          gap: 7px;
+          margin-top: 10px;
+        }
+
+        .cuotas-pill {
+          font-size: 13px;
+          padding: 8px 12px;
+          border-width: 3px;
+        }
+
+        .cuotas-text {
+          font-size: 12px;
+        }
+
+        .cuotas-actions .btn {
+          width: 100%;
+        }
+
+        .cuotas-toro {
+          padding: 0 10px 8px;
+          min-height: 120px;
+        }
+
+        .cuotas-toro img {
+          max-width: 155px;
+        }
+
+        .tour-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .tour-title {
+          grid-column: 1 / -1;
+          background: linear-gradient(135deg, #eef8ff, #ffffff);
+          border: 1px solid var(--borde);
+          border-radius: 16px;
+          padding: 16px;
+        }
+
+        .tour-title h2 {
+          font-size: 24px;
+        }
+
+        .tour-card img {
+          height: 96px;
+          object-fit: cover;
+        }
+
+        .tour-card div {
+          padding: 10px;
+        }
+
+        .tour-card h3 {
+          font-size: 13px;
+        }
+
+        .tour-card p {
+          font-size: 11px;
+        }
+
+        .news-img {
+          height: 160px;
+        }
+
+        .float-help {
+          width: 48px;
+          height: 48px;
+          bottom: 82px;
+        }
+
+        .float-wp {
+          width: 52px;
+          height: 52px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- STRIP -->
+    <div class="top-strip">
+      <div class="container">
+        <span>Trámites simples</span> <span>Atención al vecino</span>
+        <span>Servicios municipales</span> <span>Maipú crece con vos</span>
+        <span>Transparencia</span>
+      </div>
+    </div>
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="container">
+        <div class="top-info">
+          <span
+            ><i class="bi bi-geo-alt"></i> Pablo Pescara 190, Maipú,
+            Mendoza</span
+          >
+          <span><i class="bi bi-clock"></i> Lun-Vie 8:00 a 18:00 hs.</span>
+          <span
+            ><i class="bi bi-telephone"></i> 0800 222 8030 Atención al
+            Vecino</span
+          >
+        </div>
+        <div class="top-social">
+          <span><i class="bi bi-whatsapp"></i> WhatsApp 261 716-6619</span>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+          <a href="#"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container nav">
+        <a href="#inicio" class="brand">
+          <img
+            src="https://namilo1315.github.io/mails/assets/img/logo-maipu.png"
+            alt="Logo Municipalidad de Maipú"
+          />
+          <div>
+            <strong>Municipalidad de Maipú</strong>
+            <small>Gestión y servicios</small>
+          </div>
+        </a>
+        <button class="hamb" id="hamb" aria-label="Abrir menú">
+          <i class="bi bi-list"></i>
+        </button>
+        <nav class="menu" id="menu">
+          <div class="nav-item">
+            <button class="nav-link active" onclick="location.href = '#inicio'">
+              Inicio
+            </button>
+          </div>
+
+          <div class="nav-item">
+            <button class="nav-link dropdown-toggle" type="button">
+              Guía de Trámites <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="dropdown">
+              <div class="dropdown-grid">
+                <button class="drop-btn" onclick="openInfo('pago')">
+                  <i class="bi bi-credit-card"></i
+                  ><span><b>Pago Online</b><small>Tasas y deuda</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('rentas')">
+                  <i class="bi bi-house-check"></i
+                  ><span><b>Rentas</b><small>Boletas y consultas</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('licencia')">
+                  <i class="bi bi-person-vcard"></i
+                  ><span
+                    ><b>Licencia</b><small>Turnos y requisitos</small></span
+                  >
+                </button>
+                <button class="drop-btn" onclick="openInfo('expedientes')">
+                  <i class="bi bi-folder2-open"></i
+                  ><span><b>Expedientes</b><small>Seguimiento</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('obras')">
+                  <i class="bi bi-building-gear"></i
+                  ><span
+                    ><b>Obras privadas</b><small>Planos y permisos</small></span
+                  >
+                </button>
+                <button class="drop-btn" onclick="openInfo('habilitaciones')">
+                  <i class="bi bi-shop"></i
+                  ><span><b>Habilitaciones</b><small>Comercios</small></span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <button class="nav-link" onclick="location.href = '#noticias'">
+              Noticias
+            </button>
+          </div>
+
+          <div class="nav-item">
+            <button class="nav-link dropdown-toggle" type="button">
+              Servicios <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="dropdown dropdown-wide">
+              <div class="dropdown-grid">
+                <button class="drop-btn" onclick="openInfo('veterinaria')">
+                  <i class="bi bi-heart-pulse"></i
+                  ><span
+                    ><b>Veterinaria</b><small>Móvil de castración</small></span
+                  >
+                </button>
+                <button class="drop-btn" onclick="openInfo('salud')">
+                  <i class="bi bi-hospital"></i
+                  ><span><b>Salud</b><small>Operativos</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('educacion')">
+                  <i class="bi bi-mortarboard"></i
+                  ><span><b>Educación</b><small>Cursos y talleres</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('ambiente')">
+                  <i class="bi bi-tree"></i
+                  ><span
+                    ><b>Ambiente</b><small>Reciclaje y arbolado</small></span
+                  >
+                </button>
+                <button class="drop-btn" onclick="openInfo('teatro')">
+                  <i class="bi bi-building"></i
+                  ><span
+                    ><b>Teatro Imperial</b><small>Agenda cultural</small></span
+                  >
+                </button>
+                <button class="drop-btn" onclick="openInfo('descuentos')">
+                  <i class="bi bi-tags"></i
+                  ><span><b>Descuentos</b><small>Beneficios</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('turismo')">
+                  <i class="bi bi-signpost-2"></i
+                  ><span><b>Turismo</b><small>Bodegas y paseos</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('agenda')">
+                  <i class="bi bi-calendar-event"></i
+                  ><span><b>Agenda cultural</b><small>Eventos</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('museo')">
+                  <i class="bi bi-bank"></i
+                  ><span><b>Museo del Vino</b><small>Patrimonio</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('delegaciones')">
+                  <i class="bi bi-geo-alt"></i
+                  ><span><b>Delegaciones</b><small>Distritos</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('atencion')">
+                  <i class="bi bi-telephone"></i
+                  ><span><b>Atención</b><small>Canales oficiales</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('reclamos')">
+                  <i class="bi bi-exclamation-circle"></i
+                  ><span><b>Reclamos</b><small>Derivación 0800</small></span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <button class="nav-link dropdown-toggle" type="button">
+              Transparencia <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="dropdown">
+              <div class="dropdown-grid">
+                <button class="drop-btn" onclick="openInfo('intendencia')">
+                  <i class="bi bi-people-fill"></i
+                  ><span><b>Intendencia</b><small>Autoridades</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('transparencia')">
+                  <i class="bi bi-eye"></i
+                  ><span
+                    ><b>Transparencia</b
+                    ><small>Información pública</small></span
+                  >
+                </button>
+                <button class="drop-btn" onclick="openInfo('gobierno')">
+                  <i class="bi bi-diagram-3-fill"></i
+                  ><span
+                    ><b>Gobierno Abierto</b
+                    ><small>Datos y participación</small></span
+                  >
+                </button>
+                <button class="drop-btn" onclick="openInfo('licitaciones')">
+                  <i class="bi bi-hammer"></i
+                  ><span><b>Licitaciones</b><small>Compras</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('normativa')">
+                  <i class="bi bi-journal-text"></i
+                  ><span><b>Normativa</b><small>Ordenanzas</small></span>
+                </button>
+                <button class="drop-btn" onclick="openInfo('contacto')">
+                  <i class="bi bi-envelope"></i
+                  ><span
+                    ><b>Contacto</b><small>Teléfonos y horarios</small></span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn" onclick="openSearch()">
+            <i class="bi bi-search"></i> Buscar
+          </button>
+         
+          <a
+            class="pay-btn"
+            href="https://vps.infogov.com.ar/rentas/maipu/#/public/home"
+            target="_blank"
+          >
+            <i class="bi bi-credit-card"></i> Pago en línea
+          </a>
+          <button
+          class="admin-btn admin-dot"
+          onclick="openAdmin()"
+          aria-label="Admin"
+        ></button>
+        </div>
+      </div>
+    </header>
+    <!-- SEARCH PANEL -->
+    <div class="search-panel" id="searchPanel">
+      <div class="search-box">
+        <div class="search-head">
+          <input
+            type="text"
+            id="globalSearch"
+            placeholder="Buscá trámites, servicios, turismo, rentas, licencia, veterinaria..."
+          />
+          <button class="close-search" onclick="closeSearch()">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+    <!-- HERO -->
+    <main class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="bi bi-building"></i> Municipalidad de Maipú
+          </div>
+          <h1 id="heroTitle">
+            Maipú más cerca, <span>simple y conectado.</span>
+          </h1>
+          <p id="heroSubtitle">
+            Accesos claros para realizar trámites, consultar servicios y
+            encontrar información municipal útil en un solo lugar.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-green" onclick="location.href = '#guia'">
+              <i class="bi bi-file-earmark-text"></i> Iniciar trámite
+            </button>
+            <a
+              class="btn btn-blue"
+              href="https://vps.infogov.com.ar/rentas/maipu/#/public/home"
+              target="_blank"
+            >
+              <i class="bi bi-credit-card"></i> Pago en línea
+            </a>
+            <button class="btn btn-orange" onclick="openInfo('atencion')">
+              <i class="bi bi-people"></i> Atención al vecino
+            </button>
+          </div>
+          <div class="hero-dots" id="heroDots"></div>
+        </div>
+      </div>
+    </main>
+    <!-- QUICK BUTTONS -->
+    <div class="container quick-wrap">
+      <div class="quick-grid">
+        <button class="quick-card" onclick="openInfo('pago')">
+          <div class="qicon bg-orange"><i class="bi bi-credit-card"></i></div>
+          <span>Pago Online</span>
+        </button>
+        <button class="quick-card" onclick="openInfo('rentas')">
+          <div class="qicon bg-green"><i class="bi bi-house-check"></i></div>
+          <span>Rentas</span>
+        </button>
+        <button class="quick-card" onclick="openInfo('licencia')">
+          <div class="qicon bg-blue"><i class="bi bi-person-vcard"></i></div>
+          <span>Licencia</span>
+        </button>
+        <button class="quick-card" onclick="openInfo('turnos')">
+          <div class="qicon bg-green">
+            <i class="bi bi-calendar2-check"></i>
+          </div>
+          <span>Turnos</span>
+        </button>
+        <button class="quick-card" onclick="openInfo('reclamos')">
+          <div class="qicon bg-orange">
+            <i class="bi bi-exclamation-circle"></i>
+          </div>
+          <span>Reclamos</span>
+        </button>
+        <button class="quick-card" onclick="openInfo('expedientes')">
+          <div class="qicon bg-blue"><i class="bi bi-folder2-open"></i></div>
+          <span>Expedientes</span>
+        </button>
+        <button class="quick-card" onclick="openInfo('teatro')">
+          <div class="qicon bg-green"><i class="bi bi-building"></i></div>
+          <span>Teatro Imperial</span>
+        </button>
+        <button class="quick-card" onclick="location.href = '#guia'">
+          <div class="qicon bg-blue"><i class="bi bi-journal-text"></i></div>
+          <span>Guía de Trámites</span>
+        </button>
+      </div>
+    </div>
+    <!-- BANNER PRINCIPAL -->
+    <section>
+      <div class="container">
+        <div class="main-banner">
+         
+          
+            
+           <a href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank"> <img src="assets/img/banner.jpeg" alt="Banner municipal" /></a> 
+          </div>
+        </div>
+      
+    </section>
+    <!-- NOTICIAS -->
+    <section id="noticias">
+      <div class="container">
+        <div class="title-row">
+          <h2 class="section-title">Noticias destacadas</h2>
+          <a href="#" class="section-link">Ver todas las noticias</a>
+        </div>
+        <p class="section-lead">
+          Novedades municipales, campañas, obras, servicios, cultura y
+          comunicación útil para vecinos.
+        </p>
+        <div class="news-grid" id="newsGrid"></div>
+      </div>
+    </section>
+    <!-- GUÍA + TRANSPARENCIA -->
+    <section id="guia">
+      <div class="container guide-layout">
+        <div class="box">
+          <h2 class="section-title">Guía de Trámites</h2>
+          <p class="section-lead">
+            Encontrá rápido los accesos municipales más consultados, filtrá por
+            categoría o buscá por palabra clave.
+          </p>
+          <div class="guide-search">
+            <input
+              id="guideInput"
+              type="text"
+              placeholder="Buscá un trámite, servicio o palabra clave..."
+            />
+            <button onclick="filterGuide()">Buscar</button>
+          </div>
+          <div class="mobile-guide-select">
+            <select id="guideSelect" aria-label="Elegir trámite">
+              <option value="pago">Pago Online</option>
+              <option value="rentas">Rentas</option>
+              <option value="licencia">Licencia de Conducir</option>
+              <option value="turnos">Turnos</option>
+              <option value="expedientes">Expedientes</option>
+              <option value="obras">Obras privadas</option>
+              <option value="habilitaciones">Habilitación comercial</option>
+              <option value="veterinaria">Veterinaria</option>
+              <option value="teatro">Teatro Imperial</option>
+              <option value="turismo">Turismo</option>
+              <option value="reclamos">Reclamos</option>
+              <option value="proveedores">Proveedores</option>
+            </select>
+            <button
+              type="button"
+              onclick="openGuideSelected()"
+              aria-label="Abrir trámite"
+            >
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+          <div class="chips">
+            <button class="chip active" onclick="setGuideFilter('todos', this)">
+              Todos
+            </button>
+            <button class="chip" onclick="setGuideFilter('rentas', this)">
+              Rentas
+            </button>
+            <button class="chip" onclick="setGuideFilter('transito', this)">
+              Tránsito
+            </button>
+            <button class="chip" onclick="setGuideFilter('comercio', this)">
+              Comercio
+            </button>
+            <button class="chip" onclick="setGuideFilter('obras', this)">
+              Obras
+            </button>
+            <button class="chip" onclick="setGuideFilter('salud', this)">
+              Salud
+            </button>
+            <button class="chip" onclick="setGuideFilter('cultura', this)">
+              Cultura
+            </button>
+            <button class="chip" onclick="setGuideFilter('turismo', this)">
+              Turismo
+            </button>
+          </div>
+          <div class="guide-grid" id="guideGrid">
+            <button
+              class="guide-item"
+              data-cat="rentas"
+              data-search="pago online deuda tasas boleta regularizar"
+              onclick="openInfo('pago')"
+            >
+              <i class="bi bi-credit-card"></i><span>Pago Online</span>
+            </button>
+            <button
+              class="guide-item"
+              data-cat="rentas"
+              data-search="rentas impuestos tasas contribuciones boletas"
+              onclick="openInfo('rentas')"
+            >
+              <i class="bi bi-house-check"></i><span>Rentas</span>
+            </button>
+            <button
+              class="guide-item"
+              data-cat="transito"
+              data-search="licencia conducir renovar turno primera vez"
+              onclick="openInfo('licencia')"
+            >
+              <i class="bi bi-person-vcard"></i><span>Licencia</span>
+            </button>
+            <button
+              class="guide-item"
+              data-cat="transito"
+              data-search="turnos online atención municipal reservar"
+              onclick="openInfo('turnos')"
+            >
+              <i class="bi bi-calendar2-check"></i><span>Turnos</span>
+            </button>
+            <button
+              class="guide-item"
+              data-cat="rentas"
+              data-search="expedientes consultar estado seguimiento"
+              onclick="openInfo('expedientes')"
+            >
+              <i class="bi bi-folder2-open"></i><span>Expedientes</span>
+            </button>
+            <button
+              class="guide-item"
+              data-cat="obras"
+              data-search="obras privadas planos permiso construcción catastro planificación territorial"
+              onclick="openInfo('obras')"
+            >
+              <i class="bi bi-building-gear"></i><span>Obras</span>
+            </button>
+            <button
+              class="guide-item"
+              data-cat="comercio"
+              data-search="habilitacion comercial comercio industria profesional"
+              onclick="openInfo('habilitaciones')"
+            >
+              <i class="bi bi-shop"></i><span>Habilitación</span>
+            </button>
+            <button
+              class="guide-item"
+              data-cat="salud"
+              data-search="veterinaria castración móvil mascotas salud"
+              onclick="openInfo('veterinaria')"
+            >
+              <i class="bi bi-heart-pulse"></i><span>Veterinaria</span>
+            </button>
+            <button
+              class="guide-item"
+              data-cat="cultura"
+              data-search="teatro imperial agenda cultura cine"
+              onclick="openInfo('teatro')"
+            >
+              <i class="bi bi-building"></i><span>Teatro</span>
+            </button>
+            <button
+              class="guide-item"
+              data-cat="turismo"
+              data-search="turismo bodegas ciudad vino museo"
+              onclick="openInfo('turismo')"
+            >
+              <i class="bi bi-signpost-2"></i><span>Turismo</span>
+            </button>
+            <button
+              class="guide-item"
+              data-cat="rentas"
+              data-search="reclamos 0800 atención vecino consulta"
+              onclick="openInfo('reclamos')"
+            >
+              <i class="bi bi-exclamation-circle"></i><span>Reclamos</span>
+            </button>
+            <button
+              class="guide-item"
+              data-cat="comercio"
+              data-search="proveedores compras licitaciones portal programa par"
+              onclick="openInfo('proveedores')"
+            >
+              <i class="bi bi-box-seam"></i><span>Proveedores</span>
+            </button>
+          </div>
+        </div>
+        <aside class="box transparency-box">
+          <h2 class="section-title">Transparencia</h2>
+          <p class="section-lead">
+            Accesos institucionales, datos abiertos, normativa, compras y
+            contacto oficial.
+          </p>
+          <div class="inst-grid">
+            <button class="inst-card" onclick="openInfo('intendencia')">
+              <i class="bi bi-people-fill"></i><span>Intendencia</span>
+            </button>
+            <button class="inst-card" onclick="openInfo('transparencia')">
+              <i class="bi bi-eye-fill"></i><span>Transparencia</span>
+            </button>
+            <button class="inst-card" onclick="openInfo('gobierno')">
+              <i class="bi bi-diagram-3-fill"></i><span>Gobierno Abierto</span>
+            </button>
+            <button class="inst-card" onclick="openInfo('licitaciones')">
+              <i class="bi bi-hammer"></i><span>Licitaciones y Compras</span>
+            </button>
+            <button class="inst-card" onclick="openInfo('normativa')">
+              <i class="bi bi-journal-text"></i
+              ><span>Ordenanzas / Normativa</span>
+            </button>
+            <button class="inst-card" onclick="openInfo('contacto')">
+              <i class="bi bi-envelope-fill"></i
+              ><span>Contacto Institucional</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+    <!-- BANNER VETERINARIA -->
+    <section>
+      <div class="container">
+        <div class="vet-banner">
+          <img
+            src="assets/img/banner-veterinaria.png"
+            alt="Móvil veterinario"
+          />
+          <div class="vet-button-only">
+            <button class="btn btn-green" onclick="openInfo('veterinaria')">
+              <i class="bi bi-heart-pulse"></i> Ver cronograma
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <div class="container">
+        <h2 class="section-title">Servicios municipales</h2>
+        <p class="section-lead">
+          Programas, atención territorial, cultura, salud, ambiente, beneficios
+          y servicios que acercan el municipio al vecino.
+        </p>
+        <div class="services-grid">
+          <button class="service-card" onclick="openInfo('teatro')">
+            <div class="icon bg-green"><i class="bi bi-building"></i></div>
+            <div>
+              <h3>Teatro Imperial</h3>
+              <p>Agenda cultural y espectáculos.</p>
+            </div>
+          </button>
+          <button class="service-card" onclick="openInfo('turismo')">
+            <div class="icon bg-blue"><i class="bi bi-signpost-2"></i></div>
+            <div>
+              <h3>Turismo</h3>
+              <p>Bodegas, paseos y cultura.</p>
+            </div>
+          </button>
+          <button class="service-card" onclick="openInfo('veterinaria')">
+            <div class="icon bg-orange"><i class="bi bi-heart-pulse"></i></div>
+            <div>
+              <h3>Móvil Veterinario</h3>
+              <p>Fechas y requisitos.</p>
+            </div>
+          </button>
+          <button class="service-card" onclick="openInfo('salud')">
+            <div class="icon bg-blue"><i class="bi bi-hospital"></i></div>
+            <div>
+              <h3>Salud</h3>
+              <p>Campañas y atención territorial.</p>
+            </div>
+          </button>
+          <button class="service-card" onclick="openInfo('educacion')">
+            <div class="icon bg-green"><i class="bi bi-mortarboard"></i></div>
+            <div>
+              <h3>Educación</h3>
+              <p>Cursos, talleres y programas.</p>
+            </div>
+          </button>
+          <button class="service-card" onclick="openInfo('ambiente')">
+            <div class="icon bg-green"><i class="bi bi-tree"></i></div>
+            <div>
+              <h3>Ambiente</h3>
+              <p>Arbolado, reciclaje y campañas.</p>
+            </div>
+          </button>
+          <button class="service-card" onclick="openInfo('descuentos')">
+            <div class="icon bg-orange"><i class="bi bi-tags"></i></div>
+            <div>
+              <h3>Bolsa de Descuentos</h3>
+              <p>Beneficios para vecinos.</p>
+            </div>
+          </button>
+          <button class="service-card" onclick="openInfo('delegaciones')">
+            <div class="icon bg-blue"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <h3>Delegaciones</h3>
+              <p>Atención por distrito.</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- 12 CUOTAS -->
+   
+    <!-- TURISMO -->
+    <section id="turismo">
+      <div class="container">
+        <div class="tour-grid">
+          <div class="tour-title">
+            <i class="bi bi-stars"></i>
+            <h2>Turismo<br />y Cultura</h2>
+          </div>
+          <button class="tour-card" onclick="openInfo('turismo')">
+            <img src="assets/img/portada.png" alt="Bodegas" />
+            <div>
+              <h3>Bodegas de Maipú</h3>
+              <p>Descubrí nuestros caminos del vino.</p>
+            </div>
+          </button>
+          <button class="tour-card" onclick="openInfo('agenda')">
+            <img src="assets/img/banner.jpeg" alt="Agenda" />
+            <div>
+              <h3>Agenda Cultural</h3>
+              <p>Eventos y actividades del departamento.</p>
+            </div>
+          </button>
+          <button class="tour-card" onclick="openInfo('museo')">
+            <img src="assets/img/portada.png" alt="Museo" />
+            <div>
+              <h3>Museo del Vino</h3>
+              <p>Historia y tradición vitivinícola.</p>
+            </div>
+          </button>
+          <button class="tour-card" onclick="openInfo('teatro')">
+            <img src="assets/img/portada.png" alt="Teatro" />
+            <div>
+              <h3>Teatro Imperial</h3>
+              <p>Espectáculos y actividades.</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- ATENCION -->
+    <section>
+      <div class="container">
+        <div class="attention">
+          <div class="att-col">
+            <div class="att-title">Atención al vecino</div>
+          </div>
+          <div class="att-col">
+            <i class="bi bi-telephone"></i>
+            <div><b>0800 222 6247</b><small>Línea gratuita</small></div>
+          </div>
+          <div class="att-col">
+            <i class="bi bi-whatsapp"></i>
+            <div><b>261 716-6619</b><small>WhatsApp</small></div>
+          </div>
+          <div class="att-col att-highlight">
+            <i class="bi bi-chat-square-text"></i>
+            <div>
+              <b>Consultas y reclamos</b
+              ><small>Derivación al canal oficial del municipio.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FOOTER -->
+    <footer id="contacto">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img
+            src="https://namilo1315.github.io/mails/assets/img/logo-maipu.png"
+            alt="Logo Maipú"
+          />
+          <p>
+            Municipalidad de Maipú, Mendoza. Portal institucional con servicios,
+            trámites, noticias e información útil para vecinos.
+          </p>
+        </div>
+        <div>
+          <h4>Enlaces útiles</h4>
+          <ul>
+            <li>Inicio</li>
+            <li>Servicios</li>
+            <li>Guía de Trámites</li>
+            <li>Pago Online</li>
+            <li>Noticias</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Transparencia</h4>
+          <ul>
+            <li>Intendencia</li>
+            <li>Transparencia</li>
+            <li>Normativa</li>
+            <li>Licitaciones</li>
+            <li>Datos Abiertos</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Atención</h4>
+          <ul>
+            <li>Atención al vecino</li>
+            <li>Consultas y reclamos</li>
+            <li>Turnos Online</li>
+            <li>Horarios</li>
+            <li>Ubicación</li>
+          </ul>
+        </div>
+        <div class="numbers">
+          <h4>Números importantes</h4>
+          <ul>
+            <li><span>Emergencias</span><b>911</b></li>
+            <li><span>Defensa Civil</span><b>103</b></li>
+            <li><span>Tránsito</span><b>147</b></li>
+            <li><span>Violencia de Género</span><b>144</b></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <span
+            >© 2026 Municipalidad de Maipú. Todos los derechos reservados.</span
+          >
+          <span>Sitio oficial del Municipio de Maipú</span>
+        </div>
+      </div>
+    </footer>
+    <!-- FLOATS -->
+    <a
+      href="#"
+      class="float-help"
+      onclick="
+        openInfo('ayuda');
+        return false;
+      "
+      ><i class="bi bi-briefcase"></i
+    ></a>
+    <a href="https://wa.me/5492617166619" target="_blank" class="float-wp"
+      ><i class="bi bi-whatsapp"></i
+    ></a>
+    <!-- MODAL GENERAL -->
+    <div class="modal" id="modal">
+      <div class="modal-box">
+        <div class="modal-head">
+          <div class="modal-title-wrap">
+            <div class="modal-icon" id="modalIcon">
+              <i class="bi bi-info-circle"></i>
+            </div>
+            <div>
+              <h2 id="modalTitle">Título</h2>
+              <p id="modalSubtitle">Subtítulo</p>
+            </div>
+          </div>
+          <button class="modal-close" onclick="closeModal()">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+    <!-- PANEL ADMIN -->
+    <div class="admin-panel" id="adminPanel">
+      <div class="admin-shell">
+        <div class="admin-head">
+          <div>
+            <h2>Panel de administración</h2>
+            <p>
+              Desde este panel se puede cambiar el carrusel de la portada y
+              renovar las noticias: imagen, título, subtítulo y texto completo.
+            </p>
+          </div>
+          <button class="admin-close" onclick="closeAdmin()">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="admin-body">
+          <div class="admin-card">
+            <h3>Carrusel de portada</h3>
+            <div class="form-grid">
+              <div class="form-row">
+                <label>Título de portada</label>
+                <input
+                  id="adminHeroTitle"
+                  type="text"
+                  placeholder="Ej: Maipú más cerca"
+                />
+              </div>
+              <div class="form-row">
+                <label>Texto destacado en verde</label>
+                <input
+                  id="adminHeroSpan"
+                  type="text"
+                  placeholder="Ej: simple y conectado."
+                />
+              </div>
+              <div class="form-row">
+                <label>Subtítulo</label>
+                <textarea
+                  id="adminHeroSubtitle"
+                  placeholder="Texto breve de portada"
+                ></textarea>
+              </div>
+              <div class="form-row">
+                <label>Imagen de portada</label>
+                <input id="adminHeroImage" type="file" accept="image/*" />
+              </div>
+              <div class="admin-actions">
+                <button class="btn btn-blue" onclick="saveHeroSlide()">
+                  <i class="bi bi-save"></i> Guardar portada
+                </button>
+                <button class="btn btn-orange" onclick="resetHeroSlides()">
+                  <i class="bi bi-arrow-clockwise"></i> Restaurar portada
+                </button>
+              </div>
+              <div class="admin-small">
+                En una versión con PHP/MySQL, esto se guarda en base de datos.
+                Acá queda guardado en el navegador con localStorage para que
+                puedas probar el funcionamiento.
+              </div>
+            </div>
+          </div>
+          <div class="admin-card">
+            <h3>Noticias destacadas</h3>
+            <div class="form-grid">
+              <input id="adminNewsId" type="hidden" />
+              <div class="form-row">
+                <label>Categoría</label>
+                <select id="adminNewsCategory">
+                  <option>Obras</option>
+                  <option>Servicios</option>
+                  <option>Salud</option>
+                  <option>Cultura</option>
+                  <option>Trámites</option>
+                  <option>Turismo</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label>Fecha</label>
+                <input
+                  id="adminNewsDate"
+                  type="text"
+                  placeholder="Ej: 10 May 2026"
+                />
+              </div>
+              <div class="form-row">
+                <label>Título</label>
+                <input
+                  id="adminNewsTitle"
+                  type="text"
+                  placeholder="Título de la noticia"
+                />
+              </div>
+              <div class="form-row">
+                <label>Subtítulo / bajada</label>
+                <textarea
+                  id="adminNewsSubtitle"
+                  placeholder="Resumen corto de la noticia"
+                ></textarea>
+              </div>
+              <div class="form-row">
+                <label>Texto completo</label>
+                <textarea
+                  id="adminNewsText"
+                  placeholder="Desarrollo completo de la noticia"
+                ></textarea>
+              </div>
+              <div class="form-row">
+                <label>Imagen de la noticia</label>
+                <input id="adminNewsImage" type="file" accept="image/*" />
+              </div>
+              <div class="admin-actions">
+                <button class="btn btn-blue" onclick="saveNews()">
+                  <i class="bi bi-save"></i> Guardar noticia
+                </button>
+                <button class="btn btn-green" onclick="newNews()">
+                  <i class="bi bi-plus-circle"></i> Nueva
+                </button>
+                <button class="btn btn-orange" onclick="resetNews()">
+                  <i class="bi bi-arrow-clockwise"></i> Restaurar noticias
+                </button>
+              </div>
+            </div>
+            <div style="height: 18px"></div>
+            <div class="admin-list" id="adminNewsList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const DEFAULT_HERO = [
+        {
+          title: "Maipú más cerca,",
+          span: "simple y conectado.",
+          subtitle:
+            "Accesos claros para realizar trámites, consultar servicios y encontrar información municipal útil en un solo lugar.",
+          image: "assets/img/portada.png",
+        },
+        {
+          title: "Trámites simples,",
+          span: "respuestas rápidas.",
+          subtitle:
+            "Consultá la Guía de Trámites, pagá online y encontrá los accesos municipales más importantes.",
+          image: "assets/img/banner.jpeg",
+        },
+        {
+          title: "Servicios para vos,",
+          span: "en cada distrito.",
+          subtitle:
+            "Conocé programas, operativos, turismo, cultura, atención y servicios municipales.",
+          image: "assets/img/banner-veterinaria.png",
+        },
+      ];
+      const DEFAULT_NEWS = [
+        {
+          id: crypto.randomUUID(),
+          category: "Obras",
+          date: "10 May 2026",
+          title: "Avanzan las obras de pavimentación en Villa Maipú",
+          subtitle:
+            "Mejoras de conectividad y espacios públicos para los vecinos.",
+          text: "El municipio continúa desarrollando obras de pavimentación e infraestructura urbana en distintos sectores del departamento. Estas acciones buscan mejorar la circulación, la conectividad y la calidad de vida de los vecinos.",
+          image: "assets/img/banner.jpeg",
+        },
+        {
+          id: crypto.randomUUID(),
+          category: "Servicios",
+          date: "8 May 2026",
+          title: "Nuevas fechas del móvil veterinario",
+          subtitle:
+            "Operativos de castración y cuidado responsable en distritos.",
+          text: "El móvil veterinario recorrerá distintos puntos del departamento con operativos de castración, prevención y asesoramiento para el cuidado responsable de mascotas. La información puede actualizarse semanalmente desde el panel administrador.",
+          image: "assets/img/banner-veterinaria.png",
+        },
+        {
+          id: crypto.randomUUID(),
+          category: "Salud",
+          date: "6 May 2026",
+          title: "Jornada de prevención en el Parque Metropolitano",
+          subtitle: "Controles gratuitos, prevención y atención territorial.",
+          text: "Durante la jornada se realizaron controles gratuitos, acciones de prevención y asesoramiento comunitario. La propuesta busca acercar servicios de salud a los vecinos de Maipú.",
+          image: "assets/img/portada.png",
+        },
+        {
+          id: crypto.randomUUID(),
+          category: "Trámites",
+          date: "4 May 2026",
+          title: "Nuevo sistema de turnos online",
+          subtitle: "Más simple, ágil y disponible para atención municipal.",
+          text: "El nuevo sistema de turnos permite ordenar la atención, reducir esperas y facilitar el acceso a distintas gestiones municipales. El vecino puede reservar día y horario desde la web.",
+          image: "assets/img/banner.jpeg",
+        },
+      ];
+      const searchItems = [
+        {
+          key: "pago",
+          title: "Pago Online",
+          text: "Consultar deuda, tasas, boletas y pago en línea.",
+          cat: "rentas",
+          icon: "bi-credit-card",
+        },
+        {
+          key: "rentas",
+          title: "Rentas",
+          text: "Tasas, impuestos, contribuciones y planes de pago.",
+          cat: "rentas",
+          icon: "bi-house-check",
+        },
+        {
+          key: "licencia",
+          title: "Licencia de Conducir",
+          text: "Requisitos, turnos, primera licencia y renovación.",
+          cat: "transito",
+          icon: "bi-person-vcard",
+        },
+        {
+          key: "turnos",
+          title: "Turnos Online",
+          text: "Reserva de atención para trámites municipales.",
+          cat: "transito",
+          icon: "bi-calendar2-check",
+        },
+        {
+          key: "reclamos",
+          title: "Reclamos",
+          text: "Derivación al 0800 y canales oficiales.",
+          cat: "atencion",
+          icon: "bi-exclamation-circle",
+        },
+        {
+          key: "expedientes",
+          title: "Expedientes",
+          text: "Consulta y seguimiento de expedientes.",
+          cat: "rentas",
+          icon: "bi-folder2-open",
+        },
+        {
+          key: "obras",
+          title: "Obras Privadas",
+          text: "Planos, permisos, factibilidad y catastro.",
+          cat: "obras",
+          icon: "bi-building-gear",
+        },
+        {
+          key: "habilitaciones",
+          title: "Habilitaciones",
+          text: "Alta, baja o modificación comercial.",
+          cat: "comercio",
+          icon: "bi-shop",
+        },
+        {
+          key: "veterinaria",
+          title: "Móvil Veterinario",
+          text: "Fechas de castración, requisitos y distritos.",
+          cat: "salud",
+          icon: "bi-heart-pulse",
+        },
+        {
+          key: "teatro",
+          title: "Teatro Imperial",
+          text: "Cartelera, espectáculos y agenda cultural.",
+          cat: "cultura",
+          icon: "bi-building",
+        },
+        {
+          key: "turismo",
+          title: "Turismo",
+          text: "Bodegas, circuitos, Museo del Vino y ciudad.",
+          cat: "turismo",
+          icon: "bi-signpost-2",
+        },
+        {
+          key: "salud",
+          title: "Salud",
+          text: "Operativos, vacunación y prevención.",
+          cat: "salud",
+          icon: "bi-hospital",
+        },
+        {
+          key: "educacion",
+          title: "Educación",
+          text: "Programas, cursos y talleres.",
+          cat: "servicios",
+          icon: "bi-mortarboard",
+        },
+        {
+          key: "ambiente",
+          title: "Ambiente",
+          text: "Arbolado, reciclaje y campañas ambientales.",
+          cat: "servicios",
+          icon: "bi-tree",
+        },
+        {
+          key: "descuentos",
+          title: "Bolsa de Descuentos",
+          text: "Beneficios para vecinos.",
+          cat: "servicios",
+          icon: "bi-tags",
+        },
+        {
+          key: "proveedores",
+          title: "Proveedores",
+          text: "Compras, licitaciones y registro.",
+          cat: "comercio",
+          icon: "bi-box-seam",
+        },
+        {
+          key: "transparencia",
+          title: "Transparencia",
+          text: "Datos públicos, informes y rendición.",
+          cat: "institucional",
+          icon: "bi-eye",
+        },
+        {
+          key: "intendencia",
+          title: "Intendencia",
+          text: "Autoridades y gestión municipal.",
+          cat: "institucional",
+          icon: "bi-people-fill",
+        },
+        {
+          key: "contacto",
+          title: "Contacto Institucional",
+          text: "Teléfonos, horarios y ubicación.",
+          cat: "atencion",
+          icon: "bi-envelope",
+        },
+      ];
+      const modalData = {
+        pago: {
+          icon: "bi-credit-card",
+          title: "Pago Online",
+          subtitle: "Acceso al sistema de pagos municipales.",
+          body: ` <p>Desde esta sección el vecino puede consultar deuda, generar boletas y realizar pagos municipales online.</p> <div class="modal-grid"> <div class="modal-info"><b>Consulta de deuda</b><small>Revisión de tasas, impuestos y contribuciones municipales.</small></div> <div class="modal-info"><b>Impresión de boleta</b><small>Posibilidad de emitir o descargar boletas.</small></div> <div class="modal-info"><b>Regularización</b><small>Información sobre opciones y planes de pago.</small></div> <div class="modal-info"><b>Acceso directo</b><small>Derivación al sistema oficial de Rentas.</small></div> </div> <div class="modal-actions"> <a class="btn btn-blue" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Ir a Pago Online</a> </div>`,
+        },
+        cuotas: {
+          icon: "bi-cash-coin",
+          title: "Plan de regularización de tasas municipales",
+          subtitle: "12 cuotas sin interés por tiempo limitado.",
+          body: ` <p>El plan permite comunicar de forma destacada beneficios para regularizar tasas municipales.</p> <div class="modal-grid"> <div class="modal-info"><b>12 cuotas sin interés</b><small>Beneficio destacado por tiempo limitado.</small></div> <div class="modal-info"><b>Evitar sanciones</b><small>Evite apremios, multas y sanciones.</small></div> <div class="modal-info"><b>Consultar deuda</b><small>Ingresar al sistema de Rentas y generar boleta.</small></div> <div class="modal-info"><b>Plan de pago</b><small>Gestionar en oficinas de Rentas y delegaciones de 8 a 13 h.</small></div> </div>`,
+        },
+        rentas: {
+          icon: "bi-house-check",
+          title: "Rentas",
+          subtitle: "Tasas, boletas, deuda y contribuciones.",
+          body: `<p>Rentas reúne tasas municipales, boletas, deuda, planes de pago y consultas tributarias.</p>`,
+        },
+        licencia: {
+          icon: "bi-person-vcard",
+          title: "Licencia de Conducir",
+          subtitle: "Requisitos, turnos y renovación.",
+          body: `<p>Información para primera licencia, renovación, licencia profesional, documentación y turnos.</p>`,
+        },
+        turnos: {
+          icon: "bi-calendar2-check",
+          title: "Turnos Online",
+          subtitle: "Reserva de atención municipal.",
+          body: `<p>Permite ordenar la atención presencial y agilizar la gestión de trámites municipales.</p>`,
+        },
+        reclamos: {
+          icon: "bi-exclamation-circle",
+          title: "Consultas y Reclamos",
+          subtitle: "Derivación al 0800 oficial del Municipio.",
+          body: `<p>Los reclamos se derivan al canal oficial de atención al vecino.</p><div class="modal-info"><b>0800 222 6247</b><small>Línea gratuita para reclamos y consultas.</small></div><div class="modal-actions"><a href="tel:08002226247" class="btn btn-orange"><i class="bi bi-telephone"></i> Llamar al 0800</a></div>`,
+        },
+        expedientes: {
+          icon: "bi-folder2-open",
+          title: "Expedientes",
+          subtitle: "Consulta y seguimiento de expedientes.",
+          body: `<p>Acceso para consultar el estado de trámites y gestiones municipales.</p><div class="modal-actions"><a class="btn btn-blue" href="https://app.maipu.gob.ar/munimaipu/f?p=110:2:1448407948404" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Consultar expediente</a></div>`,
+        },
+        obras: {
+          icon: "bi-building-gear",
+          title: "Obras Privadas",
+          subtitle: "Permisos, planos, factibilidad y catastro.",
+          body: `<p>Información para permisos de construcción, presentación de planos, factibilidad y consultas técnicas.</p>`,
+        },
+        habilitaciones: {
+          icon: "bi-shop",
+          title: "Habilitaciones",
+          subtitle: "Comercios, industrias y profesionales.",
+          body: `<p>Alta, baja, modificación y requisitos de actividades comerciales o profesionales.</p>`,
+        },
+        proveedores: {
+          icon: "bi-box-seam",
+          title: "Portal de Proveedores",
+          subtitle: "Registro, compras y licitaciones.",
+          body: `<p>Registro de proveedores, procesos de compras, licitaciones y contrataciones municipales.</p>`,
+        },
+        veterinaria: {
+          icon: "bi-heart-pulse",
+          title: "Móvil de Castración",
+          subtitle: "Cronograma y requisitos del servicio veterinario.",
+          body: `<p>Ejemplo de cronograma por distrito para publicar fechas del móvil veterinario.</p><div class="modal-grid"><div class="modal-info"><b>Luzuriaga</b><small>Lunes 10 de junio · 9:00 a 13:00 hs.</small></div><div class="modal-info"><b>Gutiérrez</b><small>Miércoles 12 de junio · 9:00 a 13:00 hs.</small></div><div class="modal-info"><b>Rodeo del Medio</b><small>Viernes 14 de junio · 9:00 a 13:00 hs.</small></div><div class="modal-info"><b>Coquimbito</b><small>Martes 18 de junio · 9:00 a 13:00 hs.</small></div></div><div class="modal-note">Requisitos sugeridos: DNI, mascota con collar o transportadora y ayuno previo según indicación profesional.</div>`,
+        },
+        teatro: {
+          icon: "bi-building",
+          title: "Teatro Imperial",
+          subtitle: "Agenda cultural y espectáculos.",
+          body: `<p>Cartelera, funciones, actividades y propuestas del Teatro Imperial.</p>`,
+        },
+        turismo: {
+          icon: "bi-signpost-2",
+          title: "Turismo",
+          subtitle: "Bodegas, ciudad y cultura.",
+          body: `<p>Circuitos turísticos, bodegas, Museo del Vino, agenda cultural y puntos de interés de Maipú.</p>`,
+        },
+        salud: {
+          icon: "bi-hospital",
+          title: "Salud",
+          subtitle: "Operativos y prevención.",
+          body: `<p>Campañas sanitarias, vacunación, controles y operativos territoriales.</p>`,
+        },
+        educacion: {
+          icon: "bi-mortarboard",
+          title: "Educación",
+          subtitle: "Cursos, talleres y programas.",
+          body: `<p>Programas educativos, capacitaciones, talleres y propuestas para vecinos.</p>`,
+        },
+        ambiente: {
+          icon: "bi-tree",
+          title: "Ambiente",
+          subtitle: "Reciclaje, arbolado y cuidado urbano.",
+          body: `<p>Campañas ambientales, arbolado, limpieza urbana y reciclaje.</p>`,
+        },
+        descuentos: {
+          icon: "bi-tags",
+          title: "Bolsa de Descuentos",
+          subtitle: "Beneficios para vecinos.",
+          body: `<p>Promociones, comercios adheridos y beneficios municipales.</p>`,
+        },
+        delegaciones: {
+          icon: "bi-geo-alt",
+          title: "Delegaciones",
+          subtitle: "Atención territorial.",
+          body: `<p>Servicios municipales por distrito, horarios y contactos.</p>`,
+        },
+        intendencia: {
+          icon: "bi-people-fill",
+          title: "Intendencia",
+          subtitle: "Autoridades municipales.",
+          body: `<p>Información institucional, autoridades y gestión municipal.</p>`,
+        },
+        transparencia: {
+          icon: "bi-eye",
+          title: "Transparencia",
+          subtitle: "Información pública y rendición.",
+          body: `<p>Datos abiertos, informes, normativa y rendición de cuentas.</p>`,
+        },
+        gobierno: {
+          icon: "bi-diagram-3-fill",
+          title: "Gobierno Abierto",
+          subtitle: "Participación ciudadana.",
+          body: `<p>Datos públicos, participación y comunicación con vecinos.</p>`,
+        },
+        licitaciones: {
+          icon: "bi-hammer",
+          title: "Licitaciones y Compras",
+          subtitle: "Procesos de compra municipal.",
+          body: `<p>Compras, pliegos, contrataciones y procesos activos.</p>`,
+        },
+        normativa: {
+          icon: "bi-journal-text",
+          title: "Ordenanzas / Normativa",
+          subtitle: "Normativa municipal vigente.",
+          body: `<p>Ordenanzas, decretos, resoluciones y documentación legal.</p>`,
+        },
+        contacto: {
+          icon: "bi-envelope",
+          title: "Contacto Institucional",
+          subtitle: "Canales oficiales.",
+          body: `<div class="modal-grid"><div class="modal-info"><b>Dirección</b><small>Pablo Pescara 190, Maipú, Mendoza.</small></div><div class="modal-info"><b>Teléfono</b><small>0800 222 8030.</small></div><div class="modal-info"><b>WhatsApp</b><small>261 716-6619.</small></div><div class="modal-info"><b>Horario</b><small>Lunes a viernes de 8:00 a 18:00 hs.</small></div></div>`,
+        },
+        atencion: {
+          icon: "bi-people",
+          title: "Atención al Vecino",
+          subtitle: "Canales de contacto.",
+          body: `<p>Canales oficiales para consultas, orientación y reclamos.</p>`,
+        },
+        ayuda: {
+          icon: "bi-briefcase",
+          title: "Ayuda rápida",
+          subtitle: "Orientación al vecino.",
+          body: `<p>Acceso rápido a trámites, servicios, pagos y atención municipal.</p>`,
+        },
+        agenda: {
+          icon: "bi-calendar-event",
+          title: "Agenda Cultural",
+          subtitle: "Eventos del departamento.",
+          body: `<p>Agenda de actividades culturales, turísticas y comunitarias.</p>`,
+        },
+        museo: {
+          icon: "bi-bank",
+          title: "Museo del Vino",
+          subtitle: "Historia y tradición.",
+          body: `<p>Patrimonio vitivinícola, historia local y cultura de Maipú.</p>`,
+        },
+      };
+      let heroSlides =
+        JSON.parse(localStorage.getItem("maipuHeroSlides")) || DEFAULT_HERO;
+      let heroIndex = 0;
+      let news = JSON.parse(localStorage.getItem("maipuNews")) || DEFAULT_NEWS;
+      let editingNewsImage = "";
+      const modal = document.getElementById("modal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalSubtitle = document.getElementById("modalSubtitle");
+      const modalBody = document.getElementById("modalBody");
+      const modalIcon = document.getElementById("modalIcon");
+      function openInfo(key) {
+        const item = modalData[key];
+        if (!item) return;
+        modalTitle.textContent = item.title;
+        modalSubtitle.textContent = item.subtitle;
+        modalBody.innerHTML = item.body;
+        modalIcon.innerHTML = `<i class="bi ${item.icon}"></i>`;
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";
+        closeSearch();
+      }
+      function openNewsModal(id) {
+        const item = news.find((n) => n.id === id);
+        if (!item) return;
+        modalTitle.textContent = item.title;
+        modalSubtitle.textContent = item.subtitle;
+        modalIcon.innerHTML = `<i class="bi bi-newspaper"></i>`;
+        modalBody.innerHTML = ` <img class="modal-news-img" src="${item.image}" alt="${item.title}"> <p><b>${item.category}</b> · ${item.date}</p> <p>${item.text}</p> `;
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";
+        closeSearch();
+      }
+      function closeModal() {
+        modal.classList.remove("show");
+        document.body.style.overflow = "auto";
+      }
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModal();
+          closeSearch();
+          closeAdmin();
+        }
+      });
+      function renderHero() {
+        const slide = heroSlides[heroIndex] || DEFAULT_HERO[0];
+        document.documentElement.style.setProperty(
+          "--hero-image",
+          `url("${slide.image}")`,
+        );
+        document.getElementById("heroTitle").innerHTML =
+          `${slide.title} <span>${slide.span}</span>`;
+        document.getElementById("heroSubtitle").textContent = slide.subtitle;
+        const dots = document.getElementById("heroDots");
+        dots.innerHTML = heroSlides
+          .map(
+            (_, index) =>
+              ` <button class="${index === heroIndex ? "active" : ""}" onclick="goHero(${index})"></button> `,
+          )
+          .join("");
+      }
+      function goHero(index) {
+        heroIndex = index;
+        renderHero();
+      }
+      setInterval(() => {
+        heroIndex = (heroIndex + 1) % heroSlides.length;
+        renderHero();
+      }, 6500);
+      function renderNews() {
+        const grid = document.getElementById("newsGrid");
+        grid.innerHTML = news
+          .map((item, index) => {
+            const tagClass =
+              item.category === "Salud"
+                ? "blue"
+                : item.category === "Servicios" || item.category === "Cultura"
+                  ? "green"
+                  : "orange";
+            return ` <article class="news-card" onclick="openNewsModal('${item.id}')"> <div class="news-img" style="background-image:url('${item.image}')"> <span class="tag ${tagClass}">${item.category}</span> </div> <div class="news-body"> <span class="news-date">${item.date}</span> <h3>${item.title}</h3> <p>${item.subtitle}</p> <span class="read-more">Leer más <i class="bi bi-arrow-right"></i></span> </div> </article> `;
+          })
+          .join("");
+      }
+      const hamb = document.getElementById("hamb");
+      const menu = document.getElementById("menu");
+      hamb.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
+      document.querySelectorAll(".dropdown-toggle").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          if (window.innerWidth <= 780) {
+            e.preventDefault();
+            btn.closest(".nav-item").classList.toggle("open");
+          }
+        });
+      });
+      document.querySelectorAll(".menu button, .menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (!link.classList.contains("dropdown-toggle")) {
+            menu.classList.remove("open");
+          }
+        });
+      });
+      let currentGuideFilter = "todos";
+      function setGuideFilter(cat, btn) {
+        currentGuideFilter = cat;
+        document
+          .querySelectorAll(".chip")
+          .forEach((c) => c.classList.remove("active"));
+        btn.classList.add("active");
+        filterGuide();
+      }
+      function filterGuide() {
+        const text = document
+          .getElementById("guideInput")
+          .value.toLowerCase()
+          .trim();
+        const cards = document.querySelectorAll(".guide-item");
+        cards.forEach((card) => {
+          const cat = card.dataset.cat;
+          const search = (
+            card.dataset.search +
+            " " +
+            card.innerText
+          ).toLowerCase();
+          const okCat =
+            currentGuideFilter === "todos" || currentGuideFilter === cat;
+          const okText = text === "" || search.includes(text);
+          card.style.display = okCat && okText ? "grid" : "none";
+        });
+      }
+      document
+        .getElementById("guideInput")
+        .addEventListener("input", filterGuide);
+      const searchPanel = document.getElementById("searchPanel");
+      const globalSearch = document.getElementById("globalSearch");
+      const searchResults = document.getElementById("searchResults");
+      function openSearch() {
+        renderSearchResults("");
+        searchPanel.classList.add("show");
+        setTimeout(() => globalSearch.focus(), 80);
+        document.body.style.overflow = "hidden";
+      }
+      function closeSearch() {
+        searchPanel.classList.remove("show");
+        globalSearch.value = "";
+        if (
+          !modal.classList.contains("show") &&
+          !document.getElementById("adminPanel").classList.contains("show")
+        ) {
+          document.body.style.overflow = "auto";
+        }
+      }
+      function renderSearchResults(term) {
+        const clean = term.toLowerCase().trim();
+        const filtered = searchItems.filter((item) => {
+          const txt = `${item.title} ${item.text} ${item.cat}`.toLowerCase();
+          return clean === "" || txt.includes(clean);
+        });
+        searchResults.innerHTML = filtered.length
+          ? filtered
+              .map(
+                (item) =>
+                  ` <button class="search-result" onclick="openInfo('${item.key}')"> <i class="bi ${item.icon}"></i> <span> <b>${item.title}</b> <small>${item.text}</small> </span> </button> `,
+              )
+              .join("")
+          : ` <div class="modal-note" style="grid-column:1/-1;">No encontramos resultados. Probá con otra palabra como “rentas”, “licencia”, “veterinaria”, “turismo” o “pago”.</div> `;
+      }
+      globalSearch.addEventListener("input", () =>
+        renderSearchResults(globalSearch.value),
+      );
+      searchPanel.addEventListener("click", (e) => {
+        if (e.target === searchPanel) closeSearch();
+      });
+      function fileToDataUrl(input) {
+        return new Promise((resolve) => {
+          const file = input.files && input.files[0];
+          if (!file) {
+            resolve("");
+            return;
+          }
+          const reader = new FileReader();
+          reader.onload = (e) => resolve(e.target.result);
+          reader.readAsDataURL(file);
+        });
+      }
+      function openAdmin() {
+        document.getElementById("adminPanel").classList.add("show");
+        document.body.style.overflow = "hidden";
+        loadAdminFields();
+        renderAdminNews();
+      }
+      function closeAdmin() {
+        document.getElementById("adminPanel").classList.remove("show");
+        if (
+          !modal.classList.contains("show") &&
+          !searchPanel.classList.contains("show")
+        ) {
+          document.body.style.overflow = "auto";
+        }
+      }
+      function loadAdminFields() {
+        const slide = heroSlides[0] || DEFAULT_HERO[0];
+        document.getElementById("adminHeroTitle").value = slide.title;
+        document.getElementById("adminHeroSpan").value = slide.span;
+        document.getElementById("adminHeroSubtitle").value = slide.subtitle;
+      }
+      async function saveHeroSlide() {
+        const img = await fileToDataUrl(
+          document.getElementById("adminHeroImage"),
+        );
+        heroSlides[0] = {
+          title:
+            document.getElementById("adminHeroTitle").value ||
+            "Maipú más cerca,",
+          span:
+            document.getElementById("adminHeroSpan").value ||
+            "simple y conectado.",
+          subtitle:
+            document.getElementById("adminHeroSubtitle").value ||
+            "Accesos claros para realizar trámites y consultar servicios.",
+          image: img || heroSlides[0].image || "assets/img/portada.png",
+        };
+        localStorage.setItem("maipuHeroSlides", JSON.stringify(heroSlides));
+        heroIndex = 0;
+        renderHero();
+        alert("Portada actualizada.");
+      }
+      function resetHeroSlides() {
+        heroSlides = DEFAULT_HERO;
+        localStorage.removeItem("maipuHeroSlides");
+        heroIndex = 0;
+        renderHero();
+        loadAdminFields();
+        alert("Portada restaurada.");
+      }
+      function renderAdminNews() {
+        const list = document.getElementById("adminNewsList");
+        list.innerHTML = news
+          .map(
+            (item) =>
+              ` <div class="admin-list-item"> <img src="${item.image}" alt="${item.title}"> <div> <b>${item.title}</b> <small>${item.category} · ${item.date}</small> <small>${item.subtitle}</small> </div> <div> <button class="admin-icon-btn" onclick="editNews('${item.id}')"><i class="bi bi-pencil"></i></button> <button class="admin-icon-btn delete" onclick="deleteNews('${item.id}')"><i class="bi bi-trash"></i></button> </div> </div> `,
+          )
+          .join("");
+      }
+      function newNews() {
+        document.getElementById("adminNewsId").value = "";
+        document.getElementById("adminNewsCategory").value = "Obras";
+        document.getElementById("adminNewsDate").value = "";
+        document.getElementById("adminNewsTitle").value = "";
+        document.getElementById("adminNewsSubtitle").value = "";
+        document.getElementById("adminNewsText").value = "";
+        document.getElementById("adminNewsImage").value = "";
+        editingNewsImage = "";
+      }
+      function editNews(id) {
+        const item = news.find((n) => n.id === id);
+        if (!item) return;
+        document.getElementById("adminNewsId").value = item.id;
+        document.getElementById("adminNewsCategory").value = item.category;
+        document.getElementById("adminNewsDate").value = item.date;
+        document.getElementById("adminNewsTitle").value = item.title;
+        document.getElementById("adminNewsSubtitle").value = item.subtitle;
+        document.getElementById("adminNewsText").value = item.text;
+        document.getElementById("adminNewsImage").value = "";
+        editingNewsImage = item.image;
+      }
+      async function saveNews() {
+        const id =
+          document.getElementById("adminNewsId").value || crypto.randomUUID();
+        const img = await fileToDataUrl(
+          document.getElementById("adminNewsImage"),
+        );
+        const item = {
+          id,
+          category: document.getElementById("adminNewsCategory").value,
+          date: document.getElementById("adminNewsDate").value || "Sin fecha",
+          title:
+            document.getElementById("adminNewsTitle").value || "Nueva noticia",
+          subtitle:
+            document.getElementById("adminNewsSubtitle").value ||
+            "Resumen de la noticia.",
+          text:
+            document.getElementById("adminNewsText").value ||
+            "Texto completo de la noticia.",
+          image: img || editingNewsImage || "assets/img/banner.jpeg",
+        };
+        const index = news.findIndex((n) => n.id === id);
+        if (index >= 0) {
+          news[index] = item;
+        } else {
+          news.unshift(item);
+        }
+        localStorage.setItem("maipuNews", JSON.stringify(news));
+        renderNews();
+        renderAdminNews();
+        newNews();
+        alert("Noticia guardada.");
+      }
+      function deleteNews(id) {
+        if (!confirm("¿Eliminar esta noticia?")) return;
+        news = news.filter((n) => n.id !== id);
+        localStorage.setItem("maipuNews", JSON.stringify(news));
+        renderNews();
+        renderAdminNews();
+      }
+      function resetNews() {
+        if (!confirm("¿Restaurar noticias de ejemplo?")) return;
+        news = DEFAULT_NEWS;
+        localStorage.removeItem("maipuNews");
+        renderNews();
+        renderAdminNews();
+        newNews();
+      }
+      renderHero();
+      renderNews();
+    </script>
+    <script>
+      function openGuideSelected() {
+        const select = document.getElementById("guideSelect");
+        if (!select) return;
+        openInfo(select.value);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const guideInput = document.getElementById("guideInput");
+        const guideSelect = document.getElementById("guideSelect");
+        if (guideInput && guideSelect) {
+          guideInput.addEventListener("input", () => {
+            const text = guideInput.value.toLowerCase().trim();
+            if (!text) return;
+            const option = Array.from(guideSelect.options).find((opt) =>
+              opt.textContent.toLowerCase().includes(text),
+            );
+            if (option) guideSelect.value = option.value;
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
