@@ -8,6 +8,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <link rel="icon" type="image/png" href="assets/img/logo-maipu.png">
+  <link rel="apple-touch-icon" href="assets/img/logo-maipu.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -2168,6 +2170,622 @@
           height: 52px;
         }
       }
+    
+
+      /* ===== AJUSTES FINALES SOLICITADOS ===== */
+      :root {
+        --maipu-blue: #0072bc;
+        --maipu-sky: #0d8fd3;
+        --maipu-green: #72c943;
+        --maipu-orange: #f59b12;
+        --maipu-ink: #07182d;
+      }
+
+      .admin-dot {
+        width: auto;
+        min-width: 56px;
+        height: 34px;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--maipu-blue), var(--maipu-sky));
+        color: #fff;
+        font-size: 11px;
+        font-weight: 900;
+        box-shadow: 0 0 0 4px rgba(0, 114, 188, 0.12);
+        text-transform: uppercase;
+        letter-spacing: .2px;
+      }
+
+      .admin-dot:hover {
+        transform: translateY(-1px);
+      }
+
+      .site-banner-section {
+        padding: 20px 0;
+      }
+
+      .site-banner {
+        position: relative;
+        display: block;
+        height: 232px;
+        min-height: 232px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background:
+          radial-gradient(circle at 88% 20%, rgba(255,255,255,.34) 0 70px, transparent 72px),
+          linear-gradient(135deg, #0072bc 0%, #0d8fd3 48%, #72c943 100%);
+        border: 1px solid #d7eefb;
+        isolation: isolate;
+      }
+
+      .site-banner.banner-green {
+        background:
+          radial-gradient(circle at 86% 24%, rgba(255,255,255,.34) 0 70px, transparent 72px),
+          linear-gradient(135deg, #0072bc 0%, #19a7d8 45%, #72c943 100%);
+      }
+
+      .site-banner.banner-orange {
+        background:
+          radial-gradient(circle at 84% 30%, rgba(255,255,255,.28) 0 72px, transparent 74px),
+          linear-gradient(135deg, #082946 0%, #0072bc 44%, #f59b12 100%);
+      }
+
+      .site-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 1 !important;
+        filter: none !important;
+      }
+
+      .site-banner.has-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(6,29,52,.82), rgba(6,29,52,.36), rgba(6,29,52,.18));
+        z-index: 1;
+      }
+
+      .site-banner.no-img::before {
+        content: "";
+        position: absolute;
+        right: -40px;
+        bottom: -60px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: rgba(255,255,255,.16);
+      }
+
+      .site-banner-info {
+        position: absolute;
+        left: 26px;
+        bottom: 24px;
+        z-index: 2;
+        max-width: 620px;
+        color: #fff;
+      }
+
+      .site-banner-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: rgba(255,255,255,.16);
+        border: 1px solid rgba(255,255,255,.28);
+        border-radius: 999px;
+        padding: 7px 12px;
+        font-size: 11px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: .45px;
+        margin-bottom: 10px;
+        backdrop-filter: blur(4px);
+      }
+
+      .site-banner-info h2 {
+        font-size: clamp(25px, 3.4vw, 40px);
+        line-height: 1;
+        letter-spacing: -1px;
+        margin-bottom: 8px;
+        font-weight: 900;
+      }
+
+      .site-banner-info p {
+        max-width: 560px;
+        font-size: 14px;
+        line-height: 1.45;
+        color: #eef8ff;
+        font-weight: 700;
+      }
+
+      .site-banner-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        font-size: 13px;
+        font-weight: 900;
+        color: #fff;
+      }
+
+      .site-banner-link i {
+        font-size: 17px;
+      }
+
+      .guide-search {
+        grid-template-columns: 1fr 138px;
+      }
+
+      .guide-search button {
+        min-height: 46px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--maipu-blue), var(--maipu-sky));
+        box-shadow: 0 10px 22px rgba(0,114,188,.18);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 14px;
+      }
+
+      .guide-search button::before {
+        content: "\F52A";
+        font-family: "bootstrap-icons";
+        font-size: 16px;
+      }
+
+      .modal-box {
+        width: min(740px, 94%);
+        border-radius: 20px;
+      }
+
+      .modal-head {
+        background: linear-gradient(135deg, #0072bc, #0d8fd3);
+        padding: 18px 20px;
+      }
+
+      .modal-head h2 {
+        font-size: 22px;
+      }
+
+      .modal-head p {
+        font-size: 14px;
+      }
+
+      .modal-icon {
+        background: #fff;
+        width: 54px;
+        height: 54px;
+        border-radius: 16px;
+        padding: 6px;
+      }
+
+      .modal-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .modal-body {
+        padding: 18px 20px 20px;
+      }
+
+      .modal-news-img {
+        max-height: 260px;
+        border-radius: 14px;
+      }
+
+      .tour-grid-clean {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .tour-grid-clean .tour-card img {
+        height: 150px;
+      }
+
+      .admin-body-new {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .admin-card-wide {
+        grid-column: 1 / -1;
+      }
+
+      .mini-list {
+        max-height: 280px;
+      }
+
+      .admin-list-item .admin-mini-actions {
+        display: flex;
+        gap: 6px;
+      }
+
+      .banner-admin-thumb {
+        background: linear-gradient(135deg, #eef8ff, #fff);
+      }
+
+      @media (max-width: 780px) {
+        .nav {
+          min-height: 62px;
+          gap: 7px;
+        }
+
+        .brand {
+          order: 1;
+          min-width: 0;
+          gap: 7px;
+        }
+
+        .brand img {
+          width: 48px;
+        }
+
+        .brand strong {
+          font-size: 11.5px;
+          max-width: 116px;
+        }
+
+        .header-actions {
+          order: 2;
+          margin-left: auto;
+          gap: 6px;
+        }
+
+        .hamb {
+          order: 3;
+          width: 40px;
+          height: 40px;
+          min-width: 40px;
+          border-radius: 12px;
+        }
+
+        .menu {
+          order: 4;
+          top: 62px;
+          max-height: calc(100vh - 62px);
+        }
+
+        .pay-btn {
+          width: 40px;
+          height: 40px;
+          min-width: 40px;
+          padding: 0;
+          border-radius: 12px;
+          font-size: 0;
+        }
+
+        .pay-btn i {
+          font-size: 18px;
+        }
+
+        .admin-dot {
+          display: inline-flex !important;
+          align-items: center;
+          justify-content: center;
+          min-width: 42px;
+          width: 42px;
+          height: 40px;
+          padding: 0;
+          border-radius: 12px;
+          font-size: 9px;
+          letter-spacing: 0;
+          box-shadow: 0 0 0 3px rgba(0,114,188,.12);
+        }
+
+        .search-btn {
+          display: none !important;
+        }
+
+        .site-banner {
+          height: 190px;
+          min-height: 190px;
+          border-radius: 20px;
+        }
+
+        .site-banner img {
+          object-fit: cover;
+        }
+
+        .site-banner.has-img::after {
+          background: linear-gradient(90deg, rgba(6,29,52,.82), rgba(6,29,52,.46));
+        }
+
+        .site-banner-info {
+          left: 16px;
+          right: 16px;
+          bottom: 16px;
+          max-width: none;
+        }
+
+        .site-banner-kicker {
+          font-size: 9px;
+          padding: 6px 9px;
+          margin-bottom: 8px;
+        }
+
+        .site-banner-info h2 {
+          font-size: 22px;
+          line-height: 1.03;
+        }
+
+        .site-banner-info p {
+          font-size: 12px;
+          line-height: 1.35;
+        }
+
+        .site-banner-link {
+          font-size: 11px;
+          margin-top: 8px;
+        }
+
+        .guide-search {
+          grid-template-columns: 1fr;
+        }
+
+        .guide-search button {
+          min-height: 44px;
+          width: 100%;
+          border-radius: 13px;
+        }
+
+        .tour-grid-clean {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .tour-grid-clean .tour-card img {
+          height: 105px;
+        }
+
+        .admin-body-new {
+          grid-template-columns: 1fr;
+        }
+
+        .admin-card-wide {
+          grid-column: auto;
+        }
+
+        .modal {
+          align-items: flex-start;
+          padding-top: 82px;
+        }
+
+        .modal-box {
+          width: min(94%, 520px);
+          max-height: 82vh;
+        }
+
+        .modal-head {
+          padding: 16px;
+        }
+
+        .modal-title-wrap {
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .modal-icon {
+          width: 48px;
+          height: 48px;
+        }
+
+        .modal-head h2 {
+          font-size: 18px;
+        }
+
+        .modal-head p {
+          font-size: 12px;
+        }
+
+        .modal-body {
+          padding: 16px;
+        }
+      }
+
+
+      /* ===== AJUSTES FINALES PEDIDOS ===== */
+
+      /* Portada: imagen con brillo real, solo leve sombra a la derecha */
+      .hero {
+        background: var(--hero-image, url("assets/img/portada.png")) center/cover no-repeat !important;
+        isolation: isolate;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(6, 29, 52, 0.10) 0%,
+          rgba(6, 29, 52, 0.06) 45%,
+          rgba(6, 29, 52, 0.38) 100%
+        );
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .hero-content {
+        text-shadow: 0 3px 12px rgba(0, 0, 0, 0.38);
+      }
+
+      .hero-actions .btn {
+        min-height: 38px;
+        padding: 0 14px;
+        font-size: 13px;
+        border-radius: 9px;
+      }
+
+      /* Todas las imágenes con brillo completo */
+      img,
+      .site-banner img,
+      .main-banner img,
+      .vet-banner img,
+      .tour-card img,
+      .news-img,
+      .modal-news-img {
+        opacity: 1 !important;
+        filter: none !important;
+      }
+
+      /* Banners: solo imagen + link, sin texto ni capas opacas */
+      .site-banner-section {
+        padding: 18px 0;
+      }
+
+      .site-banner {
+        display: block;
+        width: 100%;
+        height: 232px;
+        min-height: 232px;
+        border-radius: 24px;
+        overflow: hidden;
+        background: #eef8ff;
+        border: 1px solid #d7eefb;
+        box-shadow: var(--shadow);
+      }
+
+      .site-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .site-banner::before,
+      .site-banner::after,
+      .site-banner.has-img::after,
+      .site-banner.no-img::before,
+      .site-banner-info,
+      .site-banner-kicker,
+      .site-banner-link {
+        display: none !important;
+      }
+
+      /* Admin banners: solo imagen y link */
+      .admin-banner-title-row,
+      .admin-banner-text-row {
+        display: none !important;
+      }
+
+      .admin-banner-note {
+        background: #eef8ff;
+        border: 1px solid #d7e8f7;
+        border-radius: 13px;
+        padding: 12px;
+        color: #173350;
+        font-size: 13px;
+        line-height: 1.45;
+        font-weight: 700;
+      }
+
+      .admin-banner-note b {
+        color: var(--azul);
+      }
+
+      .banner-admin-thumb {
+        object-fit: cover !important;
+      }
+
+      /* Header móvil: botón pago en línea centrado */
+      @media (max-width: 780px) {
+        .header-actions {
+          gap: 7px;
+          margin-left: auto;
+        }
+
+        .pay-btn,
+        .hamb {
+          width: 42px !important;
+          height: 42px !important;
+          min-width: 42px !important;
+          padding: 0 !important;
+          border-radius: 12px !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          text-align: center !important;
+        }
+
+        .pay-btn {
+          font-size: 0 !important;
+        }
+
+        .pay-btn i,
+        .hamb i {
+          font-size: 20px !important;
+          line-height: 1 !important;
+          margin: 0 !important;
+        }
+
+        .hero-actions {
+          gap: 8px;
+        }
+
+        .hero-actions .btn {
+          min-height: 35px;
+          padding: 0 12px;
+          font-size: 12px;
+          border-radius: 9px;
+        }
+
+        .site-banner {
+          height: auto;
+          min-height: 0;
+          border-radius: 18px;
+        }
+
+        .site-banner img {
+          height: auto;
+          min-height: 0;
+          object-fit: contain;
+        }
+      }
+/* Banner 3 más alto solo en computadora */
+#bannerSlot3 .site-banner {
+  height: 390px;
+  min-height: 390px;
+}
+
+#bannerSlot3 .site-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* En celular se ve igual que los otros banners, sin recuadro */
+@media (max-width: 780px) {
+  #bannerSlot3 .site-banner {
+    height: auto;
+    min-height: 0;
+    border-radius: 18px;
+    border: 1px solid #d7eefb;
+    box-shadow: var(--shadow);
+  }
+
+  #bannerSlot3 .site-banner img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}@media (max-width: 780px) {
+  #bannerSlot3 .site-banner {
+    height: auto;
+    min-height: 0;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  #bannerSlot3 .site-banner img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
     </style>
   </head>
   <body>
@@ -2387,11 +3005,7 @@
           >
             <i class="bi bi-credit-card"></i> Pago en línea
           </a>
-          <button
-          class="admin-btn admin-dot"
-          onclick="openAdmin()"
-          aria-label="Admin"
-        ></button>
+          <button class="admin-btn admin-dot" onclick="openAdmin()" aria-label="Admin">Admin</button>
         </div>
       </div>
     </header>
@@ -2486,16 +3100,10 @@
       </div>
     </div>
     <!-- BANNER PRINCIPAL -->
-    <section>
+    <section class="site-banner-section">
       <div class="container">
-        <div class="main-banner">
-         
-          
-            
-           <a href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank"> <img src="assets/img/banner.jpeg" alt="Banner municipal" /></a> 
-          </div>
-        </div>
-      
+        <div id="bannerSlot1"></div>
+      </div>
     </section>
     <!-- NOTICIAS -->
     <section id="noticias">
@@ -2708,19 +3316,9 @@
       </div>
     </section>
     <!-- BANNER VETERINARIA -->
-    <section>
+    <section class="site-banner-section">
       <div class="container">
-        <div class="vet-banner">
-          <img
-            src="assets/img/banner-veterinaria.png"
-            alt="Móvil veterinario"
-          />
-          <div class="vet-button-only">
-            <button class="btn btn-green" onclick="openInfo('veterinaria')">
-              <i class="bi bi-heart-pulse"></i> Ver cronograma
-            </button>
-          </div>
-        </div>
+        <div id="bannerSlot2"></div>
       </div>
     </section>
     <!-- SERVICIOS -->
@@ -2791,45 +3389,55 @@
         </div>
       </div>
     </section>
-    <!-- 12 CUOTAS -->
    
     <!-- TURISMO -->
     <section id="turismo">
       <div class="container">
-        <div class="tour-grid">
-          <div class="tour-title">
-            <i class="bi bi-stars"></i>
-            <h2>Turismo<br />y Cultura</h2>
+        <div class="title-row">
+          <div>
+            <h2 class="section-title">Conocé Maipú</h2>
+            <p class="section-lead">
+              Turismo, cultura, bodegas, patrimonio y espacios para disfrutar el departamento.
+            </p>
           </div>
+        </div>
+        <div class="tour-grid tour-grid-clean">
           <button class="tour-card" onclick="openInfo('turismo')">
-            <img src="assets/img/portada.png" alt="Bodegas" />
+            <img src="assets/img/portada.png" alt="Bodegas de Maipú" />
             <div>
               <h3>Bodegas de Maipú</h3>
               <p>Descubrí nuestros caminos del vino.</p>
             </div>
           </button>
           <button class="tour-card" onclick="openInfo('agenda')">
-            <img src="assets/img/banner.jpeg" alt="Agenda" />
+            <img src="assets/img/banner.jpeg" alt="Agenda cultural" />
             <div>
               <h3>Agenda Cultural</h3>
               <p>Eventos y actividades del departamento.</p>
             </div>
           </button>
           <button class="tour-card" onclick="openInfo('museo')">
-            <img src="assets/img/portada.png" alt="Museo" />
+            <img src="assets/img/portada.png" alt="Museo del Vino" />
             <div>
               <h3>Museo del Vino</h3>
               <p>Historia y tradición vitivinícola.</p>
             </div>
           </button>
           <button class="tour-card" onclick="openInfo('teatro')">
-            <img src="assets/img/portada.png" alt="Teatro" />
+            <img src="assets/img/portada.png" alt="Teatro Imperial" />
             <div>
               <h3>Teatro Imperial</h3>
               <p>Espectáculos y actividades.</p>
             </div>
           </button>
         </div>
+      </div>
+    </section>
+
+     <!-- 12 CUOTAS -->
+     <section class="site-banner-section">
+      <div class="container">
+        <div id="bannerSlot3"></div>
       </div>
     </section>
     <!-- ATENCION -->
@@ -2862,7 +3470,7 @@
       <div class="container footer-grid">
         <div class="footer-brand">
           <img
-            src="https://namilo1315.github.io/mails/assets/img/logo-maipu.png"
+            src="assets/img/logo-maipu.png"
             alt="Logo Maipú"
           />
           <p>
@@ -2959,40 +3567,38 @@
           <div>
             <h2>Panel de administración</h2>
             <p>
-              Desde este panel se puede cambiar el carrusel de la portada y
-              renovar las noticias: imagen, título, subtítulo y texto completo.
+              Cambiá las 3 imágenes del carrusel, los banners con link y las noticias destacadas.
+              En esta maqueta se guarda en el navegador con localStorage.
             </p>
           </div>
           <button class="admin-close" onclick="closeAdmin()">
             <i class="bi bi-x-lg"></i>
           </button>
         </div>
-        <div class="admin-body">
+
+        <div class="admin-body admin-body-new">
           <div class="admin-card">
-            <h3>Carrusel de portada</h3>
+            <h3>Portada / carrusel</h3>
             <div class="form-grid">
               <div class="form-row">
+                <label>Elegir slide</label>
+                <select id="adminHeroSlideIndex" onchange="loadAdminFields()">
+                  <option value="0">Portada 1</option>
+                  <option value="1">Portada 2</option>
+                  <option value="2">Portada 3</option>
+                </select>
+              </div>
+              <div class="form-row">
                 <label>Título de portada</label>
-                <input
-                  id="adminHeroTitle"
-                  type="text"
-                  placeholder="Ej: Maipú más cerca"
-                />
+                <input id="adminHeroTitle" type="text" placeholder="Ej: Maipú más cerca" />
               </div>
               <div class="form-row">
                 <label>Texto destacado en verde</label>
-                <input
-                  id="adminHeroSpan"
-                  type="text"
-                  placeholder="Ej: simple y conectado."
-                />
+                <input id="adminHeroSpan" type="text" placeholder="Ej: simple y conectado." />
               </div>
               <div class="form-row">
                 <label>Subtítulo</label>
-                <textarea
-                  id="adminHeroSubtitle"
-                  placeholder="Texto breve de portada"
-                ></textarea>
+                <textarea id="adminHeroSubtitle" placeholder="Texto breve de portada"></textarea>
               </div>
               <div class="form-row">
                 <label>Imagen de portada</label>
@@ -3000,20 +3606,67 @@
               </div>
               <div class="admin-actions">
                 <button class="btn btn-blue" onclick="saveHeroSlide()">
-                  <i class="bi bi-save"></i> Guardar portada
+                  <i class="bi bi-save"></i> Guardar slide
                 </button>
                 <button class="btn btn-orange" onclick="resetHeroSlides()">
                   <i class="bi bi-arrow-clockwise"></i> Restaurar portada
                 </button>
               </div>
               <div class="admin-small">
-                En una versión con PHP/MySQL, esto se guarda en base de datos.
-                Acá queda guardado en el navegador con localStorage para que
-                puedas probar el funcionamiento.
+                Podés editar una de las 3 portadas. Si no cargás imagen nueva, conserva la actual.
               </div>
             </div>
+            <div style="height: 14px"></div>
+            <div class="admin-list mini-list" id="adminHeroList"></div>
           </div>
+
           <div class="admin-card">
+            <h3>Banners con link</h3>
+            <div class="form-grid">
+              <div class="form-row">
+                <label>Elegir banner</label>
+                <select id="adminBannerId" onchange="loadBannerFields()">
+                  <option value="banner-1">Banner principal</option>
+                  <option value="banner-2">Banner veterinaria</option>
+                  <option value="banner-3">Banner plan de pago</option>
+                </select>
+              </div>
+              <div class="form-row admin-banner-title-row">
+                <label>Título del banner</label>
+                <input id="adminBannerTitle" type="text" placeholder="Título visible del banner" />
+              </div>
+              <div class="form-row admin-banner-text-row">
+                <label>Texto del banner</label>
+                <textarea id="adminBannerText" placeholder="Texto corto del banner"></textarea>
+              </div>
+              <div class="admin-banner-note">
+                En los banners se cambia <b>solo la imagen y el link</b>. No se muestra texto arriba del banner.
+              </div>
+              <div class="form-row">
+                <label>Link del banner</label>
+                <input id="adminBannerLink" type="text" placeholder="https://... o modal:veterinaria" />
+              </div>
+              <div class="form-row">
+                <label>Imagen del banner</label>
+                <input id="adminBannerImage" type="file" accept="image/*" />
+              </div>
+              <div class="admin-actions">
+                <button class="btn btn-blue" onclick="saveBanner()">
+                  <i class="bi bi-save"></i> Guardar banner
+                </button>
+                <button class="btn btn-orange" onclick="resetBanners()">
+                  <i class="bi bi-arrow-clockwise"></i> Restaurar banners
+                </button>
+              </div>
+              <div class="admin-small">
+                Para abrir un modal desde el banner usá, por ejemplo: <b>modal:veterinaria</b>. Para una web externa, pegá el link completo.
+              </div>
+            </div>
+            <div style="height: 14px"></div>
+            <div class="admin-list mini-list" id="adminBannerList"></div>
+          </div>
+
+          <div class="admin-card admin-card-wide">
             <h3>Noticias destacadas</h3>
             <div class="form-grid">
               <input id="adminNewsId" type="hidden" />
@@ -3030,33 +3683,19 @@
               </div>
               <div class="form-row">
                 <label>Fecha</label>
-                <input
-                  id="adminNewsDate"
-                  type="text"
-                  placeholder="Ej: 10 May 2026"
-                />
+                <input id="adminNewsDate" type="text" placeholder="Ej: 10 May 2026" />
               </div>
               <div class="form-row">
                 <label>Título</label>
-                <input
-                  id="adminNewsTitle"
-                  type="text"
-                  placeholder="Título de la noticia"
-                />
+                <input id="adminNewsTitle" type="text" placeholder="Título de la noticia" />
               </div>
               <div class="form-row">
                 <label>Subtítulo / bajada</label>
-                <textarea
-                  id="adminNewsSubtitle"
-                  placeholder="Resumen corto de la noticia"
-                ></textarea>
+                <textarea id="adminNewsSubtitle" placeholder="Resumen corto de la noticia"></textarea>
               </div>
               <div class="form-row">
                 <label>Texto completo</label>
-                <textarea
-                  id="adminNewsText"
-                  placeholder="Desarrollo completo de la noticia"
-                ></textarea>
+                <textarea id="adminNewsText" placeholder="Desarrollo completo de la noticia"></textarea>
               </div>
               <div class="form-row">
                 <label>Imagen de la noticia</label>
@@ -3106,7 +3745,7 @@
       ];
       const DEFAULT_NEWS = [
         {
-          id: crypto.randomUUID(),
+          id: "news-default-1",
           category: "Obras",
           date: "10 May 2026",
           title: "Avanzan las obras de pavimentación en Villa Maipú",
@@ -3116,7 +3755,7 @@
           image: "assets/img/banner.jpeg",
         },
         {
-          id: crypto.randomUUID(),
+          id: "news-default-2",
           category: "Servicios",
           date: "8 May 2026",
           title: "Nuevas fechas del móvil veterinario",
@@ -3126,7 +3765,7 @@
           image: "assets/img/banner-veterinaria.png",
         },
         {
-          id: crypto.randomUUID(),
+          id: "news-default-3",
           category: "Salud",
           date: "6 May 2026",
           title: "Jornada de prevención en el Parque Metropolitano",
@@ -3135,7 +3774,7 @@
           image: "assets/img/portada.png",
         },
         {
-          id: crypto.randomUUID(),
+          id: "news-default-4",
           category: "Trámites",
           date: "4 May 2026",
           title: "Nuevo sistema de turnos online",
@@ -3449,163 +4088,371 @@
           body: `<p>Patrimonio vitivinícola, historia local y cultura de Maipú.</p>`,
         },
       };
-      let heroSlides =
-        JSON.parse(localStorage.getItem("maipuHeroSlides")) || DEFAULT_HERO;
+
+      /* ===== SCRIPT ÚNICO CORREGIDO: ADMIN + GUARDADO ===== */
+      const MAIPU_LOGO_LOCAL = "assets/img/logo-maipu.png";
+      const HERO_STORAGE = "maipuHeroSlides";
+      const NEWS_STORAGE = "maipuNews";
+      const BANNER_STORAGE = "maipuBannersFinalSoloImagen";
+      const OLD_BANNER_STORAGE = "maipuBanners";
+
+      const DEFAULT_BANNERS = [
+        {
+          id: "banner-1",
+          title: "Gestiones frecuentes en un solo lugar",
+          text: "Pagos, turnos, expedientes, servicios y atención municipal para resolver más rápido.",
+          link: "https://vps.infogov.com.ar/rentas/maipu/#/public/home",
+          image: "assets/img/banner.jpeg",
+        },
+        {
+          id: "banner-2",
+          title: "Móvil veterinario y cuidado animal",
+          text: "Consultá el cronograma de atención, requisitos y operativos disponibles por distrito.",
+          link: "modal:veterinaria",
+          image: "assets/img/banner-veterinaria.png",
+        },
+        {
+          id: "banner-3",
+          title: "Regularizá tu deuda en cuotas",
+          text: "Accedé al sistema de Rentas, consultá tu deuda y conocé las opciones de pago vigentes.",
+          link: "https://vps.infogov.com.ar/rentas/maipu/#/public/home",
+          image: "assets/img/bannercuotas.png",
+        },
+      ];
+
+      let heroSlides = normalizeHeroSlides(readJSON(HERO_STORAGE, DEFAULT_HERO));
       let heroIndex = 0;
-      let news = JSON.parse(localStorage.getItem("maipuNews")) || DEFAULT_NEWS;
+      let news = normalizeNews(readJSON(NEWS_STORAGE, DEFAULT_NEWS));
+      let banners = normalizeBanners(
+        readJSON(BANNER_STORAGE, null) || readJSON(OLD_BANNER_STORAGE, DEFAULT_BANNERS),
+      );
       let editingNewsImage = "";
+      let editingBannerImage = "";
+
       const modal = document.getElementById("modal");
       const modalTitle = document.getElementById("modalTitle");
       const modalSubtitle = document.getElementById("modalSubtitle");
       const modalBody = document.getElementById("modalBody");
       const modalIcon = document.getElementById("modalIcon");
+      const searchPanel = document.getElementById("searchPanel");
+      const globalSearch = document.getElementById("globalSearch");
+      const searchResults = document.getElementById("searchResults");
+      const hamb = document.getElementById("hamb");
+      const menu = document.getElementById("menu");
+
+      function readJSON(key, fallback) {
+        try {
+          const raw = localStorage.getItem(key);
+          return raw ? JSON.parse(raw) : fallback;
+        } catch (error) {
+          console.warn(`No se pudo leer ${key}:`, error);
+          return fallback;
+        }
+      }
+
+      function saveJSON(key, value) {
+        try {
+          localStorage.setItem(key, JSON.stringify(value));
+          return true;
+        } catch (error) {
+          console.error(`No se pudo guardar ${key}:`, error);
+          alert(
+            "No se pudo guardar. Probablemente la imagen es muy pesada o el navegador llenó el almacenamiento. Probá con una imagen más liviana o presioná Restaurar y volvé a cargar.",
+          );
+          return false;
+        }
+      }
+
+      function cloneList(list) {
+        return JSON.parse(JSON.stringify(list));
+      }
+
+      function makeId(prefix = "item") {
+        if (window.crypto && typeof crypto.randomUUID === "function") {
+          return crypto.randomUUID();
+        }
+        return `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+      }
+
+      function safeText(value) {
+        return String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function textToHtml(value) {
+        return safeText(value).replace(/\n/g, "<br>");
+      }
+
+      function normalizeHeroSlides(list) {
+        const saved = Array.isArray(list) ? list : [];
+        const base = cloneList(DEFAULT_HERO);
+        return base.map((baseItem, index) => ({
+          ...baseItem,
+          ...(saved[index] || {}),
+          title: saved[index]?.title || baseItem.title,
+          span: saved[index]?.span || baseItem.span,
+          subtitle: saved[index]?.subtitle || baseItem.subtitle,
+          image: saved[index]?.image || baseItem.image,
+        }));
+      }
+
+      function normalizeNews(list) {
+        const saved = Array.isArray(list) ? list : cloneList(DEFAULT_NEWS);
+        return saved.map((item, index) => ({
+          id: item.id || `news-${index + 1}`,
+          category: item.category || "Noticias",
+          date: item.date || "Sin fecha",
+          title: item.title || "Nueva noticia",
+          subtitle: item.subtitle || "Resumen de la noticia.",
+          text: item.text || "Texto completo de la noticia.",
+          image: item.image || "assets/img/banner.jpeg",
+        }));
+      }
+
+      function normalizeBanners(list) {
+        const saved = Array.isArray(list) ? list : [];
+        return DEFAULT_BANNERS.map((baseItem) => {
+          const found = saved.find((item) => item && item.id === baseItem.id);
+          return {
+            ...baseItem,
+            ...(found || {}),
+            id: baseItem.id,
+            title: found?.title || baseItem.title,
+            text: found?.text || baseItem.text,
+            link: found?.link || baseItem.link,
+            image: found?.image || baseItem.image,
+          };
+        });
+      }
+
+      function fileToDataUrl(input, options = {}) {
+        const maxWidth = options.maxWidth || 1500;
+        const quality = options.quality || 0.82;
+
+        return new Promise((resolve) => {
+          const file = input?.files?.[0];
+          if (!file) {
+            resolve("");
+            return;
+          }
+
+          const reader = new FileReader();
+          reader.onerror = () => {
+            alert("No se pudo leer la imagen seleccionada.");
+            resolve("");
+          };
+          reader.onload = () => {
+            const originalDataUrl = String(reader.result || "");
+
+            if (!file.type.startsWith("image/") || file.type === "image/gif" || file.type === "image/svg+xml") {
+              resolve(originalDataUrl);
+              return;
+            }
+
+            const img = new Image();
+            img.onerror = () => resolve(originalDataUrl);
+            img.onload = () => {
+              try {
+                const scale = Math.min(1, maxWidth / img.width);
+                const width = Math.max(1, Math.round(img.width * scale));
+                const height = Math.max(1, Math.round(img.height * scale));
+                const canvas = document.createElement("canvas");
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0, width, height);
+                resolve(canvas.toDataURL("image/jpeg", quality));
+              } catch (error) {
+                console.warn("No se pudo comprimir la imagen:", error);
+                resolve(originalDataUrl);
+              }
+            };
+            img.src = originalDataUrl;
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      function setModalLogo() {
+        if (!modalIcon) return;
+        modalIcon.innerHTML = `<img src="${MAIPU_LOGO_LOCAL}" alt="Logo Municipalidad de Maipú">`;
+      }
+
       function openInfo(key) {
         const item = modalData[key];
-        if (!item) return;
+        if (!item || !modal) return;
         modalTitle.textContent = item.title;
         modalSubtitle.textContent = item.subtitle;
         modalBody.innerHTML = item.body;
-        modalIcon.innerHTML = `<i class="bi ${item.icon}"></i>`;
+        setModalLogo();
         modal.classList.add("show");
         document.body.style.overflow = "hidden";
         closeSearch();
       }
+
       function openNewsModal(id) {
         const item = news.find((n) => n.id === id);
-        if (!item) return;
+        if (!item || !modal) return;
         modalTitle.textContent = item.title;
         modalSubtitle.textContent = item.subtitle;
-        modalIcon.innerHTML = `<i class="bi bi-newspaper"></i>`;
-        modalBody.innerHTML = ` <img class="modal-news-img" src="${item.image}" alt="${item.title}"> <p><b>${item.category}</b> · ${item.date}</p> <p>${item.text}</p> `;
+        setModalLogo();
+        modalBody.innerHTML = `
+          <img class="modal-news-img" src="${safeText(item.image)}" alt="${safeText(item.title)}">
+          <p><b>${safeText(item.category)}</b> · ${safeText(item.date)}</p>
+          <p>${textToHtml(item.text)}</p>
+        `;
         modal.classList.add("show");
         document.body.style.overflow = "hidden";
         closeSearch();
       }
+
       function closeModal() {
+        if (!modal) return;
         modal.classList.remove("show");
-        document.body.style.overflow = "auto";
+        restoreBodyScroll();
       }
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal();
-      });
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeModal();
-          closeSearch();
-          closeAdmin();
+
+      function restoreBodyScroll() {
+        const adminOpen = document.getElementById("adminPanel")?.classList.contains("show");
+        const searchOpen = searchPanel?.classList.contains("show");
+        const modalOpen = modal?.classList.contains("show");
+        if (!adminOpen && !searchOpen && !modalOpen) {
+          document.body.style.overflow = "auto";
         }
-      });
+      }
+
       function renderHero() {
+        heroSlides = normalizeHeroSlides(heroSlides);
+        heroIndex = Math.max(0, Math.min(heroIndex, heroSlides.length - 1));
         const slide = heroSlides[heroIndex] || DEFAULT_HERO[0];
-        document.documentElement.style.setProperty(
-          "--hero-image",
-          `url("${slide.image}")`,
-        );
-        document.getElementById("heroTitle").innerHTML =
-          `${slide.title} <span>${slide.span}</span>`;
-        document.getElementById("heroSubtitle").textContent = slide.subtitle;
+        document.documentElement.style.setProperty("--hero-image", `url("${slide.image}")`);
+
+        const heroTitle = document.getElementById("heroTitle");
+        const heroSubtitle = document.getElementById("heroSubtitle");
         const dots = document.getElementById("heroDots");
-        dots.innerHTML = heroSlides
-          .map(
-            (_, index) =>
-              ` <button class="${index === heroIndex ? "active" : ""}" onclick="goHero(${index})"></button> `,
-          )
-          .join("");
+
+        if (heroTitle) heroTitle.innerHTML = `${safeText(slide.title)} <span>${safeText(slide.span)}</span>`;
+        if (heroSubtitle) heroSubtitle.textContent = slide.subtitle;
+        if (dots) {
+          dots.innerHTML = heroSlides
+            .map(
+              (_, index) =>
+                `<button class="${index === heroIndex ? "active" : ""}" onclick="goHero(${index})" aria-label="Ver portada ${index + 1}"></button>`,
+            )
+            .join("");
+        }
       }
+
       function goHero(index) {
-        heroIndex = index;
+        heroIndex = Number(index) || 0;
         renderHero();
       }
-      setInterval(() => {
-        heroIndex = (heroIndex + 1) % heroSlides.length;
-        renderHero();
-      }, 6500);
+
+      function bannerClickAttrs(item) {
+        const link = item?.link || "#";
+        if (link.startsWith("modal:")) {
+          const key = link.replace("modal:", "");
+          return `href="#" onclick="openInfo('${safeText(key)}'); return false;"`;
+        }
+        const target = link.startsWith("#") ? "" : ' target="_blank" rel="noopener"';
+        return `href="${safeText(link)}"${target}`;
+      }
+
+      function bannerHtml(item) {
+        return `
+          <a class="site-banner has-img" ${bannerClickAttrs(item)}>
+            <img src="${safeText(item.image)}" alt="${safeText(item.title || "Banner Municipalidad de Maipú")}">
+          </a>
+        `;
+      }
+
+      function renderBanners() {
+        banners = normalizeBanners(banners);
+        ["banner-1", "banner-2", "banner-3"].forEach((id, index) => {
+          const slot = document.getElementById(`bannerSlot${index + 1}`);
+          if (!slot) return;
+          const item = banners.find((b) => b.id === id) || DEFAULT_BANNERS[index];
+          slot.innerHTML = bannerHtml(item);
+        });
+      }
+
       function renderNews() {
         const grid = document.getElementById("newsGrid");
+        if (!grid) return;
         grid.innerHTML = news
-          .map((item, index) => {
+          .map((item) => {
             const tagClass =
               item.category === "Salud"
                 ? "blue"
                 : item.category === "Servicios" || item.category === "Cultura"
                   ? "green"
                   : "orange";
-            return ` <article class="news-card" onclick="openNewsModal('${item.id}')"> <div class="news-img" style="background-image:url('${item.image}')"> <span class="tag ${tagClass}">${item.category}</span> </div> <div class="news-body"> <span class="news-date">${item.date}</span> <h3>${item.title}</h3> <p>${item.subtitle}</p> <span class="read-more">Leer más <i class="bi bi-arrow-right"></i></span> </div> </article> `;
+            return `
+              <article class="news-card" onclick="openNewsModal('${safeText(item.id)}')">
+                <div class="news-img" style="background-image:url('${safeText(item.image)}')">
+                  <span class="tag ${tagClass}">${safeText(item.category)}</span>
+                </div>
+                <div class="news-body">
+                  <span class="news-date">${safeText(item.date)}</span>
+                  <h3>${safeText(item.title)}</h3>
+                  <p>${safeText(item.subtitle)}</p>
+                  <span class="read-more">Leer más <i class="bi bi-arrow-right"></i></span>
+                </div>
+              </article>
+            `;
           })
           .join("");
       }
-      const hamb = document.getElementById("hamb");
-      const menu = document.getElementById("menu");
-      hamb.addEventListener("click", () => {
-        menu.classList.toggle("open");
-      });
-      document.querySelectorAll(".dropdown-toggle").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          if (window.innerWidth <= 780) {
-            e.preventDefault();
-            btn.closest(".nav-item").classList.toggle("open");
-          }
-        });
-      });
-      document.querySelectorAll(".menu button, .menu a").forEach((link) => {
-        link.addEventListener("click", () => {
-          if (!link.classList.contains("dropdown-toggle")) {
-            menu.classList.remove("open");
-          }
-        });
-      });
+
       let currentGuideFilter = "todos";
+
       function setGuideFilter(cat, btn) {
         currentGuideFilter = cat;
-        document
-          .querySelectorAll(".chip")
-          .forEach((c) => c.classList.remove("active"));
-        btn.classList.add("active");
+        document.querySelectorAll(".chip").forEach((c) => c.classList.remove("active"));
+        if (btn) btn.classList.add("active");
         filterGuide();
       }
+
       function filterGuide() {
-        const text = document
-          .getElementById("guideInput")
-          .value.toLowerCase()
-          .trim();
-        const cards = document.querySelectorAll(".guide-item");
-        cards.forEach((card) => {
+        const input = document.getElementById("guideInput");
+        const text = input ? input.value.toLowerCase().trim() : "";
+        document.querySelectorAll(".guide-item").forEach((card) => {
           const cat = card.dataset.cat;
-          const search = (
-            card.dataset.search +
-            " " +
-            card.innerText
-          ).toLowerCase();
-          const okCat =
-            currentGuideFilter === "todos" || currentGuideFilter === cat;
+          const search = `${card.dataset.search || ""} ${card.innerText}`.toLowerCase();
+          const okCat = currentGuideFilter === "todos" || currentGuideFilter === cat;
           const okText = text === "" || search.includes(text);
           card.style.display = okCat && okText ? "grid" : "none";
         });
       }
-      document
-        .getElementById("guideInput")
-        .addEventListener("input", filterGuide);
-      const searchPanel = document.getElementById("searchPanel");
-      const globalSearch = document.getElementById("globalSearch");
-      const searchResults = document.getElementById("searchResults");
+
+      function openGuideSelected() {
+        const select = document.getElementById("guideSelect");
+        if (!select) return;
+        openInfo(select.value);
+      }
+
       function openSearch() {
+        if (!searchPanel || !globalSearch) return;
         renderSearchResults("");
         searchPanel.classList.add("show");
         setTimeout(() => globalSearch.focus(), 80);
         document.body.style.overflow = "hidden";
       }
+
       function closeSearch() {
+        if (!searchPanel) return;
         searchPanel.classList.remove("show");
-        globalSearch.value = "";
-        if (
-          !modal.classList.contains("show") &&
-          !document.getElementById("adminPanel").classList.contains("show")
-        ) {
-          document.body.style.overflow = "auto";
-        }
+        if (globalSearch) globalSearch.value = "";
+        restoreBodyScroll();
       }
+
       function renderSearchResults(term) {
-        const clean = term.toLowerCase().trim();
+        if (!searchResults) return;
+        const clean = String(term || "").toLowerCase().trim();
         const filtered = searchItems.filter((item) => {
           const txt = `${item.title} ${item.text} ${item.cat}`.toLowerCase();
           return clean === "" || txt.includes(clean);
@@ -3613,99 +4460,242 @@
         searchResults.innerHTML = filtered.length
           ? filtered
               .map(
-                (item) =>
-                  ` <button class="search-result" onclick="openInfo('${item.key}')"> <i class="bi ${item.icon}"></i> <span> <b>${item.title}</b> <small>${item.text}</small> </span> </button> `,
+                (item) => `
+                  <button class="search-result" onclick="openInfo('${safeText(item.key)}')">
+                    <i class="bi ${safeText(item.icon)}"></i>
+                    <span><b>${safeText(item.title)}</b><small>${safeText(item.text)}</small></span>
+                  </button>
+                `,
               )
               .join("")
-          : ` <div class="modal-note" style="grid-column:1/-1;">No encontramos resultados. Probá con otra palabra como “rentas”, “licencia”, “veterinaria”, “turismo” o “pago”.</div> `;
+          : `<div class="modal-note" style="grid-column:1/-1;">No encontramos resultados. Probá con otra palabra como “rentas”, “licencia”, “veterinaria”, “turismo” o “pago”.</div>`;
       }
-      globalSearch.addEventListener("input", () =>
-        renderSearchResults(globalSearch.value),
-      );
-      searchPanel.addEventListener("click", (e) => {
-        if (e.target === searchPanel) closeSearch();
-      });
-      function fileToDataUrl(input) {
-        return new Promise((resolve) => {
-          const file = input.files && input.files[0];
-          if (!file) {
-            resolve("");
-            return;
-          }
-          const reader = new FileReader();
-          reader.onload = (e) => resolve(e.target.result);
-          reader.readAsDataURL(file);
-        });
-      }
+
       function openAdmin() {
-        document.getElementById("adminPanel").classList.add("show");
+        const panel = document.getElementById("adminPanel");
+        if (!panel) return;
+        panel.classList.add("show");
         document.body.style.overflow = "hidden";
         loadAdminFields();
+        loadBannerFields();
+        renderAdminHero();
+        renderAdminBanners();
         renderAdminNews();
       }
+
       function closeAdmin() {
-        document.getElementById("adminPanel").classList.remove("show");
-        if (
-          !modal.classList.contains("show") &&
-          !searchPanel.classList.contains("show")
-        ) {
-          document.body.style.overflow = "auto";
-        }
+        const panel = document.getElementById("adminPanel");
+        if (!panel) return;
+        panel.classList.remove("show");
+        restoreBodyScroll();
       }
+
+      function getHeroSelectedIndex() {
+        const select = document.getElementById("adminHeroSlideIndex");
+        return Math.max(0, Math.min(Number(select?.value || 0), heroSlides.length - 1));
+      }
+
       function loadAdminFields() {
-        const slide = heroSlides[0] || DEFAULT_HERO[0];
-        document.getElementById("adminHeroTitle").value = slide.title;
-        document.getElementById("adminHeroSpan").value = slide.span;
-        document.getElementById("adminHeroSubtitle").value = slide.subtitle;
+        const index = getHeroSelectedIndex();
+        const slide = heroSlides[index] || DEFAULT_HERO[index] || DEFAULT_HERO[0];
+        const title = document.getElementById("adminHeroTitle");
+        const span = document.getElementById("adminHeroSpan");
+        const subtitle = document.getElementById("adminHeroSubtitle");
+        const image = document.getElementById("adminHeroImage");
+        if (title) title.value = slide.title || "";
+        if (span) span.value = slide.span || "";
+        if (subtitle) subtitle.value = slide.subtitle || "";
+        if (image) image.value = "";
       }
+
       async function saveHeroSlide() {
-        const img = await fileToDataUrl(
-          document.getElementById("adminHeroImage"),
-        );
-        heroSlides[0] = {
-          title:
-            document.getElementById("adminHeroTitle").value ||
-            "Maipú más cerca,",
-          span:
-            document.getElementById("adminHeroSpan").value ||
-            "simple y conectado.",
+        const index = getHeroSelectedIndex();
+        const img = await fileToDataUrl(document.getElementById("adminHeroImage"), { maxWidth: 1800, quality: 0.84 });
+        const current = heroSlides[index] || DEFAULT_HERO[index] || DEFAULT_HERO[0];
+        heroSlides[index] = {
+          title: document.getElementById("adminHeroTitle")?.value.trim() || current.title || "Maipú más cerca,",
+          span: document.getElementById("adminHeroSpan")?.value.trim() || current.span || "simple y conectado.",
           subtitle:
-            document.getElementById("adminHeroSubtitle").value ||
+            document.getElementById("adminHeroSubtitle")?.value.trim() ||
+            current.subtitle ||
             "Accesos claros para realizar trámites y consultar servicios.",
-          image: img || heroSlides[0].image || "assets/img/portada.png",
+          image: img || current.image || "assets/img/portada.png",
         };
-        localStorage.setItem("maipuHeroSlides", JSON.stringify(heroSlides));
-        heroIndex = 0;
+        heroSlides = normalizeHeroSlides(heroSlides);
+        if (!saveJSON(HERO_STORAGE, heroSlides)) return;
+        heroIndex = index;
         renderHero();
-        alert("Portada actualizada.");
+        renderAdminHero();
+        loadAdminFields();
+        alert("Portada guardada correctamente.");
       }
+
       function resetHeroSlides() {
-        heroSlides = DEFAULT_HERO;
-        localStorage.removeItem("maipuHeroSlides");
+        if (!confirm("¿Restaurar la portada de ejemplo?")) return;
+        heroSlides = cloneList(DEFAULT_HERO);
+        try {
+          localStorage.removeItem(HERO_STORAGE);
+        } catch (error) {
+          console.warn(error);
+        }
         heroIndex = 0;
+        const select = document.getElementById("adminHeroSlideIndex");
+        if (select) select.value = "0";
         renderHero();
         loadAdminFields();
+        renderAdminHero();
         alert("Portada restaurada.");
       }
-      function renderAdminNews() {
-        const list = document.getElementById("adminNewsList");
-        list.innerHTML = news
+
+      function renderAdminHero() {
+        const list = document.getElementById("adminHeroList");
+        if (!list) return;
+        list.innerHTML = heroSlides
           .map(
-            (item) =>
-              ` <div class="admin-list-item"> <img src="${item.image}" alt="${item.title}"> <div> <b>${item.title}</b> <small>${item.category} · ${item.date}</small> <small>${item.subtitle}</small> </div> <div> <button class="admin-icon-btn" onclick="editNews('${item.id}')"><i class="bi bi-pencil"></i></button> <button class="admin-icon-btn delete" onclick="deleteNews('${item.id}')"><i class="bi bi-trash"></i></button> </div> </div> `,
+            (item, index) => `
+              <div class="admin-list-item">
+                <img src="${safeText(item.image)}" alt="${safeText(item.title)}">
+                <div>
+                  <b>Portada ${index + 1}: ${safeText(item.title)}</b>
+                  <small>${safeText(item.span || "")}</small>
+                  <small>${safeText(item.subtitle || "")}</small>
+                </div>
+                <div class="admin-mini-actions">
+                  <button class="admin-icon-btn" onclick="selectHeroSlide(${index})" title="Editar portada ${index + 1}"><i class="bi bi-pencil"></i></button>
+                </div>
+              </div>
+            `,
           )
           .join("");
       }
+
+      function selectHeroSlide(index) {
+        const select = document.getElementById("adminHeroSlideIndex");
+        if (select) select.value = String(index);
+        loadAdminFields();
+      }
+
+      function loadBannerFields() {
+        const id = document.getElementById("adminBannerId")?.value || "banner-1";
+        const item = banners.find((b) => b.id === id) || DEFAULT_BANNERS.find((b) => b.id === id) || DEFAULT_BANNERS[0];
+        const titleInput = document.getElementById("adminBannerTitle");
+        const textInput = document.getElementById("adminBannerText");
+        const linkInput = document.getElementById("adminBannerLink");
+        const imageInput = document.getElementById("adminBannerImage");
+        if (titleInput) titleInput.value = item.title || "";
+        if (textInput) textInput.value = item.text || "";
+        if (linkInput) linkInput.value = item.link || "";
+        if (imageInput) imageInput.value = "";
+        editingBannerImage = item.image || "";
+      }
+
+      async function saveBanner() {
+        const id = document.getElementById("adminBannerId")?.value || "banner-1";
+        const img = await fileToDataUrl(document.getElementById("adminBannerImage"), { maxWidth: 1800, quality: 0.84 });
+        const current = banners.find((b) => b.id === id) || DEFAULT_BANNERS.find((b) => b.id === id) || DEFAULT_BANNERS[0];
+        const item = {
+          ...current,
+          id,
+          title: document.getElementById("adminBannerTitle")?.value.trim() || current.title,
+          text: document.getElementById("adminBannerText")?.value.trim() || current.text,
+          link: document.getElementById("adminBannerLink")?.value.trim() || current.link || "#",
+          image: img || editingBannerImage || current.image || "assets/img/banner.jpeg",
+        };
+        const index = banners.findIndex((b) => b.id === id);
+        if (index >= 0) banners[index] = item;
+        else banners.push(item);
+        banners = normalizeBanners(banners);
+        if (!saveJSON(BANNER_STORAGE, banners)) return;
+        renderBanners();
+        renderAdminBanners();
+        loadBannerFields();
+        alert("Banner guardado correctamente.");
+      }
+
+      function resetBanners() {
+        if (!confirm("¿Restaurar los banners de ejemplo?")) return;
+        banners = cloneList(DEFAULT_BANNERS);
+        try {
+          localStorage.removeItem(BANNER_STORAGE);
+          localStorage.removeItem(OLD_BANNER_STORAGE);
+        } catch (error) {
+          console.warn(error);
+        }
+        renderBanners();
+        renderAdminBanners();
+        loadBannerFields();
+        alert("Banners restaurados.");
+      }
+
+      function renderAdminBanners() {
+        const list = document.getElementById("adminBannerList");
+        if (!list) return;
+        banners = normalizeBanners(banners);
+        list.innerHTML = banners
+          .map(
+            (item, index) => `
+              <div class="admin-list-item">
+                <img src="${safeText(item.image)}" alt="Banner ${index + 1}" class="banner-admin-thumb">
+                <div>
+                  <b>Banner ${index + 1}</b>
+                  <small>Imagen: ${safeText(item.image).slice(0, 90)}</small>
+                  <small>Link: ${safeText(item.link || "#")}</small>
+                </div>
+                <div class="admin-mini-actions">
+                  <button class="admin-icon-btn" onclick="selectBanner('${safeText(item.id)}')" title="Editar banner ${index + 1}"><i class="bi bi-pencil"></i></button>
+                </div>
+              </div>
+            `,
+          )
+          .join("");
+      }
+
+      function selectBanner(id) {
+        const select = document.getElementById("adminBannerId");
+        if (select) select.value = id;
+        loadBannerFields();
+      }
+
+      function renderAdminNews() {
+        const list = document.getElementById("adminNewsList");
+        if (!list) return;
+        list.innerHTML = news
+          .map(
+            (item) => `
+              <div class="admin-list-item">
+                <img src="${safeText(item.image)}" alt="${safeText(item.title)}">
+                <div>
+                  <b>${safeText(item.title)}</b>
+                  <small>${safeText(item.category)} · ${safeText(item.date)}</small>
+                  <small>${safeText(item.subtitle)}</small>
+                </div>
+                <div class="admin-mini-actions">
+                  <button class="admin-icon-btn" onclick="editNews('${safeText(item.id)}')" title="Editar noticia"><i class="bi bi-pencil"></i></button>
+                  <button class="admin-icon-btn delete" onclick="deleteNews('${safeText(item.id)}')" title="Eliminar noticia"><i class="bi bi-trash"></i></button>
+                </div>
+              </div>
+            `,
+          )
+          .join("");
+      }
+
       function newNews() {
-        document.getElementById("adminNewsId").value = "";
-        document.getElementById("adminNewsCategory").value = "Obras";
-        document.getElementById("adminNewsDate").value = "";
-        document.getElementById("adminNewsTitle").value = "";
-        document.getElementById("adminNewsSubtitle").value = "";
-        document.getElementById("adminNewsText").value = "";
-        document.getElementById("adminNewsImage").value = "";
+        const fields = {
+          adminNewsId: "",
+          adminNewsCategory: "Obras",
+          adminNewsDate: "",
+          adminNewsTitle: "",
+          adminNewsSubtitle: "",
+          adminNewsText: "",
+          adminNewsImage: "",
+        };
+        Object.entries(fields).forEach(([id, value]) => {
+          const el = document.getElementById(id);
+          if (el) el.value = value;
+        });
         editingNewsImage = "";
       }
+
       function editNews(id) {
         const item = news.find((n) => n.id === id);
         if (!item) return;
@@ -3717,78 +4707,114 @@
         document.getElementById("adminNewsText").value = item.text;
         document.getElementById("adminNewsImage").value = "";
         editingNewsImage = item.image;
+        document.getElementById("adminNewsTitle")?.focus();
       }
+
       async function saveNews() {
-        const id =
-          document.getElementById("adminNewsId").value || crypto.randomUUID();
-        const img = await fileToDataUrl(
-          document.getElementById("adminNewsImage"),
-        );
+        const id = document.getElementById("adminNewsId")?.value || makeId("news");
+        const img = await fileToDataUrl(document.getElementById("adminNewsImage"), { maxWidth: 1400, quality: 0.82 });
         const item = {
           id,
-          category: document.getElementById("adminNewsCategory").value,
-          date: document.getElementById("adminNewsDate").value || "Sin fecha",
-          title:
-            document.getElementById("adminNewsTitle").value || "Nueva noticia",
-          subtitle:
-            document.getElementById("adminNewsSubtitle").value ||
-            "Resumen de la noticia.",
-          text:
-            document.getElementById("adminNewsText").value ||
-            "Texto completo de la noticia.",
+          category: document.getElementById("adminNewsCategory")?.value || "Noticias",
+          date: document.getElementById("adminNewsDate")?.value.trim() || "Sin fecha",
+          title: document.getElementById("adminNewsTitle")?.value.trim() || "Nueva noticia",
+          subtitle: document.getElementById("adminNewsSubtitle")?.value.trim() || "Resumen de la noticia.",
+          text: document.getElementById("adminNewsText")?.value.trim() || "Texto completo de la noticia.",
           image: img || editingNewsImage || "assets/img/banner.jpeg",
         };
         const index = news.findIndex((n) => n.id === id);
-        if (index >= 0) {
-          news[index] = item;
-        } else {
-          news.unshift(item);
-        }
-        localStorage.setItem("maipuNews", JSON.stringify(news));
+        if (index >= 0) news[index] = item;
+        else news.unshift(item);
+        news = normalizeNews(news);
+        if (!saveJSON(NEWS_STORAGE, news)) return;
         renderNews();
         renderAdminNews();
         newNews();
-        alert("Noticia guardada.");
+        alert("Noticia guardada correctamente.");
       }
+
       function deleteNews(id) {
         if (!confirm("¿Eliminar esta noticia?")) return;
         news = news.filter((n) => n.id !== id);
-        localStorage.setItem("maipuNews", JSON.stringify(news));
-        renderNews();
-        renderAdminNews();
-      }
-      function resetNews() {
-        if (!confirm("¿Restaurar noticias de ejemplo?")) return;
-        news = DEFAULT_NEWS;
-        localStorage.removeItem("maipuNews");
+        if (!saveJSON(NEWS_STORAGE, news)) return;
         renderNews();
         renderAdminNews();
         newNews();
       }
-      renderHero();
-      renderNews();
-    </script>
-    <script>
-      function openGuideSelected() {
-        const select = document.getElementById("guideSelect");
-        if (!select) return;
-        openInfo(select.value);
+
+      function resetNews() {
+        if (!confirm("¿Restaurar noticias de ejemplo?")) return;
+        news = cloneList(DEFAULT_NEWS);
+        try {
+          localStorage.removeItem(NEWS_STORAGE);
+        } catch (error) {
+          console.warn(error);
+        }
+        renderNews();
+        renderAdminNews();
+        newNews();
+        alert("Noticias restauradas.");
       }
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const guideInput = document.getElementById("guideInput");
-        const guideSelect = document.getElementById("guideSelect");
-        if (guideInput && guideSelect) {
-          guideInput.addEventListener("input", () => {
-            const text = guideInput.value.toLowerCase().trim();
-            if (!text) return;
-            const option = Array.from(guideSelect.options).find((opt) =>
-              opt.textContent.toLowerCase().includes(text),
-            );
-            if (option) guideSelect.value = option.value;
-          });
+      function initEvents() {
+        if (hamb && menu) {
+          hamb.addEventListener("click", () => menu.classList.toggle("open"));
         }
-      });
+
+        document.querySelectorAll(".dropdown-toggle").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            if (window.innerWidth <= 780) {
+              e.preventDefault();
+              btn.closest(".nav-item")?.classList.toggle("open");
+            }
+          });
+        });
+
+        document.querySelectorAll(".menu button, .menu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            if (!link.classList.contains("dropdown-toggle")) {
+              menu?.classList.remove("open");
+            }
+          });
+        });
+
+        document.getElementById("guideInput")?.addEventListener("input", () => {
+          filterGuide();
+          const guideInput = document.getElementById("guideInput");
+          const guideSelect = document.getElementById("guideSelect");
+          const text = guideInput?.value.toLowerCase().trim();
+          if (!text || !guideSelect) return;
+          const option = Array.from(guideSelect.options).find((opt) => opt.textContent.toLowerCase().includes(text));
+          if (option) guideSelect.value = option.value;
+        });
+
+        globalSearch?.addEventListener("input", () => renderSearchResults(globalSearch.value));
+        searchPanel?.addEventListener("click", (e) => {
+          if (e.target === searchPanel) closeSearch();
+        });
+        modal?.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            closeModal();
+            closeSearch();
+            closeAdmin();
+          }
+        });
+      }
+
+      initEvents();
+      renderHero();
+      renderBanners();
+      renderNews();
+
+      setInterval(() => {
+        heroIndex = (heroIndex + 1) % heroSlides.length;
+        renderHero();
+      }, 6500);
     </script>
+
   </body>
 </html>
