@@ -2786,6 +2786,38 @@
     object-fit: contain;
   }
 }
+
+
+      /* =========================================================
+         CORRECCIÓN FINAL PORTADA MÓVIL
+         Botones del hero uno debajo del otro, como la referencia 2.
+         ========================================================= */
+      @media (max-width: 780px) {
+        .hero-actions {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          justify-content: flex-start !important;
+          gap: 8px !important;
+          flex-wrap: nowrap !important;
+          width: 100% !important;
+          max-width: 236px !important;
+        }
+
+        .hero-actions .btn {
+          width: 100% !important;
+          min-height: 38px !important;
+          padding: 0 14px !important;
+          border-radius: 10px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 8px !important;
+          font-size: 13px !important;
+          white-space: nowrap !important;
+        }
+      }
+
     </style>
   </head>
   <body>
@@ -3036,10 +3068,9 @@
             Maipú más cerca, <span>simple y conectado.</span>
           </h1>
           <p id="heroSubtitle">
-            Accestrar información municipal útil en un solo lugar.
+            Accesos claros para realizar trámites, consultar servicios y encontrar información municipal útil en un solo lugar.
           </p>
-          <div claos claros para realizar trámites, consultar servicios y
-            enconss="hero-actions">
+          <div class="hero-actions">
             <button class="btn btn-green" onclick="location.href = '#guia'">
               <i class="bi bi-file-earmark-text"></i> Iniciar trámite
             </button>
