@@ -2825,7 +2825,7 @@
       <div class="container nav">
         <a href="#inicio" class="brand">
           <img
-            src="https://namilo1315.github.io/mails/assets/img/logo-maipu.png"
+            src="assets/img/logo-maipu.png"
             alt="Logo Municipalidad de Maipú"
           />
           <div>
@@ -3036,10 +3036,10 @@
             Maipú más cerca, <span>simple y conectado.</span>
           </h1>
           <p id="heroSubtitle">
-            Accesos claros para realizar trámites, consultar servicios y
-            encontrar información municipal útil en un solo lugar.
+            Accestrar información municipal útil en un solo lugar.
           </p>
-          <div class="hero-actions">
+          <div claos claros para realizar trámites, consultar servicios y
+            enconss="hero-actions">
             <button class="btn btn-green" onclick="location.href = '#guia'">
               <i class="bi bi-file-earmark-text"></i> Iniciar trámite
             </button>
@@ -3568,7 +3568,6 @@
             <h2>Panel de administración</h2>
             <p>
               Cambiá las 3 imágenes del carrusel, los banners con link y las noticias destacadas.
-              En esta maqueta se guarda en el navegador con localStorage.
             </p>
           </div>
           <button class="admin-close" onclick="closeAdmin()">
@@ -3733,14 +3732,14 @@
           span: "respuestas rápidas.",
           subtitle:
             "Consultá la Guía de Trámites, pagá online y encontrá los accesos municipales más importantes.",
-          image: "assets/img/banner.jpeg",
+            image: "assets/img/portada.png",
         },
         {
           title: "Servicios para vos,",
           span: "en cada distrito.",
           subtitle:
-            "Conocé programas, operativos, turismo, cultura, atención y servicios municipales.",
-          image: "assets/img/banner-veterinaria.png",
+          "Consultá la Guía de Trámites, pagá online y encontrá los accesos municipales más importantes.",
+            image: "assets/img/portada.png",
         },
       ];
       const DEFAULT_NEWS = [
@@ -3752,7 +3751,7 @@
           subtitle:
             "Mejoras de conectividad y espacios públicos para los vecinos.",
           text: "El municipio continúa desarrollando obras de pavimentación e infraestructura urbana en distintos sectores del departamento. Estas acciones buscan mejorar la circulación, la conectividad y la calidad de vida de los vecinos.",
-          image: "assets/img/banner.jpeg",
+          image: "assets/img/obras.jfif",
         },
         {
           id: "news-default-2",
@@ -3771,7 +3770,7 @@
           title: "Jornada de prevención en el Parque Metropolitano",
           subtitle: "Controles gratuitos, prevención y atención territorial.",
           text: "Durante la jornada se realizaron controles gratuitos, acciones de prevención y asesoramiento comunitario. La propuesta busca acercar servicios de salud a los vecinos de Maipú.",
-          image: "assets/img/portada.png",
+          image: "assets/img/parque.jfif",
         },
         {
           id: "news-default-4",
@@ -3925,24 +3924,132 @@
           subtitle: "Acceso al sistema de pagos municipales.",
           body: ` <p>Desde esta sección el vecino puede consultar deuda, generar boletas y realizar pagos municipales online.</p> <div class="modal-grid"> <div class="modal-info"><b>Consulta de deuda</b><small>Revisión de tasas, impuestos y contribuciones municipales.</small></div> <div class="modal-info"><b>Impresión de boleta</b><small>Posibilidad de emitir o descargar boletas.</small></div> <div class="modal-info"><b>Regularización</b><small>Información sobre opciones y planes de pago.</small></div> <div class="modal-info"><b>Acceso directo</b><small>Derivación al sistema oficial de Rentas.</small></div> </div> <div class="modal-actions"> <a class="btn btn-blue" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Ir a Pago Online</a> </div>`,
         },
-        cuotas: {
-          icon: "bi-cash-coin",
-          title: "Plan de regularización de tasas municipales",
-          subtitle: "12 cuotas sin interés por tiempo limitado.",
-          body: ` <p>El plan permite comunicar de forma destacada beneficios para regularizar tasas municipales.</p> <div class="modal-grid"> <div class="modal-info"><b>12 cuotas sin interés</b><small>Beneficio destacado por tiempo limitado.</small></div> <div class="modal-info"><b>Evitar sanciones</b><small>Evite apremios, multas y sanciones.</small></div> <div class="modal-info"><b>Consultar deuda</b><small>Ingresar al sistema de Rentas y generar boleta.</small></div> <div class="modal-info"><b>Plan de pago</b><small>Gestionar en oficinas de Rentas y delegaciones de 8 a 13 h.</small></div> </div>`,
-        },
         rentas: {
           icon: "bi-house-check",
           title: "Rentas",
           subtitle: "Tasas, boletas, deuda y contribuciones.",
-          body: `<p>Rentas reúne tasas municipales, boletas, deuda, planes de pago y consultas tributarias.</p>`,
+          body: `<p>Rentas reúne tasas municipales, boletas, deuda, planes de pago y consultas tributarias.</p> <a class="btn btn-blue" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Ir a Pago Online</a>`,
         },
         licencia: {
-          icon: "bi-person-vcard",
-          title: "Licencia de Conducir",
-          subtitle: "Requisitos, turnos y renovación.",
-          body: `<p>Información para primera licencia, renovación, licencia profesional, documentación y turnos.</p>`,
-        },
+  icon: "bi-person-vcard",
+  title: "Licencia de Conducir",
+  subtitle: "Requisitos, aranceles y turnos.",
+  body: `
+    <p> Recuerde: Solo podrán realizar el tramite las personas que posean domicilio en el departamento de Maipú en su ultimo D.N.I.
+      Paganotto 442, Maipú - tel 2617166636
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin:18px 0;">
+      <button 
+        onclick="
+          document.querySelectorAll('.licencia-info-box').forEach(el => el.style.display='none');
+          document.getElementById('licencia-requisitos').style.display='block';
+        "
+        style="border:none; background:#0d6efd; color:white; padding:11px 16px; border-radius:24px; font-weight:700; cursor:pointer;">
+        <i class="bi bi-list-check"></i> Requisitos generales
+      </button>
+
+      <button 
+        onclick="
+          document.querySelectorAll('.licencia-info-box').forEach(el => el.style.display='none');
+          document.getElementById('licencia-aranceles').style.display='block';
+        "
+        style="border:none; background:#198754; color:white; padding:11px 16px; border-radius:24px; font-weight:700; cursor:pointer;">
+        <i class="bi bi-receipt"></i> Descargar aranceles
+      </button>
+
+      <button 
+        onclick="
+          document.querySelectorAll('.licencia-info-box').forEach(el => el.style.display='none');
+          document.getElementById('licencia-turno').style.display='block';
+        "
+        style="border:none; background:#f28c28; color:white; padding:11px 16px; border-radius:24px; font-weight:700; cursor:pointer;">
+        <i class="bi bi-calendar-check"></i> Sacar turno
+      </button>
+    </div>
+
+    <div id="licencia-requisitos" class="licencia-info-box" style="display:none; background:#f8fbff; border:1px solid #dbeafe; border-radius:16px; padding:18px; margin-top:12px;">
+      <h4>Requisitos generales</h4>
+
+      <ul>
+        <li>Contar con la edad mínima para las clases que se requiera.</li>
+        <li>Licencias particulares: mayores de 18 años.</li>
+        <li>Licencias profesionales: mayores de 21 años.</li>
+        <li>Saber leer.</li>
+        <li>No poseer multas de tránsito.</li>
+        <li>En caso de deuda municipal por multas de tránsito, presentar libre deuda con mención al número de acta correspondiente.</li>
+        <li>En caso de poseer una disminución auditiva, deberá concurrir con audiometría.</li>
+        <li>No contener entradas en el Registro de Deudores Alimentarios Morosos, ReD.A.M, según Ordenanza Municipal N° 6723.</li>
+        <li>En caso de padecer una enfermedad crónica, como diabetes, enfermedad cardiovascular o estar anticoagulado, presentar certificado médico emitido por el profesional especialista correspondiente.</li>
+      </ul>
+
+      <h5>Para rendir el examen práctico deberá presentar:</h5>
+
+      <ul>
+        <li>Licencia de conducir vigente y habilitante para el tipo de vehículo.</li>
+        <li>Documento Nacional de Identidad.</li>
+        <li>Cédula de identificación del vehículo, conocida como cédula verde, permiso para circular, cédula azul o autorización ante escribano.</li>
+        <li>Ambas chapas patentes colocadas, visibles, sin alteraciones, en buen estado y en el lugar correspondiente.</li>
+        <li>Vehículo con las condiciones técnicas para conducir.</li>
+        <li>Comprobante vigente de la póliza de seguro obligatoria.</li>
+      </ul>
+    </div>
+
+    <div id="licencia-aranceles" class="licencia-info-box" style="display:none; background:#f6fff9; border:1px solid #bbf7d0; border-radius:16px; padding:18px; margin-top:12px;">
+      <h4>Descargar aranceles</h4>
+
+      <p>
+        Recordá que puede haber una demora de 24 a 72 hs para que lo abonado se vea reflejado en el sistema.
+      </p>
+
+      <p>
+        Colocá correctamente tu correo electrónico, ya que recibirás la boleta y el comprobante de pago en el mismo.
+      </p>
+
+      <h5>Arancel CENAT</h5>
+      <p>Posee una vigencia de 60 días desde la fecha de pago.</p>
+
+      <p>
+        <a href="https://boletadepago.seguridadvial.gob.ar/"
+           target="_blank"
+           rel="noopener"
+           style="display:inline-block; background:#0d6efd; color:white; padding:10px 16px; border-radius:24px; text-decoration:none; font-weight:700;">
+          <i class="bi bi-download"></i> Descargar boleta CENAT
+        </a>
+      </p>
+
+      <h5>Arancel Municipal</h5>
+      <p>Posee una vigencia de 1 año desde la fecha de pago.</p>
+
+      <p>
+        <a href="https://vps.infogov.com.ar/rentas/maipu/#/public/licencias"
+           target="_blank"
+           rel="noopener"
+           style="display:inline-block; background:#198754; color:white; padding:10px 16px; border-radius:24px; text-decoration:none; font-weight:700;">
+          <i class="bi bi-credit-card"></i> Pagar arancel municipal
+        </a>
+      </p>
+    </div>
+
+    <div id="licencia-turno" class="licencia-info-box" style="display:none; background:#fff8ed; border:1px solid #fed7aa; border-radius:16px; padding:18px; margin-top:12px;">
+      <h4>Sacar turno</h4>
+
+      <p>
+        Una vez que tengas la documentación correspondiente y los aranceles abonados,
+        podés solicitar tu turno online.
+      </p>
+
+      <p>
+        <a href="https://licencias.maipu.gob.ar/"
+           target="_blank"
+           rel="noopener"
+           style="display:inline-block; background:#f28c28; color:white; padding:12px 20px; border-radius:25px; text-decoration:none; font-weight:800;">
+          <i class="bi bi-calendar-check"></i> Sacar turno para Licencia de Conducir
+        </a>
+      </p>
+    </div>
+  `,
+},
         turnos: {
           icon: "bi-calendar2-check",
           title: "Turnos Online",
