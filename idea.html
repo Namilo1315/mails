@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Municipalidad de Maipú | Portal Municipal</title>
+    <title>Maipú Municipio | Portal Municipal</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -1757,7 +1757,7 @@
       .modal-news-img {
         opacity: 1 !important;
         filter: none !important;
-        brightness: 100%;
+        
       }
 
       .hero {
@@ -2818,6 +2818,406 @@
         }
       }
 
+    
+      /* ===== AJUSTES FINALES: CELULAR, BUSCADOR, NOMBRE Y CARRUSEL DE NOTICIAS ===== */
+      .news-carousel-wrap {
+        position: relative;
+      }
+
+      .news-arrow {
+        display: none;
+      }
+
+      .admin-btn,
+      .admin-dot {
+        display: none !important;
+      }
+
+      @media (max-width: 780px) {
+        .header .container.nav {
+          width: min(96%, 540px);
+        }
+
+        .brand {
+          flex: 1 1 auto;
+          min-width: 0;
+        }
+
+        .brand img {
+          width: 44px;
+          flex: 0 0 44px;
+        }
+
+        .brand strong {
+          max-width: none !important;
+          white-space: nowrap;
+          overflow: visible;
+          font-size: 13px;
+          line-height: 1.05;
+        }
+
+        .brand small {
+          display: block;
+          font-size: 8.5px;
+          letter-spacing: .25px;
+        }
+
+        .header-actions {
+          flex: 0 0 auto;
+          margin-left: 4px;
+        }
+
+        .search-btn {
+          display: grid !important;
+          width: 40px;
+          height: 40px;
+          min-width: 40px;
+          padding: 0;
+          border-radius: 12px;
+          font-size: 0;
+          place-items: center;
+          background: linear-gradient(135deg, var(--azul), var(--azul2));
+          color: white;
+          border: 0;
+          box-shadow: 0 10px 20px rgba(0, 114, 188, 0.18);
+        }
+
+        .search-btn i {
+          font-size: 18px;
+        }
+
+        .pay-btn {
+          width: 40px;
+          height: 40px;
+          min-width: 40px;
+          border-radius: 12px;
+        }
+
+        .hamb {
+          width: 40px;
+          height: 40px;
+          min-width: 40px;
+          border-radius: 12px;
+        }
+
+        .hero,
+        .hero .container {
+          min-height: 462px;
+        }
+
+        .hero {
+          background:
+            linear-gradient(180deg, rgba(6, 29, 52, 0.34), rgba(6, 29, 52, 0.76)),
+            var(--hero-image, url("assets/img/portada.png")) center/cover no-repeat !important;
+        }
+
+        .hero::after {
+          left: -28%;
+          right: -28%;
+          bottom: -78px;
+          height: 128px;
+          border-radius: 0 0 50% 50%;
+          border-radius: 50% 50% 0 0;
+        }
+
+        .hero .container {
+          align-items: flex-start;
+        }
+
+        .hero-content {
+          padding: 50px 0 74px;
+        }
+
+        .hero-badge {
+          font-size: 10px;
+          padding: 8px 12px;
+          margin-bottom: 14px;
+        }
+
+        .hero h1 {
+          font-size: 31px;
+          line-height: .96;
+          letter-spacing: -1.1px;
+          max-width: 340px;
+        }
+
+        .hero p {
+          max-width: 330px;
+          font-size: 13.5px;
+          line-height: 1.45;
+          margin-bottom: 17px;
+        }
+
+        .hero-actions {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 10px;
+          max-width: 236px;
+        }
+
+        .hero-actions .btn {
+          width: 100%;
+          min-height: 38px;
+          border-radius: 11px;
+          font-size: 12.5px;
+        }
+
+        .hero-dots {
+          justify-content: center;
+          max-width: 236px;
+          margin-top: 14px;
+        }
+
+        .quick-wrap {
+          margin-top: -12px;
+        }
+
+        .news-carousel-wrap {
+          padding: 0 38px;
+          margin-top: 4px;
+        }
+
+        .news-grid {
+          display: flex !important;
+          grid-template-columns: none !important;
+          gap: 12px;
+          overflow-x: auto;
+          overflow-y: hidden;
+          scroll-snap-type: x mandatory;
+          scroll-behavior: smooth;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+
+        .news-grid::-webkit-scrollbar {
+          display: none;
+        }
+
+        .news-card {
+          min-width: 100%;
+          flex: 0 0 100%;
+          scroll-snap-align: center;
+        }
+
+        .news-img {
+          height: 172px;
+        }
+
+        .news-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 6;
+          display: grid;
+          place-items: center;
+          width: 34px;
+          height: 44px;
+          border: 0;
+          border-radius: 14px;
+          background: linear-gradient(135deg, var(--azul), var(--azul2));
+          color: white;
+          box-shadow: 0 12px 22px rgba(0, 114, 188, 0.22);
+          cursor: pointer;
+          font-size: 18px;
+        }
+
+        .news-prev {
+          left: 0;
+        }
+
+        .news-next {
+          right: 0;
+        }
+
+        .search-panel {
+          padding: 78px 12px 16px;
+        }
+
+        .search-head {
+          padding: 14px;
+        }
+
+        .search-head input {
+          height: 44px;
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .brand img {
+          width: 40px;
+          flex-basis: 40px;
+        }
+
+        .brand strong {
+          font-size: 12.2px;
+        }
+
+        .brand small {
+          font-size: 7.8px;
+        }
+
+        .search-btn,
+        .pay-btn,
+        .hamb {
+          width: 38px;
+          height: 38px;
+          min-width: 38px;
+        }
+
+        .header-actions {
+          gap: 5px;
+        }
+
+        .hero h1 {
+          font-size: 29px;
+        }
+      }
+
+
+      /* ===== AJUSTE FINAL HEADER MOBILE: SIN PAGO, LUPA Y MENÚ CENTRADOS ===== */
+      @media (max-width: 780px) {
+        .header .container.nav {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 7px;
+        }
+
+        .brand {
+          flex: 1 1 auto;
+          min-width: 0;
+        }
+
+        .brand strong {
+          white-space: nowrap;
+          overflow: visible;
+          text-overflow: clip;
+          max-width: none !important;
+        }
+
+        .header-actions {
+          order: 2;
+          flex: 0 0 auto;
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          margin-left: auto;
+        }
+
+        .pay-btn {
+          display: none !important;
+        }
+
+        .search-btn,
+        .hamb {
+          width: 40px !important;
+          height: 40px !important;
+          min-width: 40px !important;
+          padding: 0 !important;
+          border-radius: 12px !important;
+          background: #ffffff !important;
+          color: var(--azul) !important;
+          border: 2px solid var(--azul) !important;
+          box-shadow: 0 8px 18px rgba(0, 114, 188, 0.12) !important;
+          display: grid !important;
+          place-items: center !important;
+          align-items: center !important;
+          justify-content: center !important;
+          line-height: 1 !important;
+        }
+
+        .search-btn {
+          font-size: 0 !important;
+        }
+
+        .search-btn i,
+        .hamb i {
+          display: block !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          line-height: 1 !important;
+          color: var(--azul) !important;
+        }
+
+        .search-btn i {
+          font-size: 19px !important;
+        }
+
+        .hamb {
+          order: 3;
+          font-size: 0 !important;
+        }
+
+        .hamb i {
+          font-size: 23px !important;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .search-btn,
+        .hamb {
+          width: 38px !important;
+          height: 38px !important;
+          min-width: 38px !important;
+        }
+
+        .search-btn i {
+          font-size: 18px !important;
+        }
+
+        .hamb i {
+          font-size: 22px !important;
+        }
+      }
+
+
+
+      /* ===== AJUSTE FINAL: LUPA AZUL SIN RECUADRO EN CELULAR ===== */
+      @media (max-width: 780px) {
+        .header-actions .pay-btn {
+          display: none !important;
+        }
+
+        .header-actions .search-btn {
+          width: 34px !important;
+          height: 40px !important;
+          min-width: 34px !important;
+          padding: 0 !important;
+          border: 0 !important;
+          border-radius: 0 !important;
+          background: transparent !important;
+          box-shadow: none !important;
+          display: grid !important;
+          place-items: center !important;
+          line-height: 1 !important;
+        }
+
+        .header-actions .search-btn i {
+          color: var(--azul) !important;
+          font-size: 26px !important;
+          font-weight: 900 !important;
+          line-height: 1 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          -webkit-text-stroke: 0.65px var(--azul);
+          text-shadow: 0 0 0 var(--azul);
+        }
+      }
+
+      @media (max-width: 390px) {
+        .header-actions .search-btn {
+          width: 32px !important;
+          height: 38px !important;
+          min-width: 32px !important;
+        }
+
+        .header-actions .search-btn i {
+          font-size: 25px !important;
+        }
+      }
+
     </style>
   </head>
   <body>
@@ -2858,10 +3258,10 @@
         <a href="#inicio" class="brand">
           <img
             src="assets/img/logo-maipu.png"
-            alt="Logo Municipalidad de Maipú"
+            alt="Logo Maipú Municipio"
           />
           <div>
-            <strong>Municipalidad de Maipú</strong>
+            <strong>Maipú Municipio</strong>
             <small>Gestión y servicios</small>
           </div>
         </a>
@@ -3029,15 +3429,6 @@
           <button class="search-btn" onclick="openSearch()">
             <i class="bi bi-search"></i> Buscar
           </button>
-         
-          <a
-            class="pay-btn"
-            href="https://vps.infogov.com.ar/rentas/maipu/#/public/home"
-            target="_blank"
-          >
-            <i class="bi bi-credit-card"></i> Pago en línea
-          </a>
-          <button class="admin-btn admin-dot" onclick="openAdmin()" aria-label="Admin">Admin</button>
         </div>
       </div>
     </header>
@@ -3062,7 +3453,7 @@
       <div class="container">
         <div class="hero-content">
           <div class="hero-badge">
-            <i class="bi bi-building"></i> Municipalidad de Maipú
+            <i class="bi bi-building"></i> Maipú Municipio
           </div>
           <h1 id="heroTitle">
             Maipú más cerca, <span>simple y conectado.</span>
@@ -3147,7 +3538,15 @@
           Novedades municipales, campañas, obras, servicios, cultura y
           comunicación útil para vecinos.
         </p>
-        <div class="news-grid" id="newsGrid"></div>
+        <div class="news-carousel-wrap" aria-label="Carrusel de noticias destacadas">
+          <button class="news-arrow news-prev" type="button" onclick="moveNewsCarousel(-1)" aria-label="Noticia anterior">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <div class="news-grid" id="newsGrid"></div>
+          <button class="news-arrow news-next" type="button" onclick="moveNewsCarousel(1)" aria-label="Noticia siguiente">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
       </div>
     </section>
     <!-- GUÍA + TRANSPARENCIA -->
@@ -3505,7 +3904,7 @@
             alt="Logo Maipú"
           />
           <p>
-            Municipalidad de Maipú, Mendoza. Portal institucional con servicios,
+            Maipú Municipio, Mendoza. Portal institucional con servicios,
             trámites, noticias e información útil para vecinos.
           </p>
         </div>
@@ -3552,9 +3951,9 @@
       <div class="footer-bottom">
         <div class="container">
           <span
-            >© 2026 Municipalidad de Maipú. Todos los derechos reservados.</span
+            >© 2026 Maipú Municipio. Todos los derechos reservados.</span
           >
-          <span>Sitio oficial del Municipio de Maipú</span>
+          <span>Sitio oficial del Maipú Municipio</span>
         </div>
       </div>
     </footer>
@@ -4417,7 +4816,7 @@
 
       function setModalLogo() {
         if (!modalIcon) return;
-        modalIcon.innerHTML = `<img src="${MAIPU_LOGO_LOCAL}" alt="Logo Municipalidad de Maipú">`;
+        modalIcon.innerHTML = `<img src="${MAIPU_LOGO_LOCAL}" alt="Logo Maipú Municipio">`;
       }
 
       function openInfo(key) {
@@ -4503,7 +4902,7 @@
       function bannerHtml(item) {
         return `
           <a class="site-banner has-img" ${bannerClickAttrs(item)}>
-            <img src="${safeText(item.image)}" alt="${safeText(item.title || "Banner Municipalidad de Maipú")}">
+            <img src="${safeText(item.image)}" alt="${safeText(item.title || "Banner Maipú Municipio")}">
           </a>
         `;
       }
@@ -4544,7 +4943,39 @@
             `;
           })
           .join("");
+        startNewsCarouselAutoplay();
       }
+
+      let newsCarouselTimer = null;
+
+      function moveNewsCarousel(direction = 1) {
+        const grid = document.getElementById("newsGrid");
+        if (!grid) return;
+        const card = grid.querySelector(".news-card");
+        const gap = 12;
+        const step = card ? card.getBoundingClientRect().width + gap : grid.clientWidth;
+        const maxScroll = grid.scrollWidth - grid.clientWidth - 4;
+
+        if (direction > 0 && grid.scrollLeft >= maxScroll) {
+          grid.scrollTo({ left: 0, behavior: "smooth" });
+          return;
+        }
+
+        if (direction < 0 && grid.scrollLeft <= 4) {
+          grid.scrollTo({ left: grid.scrollWidth, behavior: "smooth" });
+          return;
+        }
+
+        grid.scrollBy({ left: direction * step, behavior: "smooth" });
+      }
+
+      function startNewsCarouselAutoplay() {
+        if (newsCarouselTimer) clearInterval(newsCarouselTimer);
+        if (window.innerWidth > 780) return;
+        newsCarouselTimer = setInterval(() => moveNewsCarousel(1), 4800);
+      }
+
+      window.addEventListener("resize", startNewsCarouselAutoplay);
 
       let currentGuideFilter = "todos";
 
@@ -4935,6 +5366,12 @@
         });
 
         document.addEventListener("keydown", (e) => {
+          if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "a") {
+            e.preventDefault();
+            openAdmin();
+            return;
+          }
+
           if (e.key === "Escape") {
             closeModal();
             closeSearch();
@@ -4947,6 +5384,10 @@
       renderHero();
       renderBanners();
       renderNews();
+
+      if (window.location.hash === "#admin") {
+        setTimeout(openAdmin, 250);
+      }
 
       setInterval(() => {
         heroIndex = (heroIndex + 1) % heroSlides.length;
