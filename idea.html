@@ -417,7 +417,7 @@
         position: absolute;
         left: -8%;
         right: -8%;
-        bottom: -76px;
+        bottom: -86px;
         height: 120px;
         background: white;
         border-radius: 50% 50% 0 0;
@@ -4837,56 +4837,1330 @@
       </div>
     </section>
    
-    <!-- TURISMO -->
-    <section id="turismo">
-      <div class="container">
-        <div class="title-row">
+    
+
+        <!-- =========================================================
+     SECCIÓN MAPA TURÍSTICO MAIPÚ - VERSIÓN PRO COMPACTA
+     Imagen usada: assets/img/mapa.png
+     ========================================================= -->
+
+<section class="maipu-tour-final" id="mapa-turistico">
+  <div class="container">
+    <div class="title-row maipu-tour-final-head">
+      <div>
+        <h2 class="section-title">Mapa turístico de Maipú</h2>
+        <p class="section-lead">
+          Recorré el departamento desde un mapa simple, visual y pensado para ubicar plazas,
+          parques, bodegas, olivícolas, espacios culturales, espacios verdes y puntos de interés.
+        </p>
+      </div>
+
+      <a
+        class="maipu-tour-open-map"
+        href="https://www.google.com/maps/search/lugares+tur%C3%ADsticos+Maip%C3%BA+Mendoza"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="bi bi-map"></i>
+        Abrir mapa
+      </a>
+    </div>
+
+    <!-- MAPA HORIZONTAL -->
+    <div class="maipu-tour-map-wide">
+      <a
+        class="maipu-tour-map-img"
+        href="https://www.google.com/maps/search/lugares+tur%C3%ADsticos+Maip%C3%BA+Mendoza"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir mapa turístico de Maipú"
+      >
+        <img src="assets/img/mapa.png" alt="Mapa turístico de Maipú Mendoza" />
+
+        <span class="maipu-map-center-badge">
+          <i class="bi bi-geo-alt-fill"></i>
+          Maipú Centro
+        </span>
+
+        <span class="maipu-map-action-badge">
+          Tocá el mapa para explorar ubicaciones
+          <i class="bi bi-arrow-up-right"></i>
+        </span>
+      </a>
+
+      <!-- SELECTOR MÓVIL: reemplaza la imagen del mapa solo en celular -->
+      <div class="maipu-tour-map-mobile-selector" aria-label="Selector móvil de lugares turísticos">
+        <div class="maipu-mobile-selector-head">
+          <span>Mapa turístico</span>
+          <h3>Lugares para visitar</h3>
+          <p>Buscá un lugar o elegí una categoría para abrir su ubicación.</p>
+        </div>
+
+        <label class="maipu-mobile-search">
+          <i class="bi bi-search"></i>
+          <input
+            id="maipuMobilePlaceSearch"
+            type="search"
+            placeholder="Buscar plaza, bodega, museo..."
+            autocomplete="off"
+          />
+        </label>
+
+        <div class="maipu-mobile-select-wrap">
+          <select id="maipuMobileCategorySelect" aria-label="Elegir tipo de lugar turístico">
+            <option value="todos">Todos los lugares</option>
+            <option value="bodegas">Bodegas</option>
+            <option value="plazas">Plazas y parques</option>
+            <option value="espacios-verdes">Espacios verdes</option>
+            <option value="cultura">Cultura</option>
+          </select>
+          <i class="bi bi-chevron-down"></i>
+        </div>
+
+        <div class="maipu-mobile-options">
+          <a
+            class="maipu-mobile-option"
+            data-mobile-category="plazas"
+            data-mobile-title="Plaza 12 de Febrero centro histórico punto de encuentro familiar"
+            href="https://www.google.com/maps/search/Plaza+12+de+Febrero+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>01</span>
+            <div>
+              <strong>Plaza 12 de Febrero</strong>
+              <small>Centro histórico y punto de encuentro.</small>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a
+            class="maipu-mobile-option"
+            data-mobile-category="plazas"
+            data-mobile-title="Parques y paseos caminar descansar aire libre"
+            href="https://www.google.com/maps/search/parques+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>02</span>
+            <div>
+              <strong>Parques y paseos</strong>
+              <small>Opciones para caminar y disfrutar.</small>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a
+            class="maipu-mobile-option"
+            data-mobile-category="espacios-verdes"
+            data-mobile-title="Espacios verdes áreas abiertas arbolado urbano recreación"
+            href="https://www.google.com/maps/search/espacios+verdes+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>03</span>
+            <div>
+              <strong>Espacios verdes</strong>
+              <small>Áreas abiertas y sitios de recreación.</small>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a
+            class="maipu-mobile-option"
+            data-mobile-category="bodegas"
+            data-mobile-title="Bodegas caminos turísticos degustaciones experiencias locales"
+            href="https://www.google.com/maps/search/bodegas+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>04</span>
+            <div>
+              <strong>Bodegas</strong>
+              <small>Caminos turísticos y degustaciones.</small>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a
+            class="maipu-mobile-option"
+            data-mobile-category="bodegas"
+            data-mobile-title="Olivícolas producción regional aceite de oliva sabores maipucinos"
+            href="https://www.google.com/maps/search/oliv%C3%ADcolas+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>05</span>
+            <div>
+              <strong>Olivícolas</strong>
+              <small>Producción regional y sabores locales.</small>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a
+            class="maipu-mobile-option"
+            data-mobile-category="cultura"
+            data-mobile-title="Museo del Vino historia identidad patrimonio vitivinícola"
+            href="https://www.google.com/maps/search/Museo+del+Vino+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>06</span>
+            <div>
+              <strong>Museo del Vino</strong>
+              <small>Historia, identidad y patrimonio.</small>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a
+            class="maipu-mobile-option"
+            data-mobile-category="cultura"
+            data-mobile-title="Teatro Imperial agenda cultural espectáculos actividades vecinos"
+            href="https://www.google.com/maps/search/Teatro+Imperial+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>07</span>
+            <div>
+              <strong>Teatro Imperial</strong>
+              <small>Agenda cultural y espectáculos.</small>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENIDO INFERIOR -->
+    <div class="maipu-tour-bottom">
+      <div class="maipu-tour-lugares">
+        <div class="maipu-tour-lugares-head">
+          <span>Recorridos sugeridos</span>
+          <h3>Lugares para visitar</h3>
+          <p>Filtrá por tipo de paseo y abrí la ubicación correspondiente.</p>
+        </div>
+
+        <div class="maipu-tour-filter-bar" aria-label="Filtros turísticos">
+          <button class="maipu-tour-filter is-active" type="button" data-filter="todos">Todos</button>
+          <button class="maipu-tour-filter" type="button" data-filter="bodegas">Bodegas</button>
+          <button class="maipu-tour-filter" type="button" data-filter="plazas">Plazas y parques</button>
+          <button class="maipu-tour-filter" type="button" data-filter="espacios-verdes">Espacios verdes</button>
+          <button class="maipu-tour-filter" type="button" data-filter="cultura">Cultura</button>
+        </div>
+
+        <div class="maipu-tour-place-grid">
+          <a
+            class="maipu-tour-place-card"
+            data-category="plazas"
+            href="https://www.google.com/maps/search/Plaza+12+de+Febrero+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="maipu-place-number">01</span>
+            <div>
+              <strong>Plaza 12 de Febrero</strong>
+              <small>Centro histórico y punto de encuentro familiar.</small>
+            </div>
+          </a>
+
+          <a
+            class="maipu-tour-place-card"
+            data-category="plazas"
+            href="https://www.google.com/maps/search/parques+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="maipu-place-number">02</span>
+            <div>
+              <strong>Parques y paseos</strong>
+              <small>Opciones para caminar, descansar y disfrutar al aire libre.</small>
+            </div>
+          </a>
+
+          <a
+            class="maipu-tour-place-card"
+            data-category="espacios-verdes"
+            href="https://www.google.com/maps/search/espacios+verdes+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="maipu-place-number">03</span>
+            <div>
+              <strong>Espacios verdes</strong>
+              <small>Áreas abiertas, arbolado urbano y sitios para recreación.</small>
+            </div>
+          </a>
+
+          <a
+            class="maipu-tour-place-card"
+            data-category="bodegas"
+            href="https://www.google.com/maps/search/bodegas+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="maipu-place-number">04</span>
+            <div>
+              <strong>Bodegas</strong>
+              <small>Caminos turísticos, degustaciones y experiencias locales.</small>
+            </div>
+          </a>
+
+          <a
+            class="maipu-tour-place-card"
+            data-category="bodegas"
+            href="https://www.google.com/maps/search/oliv%C3%ADcolas+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="maipu-place-number">05</span>
+            <div>
+              <strong>Olivícolas</strong>
+              <small>Producción regional, aceite de oliva y sabores maipucinos.</small>
+            </div>
+          </a>
+
+          <a
+            class="maipu-tour-place-card"
+            data-category="cultura"
+            href="https://www.google.com/maps/search/Museo+del+Vino+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="maipu-place-number">06</span>
+            <div>
+              <strong>Museo del Vino</strong>
+              <small>Historia, identidad y patrimonio vitivinícola.</small>
+            </div>
+          </a>
+
+          <a
+            class="maipu-tour-place-card"
+            data-category="cultura"
+            href="https://www.google.com/maps/search/Teatro+Imperial+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="maipu-place-number">07</span>
+            <div>
+              <strong>Teatro Imperial</strong>
+              <small>Agenda cultural, espectáculos y actividades para vecinos.</small>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <aside class="maipu-tour-data-card" aria-label="Datos de Maipú">
+        <div class="maipu-tour-data-brand">
+          <img src="assets/img/logo-maipu.png" alt="Maipú Municipio" />
           <div>
-            <h2 class="section-title">Conocé Maipú</h2>
-            <p class="section-lead">
-              Turismo, cultura, bodegas, patrimonio y espacios para disfrutar el departamento.
-            </p>
+            <span>Datos del departamento</span>
+            <h3>Maipú en números</h3>
           </div>
         </div>
-        <div class="tour-grid tour-grid-clean">
-          <button class="tour-card" onclick="openInfo('turismo')">
-            <img src="assets/img/portada.png" alt="Bodegas de Maipú" />
-            <div>
-              <h3>Bodegas de Maipú</h3>
-              <p>Descubrí nuestros caminos del vino.</p>
-            </div>
-          </button>
-          <button class="tour-card" onclick="openInfo('agenda')">
-            <img src="assets/img/banner.jpeg" alt="Agenda cultural" />
-            <div>
-              <h3>Agenda Cultural</h3>
-              <p>Eventos y actividades del departamento.</p>
-            </div>
-          </button>
-          <button class="tour-card" onclick="openInfo('museo')">
-            <img src="assets/img/portada.png" alt="Museo del Vino" />
-            <div>
-              <h3>Museo del Vino</h3>
-              <p>Historia y tradición vitivinícola.</p>
-            </div>
-          </button>
-          <button class="tour-card" onclick="openInfo('teatro')">
-            <img src="assets/img/portada.png" alt="Teatro Imperial" />
-            <div>
-              <h3>Teatro Imperial</h3>
-              <p>Espectáculos y actividades.</p>
-            </div>
-          </button>
-        </div>
-      </div>
-    </section>
 
-     <!-- 12 CUOTAS -->
-     <section class="site-banner-section">
-      <div class="container">
-        <div id="bannerSlot3"></div>
+        <div class="maipu-tour-data-list">
+          <div class="maipu-tour-data-item">
+            <i class="bi bi-people-fill"></i>
+            <div>
+              <strong class="maipu-tour-counter" data-target="219402">0</strong>
+              <small>habitantes</small>
+            </div>
+          </div>
+
+          <div class="maipu-tour-data-item">
+            <i class="bi bi-bounding-box-circles"></i>
+            <div>
+              <strong class="maipu-tour-counter" data-target="617">0</strong>
+              <small>km² de superficie</small>
+            </div>
+          </div>
+
+          <div class="maipu-tour-data-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div>
+              <strong class="maipu-tour-counter" data-target="12">0</strong>
+              <small>distritos</small>
+            </div>
+          </div>
+
+          <div class="maipu-tour-data-item">
+            <i class="bi bi-shop-window"></i>
+            <div>
+              <strong class="maipu-tour-counter" data-target="30">0</strong>
+              <small>bodegas destacadas</small>
+            </div>
+          </div>
+
+          <div class="maipu-tour-data-item maipu-tour-data-green">
+            <i class="bi bi-tree-fill"></i>
+            <div>
+              <strong class="maipu-tour-counter" data-target="40">0</strong>
+              <small>espacios verdes y paseos</small>
+            </div>
+          </div>
+        </div>
+
+        <a
+          class="maipu-tour-data-link"
+          href="https://www.google.com/maps/search/turismo+Maip%C3%BA+Mendoza"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver recorridos turísticos
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ===== MAPA TURÍSTICO FINAL INTEGRADO ===== */
+  .maipu-tour-final {
+    padding: 28px 0 34px;
+    background:
+      radial-gradient(circle at 8% 15%, rgba(0, 114, 188, .06), transparent 28%),
+      radial-gradient(circle at 92% 85%, rgba(114, 201, 67, .08), transparent 30%),
+      linear-gradient(180deg, #ffffff 0%, #f5f8fc 100%);
+  }
+
+  .maipu-tour-final-head {
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .maipu-tour-open-map {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 0 16px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--azul), var(--azul2));
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 900;
+    box-shadow: 0 10px 22px rgba(0, 114, 188, .18);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+
+  .maipu-tour-open-map:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 114, 188, .22);
+  }
+
+  .maipu-tour-map-wide {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #eef5fb;
+    border: 1px solid var(--borde);
+    box-shadow: var(--shadow);
+  }
+
+  .maipu-tour-map-img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 330px;
+    min-height: 330px;
+    color: inherit;
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .maipu-tour-map-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .45s ease;
+  }
+
+  .maipu-tour-map-img:hover img {
+    transform: scale(1.022);
+  }
+
+  .maipu-tour-map-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0) 52%, rgba(8,41,70,.18) 100%),
+      linear-gradient(90deg, rgba(255,255,255,.30), rgba(255,255,255,0) 38%);
+    pointer-events: none;
+  }
+
+  .maipu-map-center-badge,
+  .maipu-map-action-badge {
+    position: absolute;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    font-weight: 900;
+    box-shadow: 0 14px 28px rgba(8, 41, 70, .16);
+  }
+
+  .maipu-map-center-badge {
+    left: 22px;
+    top: 20px;
+    padding: 9px 14px;
+    background: #ffffff;
+    color: #c82333;
+    font-size: 13px;
+  }
+
+  .maipu-map-center-badge i {
+    font-size: 18px;
+  }
+
+  .maipu-map-action-badge {
+    left: 22px;
+    bottom: 20px;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, .94);
+    color: var(--azulOsc);
+    backdrop-filter: blur(10px);
+    font-size: 13px;
+  }
+
+  .maipu-map-action-badge i {
+    color: var(--azul);
+    font-size: 16px;
+  }
+
+  .maipu-tour-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 14px;
+    margin-top: 14px;
+    align-items: start;
+  }
+
+  .maipu-tour-lugares,
+  .maipu-tour-data-card {
+    background: #ffffff;
+    border: 1px solid var(--borde);
+    border-radius: 22px;
+    box-shadow: var(--shadow2);
+  }
+
+  .maipu-tour-lugares {
+    padding: 18px;
+  }
+
+  .maipu-tour-lugares-head {
+    display: grid;
+    gap: 5px;
+    margin-bottom: 13px;
+  }
+
+  .maipu-tour-lugares-head span,
+  .maipu-tour-data-brand span {
+    color: var(--azul);
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .45px;
+  }
+
+  .maipu-tour-lugares-head h3,
+  .maipu-tour-data-brand h3 {
+    color: var(--azulOsc);
+    font-size: 22px;
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: -.4px;
+  }
+
+  .maipu-tour-lugares-head p {
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+
+  .maipu-tour-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .maipu-tour-filter {
+    border: 1px solid #d7e4f1;
+    background: #ffffff;
+    color: #33475f;
+    min-height: 36px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: .2s ease;
+  }
+
+  .maipu-tour-filter:hover {
+    border-color: rgba(0, 114, 188, .35);
+    background: var(--celeste);
+  }
+
+  .maipu-tour-filter.is-active {
+    background: linear-gradient(135deg, var(--azul), var(--azul2));
+    border-color: transparent;
+    color: #ffffff;
+  }
+
+  .maipu-tour-place-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .maipu-tour-place-card {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 12px;
+    align-items: center;
+    min-height: 78px;
+    padding: 12px;
+    border-radius: 16px;
+    background: #fbfdff;
+    border: 1px solid #e1ebf4;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+
+  .maipu-tour-place-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 114, 188, .26);
+    box-shadow: 0 10px 22px rgba(10, 35, 70, .08);
+  }
+
+  .maipu-tour-place-card.is-hidden {
+    display: none;
+  }
+
+  .maipu-place-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--azul), var(--verde));
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .maipu-tour-place-card strong {
+    display: block;
+    color: var(--azulOsc);
+    font-size: 14.5px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+
+  .maipu-tour-place-card small {
+    display: block;
+    color: var(--muted);
+    font-size: 12.2px;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+
+  .maipu-tour-data-card {
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 96% 0%, rgba(255,255,255,.17), transparent 34%),
+      linear-gradient(135deg, var(--azulOsc), var(--azul));
+    color: #ffffff;
+    padding: 14px;
+  }
+
+  .maipu-tour-data-brand {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    gap: 12px;
+    align-items: center;
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 18px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .maipu-tour-data-brand img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 6px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.10);
+  }
+
+  .maipu-tour-data-brand span,
+  .maipu-tour-data-brand h3 {
+    color: #ffffff;
+  }
+
+  .maipu-tour-data-brand h3 {
+    font-size: 19px;
+    margin-top: 3px;
+  }
+
+  .maipu-tour-data-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .maipu-tour-data-item {
+    min-height: 58px;
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 10px;
+    align-items: center;
+    border-radius: 16px;
+    padding: 10px 12px;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.16);
+  }
+
+  .maipu-tour-data-item i {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: rgba(255,255,255,.16);
+    color: #ffffff;
+    font-size: 17px;
+  }
+
+  .maipu-tour-data-green i {
+    background: linear-gradient(135deg, var(--verde), var(--verde2));
+  }
+
+  .maipu-tour-data-item strong {
+    display: block;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 950;
+    letter-spacing: -.6px;
+  }
+
+  .maipu-tour-data-item small {
+    display: block;
+    margin-top: 4px;
+    color: rgba(255,255,255,.86);
+    font-size: 10.5px;
+    line-height: 1.15;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: .25px;
+  }
+
+  .maipu-tour-data-link {
+    min-height: 42px;
+    margin-top: 10px;
+    padding: 0 12px;
+    border-radius: 14px;
+    background: #ffffff;
+    color: var(--azul);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 12.5px;
+    font-weight: 900;
+    box-shadow: 0 10px 22px rgba(0,0,0,.10);
+  }
+
+
+  /* Selector móvil para reemplazar la imagen del mapa en celulares */
+  .maipu-tour-map-mobile-selector {
+    display: none;
+  }
+
+  .maipu-mobile-selector-head {
+    display: grid;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  .maipu-mobile-selector-head span {
+    color: var(--azul);
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .45px;
+  }
+
+  .maipu-mobile-selector-head h3 {
+    color: var(--azulOsc);
+    font-size: 24px;
+    line-height: 1.05;
+    font-weight: 950;
+    letter-spacing: -.5px;
+  }
+
+  .maipu-mobile-selector-head p {
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.42;
+    font-weight: 600;
+  }
+
+  .maipu-mobile-search {
+    height: 46px;
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    align-items: center;
+    border: 1px solid #d7e4f1;
+    border-radius: 15px;
+    background: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(10, 35, 70, .055);
+    margin-bottom: 10px;
+  }
+
+  .maipu-mobile-search i {
+    display: grid;
+    place-items: center;
+    color: var(--azul);
+    font-size: 18px;
+  }
+
+  .maipu-mobile-search input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    color: var(--azulOsc);
+    font-size: 13.5px;
+    font-weight: 750;
+    background: transparent;
+  }
+
+  .maipu-mobile-search input::placeholder {
+    color: #7c8fa2;
+  }
+
+  .maipu-mobile-select-wrap {
+    position: relative;
+    height: 46px;
+    margin-bottom: 12px;
+  }
+
+  .maipu-mobile-select-wrap select {
+    width: 100%;
+    height: 46px;
+    appearance: none;
+    border: 0;
+    outline: 0;
+    border-radius: 15px;
+    padding: 0 42px 0 14px;
+    background: linear-gradient(135deg, var(--azul), var(--azul2));
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 10px 22px rgba(0, 114, 188, .18);
+  }
+
+  .maipu-mobile-select-wrap select option {
+    color: var(--azulOsc);
+    background: #ffffff;
+  }
+
+  .maipu-mobile-select-wrap i {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    pointer-events: none;
+    font-size: 14px;
+  }
+
+  .maipu-mobile-options {
+    display: grid;
+    gap: 10px;
+  }
+
+  .maipu-mobile-option {
+    display: grid;
+    grid-template-columns: 42px 1fr 26px;
+    gap: 11px;
+    align-items: center;
+    min-height: 72px;
+    padding: 10px 11px;
+    border-radius: 16px;
+    border: 1px solid #e1ebf4;
+    background: #fbfdff;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 8px 18px rgba(10, 35, 70, .055);
+  }
+
+  .maipu-mobile-option.is-hidden {
+    display: none;
+  }
+
+  .maipu-mobile-option > span {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--azul), var(--verde));
+    font-size: 12px;
+    font-weight: 950;
+  }
+
+  .maipu-mobile-option strong {
+    display: block;
+    color: var(--azulOsc);
+    font-size: 14.5px;
+    line-height: 1.15;
+    font-weight: 950;
+    margin-bottom: 3px;
+  }
+
+  .maipu-mobile-option small {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.28;
+    font-weight: 650;
+  }
+
+  .maipu-mobile-option > i {
+    color: var(--azul);
+    font-size: 16px;
+  }
+
+  /* Corrige botones centrados dentro de modales puntuales, como Rentas */
+  .modal-actions-center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .modal-actions-center .btn {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 220px;
+  }
+
+  @media (max-width: 980px) {
+    .maipu-tour-bottom {
+      grid-template-columns: 1fr;
+    }
+
+    .maipu-tour-map-img {
+      height: 300px;
+      min-height: 300px;
+    }
+
+    .maipu-tour-data-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 780px) {
+    .maipu-tour-final-head {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .maipu-tour-open-map {
+      width: 100%;
+    }
+
+    .maipu-tour-map-wide {
+      border-radius: 20px;
+      overflow: visible;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .maipu-tour-map-img {
+      display: none;
+    }
+
+    .maipu-tour-map-mobile-selector {
+      display: block;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(114, 201, 67, .13), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      box-shadow: var(--shadow2);
+      padding: 15px;
+    }
+
+    .maipu-map-center-badge,
+    .maipu-map-action-badge {
+      display: none;
+    }
+
+    .maipu-tour-lugares,
+    .maipu-tour-data-card {
+      border-radius: 19px;
+      padding: 15px;
+    }
+
+    .maipu-tour-place-grid,
+    .maipu-tour-data-list {
+      grid-template-columns: 1fr;
+    }
+
+    .maipu-tour-data-brand {
+      grid-template-columns: 52px 1fr;
+    }
+
+    .maipu-tour-data-brand img {
+      width: 52px;
+      height: 52px;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .maipu-tour-map-mobile-selector {
+      padding: 14px;
+    }
+
+    .maipu-mobile-selector-head h3 {
+      font-size: 23px;
+    }
+
+    .maipu-mobile-option {
+      grid-template-columns: 40px 1fr 22px;
+      min-height: 68px;
+      padding: 9px 10px;
+    }
+
+    .maipu-mobile-option > span {
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+    }
+
+    .maipu-tour-filter-bar {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .maipu-tour-filter {
+      width: 100%;
+      padding: 0 8px;
+      font-size: 11.2px;
+    }
+  }
+
+
+  /* ===== AJUSTE FINAL SOLICITADO: MAPA PRIMERO + BUSCADOR/FILTRO DESPUÉS EN MODO CELULAR =====
+     En celular queda visible primero el mapa como antes, sin botón "Abrir mapa".
+     Debajo del mapa queda el buscador, el filtro y las opciones de lugares.
+     Se oculta el bloque inferior "Recorridos sugeridos / Lugares para visitar".
+  */
+  @media (max-width: 780px) {
+    .maipu-tour-open-map {
+      display: none !important;
+    }
+
+    .maipu-tour-map-wide {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-radius: 20px;
+      overflow: visible;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .maipu-tour-map-mobile-selector {
+      order: 2;
+      display: block !important;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(114, 201, 67, .13), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      box-shadow: var(--shadow2);
+      padding: 14px;
+    }
+
+    .maipu-mobile-selector-head {
+      display: none !important;
+    }
+
+    .maipu-mobile-search {
+      margin-bottom: 9px;
+    }
+
+    .maipu-mobile-select-wrap {
+      margin-bottom: 10px;
+    }
+
+    .maipu-mobile-options {
+      max-height: 240px;
+      overflow-y: auto;
+      padding-right: 2px;
+      scrollbar-width: thin;
+    }
+
+    .maipu-tour-map-img {
+      order: 1;
+      display: block !important;
+      width: 100%;
+      height: 235px;
+      min-height: 235px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #eef5fb;
+      border: 1px solid var(--borde);
+      box-shadow: var(--shadow);
+    }
+
+    .maipu-tour-map-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .maipu-map-center-badge,
+    .maipu-map-action-badge {
+      display: none !important;
+    }
+
+    .maipu-tour-lugares {
+      display: none !important;
+    }
+
+    .maipu-tour-bottom {
+      margin-top: 14px;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .maipu-tour-map-mobile-selector {
+      padding: 12px;
+    }
+
+    .maipu-mobile-options {
+      max-height: 220px;
+    }
+
+    .maipu-tour-map-img {
+      height: 215px;
+      min-height: 215px;
+    }
+  }
+
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tourFilters = document.querySelectorAll(".maipu-tour-filter");
+    const tourPlaces = document.querySelectorAll(".maipu-tour-place-card");
+
+    tourFilters.forEach(function (filterButton) {
+      filterButton.addEventListener("click", function () {
+        const selectedFilter = filterButton.dataset.filter;
+
+        tourFilters.forEach(function (button) {
+          button.classList.remove("is-active");
+        });
+
+        filterButton.classList.add("is-active");
+
+        tourPlaces.forEach(function (place) {
+          const category = place.dataset.category;
+          const showPlace = selectedFilter === "todos" || category === selectedFilter;
+          place.classList.toggle("is-hidden", !showPlace);
+        });
+      });
+    });
+
+    const counters = document.querySelectorAll(".maipu-tour-counter");
+    const dataCard = document.querySelector(".maipu-tour-data-card");
+    let countersStarted = false;
+
+    function formatCounter(value) {
+      return value.toLocaleString("es-AR");
+    }
+
+    function animateCounter(counter) {
+      const target = Number(counter.dataset.target || 0);
+      const duration = 1200;
+      const start = performance.now();
+
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(target * eased);
+
+        counter.textContent = formatCounter(current);
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          counter.textContent = formatCounter(target);
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    function startCounters() {
+      if (countersStarted) return;
+      countersStarted = true;
+      counters.forEach(animateCounter);
+    }
+
+    if (dataCard && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) startCounters();
+        });
+      }, { threshold: 0.25 });
+
+      observer.observe(dataCard);
+    } else {
+      startCounters();
+    }
+
+    /* Selector móvil del mapa turístico */
+    const mobilePlaceSearch = document.querySelector("#maipuMobilePlaceSearch");
+    const mobileCategorySelect = document.querySelector("#maipuMobileCategorySelect");
+    const mobileOptions = document.querySelectorAll(".maipu-mobile-option");
+
+    function normalizeText(value) {
+      return (value || "")
+        .toString()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function filterMobileTourOptions() {
+      const selectedCategory = mobileCategorySelect ? mobileCategorySelect.value : "todos";
+      const searchValue = normalizeText(mobilePlaceSearch ? mobilePlaceSearch.value : "");
+
+      mobileOptions.forEach(function (option) {
+        const optionCategory = option.dataset.mobileCategory;
+        const optionText = normalizeText(option.dataset.mobileTitle || option.textContent);
+        const matchesCategory = selectedCategory === "todos" || optionCategory === selectedCategory;
+        const matchesSearch = !searchValue || optionText.includes(searchValue);
+
+        option.classList.toggle("is-hidden", !(matchesCategory && matchesSearch));
+      });
+    }
+
+    if (mobilePlaceSearch) {
+      mobilePlaceSearch.addEventListener("input", filterMobileTourOptions);
+    }
+
+    if (mobileCategorySelect) {
+      mobileCategorySelect.addEventListener("change", function () {
+        const selectedFilter = mobileCategorySelect.value;
+        const matchingFilterButton = document.querySelector('.maipu-tour-filter[data-filter="' + selectedFilter + '"]');
+
+        if (matchingFilterButton) {
+          matchingFilterButton.click();
+        }
+
+        filterMobileTourOptions();
+      });
+    }
+
+    tourFilters.forEach(function (filterButton) {
+      filterButton.addEventListener("click", function () {
+        if (mobileCategorySelect) {
+          mobileCategorySelect.value = filterButton.dataset.filter;
+          filterMobileTourOptions();
+        }
+      });
+    });
+
+    filterMobileTourOptions();
+  });
+</script>
+
+<!-- =========================================================
+     FIN SECCIÓN MAPA TURÍSTICO MAIPÚ - VERSIÓN PRO COMPACTA
+     ========================================================= -->
+
+
+<!-- TURISMO -->
+<section id="turismo">
+  <div class="container">
+    <div class="title-row">
+      <div>
+        <h2 class="section-title">Conocé Maipú</h2>
+        <p class="section-lead">
+          Turismo, cultura, bodegas, patrimonio y espacios para disfrutar el departamento.
+        </p>
       </div>
-    </section>
+    </div>
+    <div class="tour-grid tour-grid-clean">
+      <button class="tour-card" onclick="openInfo('turismo')">
+        <img src="assets/img/bodega.jfif" alt="Bodegas de Maipú" />
+        <div>
+          <h3>Bodegas de Maipú</h3>
+          <p>Descubrí nuestros caminos del vino.</p>
+        </div>
+      </button>
+      <button class="tour-card" onclick="openInfo('agenda')">
+        <img src="assets/img/cultura.jfif" alt="Agenda cultural" />
+        <div>
+          <h3>Agenda Cultural</h3>
+          <p>Eventos y actividades del departamento.</p>
+        </div>
+      </button>
+      <button class="tour-card" onclick="openInfo('museo')">
+        <img src="assets/img/museo.jfif" alt="Museo del Vino" />
+        <div>
+          <h3>Museo del Vino</h3>
+          <p>Historia y tradición vitivinícola.</p>
+        </div>
+      </button>
+      <button class="tour-card" onclick="openInfo('teatro')">
+        <img src="assets/img/imperial.jfif" alt="Teatro Imperial" />
+        <div>
+          <h3>Teatro Imperial</h3>
+          <p>Espectáculos y actividades.</p>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+  <!-- 12 CUOTAS -->
+  <section class="site-banner-section">
+    <div class="container">
+      <div id="bannerSlot3"></div>
+    </div>
+  </section>
+
+  
+<!-- =========================================================
+     FIN SECCIÓN MAPA TURÍSTICO MAIPÚ - VERSIÓN FINAL INTEGRADA
+     ========================================================= -->
     <!-- ATENCION -->
     <section>
       <div class="container">
@@ -4912,6 +6186,7 @@
         </div>
       </div>
     </section>
+
     <!-- FOOTER -->
     <footer id="contacto">
       <div class="container footer-grid">
@@ -5417,7 +6692,14 @@
           icon: "bi-house-check",
           title: "Rentas",
           subtitle: "Tasas, boletas, deuda y contribuciones.",
-          body: `<p>Rentas reúne tasas municipales, boletas, deuda, planes de pago y consultas tributarias.</p> <a class="btn btn-blue" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Ir a Pago Online</a>`,
+          body: `<p>Rentas reúne tasas municipales, boletas, deuda, planes de pago y consultas tributarias.</p>
+          <div class="modal-grid">
+            <div class="modal-info"><b>Boletas y tasas</b><small>Consulta de deuda municipal, tasas y contribuciones.</small></div>
+            <div class="modal-info"><b>Planes de pago</b><small>Acceso a opciones de regularización y pago online.</small></div>
+          </div>
+          <div class="modal-actions modal-actions-center">
+            <a class="btn btn-blue" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Ir a Pago Online</a>
+          </div>`,
         },
         licencia: {
   icon: "bi-person-vcard",
@@ -6576,6 +7858,9 @@
         renderHero();
       }, 6500);
     </script>
+
+
+
 
   </body>
 </html>
