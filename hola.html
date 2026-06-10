@@ -8135,7 +8135,165 @@ body .header-actions .search-btn:focus-visible i {
   }
 }
 
-    </style>
+    
+
+/* =========================================================
+   AJUSTE FINAL NATALIA - MODALES, MÓVIL VETERINARIO Y MAPA
+   ========================================================= */
+body .modal .modal-box,
+body .modal.tour-small .modal-box,
+body .modal.datos-mode .modal-box,
+body .modal.news-mode .modal-box {
+  width: min(880px, 94%) !important;
+  max-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+body .modal .modal-body {
+  max-height: calc(90vh - 120px) !important;
+  overflow-y: auto !important;
+  padding: 20px !important;
+}
+
+body .modal .modal-news-img,
+body .modal .tour-modal-image,
+body .modal.tour-small .modal-news-img,
+body .modal.tour-small .tour-modal-image,
+body .imperial-modal .modal-news-img,
+body .imperial-modal .tour-modal-image,
+body .modal.news-mode .modal-news-img {
+  display: block !important;
+  width: 100% !important;
+  height: clamp(210px, 34vw, 315px) !important;
+  max-height: 315px !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  background: transparent !important;
+  border: 1px solid var(--borde) !important;
+  border-radius: 16px !important;
+  padding: 0 !important;
+  margin: 0 0 16px !important;
+  box-shadow: 0 10px 22px rgba(8, 41, 70, 0.10) !important;
+}
+
+body .imperial-modal .modal-news-img,
+body .imperial-modal .tour-modal-image {
+  object-position: center 45% !important;
+}
+
+body .modal.news-mode .modal-news-img {
+  height: clamp(220px, 36vw, 330px) !important;
+  max-height: 330px !important;
+}
+
+body .modal.tour-small .modal-box {
+  width: min(760px, 94%) !important;
+}
+
+body .modal.tour-small .modal-body p,
+body .imperial-modal p {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+.vet-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.vet-schedule-card {
+  border: 1px solid var(--borde);
+  background: #fbfdff;
+  border-radius: 16px;
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 11px;
+  align-items: start;
+}
+
+.vet-schedule-card i {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--azul), var(--azul2));
+  color: #fff;
+  font-size: 20px;
+}
+
+.vet-schedule-card b {
+  display: block;
+  color: #173350;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.vet-schedule-card small {
+  display: block;
+  color: #607086;
+  line-height: 1.38;
+  font-size: 12.5px;
+}
+
+.maipu-tour-filter[data-filter="bienestar"],
+.maipu-tour-filter[data-filter="deporte"] {
+  border-color: #cfe6f4;
+}
+
+@media (max-width: 780px) {
+  body .modal {
+    padding: 78px 14px 16px !important;
+  }
+
+  body .modal .modal-box,
+  body .modal.tour-small .modal-box,
+  body .modal.datos-mode .modal-box,
+  body .modal.news-mode .modal-box {
+    width: 100% !important;
+    max-height: 84vh !important;
+    border-radius: 18px !important;
+  }
+
+  body .modal .modal-body {
+    max-height: calc(84vh - 104px) !important;
+    padding: 15px !important;
+  }
+
+  body .modal .modal-news-img,
+  body .modal .tour-modal-image,
+  body .modal.tour-small .modal-news-img,
+  body .modal.tour-small .tour-modal-image,
+  body .imperial-modal .modal-news-img,
+  body .imperial-modal .tour-modal-image,
+  body .modal.news-mode .modal-news-img {
+    height: 185px !important;
+    max-height: 185px !important;
+    object-fit: cover !important;
+    border-radius: 14px !important;
+    margin-bottom: 13px !important;
+  }
+
+  .vet-schedule-grid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .vet-schedule-card {
+    grid-template-columns: 38px 1fr;
+    padding: 12px;
+  }
+
+  .vet-schedule-card i {
+    width: 38px;
+    height: 38px;
+  }
+}
+</style>
   </head>  <body>
     <!-- STRIP -->
     <div class="top-strip">
@@ -8378,11 +8536,11 @@ body .header-actions .search-btn:focus-visible i {
           <div class="qicon bg-blue"><i class="bi bi-person-vcard"></i></div>
           <span>Licencia</span>
         </button>
-        <button class="quick-card" onclick="openInfo('turnos')">
+        <button class="quick-card" onclick="openInfo('veterinaria')">
           <div class="qicon bg-green">
-            <i class="bi bi-calendar2-check"></i>
+            <i class="bi bi-heart-pulse"></i>
           </div>
-          <span>Turnos</span>
+          <span>Móvil Veterinario</span>
         </button>
         <button class="quick-card" onclick="openInfo('reclamos')">
           <div class="qicon bg-orange">
@@ -8454,11 +8612,10 @@ body .header-actions .search-btn:focus-visible i {
               <option value="pago">Pago Online</option>
               <option value="rentas">Rentas</option>
               <option value="licencia">Licencia de Conducir</option>
-              <option value="turnos">Turnos</option>
+              <option value="veterinaria">Móvil Veterinario</option>
               <option value="datosAbiertos">Datos Abiertos</option>
               <option value="obras">Obras privadas</option>
               <option value="habilitaciones">Habilitación comercial</option>
-              <option value="veterinaria">Veterinaria</option>
               <option value="teatro">Teatro Imperial</option>
               <option value="turismo">Turismo</option>
               <option value="reclamos">Reclamos</option>
@@ -8525,11 +8682,11 @@ body .header-actions .search-btn:focus-visible i {
             </button>
             <button
               class="guide-item"
-              data-cat="transito"
-              data-search="turnos online atención municipal reservar"
-              onclick="openInfo('turnos')"
+              data-cat="salud"
+              data-search="móvil veterinario veterinaria castración mascotas fechas distritos"
+              onclick="openInfo('veterinaria')"
             >
-              <i class="bi bi-calendar2-check"></i><span>Turnos</span>
+              <i class="bi bi-heart-pulse"></i><span>Móvil Veterinario</span>
             </button>
             <button
               class="guide-item"
@@ -8782,6 +8939,8 @@ body .header-actions .search-btn:focus-visible i {
             <option value="plazas">Plazas y parques</option>
             <option value="espacios-verdes">Espacios verdes</option>
             <option value="cultura">Cultura</option>
+            <option value="bienestar">Bienestar</option>
+            <option value="deporte">Deporte</option>
           </select>
           <i class="bi bi-chevron-down"></i>
         </div>
@@ -8898,6 +9057,54 @@ body .header-actions .search-btn:focus-visible i {
             </div>
             <i class="bi bi-arrow-up-right"></i>
           </a>
+
+          <a
+            class="maipu-mobile-option"
+            data-mobile-category="cultura"
+            data-mobile-title="Centros culturales Maipú talleres cultura arte actividades comunitarias"
+            href="https://www.google.com/maps/search/centros+culturales+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>08</span>
+            <div>
+              <strong>Centros culturales</strong>
+              <small>Talleres, arte y espacios comunitarios.</small>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a
+            class="maipu-mobile-option"
+            data-mobile-category="deporte"
+            data-mobile-title="Polideportivos Maipú deporte actividades recreativas entrenamiento"
+            href="https://www.google.com/maps/search/polideportivos+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>09</span>
+            <div>
+              <strong>Polideportivos</strong>
+              <small>Deporte, recreación y actividades barriales.</small>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
+
+          <a
+            class="maipu-mobile-option"
+            data-mobile-category="bienestar"
+            data-mobile-title="Gimnasios gym Maipú bienestar actividad física entrenamiento salud"
+            href="https://www.google.com/maps/search/gimnasios+gym+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>10</span>
+            <div>
+              <strong>Gimnasios y bienestar</strong>
+              <small>Actividad física, salud y entrenamiento.</small>
+            </div>
+            <i class="bi bi-arrow-up-right"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -8917,6 +9124,8 @@ body .header-actions .search-btn:focus-visible i {
           <button class="maipu-tour-filter" type="button" data-filter="plazas">Plazas y parques</button>
           <button class="maipu-tour-filter" type="button" data-filter="espacios-verdes">Espacios verdes</button>
           <button class="maipu-tour-filter" type="button" data-filter="cultura">Cultura</button>
+          <button class="maipu-tour-filter" type="button" data-filter="bienestar">Bienestar</button>
+          <button class="maipu-tour-filter" type="button" data-filter="deporte">Deporte</button>
         </div>
 
         <div class="maipu-tour-place-grid">
@@ -9015,6 +9224,48 @@ body .header-actions .search-btn:focus-visible i {
             <div>
               <strong>Teatro Imperial</strong>
               <small>Agenda cultural, espectáculos y actividades para vecinos.</small>
+            </div>
+          </a>
+
+          <a
+            class="maipu-tour-place-card"
+            data-category="cultura"
+            href="https://www.google.com/maps/search/centros+culturales+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="maipu-place-number">08</span>
+            <div>
+              <strong>Centros culturales</strong>
+              <small>Espacios para talleres, arte, cultura y actividades comunitarias.</small>
+            </div>
+          </a>
+
+          <a
+            class="maipu-tour-place-card"
+            data-category="deporte"
+            href="https://www.google.com/maps/search/polideportivos+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="maipu-place-number">09</span>
+            <div>
+              <strong>Polideportivos</strong>
+              <small>Deporte, recreación, entrenamiento y actividades por distrito.</small>
+            </div>
+          </a>
+
+          <a
+            class="maipu-tour-place-card"
+            data-category="bienestar"
+            href="https://www.google.com/maps/search/gimnasios+gym+Maip%C3%BA+Mendoza"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="maipu-place-number">10</span>
+            <div>
+              <strong>Gimnasios y bienestar</strong>
+              <small>Actividad física, salud, movimiento y bienestar cercano.</small>
             </div>
           </a>
         </div>
@@ -9209,7 +9460,7 @@ body .header-actions .search-btn:focus-visible i {
           <ul class="footer-links">
             <li><a href="#contacto">Atención al vecino</a></li>
             <li><a href="#" onclick="openInfo('reclamos'); return false;">Consultas y reclamos</a></li>
-            <li><a href="#" onclick="openInfo('turnos'); return false;">Turnos Online</a></li>
+            <li><a href="#" onclick="openInfo('veterinaria'); return false;">Móvil Veterinario</a></li>
             <li><a href="#" onclick="openInfo('atencion'); return false;">Horarios</a></li>
             <li><a href="https://www.google.com/maps/search/?api=1&query=Maip%C3%BA%20Municipio%20Mendoza" target="_blank" rel="noopener noreferrer">Ubicación</a></li>
           </ul>
@@ -11449,6 +11700,103 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 
-    </script>
+    
+
+/* =========================================================
+   AJUSTE FINAL NATALIA - MÓVIL VETERINARIO Y LUGARES
+   ========================================================= */
+(function () {
+  function applyFinalNataliaFixes() {
+    try {
+      if (typeof modalData !== "undefined") {
+        const vetBody = `
+          <p>El Móvil Veterinario acerca operativos de atención, castración y cuidado responsable a distintos distritos de Maipú. Estas fechas quedan cargadas como cronograma editable para la maqueta.</p>
+
+          <div class="vet-schedule-grid">
+            <div class="vet-schedule-card">
+              <i class="bi bi-calendar-heart"></i>
+              <div><b>Martes 16 de junio · Luzuriaga</b><small>Polideportivo Juan D. Ribosqui · 9:00 a 13:00 hs.</small></div>
+            </div>
+            <div class="vet-schedule-card">
+              <i class="bi bi-calendar-heart"></i>
+              <div><b>Jueves 18 de junio · Gutiérrez</b><small>Delegación municipal · 9:00 a 13:00 hs.</small></div>
+            </div>
+            <div class="vet-schedule-card">
+              <i class="bi bi-calendar-heart"></i>
+              <div><b>Martes 23 de junio · Rodeo del Medio</b><small>Playón deportivo distrital · 9:00 a 13:00 hs.</small></div>
+            </div>
+            <div class="vet-schedule-card">
+              <i class="bi bi-calendar-heart"></i>
+              <div><b>Jueves 25 de junio · Coquimbito</b><small>Centro de atención municipal · 9:00 a 13:00 hs.</small></div>
+            </div>
+            <div class="vet-schedule-card">
+              <i class="bi bi-calendar-heart"></i>
+              <div><b>Martes 30 de junio · Russell</b><small>Plaza distrital · 9:00 a 13:00 hs.</small></div>
+            </div>
+            <div class="vet-schedule-card">
+              <i class="bi bi-calendar-heart"></i>
+              <div><b>Jueves 2 de julio · Maipú Centro</b><small>Parque Metropolitano · 9:00 a 13:00 hs.</small></div>
+            </div>
+          </div>
+
+          <div class="modal-grid">
+            <div class="modal-info"><b>Requisitos</b><small>DNI del responsable, mascota con collar/correa o transportadora y ayuno previo según indicación profesional.</small></div>
+            <div class="modal-info"><b>Atención</b><small>Los cupos son por orden de llegada y pueden modificarse por clima, demanda o reprogramación operativa.</small></div>
+          </div>
+
+          <div class="modal-actions">
+            <a class="btn btn-blue" href="https://www.google.com/maps/search/m%C3%B3vil+veterinario+Maip%C3%BA+Mendoza" target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt"></i> Ver puntos en mapa</a>
+            <a class="btn btn-green" href="https://wa.me/5492617166619" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i> Consultar por WhatsApp</a>
+          </div>
+        `;
+
+        const vetData = {
+          icon: "bi-heart-pulse",
+          title: "Móvil Veterinario",
+          subtitle: "Fechas, distritos y requisitos del operativo.",
+          body: vetBody,
+        };
+
+        modalData.veterinaria = vetData;
+        modalData.turnos = vetData;
+      }
+
+      if (typeof searchItems !== "undefined" && Array.isArray(searchItems)) {
+        for (let i = searchItems.length - 1; i >= 0; i--) {
+          if (searchItems[i].key === "turnos") searchItems.splice(i, 1);
+        }
+      }
+
+      document.querySelectorAll(".quick-card, .guide-item").forEach(function (btn) {
+        const txt = (btn.textContent || "").trim().toLowerCase();
+        if (txt === "turnos" || txt === "turnos online") {
+          btn.setAttribute("onclick", "openInfo('veterinaria')");
+          const span = btn.querySelector("span");
+          if (span) span.textContent = "Móvil Veterinario";
+          const icon = btn.querySelector("i");
+          if (icon) icon.className = "bi bi-heart-pulse";
+          btn.dataset.cat = btn.classList.contains("guide-item") ? "salud" : btn.dataset.cat;
+          if (btn.classList.contains("guide-item")) btn.dataset.search = "móvil veterinario veterinaria castración mascotas fechas distritos";
+        }
+      });
+
+      const select = document.getElementById("guideSelect");
+      if (select) {
+        Array.from(select.options).forEach(function (opt) {
+          if (opt.value === "turnos") {
+            opt.value = "veterinaria";
+            opt.textContent = "Móvil Veterinario";
+          }
+        });
+      }
+    } catch (error) {
+      console.warn("No se pudieron aplicar todos los ajustes finales de Natalia:", error);
+    }
+  }
+
+  applyFinalNataliaFixes();
+  document.addEventListener("DOMContentLoaded", applyFinalNataliaFixes);
+})();
+</script>
   </body>
 </html>

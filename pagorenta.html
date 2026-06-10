@@ -1,0 +1,1372 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rentas Online | Maipú Municipio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="assets/img/logo-maipu.png">
+  <link rel="apple-touch-icon" href="assets/img/logo-maipu.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root{
+      --azul:#0072bc;
+      --azul2:#0d8fd3;
+      --azul-osc:#082946;
+      --verde:#72c943;
+      --verde2:#a8df57;
+      --naranja:#f59b12;
+      --texto:#16243b;
+      --muted:#657487;
+      --borde:#dfe8f2;
+      --celeste:#eef8ff;
+      --fondo:#f5f8fc;
+      --shadow:0 18px 45px rgba(10,35,70,.11);
+      --shadow2:0 8px 22px rgba(10,35,70,.08);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Inter",system-ui,sans-serif;
+      color:var(--texto);
+      background:#fff;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    button,input{font-family:inherit}
+    .container{width:min(1180px,92%);margin:auto}
+
+    /* TOP HEADER COMO TRANSPARENCIA */
+    .top-strip{
+      background:linear-gradient(90deg,#0e8ece 0%,#32a9b6 42%,#74c943 100%);
+      color:#fff;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.25px;
+    }
+    .top-strip .container{
+      min-height:31px;
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      align-items:center;
+      text-align:center;
+      gap:10px;
+    }
+
+    .contact-bar{
+      background:#062743;
+      color:#fff;
+      font-size:13px;
+      font-weight:800;
+    }
+    .contact-bar .container{
+      min-height:48px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .contact-left,.contact-right{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      flex-wrap:wrap;
+    }
+    .contact-bar span,.contact-bar a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .socials{
+      display:flex;
+      align-items:center;
+      gap:9px;
+    }
+    .socials a{
+      width:32px;height:32px;
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      transition:.2s;
+    }
+    .socials a:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
+
+    .main-header{
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 8px 22px rgba(10,35,70,.08);
+    }
+    .nav{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      min-width:220px;
+    }
+    .brand-logo{
+      width:60px;height:48px;
+      border-radius:10px;
+      background:#fff;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+    .brand-logo img{
+      width:58px;height:44px;
+      object-fit:contain;
+    }
+    .brand-text strong{
+      display:block;
+      color:#173a5f;
+      font-size:16px;
+      font-weight:900;
+      line-height:1.05;
+    }
+    .brand-text small{
+      color:#50708f;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.5px;
+      text-transform:uppercase;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:25px;
+      margin-left:auto;
+    }
+    .nav-links a{
+      color:#233c5c;
+      font-size:14px;
+      font-weight:900;
+      padding:26px 0;
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    .nav-links a.active{color:var(--azul)}
+    .nav-links a.active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:18px;
+      height:4px;
+      border-radius:10px;
+      background:linear-gradient(90deg,var(--azul),var(--verde),var(--naranja));
+    }
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-shrink:0;
+    }
+    .head-btn{
+      min-height:42px;
+      border:1px solid #d7e4f1;
+      border-radius:11px;
+      padding:0 15px;
+      background:#fff;
+      color:var(--azul);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-size:14px;
+      font-weight:900;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .head-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow2)}
+    .head-btn.primary{
+      background:linear-gradient(135deg,var(--azul),var(--azul2));
+      color:#fff;
+      border:0;
+      box-shadow:0 10px 22px rgba(0,114,188,.2);
+    }
+    .hamb{
+      display:none;
+      width:42px;height:42px;
+      border:0;
+      border-radius:12px;
+      background:var(--azul);
+      color:#fff;
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      min-height:300px;
+      background:
+        radial-gradient(circle at 88% 12%,rgba(255,255,255,.20) 0 92px,transparent 94px),
+        radial-gradient(circle at 92% 82%,rgba(255,255,255,.14) 0 140px,transparent 142px),
+        linear-gradient(115deg,#006cae 0%,#0786c7 45%,#75c943 100%);
+      overflow:hidden;
+      isolation:isolate;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:auto -80px -230px auto;
+      width:520px;height:520px;
+      border-radius:50%;
+      background:rgba(255,255,255,.12);
+      z-index:-1;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:-90px;
+      bottom:-110px;
+      width:320px;height:320px;
+      border-radius:50%;
+      background:rgba(255,255,255,.06);
+      z-index:-1;
+    }
+    .hero .container{
+      min-height:300px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:28px;
+      align-items:center;
+      padding:32px 0 30px;
+    }
+    .hero-copy{color:#fff}
+    .back-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:30px;
+      padding:0 14px;
+      border:1px solid rgba(255,255,255,.38);
+      background:rgba(255,255,255,.12);
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      margin-bottom:13px;
+      backdrop-filter:blur(4px);
+      transition:.2s;
+    }
+    .back-pill:hover{background:rgba(255,255,255,.2)}
+    .hero h1{
+      font-size:clamp(42px,5.4vw,66px);
+      line-height:.92;
+      letter-spacing:-2px;
+      font-weight:900;
+      margin-bottom:14px;
+    }
+    .hero h1 span{
+      color:#c8ff59;
+      
+    }
+    .hero p{
+      max-width:650px;
+      color:#f2f9ff;
+      font-size:16px;
+      line-height:1.45;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      min-height:42px;
+      padding:0 16px;
+      border:0;
+      border-radius:10px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-size:14px;
+      font-weight:900;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn.white{background:#fff;color:var(--azul)}
+    .btn.green{background:linear-gradient(135deg,var(--verde),var(--verde2));color:#fff}
+    .btn.orange{background:linear-gradient(135deg,var(--naranja),#ffb427);color:#fff}
+    .btn.blue{background:linear-gradient(135deg,var(--azul),var(--azul2));color:#fff}
+
+    .quick-hero{
+      border:1px solid rgba(255,255,255,.28);
+      background:rgba(255,255,255,.16);
+      border-radius:20px;
+      padding:16px;
+      color:#fff;
+      box-shadow:0 18px 45px rgba(6,28,52,.18);
+      backdrop-filter:blur(9px);
+    }
+    .quick-hero h2{
+      font-size:22px;
+      font-weight:900;
+      letter-spacing:-.4px;
+      margin-bottom:12px;
+    }
+    .quick-hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:9px;
+    }
+    .quick-hero-item{
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.12);
+      border-radius:13px;
+      min-height:50px;
+      padding:10px;
+      display:flex;
+      align-items:center;
+      gap:11px;
+      cursor:pointer;
+      transition:.2s;
+      color:#fff;
+      text-align:left;
+    }
+    .quick-hero-item:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+    .quick-hero-item i{
+      width:32px;height:32px;
+      border-radius:9px;
+      background:rgba(255,255,255,.18);
+      display:grid;
+      place-items:center;
+      flex:0 0 32px;
+    }
+    .quick-hero-item span{font-size:12px;font-weight:900;line-height:1.15}
+
+    /* MAIN */
+    main{background:#fff}
+    section{padding:24px 0}
+    .search-card{
+      margin-top:-28px;
+      position:relative;
+      z-index:5;
+      background:#fff;
+      border:1px solid var(--borde);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:12px;
+      display:grid;
+      grid-template-columns:1fr 118px;
+      gap:10px;
+    }
+    .search-card input{
+      height:44px;
+      border:1px solid #d7e4f1;
+      border-radius:11px;
+      padding:0 14px;
+      outline:none;
+      font-size:14px;
+      font-weight:700;
+      color:#203953;
+    }
+    .search-card input:focus{
+      border-color:var(--azul);
+      box-shadow:0 0 0 4px rgba(0,114,188,.08);
+    }
+    .search-card button{
+      border:0;
+      border-radius:11px;
+      background:linear-gradient(135deg,var(--azul),var(--azul2));
+      color:#fff;
+      font-weight:900;
+      cursor:pointer;
+    }
+
+    .title-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:14px;
+      margin-bottom:16px;
+    }
+    .section-title{
+      color:#122b49;
+      font-size:28px;
+      line-height:1.05;
+      font-weight:900;
+      letter-spacing:-.8px;
+      padding-bottom:9px;
+      position:relative;
+    }
+    .section-title::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:76px;
+      height:5px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--azul),var(--verde),var(--naranja));
+    }
+    .section-lead{
+      margin-top:8px;
+      max-width:780px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+      font-weight:600;
+    }
+
+    .cards-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .renta-card{
+      position:relative;
+      overflow:hidden;
+      min-height:210px;
+      border:1px solid var(--borde);
+      background:#fff;
+      border-radius:20px;
+      padding:18px;
+      box-shadow:var(--shadow2);
+      cursor:pointer;
+      transition:.22s;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      isolation:isolate;
+    }
+    .renta-card::before{
+      content:"";
+      position:absolute;
+      right:-42px;
+      top:-42px;
+      width:142px;
+      height:142px;
+      border-radius:50%;
+      background:var(--accent-soft);
+      z-index:-1;
+    }
+    .renta-card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow);
+      border-color:rgba(0,114,188,.28);
+    }
+    .card-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .card-icon{
+      width:58px;height:58px;
+      border-radius:17px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:var(--accent);
+      font-size:27px;
+      box-shadow:0 12px 24px var(--accent-shadow);
+      flex:0 0 auto;
+    }
+    .card-badge{
+      font-size:10px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.35px;
+      color:#50708f;
+      background:#f3f8fc;
+      border:1px solid #dfe8f2;
+      border-radius:999px;
+      padding:6px 9px;
+      white-space:nowrap;
+    }
+    .renta-card h3{
+      margin-top:18px;
+      color:#143656;
+      font-size:22px;
+      line-height:1.08;
+      letter-spacing:-.45px;
+      font-weight:900;
+    }
+    .renta-card p{
+      margin-top:8px;
+      color:#657487;
+      line-height:1.45;
+      font-size:13.5px;
+      font-weight:600;
+    }
+    .card-footer{
+      margin-top:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      color:var(--azul);
+      font-size:13px;
+      font-weight:900;
+    }
+    .card-footer i{
+      width:34px;height:34px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#eef8ff;
+    }
+
+    .banner{
+      margin:8px 0 22px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:16px;
+      align-items:center;
+      min-height:230px;
+      border-radius:24px;
+      overflow:hidden;
+      position:relative;
+      background:
+        radial-gradient(circle at 86% 18%,rgba(255,255,255,.22) 0 78px,transparent 80px),
+        radial-gradient(circle at 98% 88%,rgba(255,255,255,.16) 0 110px,transparent 112px),
+        linear-gradient(115deg,#062743 0%,#0072bc 52%,#f59b12 100%);
+      box-shadow:var(--shadow);
+      padding:28px;
+      color:#fff;
+      isolation:isolate;
+    }
+    .banner::before{
+      content:"";
+      position:absolute;
+      right:34%;
+      top:-40%;
+      width:250px;
+      height:250px;
+      border-radius:50%;
+      background:rgba(255,255,255,.08);
+      z-index:-1;
+    }
+    .banner-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:34px;
+      padding:0 13px;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+    .banner h2{
+      font-size:clamp(29px,4vw,44px);
+      line-height:.98;
+      font-weight:900;
+      letter-spacing:-1.2px;
+      margin-bottom:10px;
+    }
+    .banner p{
+      max-width:650px;
+      color:#eef8ff;
+      font-size:15px;
+      line-height:1.5;
+      font-weight:700;
+      margin-bottom:14px;
+    }
+    .banner-visual{
+      justify-self:end;
+      display:grid;
+      place-items:center;
+      width:min(310px,100%);
+      aspect-ratio:1/1;
+      border-radius:50%;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .banner-visual i{
+      font-size:104px;
+      color:#fff;
+      opacity:.95;
+    }
+
+    /* MODAL */
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:4000;
+      background:rgba(6,19,36,.68);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .modal.show{display:flex}
+    .modal-box{
+      width:min(720px,96%);
+      max-height:90vh;
+      overflow:auto;
+      background:#fff;
+      border-radius:22px;
+      box-shadow:0 30px 90px rgba(0,0,0,.35);
+    }
+    .modal-head{
+      background:linear-gradient(135deg,var(--azul),var(--azul-osc));
+      color:#fff;
+      padding:20px;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .modal-title{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .modal-title i{
+      width:50px;height:50px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.16);
+      font-size:25px;
+      flex:0 0 auto;
+    }
+    .modal-head h2{
+      font-size:24px;
+      line-height:1.1;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+    .modal-head p{
+      color:#dceeff;
+      line-height:1.4;
+      font-size:14px;
+      font-weight:600;
+    }
+    .modal-close{
+      border:0;
+      width:40px;height:40px;
+      border-radius:50%;
+      background:#fff;
+      color:var(--azul);
+      font-size:22px;
+      cursor:pointer;
+      flex:0 0 auto;
+    }
+    .modal-body{padding:20px}
+    .modal-body p{
+      color:#4f5c71;
+      line-height:1.6;
+      margin-bottom:14px;
+      font-weight:600;
+    }
+    .info-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin:16px 0;
+    }
+    .info-box{
+      border:1px solid var(--borde);
+      background:#fbfdff;
+      border-radius:15px;
+      padding:14px;
+    }
+    .info-box b{
+      color:#143656;
+      display:block;
+      margin-bottom:5px;
+    }
+    .info-box small{
+      color:#657487;
+      display:block;
+      line-height:1.45;
+      font-size:12.5px;
+    }
+    .modal-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:15px;
+    }
+    .note{
+      margin-top:12px;
+      padding:13px;
+      border-radius:14px;
+      background:#fff4e5;
+      border:1px solid #ffd89d;
+      color:#7a4a00;
+      line-height:1.45;
+      font-weight:700;
+      font-size:13px;
+    }
+
+    /* SEARCH OVERLAY */
+    .search-panel{
+      position:fixed;
+      inset:0;
+      background:rgba(6,19,36,.72);
+      display:none;
+      align-items:flex-start;
+      justify-content:center;
+      padding:95px 18px 18px;
+      z-index:5000;
+    }
+    .search-panel.show{display:flex}
+    .search-box{
+      width:min(850px,100%);
+      background:#fff;
+      border-radius:22px;
+      box-shadow:0 30px 90px rgba(0,0,0,.35);
+      overflow:hidden;
+    }
+    .search-head{
+      padding:16px;
+      display:flex;
+      gap:10px;
+      border-bottom:1px solid var(--borde);
+    }
+    .search-head input{
+      flex:1;
+      height:48px;
+      border:1px solid #d7e4f1;
+      border-radius:12px;
+      padding:0 14px;
+      outline:0;
+      font-weight:700;
+    }
+    .close-search{
+      width:48px;height:48px;
+      border:0;
+      border-radius:50%;
+      background:var(--azul);
+      color:#fff;
+      font-size:22px;
+      cursor:pointer;
+    }
+    .search-results{
+      padding:16px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      max-height:430px;
+      overflow:auto;
+    }
+    .search-result{
+      border:1px solid var(--borde);
+      background:#fff;
+      border-radius:14px;
+      padding:12px;
+      text-align:left;
+      cursor:pointer;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .search-result:hover{background:var(--celeste)}
+    .search-result i{
+      width:34px;height:34px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--azul),var(--azul2));
+      color:#fff;
+      flex:0 0 auto;
+    }
+    .search-result b{
+      display:block;
+      color:#143656;
+      font-size:13px;
+      margin-bottom:3px;
+    }
+    .search-result small{
+      color:#657487;
+      font-size:11.5px;
+      line-height:1.35;
+    }
+
+    /* FLOAT */
+    .float-toro,.float-wp{
+      position:fixed;
+      right:18px;
+      z-index:2000;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      box-shadow:0 16px 28px rgba(0,0,0,.2);
+    }
+    .float-toro{
+      bottom:92px;
+      width:58px;height:58px;
+      background:#fff;
+      border:4px solid #e8f4ff;
+    }
+    .float-toro::before{
+      content:"¿En qué podemos ayudarte?";
+      position:absolute;
+      right:54px;
+      top:9px;
+      width:max-content;
+      background:#fff;
+      border:1px solid #e3edf7;
+      border-radius:999px;
+      padding:8px 12px;
+      color:#07182d;
+      font-size:11px;
+      font-weight:900;
+      box-shadow:var(--shadow2);
+    }
+    .float-toro img{
+      width:48px;height:48px;
+      border-radius:50%;
+      object-fit:cover;
+    }
+    .float-wp{
+      bottom:20px;
+      width:58px;height:58px;
+      background:#25d366;
+      color:#fff;
+      font-size:31px;
+    }
+
+    footer{
+      background:#081d37;
+      color:#d2dbe8;
+      padding:16px 0;
+      font-size:12px;
+      font-weight:700;
+    }
+    footer .container{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .hidden{display:none!important}
+
+    @media (max-width:980px){
+      .nav-links{
+        position:fixed;
+        top:153px;
+        left:0;right:0;
+        background:#fff;
+        box-shadow:var(--shadow);
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        padding:12px 20px;
+        transform:translateY(-150%);
+        transition:.25s;
+      }
+      .nav-links.open{transform:translateY(0)}
+      .nav-links a{padding:12px 0}
+      .nav-links a.active::after{display:none}
+      .hamb{display:grid;place-items:center}
+      .head-btn.search-text span{display:none}
+      .hero .container{grid-template-columns:1fr}
+      .quick-hero{max-width:100%}
+      .cards-grid{grid-template-columns:repeat(2,1fr)}
+      .banner{grid-template-columns:1fr}
+      .banner-visual{display:none}
+      .search-results{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width:680px){
+      .container{width:min(94%,520px)}
+      .top-strip{display:none}
+      .contact-bar{display:none}
+      .nav{min-height:64px}
+      .brand{min-width:0;gap:8px}
+      .brand-logo{width:50px;height:42px}
+      .brand-logo img{width:48px;height:38px}
+      .brand-text strong{font-size:12px}
+      .brand-text small{display:none}
+      .nav-links{top:64px}
+      .head-btn.primary span,.head-btn.search-text span{display:none}
+      .head-btn{
+        width:40px;height:40px;
+        min-height:40px;
+        padding:0;
+        border-radius:12px;
+      }
+      .hamb{width:40px;height:40px}
+      .hero,.hero .container{min-height:auto}
+      .hero .container{padding:26px 0 34px}
+      .hero h1{font-size:39px;letter-spacing:-1.4px}
+      .hero p{font-size:14px}
+      .hero-actions .btn{width:100%}
+      .quick-hero-grid{grid-template-columns:1fr}
+      .search-card{grid-template-columns:1fr;margin-top:-20px}
+      .search-card button{height:43px}
+      section{padding:22px 0}
+      .title-row{display:block}
+      .section-title{font-size:24px}
+      .cards-grid{grid-template-columns:1fr}
+      .renta-card{min-height:180px}
+      .banner{padding:20px;border-radius:20px;margin-bottom:18px}
+      .banner h2{font-size:29px}
+      .info-grid{grid-template-columns:1fr}
+      .modal{align-items:flex-start;padding-top:82px}
+      .modal-box{max-height:82vh}
+      .modal-head{padding:16px}
+      .modal-title i{width:46px;height:46px}
+      .modal-head h2{font-size:20px}
+      .search-results{grid-template-columns:1fr}
+      .float-toro{width:52px;height:52px;bottom:82px;right:14px}
+      .float-toro::before{display:none}
+      .float-wp{width:52px;height:52px;right:14px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-strip">
+    <div class="container">
+      <span>Trámites simples</span>
+      <span>Atención al vecino</span>
+      <span>Servicios municipales</span>
+      <span>Maipú crece con vos</span>
+      <span>Rentas Online</span>
+    </div>
+  </div>
+
+  <div class="contact-bar">
+    <div class="container">
+      <div class="contact-left">
+        <span><i class="bi bi-geo-alt"></i> Pablo Pescara 190, Maipú, Mendoza</span>
+        <span><i class="bi bi-clock"></i> Lun-Vie 8:00 a 18:00 hs.</span>
+        <span><i class="bi bi-telephone"></i> 0800 222 8030 Atención al Vecino</span>
+      </div>
+      <div class="contact-right">
+        <a href="https://wa.me/542617166619" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp 261716-6619</a>
+        <div class="socials" aria-label="Redes sociales">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="Correo"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <div class="container nav">
+      <a class="brand" href="hola.html" aria-label="Volver al inicio">
+        <span class="brand-logo">
+          <img src="assets/img/logo-maipu.png" alt="Maipú Municipio" onerror="this.style.display='none';this.parentElement.innerHTML='<b style=&quot;color:#0072bc;font-size:12px;line-height:1;text-align:center&quot;>MAIPÚ<br>CRECE</b>'">
+        </span>
+        <span class="brand-text">
+          <strong>Maipú Municipio</strong>
+          <small>Gestión y servicios</small>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="hola.html">Inicio</a>
+        <a href="hola.html#tramites">Guía de Trámites <i class="bi bi-chevron-down"></i></a>
+        <a href="hola.html#noticias">Noticias</a>
+        <a href="hola.html#servicios">Servicios <i class="bi bi-chevron-down"></i></a>
+        <a href="#" class="active">Rentas Online</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="head-btn search-text" id="openSearch"><i class="bi bi-search"></i><span>Buscar</span></button>
+        <a class="head-btn primary" href="hola.html"><i class="bi bi-arrow-left-circle"></i><span>Volver al sitio</span></a>
+        <button class="hamb" id="hamb" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-copy">
+        <a class="back-pill" href="hola.html"><i class="bi bi-arrow-left-circle"></i> Volver al sitio principal</a>
+        <h1>Rentas <span>Online</span></h1>
+        <p>Acceso moderno a los trámites tributarios municipales: tasas de inmuebles, comercio, cementerio, tránsito, licencias y recaudación.</p>
+        <div class="hero-actions">
+          <a class="btn white" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right"></i> Abrir sistema oficial</a>
+          <button class="btn green" data-open="inmueble"><i class="bi bi-house-door"></i> Consultar deuda</button>
+          <button class="btn orange" data-open="transito"><i class="bi bi-car-front"></i> Multas y tránsito</button>
+        </div>
+      </div>
+
+      <div class="quick-hero">
+        <h2>Accesos rápidos</h2>
+        <div class="quick-hero-grid" id="quickHeroGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <form class="search-card" id="inlineSearch">
+        <input id="filterInput" type="search" placeholder="Buscar: inmueble, comercio, cementerio, tránsito, licencias, recaudador..." autocomplete="off">
+        <button type="submit"><i class="bi bi-search"></i> Buscar</button>
+      </form>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="title-row">
+          <div>
+            <h2 class="section-title">Secciones de Rentas</h2>
+            <p class="section-lead">Elegí la categoría que necesitás consultar. Cada acceso abre una guía rápida y también te permite ingresar al sistema oficial de Rentas Online.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid"></div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© Maipú Municipio · Rentas Online</span>
+      <span>Acceso de referencia vinculado al sistema oficial</span>
+    </div>
+  </footer>
+
+  <a class="float-toro" href="#" id="helpBot" aria-label="Asistente virtual">
+    <img src="toro_maipu_transparente_real.png" alt="Toro Maipú" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=&quot;bi bi-chat-dots&quot; style=&quot;color:#0072bc;font-size:24px&quot;></i>'">
+  </a>
+  <a class="float-wp" href="https://wa.me/542617166619" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <div class="modal-title">
+          <i id="modalIcon" class="bi bi-house-door"></i>
+          <div>
+            <h2 id="modalTitle">Título</h2>
+            <p id="modalLead">Descripción</p>
+          </div>
+        </div>
+        <button class="modal-close" id="closeModal" aria-label="Cerrar"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <p id="modalText"></p>
+        <div class="info-grid" id="modalGrid"></div>
+        <div class="note" id="modalNote"></div>
+        <div class="modal-actions">
+          <a class="btn blue" id="officialLink" href="https://vps.infogov.com.ar/rentas/maipu/#/public/home" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right"></i> Ir al sistema oficial</a>
+          <a class="btn white" href="hola.html"><i class="bi bi-arrow-left-circle"></i> Volver al sitio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-panel" id="searchPanel">
+    <div class="search-box">
+      <div class="search-head">
+        <input id="globalSearchInput" type="search" placeholder="¿Qué trámite de Rentas necesitás buscar?">
+        <button class="close-search" id="closeSearch" aria-label="Cerrar buscador"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <script>
+    const OFFICIAL_URL = "https://vps.infogov.com.ar/rentas/maipu/#/public/home";
+
+    const rentas = [
+      {
+        id:"inmueble",
+        title:"Inmueble",
+        badge:"Tasas",
+        icon:"bi-house-door",
+        accent:"linear-gradient(135deg,#0072bc,#0d8fd3)",
+        soft:"rgba(0,114,188,.11)",
+        shadow:"rgba(0,114,188,.24)",
+        text:"Consultá deuda, tasas municipales, boletas y opciones de pago vinculadas a inmuebles del departamento.",
+        lead:"Tasas y boletas de inmuebles municipales.",
+        details:[
+          ["Qué podés hacer","Consultar deuda, descargar boletas y acceder a opciones de regularización."],
+          ["Datos útiles","Tené a mano el padrón, nomenclatura, domicilio o datos del titular."],
+          ["Plan de pago","Desde el sistema oficial podés revisar montos y alternativas vigentes."],
+          ["Atención","También podés comunicarte con Atención al Vecino para orientación."]
+        ],
+        note:"El cálculo final y la emisión de comprobantes se realizan dentro del sistema oficial de Rentas Online."
+      },
+      {
+        id:"comercio",
+        title:"Comercio",
+        badge:"Actividad",
+        icon:"bi-shop",
+        accent:"linear-gradient(135deg,#72c943,#a8df57)",
+        soft:"rgba(114,201,67,.13)",
+        shadow:"rgba(114,201,67,.25)",
+        text:"Acceso para trámites vinculados a comercios, tasas de actividad comercial, habilitaciones y consultas relacionadas.",
+        lead:"Consultas y tasas vinculadas a comercios.",
+        details:[
+          ["Qué podés hacer","Consultar conceptos asociados a actividad comercial y obligaciones municipales."],
+          ["Recomendación","Ingresá con los datos del comercio o del titular para encontrar la información más rápido."],
+          ["Pagos","El sistema oficial permite visualizar deuda y medios de pago habilitados."],
+          ["Soporte","Ante dudas, acercate a Rentas o usá Atención al Vecino."]
+        ],
+        note:"La información operativa puede variar según el rubro, estado de habilitación y normativa vigente."
+      },
+      {
+        id:"cementerio",
+        title:"Cementerio",
+        badge:"Servicios",
+        icon:"bi-building",
+        accent:"linear-gradient(135deg,#082946,#1c4b76)",
+        soft:"rgba(8,41,70,.12)",
+        shadow:"rgba(8,41,70,.24)",
+        text:"Consultas vinculadas a tasas, servicios y obligaciones relacionadas con cementerio municipal.",
+        lead:"Servicios y tasas de cementerio.",
+        details:[
+          ["Qué podés hacer","Revisar conceptos asociados y consultar deuda de servicios municipales."],
+          ["Datos útiles","Tené a mano los datos de referencia del servicio o titular asociado."],
+          ["Gestión","El portal oficial centraliza las consultas y derivaciones de pago."],
+          ["Importante","Para trámites sensibles, confirmá requisitos con el área correspondiente."]
+        ],
+        note:"Este acceso funciona como guía visual; la operación se completa en Rentas Online oficial."
+      },
+      {
+        id:"transito",
+        title:"Tránsito",
+        badge:"Multas",
+        icon:"bi-car-front",
+        accent:"linear-gradient(135deg,#f59b12,#ffb427)",
+        soft:"rgba(245,155,18,.14)",
+        shadow:"rgba(245,155,18,.24)",
+        text:"Consulta de conceptos asociados a tránsito, actas, multas y pagos disponibles desde el sistema.",
+        lead:"Multas, actas y deuda de tránsito.",
+        details:[
+          ["Qué podés hacer","Consultar si registrás deuda o conceptos vinculados a tránsito."],
+          ["Datos útiles","DNI, patente o número de acta pueden ayudarte a ubicar la información."],
+          ["Pago","Desde Rentas Online se muestran las opciones disponibles según el caso."],
+          ["Libre deuda","Verificá requisitos si necesitás realizar trámites de licencia o transferencia."]
+        ],
+        note:"Las actas y estados pueden depender de carga administrativa y actualización del sistema."
+      },
+      {
+        id:"licencias",
+        title:"Licencias",
+        badge:"Conducir",
+        icon:"bi-person-vcard",
+        accent:"linear-gradient(135deg,#00a6d6,#0072bc)",
+        soft:"rgba(0,166,214,.12)",
+        shadow:"rgba(0,166,214,.24)",
+        text:"Acceso relacionado con trámites de licencias de conducir y verificación de conceptos pendientes.",
+        lead:"Consultas vinculadas a licencias de conducir.",
+        details:[
+          ["Qué podés hacer","Revisar conceptos o pagos asociados antes de avanzar con el trámite."],
+          ["Antes del turno","Verificá multas de tránsito y requisitos generales."],
+          ["Documentación","DNI y licencia anterior pueden ser necesarios según el trámite."],
+          ["Derivación","Para turnos o requisitos completos, consultá la sección de Licencias del sitio municipal."]
+        ],
+        note:"Para iniciar, renovar o ampliar licencia, revisá siempre los requisitos vigentes del área."
+      },
+      {
+        id:"recaudador",
+        title:"Recaudador",
+        badge:"Gestión",
+        icon:"bi-cash-coin",
+        accent:"linear-gradient(135deg,#11b79d,#72c943)",
+        soft:"rgba(17,183,157,.13)",
+        shadow:"rgba(17,183,157,.24)",
+        text:"Acceso de gestión para recaudación, consultas administrativas y operaciones autorizadas.",
+        lead:"Herramientas de recaudación y gestión.",
+        details:[
+          ["Qué podés hacer","Ingresar al módulo correspondiente del sistema según permisos disponibles."],
+          ["Uso","Orientado a operaciones o consultas administrativas específicas."],
+          ["Seguridad","El acceso puede requerir usuario, permisos o validaciones internas."],
+          ["Consulta","Ante inconvenientes, comunicarse con el área correspondiente."]
+        ],
+        note:"Algunas funciones pueden no estar disponibles para usuarios públicos y requerir autorización."
+      }
+    ];
+
+    const cardsGrid = document.getElementById("cardsGrid");
+    const quickHeroGrid = document.getElementById("quickHeroGrid");
+
+    function cardTemplate(item){
+      return `
+        <article class="renta-card" data-open="${item.id}" style="--accent:${item.accent};--accent-soft:${item.soft};--accent-shadow:${item.shadow}">
+          <div>
+            <div class="card-top">
+              <span class="card-icon"><i class="bi ${item.icon}"></i></span>
+              <span class="card-badge">${item.badge}</span>
+            </div>
+            <h3>${item.title}</h3>
+            <p>${item.text}</p>
+          </div>
+          <div class="card-footer">
+            <span>Consultar</span>
+            <i class="bi bi-arrow-right"></i>
+          </div>
+        </article>
+      `;
+    }
+
+    function quickTemplate(item){
+      return `
+        <button class="quick-hero-item" data-open="${item.id}">
+          <i class="bi ${item.icon}"></i>
+          <span>${item.title}</span>
+        </button>
+      `;
+    }
+
+    function renderCards(list = rentas){
+      cardsGrid.innerHTML = list.map(cardTemplate).join("");
+      bindOpeners();
+    }
+
+    function renderQuick(){
+      quickHeroGrid.innerHTML = rentas.map(quickTemplate).join("");
+      bindOpeners();
+    }
+
+    const modal = document.getElementById("modal");
+    const modalIcon = document.getElementById("modalIcon");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalLead = document.getElementById("modalLead");
+    const modalText = document.getElementById("modalText");
+    const modalGrid = document.getElementById("modalGrid");
+    const modalNote = document.getElementById("modalNote");
+
+    function openModal(id){
+      const item = rentas.find(r => r.id === id);
+      if(!item) return;
+      modalIcon.className = `bi ${item.icon}`;
+      modalTitle.textContent = item.title;
+      modalLead.textContent = item.lead;
+      modalText.textContent = item.text;
+      modalGrid.innerHTML = item.details.map(([title, text]) => `
+        <div class="info-box">
+          <b>${title}</b>
+          <small>${text}</small>
+        </div>
+      `).join("");
+      modalNote.textContent = item.note;
+      modal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(){
+      modal.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    function bindOpeners(){
+      document.querySelectorAll("[data-open]").forEach(btn => {
+        btn.onclick = () => openModal(btn.dataset.open);
+      });
+    }
+
+    document.getElementById("closeModal").addEventListener("click", closeModal);
+    modal.addEventListener("click", e => {
+      if(e.target === modal) closeModal();
+    });
+
+    const filterInput = document.getElementById("filterInput");
+    document.getElementById("inlineSearch").addEventListener("submit", e => {
+      e.preventDefault();
+      const q = filterInput.value.trim().toLowerCase();
+      const found = rentas.find(item =>
+        item.title.toLowerCase().includes(q) ||
+        item.text.toLowerCase().includes(q) ||
+        item.badge.toLowerCase().includes(q)
+      );
+      if(found) openModal(found.id);
+    });
+
+    filterInput.addEventListener("input", () => {
+      const q = filterInput.value.trim().toLowerCase();
+      const filtered = rentas.filter(item =>
+        item.title.toLowerCase().includes(q) ||
+        item.text.toLowerCase().includes(q) ||
+        item.badge.toLowerCase().includes(q)
+      );
+      renderCards(filtered.length || !q ? filtered || rentas : []);
+      if(!q) renderCards(rentas);
+      if(q && filtered.length === 0){
+        cardsGrid.innerHTML = `<div class="renta-card" style="grid-column:1/-1;min-height:120px;--accent:linear-gradient(135deg,#0072bc,#0d8fd3);--accent-soft:rgba(0,114,188,.10);--accent-shadow:rgba(0,114,188,.20)">
+          <h3>No encontramos resultados</h3>
+          <p>Probá buscar por inmueble, comercio, tránsito, licencias, cementerio o recaudador.</p>
+        </div>`;
+      }
+    });
+
+    const searchPanel = document.getElementById("searchPanel");
+    const globalSearchInput = document.getElementById("globalSearchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    function renderSearchResults(q = ""){
+      const query = q.trim().toLowerCase();
+      const list = rentas.filter(item => 
+        !query ||
+        item.title.toLowerCase().includes(query) ||
+        item.text.toLowerCase().includes(query) ||
+        item.badge.toLowerCase().includes(query)
+      );
+      searchResults.innerHTML = list.map(item => `
+        <button class="search-result" data-search-open="${item.id}">
+          <i class="bi ${item.icon}"></i>
+          <span>
+            <b>${item.title}</b>
+            <small>${item.text}</small>
+          </span>
+        </button>
+      `).join("");
+      document.querySelectorAll("[data-search-open]").forEach(btn => {
+        btn.onclick = () => {
+          searchPanel.classList.remove("show");
+          openModal(btn.dataset.searchOpen);
+        };
+      });
+    }
+
+    document.getElementById("openSearch").addEventListener("click", () => {
+      searchPanel.classList.add("show");
+      renderSearchResults();
+      setTimeout(() => globalSearchInput.focus(), 50);
+    });
+    document.getElementById("closeSearch").addEventListener("click", () => searchPanel.classList.remove("show"));
+    searchPanel.addEventListener("click", e => {
+      if(e.target === searchPanel) searchPanel.classList.remove("show");
+    });
+    globalSearchInput.addEventListener("input", () => renderSearchResults(globalSearchInput.value));
+
+    document.getElementById("hamb").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("open");
+    });
+
+    document.getElementById("helpBot").addEventListener("click", e => {
+      e.preventDefault();
+      alert("Hola, soy el asistente de Maipú. Podés buscar Inmueble, Comercio, Cementerio, Tránsito, Licencias o Recaudador.");
+    });
+
+    document.addEventListener("keydown", e => {
+      if(e.key === "Escape"){
+        closeModal();
+        searchPanel.classList.remove("show");
+      }
+    });
+
+    renderQuick();
+    renderCards();
+  </script>
+</body>
+</html>
