@@ -1,0 +1,2297 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transparencia | Maipú Municipio</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="icon" type="image/png" href="assets/img/logo-maipu.png" />
+  <link rel="apple-touch-icon" href="assets/img/logo-maipu.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --azul: #0072bc;
+      --azul2: #0d8fd3;
+      --azulOsc: #082946;
+      --verde: #72c943;
+      --verde2: #a8df57;
+      --naranja: #f59b12;
+      --celeste: #eef8ff;
+      --gris: #f5f8fc;
+      --borde: #dfe8f2;
+      --texto: #16243b;
+      --muted: #657487;
+      --shadow: 0 14px 34px rgba(10, 35, 70, 0.10);
+      --shadow2: 0 8px 20px rgba(10, 35, 70, 0.075);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--texto);
+      background: #ffffff;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* BARRAS SUPERIORES */
+    .top-strip {
+      background: linear-gradient(90deg, #128fd0, #68bf42);
+      color: white;
+      font-size: 10.5px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.35px;
+      overflow: hidden;
+    }
+
+    .top-strip .container {
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      white-space: nowrap;
+    }
+
+    .topbar {
+      background: #062743;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .topbar .container {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .top-info,
+    .top-social {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .topbar span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .top-social a {
+      width: 29px;
+      height: 29px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      transition: 0.2s ease;
+    }
+
+    .top-social a:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* HEADER BLANCO */
+    .header {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 6px 22px rgba(12, 35, 70, 0.08);
+      border-bottom: 1px solid rgba(223, 232, 242, 0.95);
+    }
+
+    .nav {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: 64px;
+      height: auto;
+    }
+
+    .brand strong {
+      display: block;
+      color: #173a5f;
+      font-size: 15px;
+      line-height: 1.05;
+      font-weight: 900;
+    }
+
+    .brand small {
+      display: block;
+      color: #50708f;
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: #243a59;
+      margin-left: auto;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font-weight: 800;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 22px 0;
+      position: relative;
+      line-height: 1;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--azul);
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 11px;
+      width: 100%;
+      height: 4px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--azul), var(--verde), var(--naranja));
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      width: 410px;
+      background: white;
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.18s ease;
+      z-index: 1002;
+    }
+
+    .nav-item:hover .dropdown,
+    .nav-item.open .dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .drop-btn {
+      border: 1px solid var(--borde);
+      background: #fff;
+      border-radius: 13px;
+      padding: 12px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      transition: 0.2s ease;
+    }
+
+    .drop-btn:hover {
+      background: var(--celeste);
+      transform: translateY(-2px);
+    }
+
+    .drop-btn i {
+      width: 33px;
+      height: 33px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: white;
+      flex: 0 0 33px;
+      background: linear-gradient(135deg, var(--azul), var(--azul2));
+    }
+
+    .drop-btn b {
+      display: block;
+      color: #173350;
+      font-size: 13px;
+      margin-bottom: 3px;
+      font-weight: 900;
+    }
+
+    .drop-btn small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-shrink: 0;
+    }
+
+    .search-btn,
+    .back-site-btn {
+      height: 39px;
+      border-radius: 10px;
+      padding: 0 14px;
+      border: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .search-btn {
+      background: white;
+      color: var(--azul);
+      border: 1px solid #cfe0ef;
+    }
+
+    .back-site-btn {
+      background: linear-gradient(135deg, var(--azul), var(--azul2));
+      color: white;
+      box-shadow: 0 10px 20px rgba(0, 114, 188, 0.18);
+    }
+
+    .hamb {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--azul);
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* BUSCADOR GLOBAL */
+    .search-panel {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 20, 38, 0.62);
+      z-index: 3500;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 88px 20px 20px;
+    }
+
+    .search-panel.show {
+      display: flex;
+    }
+
+    .search-box {
+      width: min(900px, 100%);
+      background: white;
+      border-radius: 22px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+      overflow: hidden;
+    }
+
+    .search-head {
+      padding: 18px;
+      border-bottom: 1px solid var(--borde);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .search-head input {
+      flex: 1;
+      height: 48px;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 0 15px;
+      outline: none;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .close-search {
+      width: 45px;
+      height: 45px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--azul);
+      color: white;
+      cursor: pointer;
+      font-size: 21px;
+      display: grid;
+      place-items: center;
+    }
+
+    .search-results {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-height: 420px;
+      overflow: auto;
+    }
+
+    .search-result {
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      background: #fff;
+      padding: 13px;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    .search-result:hover {
+      background: var(--celeste);
+    }
+
+    .search-result i {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      color: white;
+      background: linear-gradient(135deg, var(--azul), var(--azul2));
+      display: grid;
+      place-items: center;
+      flex: 0 0 34px;
+    }
+
+    .search-result b {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 3px;
+      color: #173350;
+    }
+
+    .search-result small {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.3;
+      display: block;
+    }
+
+    /* PORTADA SIN FOTO */
+    .trans-hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 87% 5%, rgba(255, 255, 255, 0.24) 0 110px, transparent 112px),
+        radial-gradient(circle at 96% 92%, rgba(114, 201, 67, 0.42) 0 230px, transparent 232px),
+        linear-gradient(135deg, #074b78 0%, #0072bc 52%, #72c943 100%);
+      color: white;
+      padding: 58px 0 44px;
+    }
+
+    .trans-hero::before {
+      content: "";
+      position: absolute;
+      right: -110px;
+      bottom: -160px;
+      width: 430px;
+      height: 430px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.10);
+      pointer-events: none;
+    }
+
+    .trans-hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 46px;
+      align-items: start;
+    }
+
+    .trans-crumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      background: rgba(255, 255, 255, 0.13);
+      color: white;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.35px;
+      margin-bottom: 17px;
+    }
+
+    .trans-hero h1 {
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 0.92;
+      letter-spacing: -2.8px;
+      font-weight: 900;
+      max-width: 640px;
+      margin-bottom: 18px;
+    }
+
+    .trans-hero h1 span {
+      display: block;
+      color: #c7f36b;
+    }
+
+    .trans-hero p {
+      max-width: 650px;
+      color: #f3f8ff;
+      font-size: 17px;
+      line-height: 1.52;
+      font-weight: 750;
+      margin-bottom: 22px;
+    }
+
+    .trans-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 11px;
+      min-height: 43px;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.2s ease;
+      line-height: 1.1;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-green {
+      background: linear-gradient(135deg, var(--verde), var(--verde2));
+      color: white;
+    }
+
+    .btn-blue {
+      background: linear-gradient(135deg, var(--azul), var(--azul2));
+      color: white;
+    }
+
+    .btn-orange {
+      background: linear-gradient(135deg, var(--naranja), #ffb427);
+      color: white;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--azul);
+    }
+
+    .quick-panel {
+      margin-top: 22px;
+      align-self: end;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.30);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 24px 60px rgba(7, 30, 58, 0.22);
+      backdrop-filter: blur(5px);
+    }
+
+    .quick-panel h2 {
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .quick-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .quick-list a {
+      min-height: 54px;
+      border-radius: 14px;
+      padding: 10px 13px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      transition: 0.2s ease;
+    }
+
+    .quick-list a:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateX(3px);
+    }
+
+    .quick-list i {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.18);
+      flex: 0 0 32px;
+    }
+
+    /* BUSCADOR INTERNO */
+    .trans-search-section {
+      padding: 24px 0 10px;
+    }
+
+    .trans-search-wrap {
+      display: grid;
+      grid-template-columns: 1fr 108px;
+      gap: 10px;
+      background: white;
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: var(--shadow2);
+    }
+
+    .trans-search-wrap input {
+      height: 44px;
+      border: 1px solid #d7e4f1;
+      border-radius: 12px;
+      padding: 0 15px;
+      outline: none;
+      font-size: 14px;
+      font-weight: 750;
+      color: var(--texto);
+    }
+
+    .trans-search-wrap input:focus {
+      border-color: var(--azul);
+      box-shadow: 0 0 0 4px rgba(0, 114, 188, 0.08);
+    }
+
+    .trans-search-wrap button {
+      border: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--azul), var(--azul2));
+      color: white;
+      font-weight: 900;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    /* CONTENIDO */
+    .content-layout {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 14px 0 28px;
+    }
+
+    .side-card {
+      position: sticky;
+      top: 88px;
+      background: #ffffff;
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      box-shadow: var(--shadow2);
+      padding: 16px;
+    }
+
+    .side-card h3 {
+      font-size: 16px;
+      color: #173350;
+      margin-bottom: 12px;
+      font-weight: 900;
+    }
+
+    .side-nav {
+      display: grid;
+      gap: 5px;
+    }
+
+    .side-nav a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #31445f;
+      font-size: 13px;
+      font-weight: 900;
+      padding: 10px 10px;
+      border-radius: 12px;
+      transition: 0.2s ease;
+    }
+
+    .side-nav a:hover {
+      background: var(--celeste);
+      color: var(--azul);
+    }
+
+    .trans-content {
+      display: grid;
+      gap: 14px;
+    }
+
+    .section-card {
+      background: #ffffff;
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      box-shadow: var(--shadow2);
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 62px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      min-height: 138px;
+      scroll-margin-top: 98px;
+    }
+
+    .section-card:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .section-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+      box-shadow: 0 10px 22px rgba(0, 114, 188, 0.14);
+    }
+
+    .section-card.blue .section-icon {
+      background: linear-gradient(135deg, var(--azul), var(--azul2));
+    }
+
+    .section-card.green .section-icon {
+      background: linear-gradient(135deg, var(--verde), var(--verde2));
+    }
+
+    .section-card.orange .section-icon {
+      background: linear-gradient(135deg, var(--naranja), #ffb427);
+    }
+
+    .section-card.dark .section-icon {
+      background: linear-gradient(135deg, var(--azulOsc), #1c4b76);
+    }
+
+    .section-card h2 {
+      font-size: 23px;
+      color: #122b49;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      letter-spacing: -0.6px;
+    }
+
+    .section-card p {
+      color: #657487;
+      font-size: 14px;
+      line-height: 1.48;
+      font-weight: 650;
+      max-width: 710px;
+    }
+
+    .includes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .includes span {
+      border: 1px solid #d7e4f1;
+      background: #fbfdff;
+      color: #334a66;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .card-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 150px;
+    }
+
+    .small-btn {
+      min-height: 40px;
+      border: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--azul), var(--azul2));
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 0 14px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      text-align: center;
+    }
+
+    .small-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .small-btn.pdf {
+      background: #fff;
+      color: var(--azul);
+      border: 1px solid #cfe0ef;
+    }
+
+    .small-btn.orange {
+      background: linear-gradient(135deg, var(--naranja), #ffb427);
+      color: white;
+    }
+
+    .small-btn.green {
+      background: linear-gradient(135deg, var(--verde), var(--verde2));
+      color: white;
+    }
+
+    .help-cta {
+      margin: 8px 0 4px;
+      border-radius: 22px;
+      padding: 22px;
+      background:
+        radial-gradient(circle at 95% 12%, rgba(255,255,255,.35) 0 78px, transparent 80px),
+        linear-gradient(135deg, #082946, #0072bc 55%, #72c943);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .help-cta h2 {
+      font-size: 25px;
+      line-height: 1.05;
+      margin-bottom: 6px;
+      font-weight: 900;
+    }
+
+    .help-cta p {
+      color: #eef8ff;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 700;
+      max-width: 720px;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 19, 36, 0.68);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 5000;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(780px, 94%);
+      max-height: 88vh;
+      overflow: hidden;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .modal-head {
+      background:
+        radial-gradient(circle at 93% 5%, rgba(255, 255, 255, 0.22), transparent 24%),
+        linear-gradient(135deg, #0b527e 0%, #0072bc 48%, #0d8fd3 100%);
+      color: white;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .modal-title-wrap {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .modal-icon {
+      width: 58px;
+      height: 58px;
+      min-width: 58px;
+      border-radius: 16px;
+      background: #ffffff;
+      color: var(--azul);
+      display: grid;
+      place-items: center;
+      font-size: 29px;
+      box-shadow: 0 12px 24px rgba(6, 28, 50, 0.18);
+    }
+
+    .modal-kicker {
+      display: block;
+      color: #c7f36b;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .modal-head h2 {
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.02;
+      letter-spacing: -1px;
+      margin-bottom: 5px;
+      font-weight: 900;
+    }
+
+    .modal-head p {
+      color: rgba(255, 255, 255, 0.90);
+      font-size: 13.5px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      border: 0;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+
+    .modal-body {
+      padding: 22px;
+      overflow: auto;
+      color: #50657a;
+    }
+
+    .modal-body p {
+      font-size: 15px;
+      line-height: 1.65;
+      font-weight: 650;
+      margin-bottom: 14px;
+      color: #50657a;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .modal-info {
+      border: 1px solid var(--borde);
+      background: #fbfdff;
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .modal-info b {
+      display: block;
+      color: #1b3554;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .modal-info small {
+      display: block;
+      color: #6a7689;
+      line-height: 1.45;
+      font-weight: 650;
+      font-size: 12.5px;
+    }
+
+    .modal-note {
+      background: #fff4e5;
+      border: 1px solid #ffd89d;
+      color: #7a4a00;
+      border-radius: 14px;
+      padding: 14px;
+      line-height: 1.5;
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #081d37;
+      color: white;
+      margin-top: 24px;
+      padding-top: 34px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr 1fr;
+      gap: 22px;
+      padding-bottom: 28px;
+    }
+
+    .footer-brand img {
+      width: 95px;
+      background: white;
+      border-radius: 10px;
+      padding: 6px;
+      margin-bottom: 12px;
+    }
+
+    footer h4 {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    footer p,
+    footer li {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #d2dbe8;
+      list-style: none;
+    }
+
+    .numbers {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .numbers li {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .numbers b {
+      color: #ffb427;
+    }
+
+    .footer-bottom {
+      background: #061426;
+      color: #d2dbe8;
+      padding: 12px 0;
+      font-size: 12px;
+    }
+
+    .footer-bottom .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* FLOTANTES */
+    .float-help,
+    .float-wp {
+      position: fixed;
+      right: 18px;
+      z-index: 2500;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.20);
+    }
+
+    .float-help {
+      bottom: 92px;
+      width: 64px;
+      height: 64px;
+      background: #ffffff;
+      border: 4px solid #dff3ff;
+      overflow: visible;
+      animation: toroFloat 2.5s ease-in-out infinite;
+    }
+
+    .float-help img {
+      width: 62px;
+      height: 62px;
+      object-fit: contain;
+      max-width: none;
+      pointer-events: none;
+    }
+
+    .assistant-bubble {
+      position: fixed;
+      right: 88px;
+      bottom: 106px;
+      z-index: 2499;
+      background: #ffffff;
+      color: #07182d;
+      border: 1px solid var(--borde);
+      border-radius: 999px;
+      padding: 9px 13px;
+      box-shadow: var(--shadow2);
+      font-size: 11px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .assistant-bubble::after {
+      content: "";
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left: 7px solid #ffffff;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+    }
+
+    .float-wp {
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      background: #25d366;
+      font-size: 30px;
+    }
+
+    @keyframes toroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .menu {
+        gap: 14px;
+      }
+
+      .trans-hero-grid,
+      .content-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-panel {
+        margin-top: 8px;
+      }
+
+      .side-card {
+        position: static;
+      }
+
+      .side-nav {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .search-results {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 780px) {
+      .top-strip,
+      .topbar {
+        display: none;
+      }
+
+      .container {
+        width: min(94%, 520px);
+      }
+
+      .nav {
+        min-height: 64px;
+        gap: 8px;
+      }
+
+      .brand {
+        min-width: 0;
+        gap: 7px;
+      }
+
+      .brand img {
+        width: 48px;
+        flex: 0 0 48px;
+      }
+
+      .brand strong {
+        font-size: 12px;
+        max-width: 130px;
+      }
+
+      .brand small {
+        display: none;
+      }
+
+      .hamb {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        border-radius: 12px;
+      }
+
+      .menu {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px 18px;
+        gap: 0;
+        transform: translateY(-140%);
+        transition: 0.25s ease;
+        max-height: calc(100vh - 64px);
+        overflow: auto;
+      }
+
+      .menu.open {
+        transform: translateY(0);
+      }
+
+      .nav-link {
+        padding: 12px 0;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .nav-link.active::after {
+        display: none;
+      }
+
+      .dropdown {
+        position: static;
+        transform: none;
+        width: 100%;
+        opacity: 1;
+        pointer-events: auto;
+        display: none;
+        box-shadow: none;
+        margin: 4px 0 10px;
+      }
+
+      .nav-item.open .dropdown {
+        display: block;
+        transform: none;
+      }
+
+      .nav-item:hover .dropdown {
+        transform: none;
+      }
+
+      .dropdown-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-actions {
+        margin-left: auto;
+        gap: 6px;
+      }
+
+      .search-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        padding: 0;
+        border-radius: 12px;
+        font-size: 0;
+      }
+
+      .search-btn i {
+        font-size: 18px;
+      }
+
+      .back-site-btn {
+        display: none;
+      }
+
+      .trans-hero {
+        padding: 34px 0 30px;
+      }
+
+      .trans-hero h1 {
+        font-size: 42px;
+        letter-spacing: -1.6px;
+      }
+
+      .trans-hero p {
+        font-size: 14px;
+      }
+
+      .trans-hero-actions {
+        flex-direction: column;
+      }
+
+      .trans-hero-actions .btn {
+        width: 100%;
+        min-height: 40px;
+      }
+
+      .quick-panel {
+        padding: 16px;
+        border-radius: 20px;
+      }
+
+      .quick-panel h2 {
+        font-size: 19px;
+      }
+
+      .quick-list {
+        gap: 8px;
+      }
+
+      .quick-list a {
+        min-height: 48px;
+        font-size: 12px;
+      }
+
+      .trans-search-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .trans-search-wrap button {
+        min-height: 42px;
+      }
+
+      .side-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .section-card {
+        grid-template-columns: 1fr;
+        text-align: left;
+        padding: 16px;
+        gap: 12px;
+      }
+
+      .section-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 16px;
+        font-size: 24px;
+      }
+
+      .section-card h2 {
+        font-size: 21px;
+      }
+
+      .section-card p {
+        font-size: 13px;
+      }
+
+      .includes span {
+        font-size: 10.5px;
+      }
+
+      .card-actions {
+        width: 100%;
+        min-width: 0;
+        flex-direction: column;
+      }
+
+      .small-btn {
+        width: 100%;
+      }
+
+      .help-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .help-cta .btn {
+        width: 100%;
+      }
+
+      .modal {
+        align-items: flex-start;
+        padding: 82px 12px 14px;
+      }
+
+      .modal-box {
+        width: min(100%, 520px);
+        max-height: 82vh;
+        border-radius: 20px;
+      }
+
+      .modal-head {
+        padding: 16px;
+      }
+
+      .modal-title-wrap {
+        gap: 10px;
+      }
+
+      .modal-icon {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        font-size: 24px;
+      }
+
+      .modal-head h2 {
+        font-size: 19px;
+      }
+
+      .modal-head p {
+        font-size: 12px;
+      }
+
+      .modal-body {
+        padding: 16px;
+      }
+
+      .modal-grid,
+      .search-results,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .float-help {
+        width: 54px;
+        height: 54px;
+        bottom: 82px;
+        right: 15px;
+      }
+
+      .float-help img {
+        width: 56px;
+        height: 56px;
+      }
+
+      .assistant-bubble {
+        display: none;
+      }
+
+      .float-wp {
+        width: 52px;
+        height: 52px;
+        right: 16px;
+        bottom: 18px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .brand img {
+        width: 42px;
+        flex-basis: 42px;
+      }
+
+      .brand strong {
+        font-size: 11.5px;
+        max-width: 116px;
+      }
+
+      .trans-hero h1 {
+        font-size: 36px;
+      }
+    }
+
+    /* ===== AJUSTE FINAL: PORTADA DE TRANSPARENCIA MÁS CHICA ===== */
+    .trans-hero {
+      padding: 32px 0 26px !important;
+    }
+
+    .trans-hero-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 500px) !important;
+      gap: 28px !important;
+      align-items: center !important;
+    }
+
+    .trans-crumb {
+      padding: 7px 12px !important;
+      font-size: 11px !important;
+      margin-bottom: 10px !important;
+    }
+
+    .trans-hero h1 {
+      font-size: clamp(34px, 4.4vw, 54px) !important;
+      line-height: 0.94 !important;
+      letter-spacing: -1.8px !important;
+      margin-bottom: 10px !important;
+      max-width: 520px !important;
+    }
+
+    .trans-hero p {
+      max-width: 600px !important;
+      font-size: 14px !important;
+      line-height: 1.42 !important;
+      margin-bottom: 14px !important;
+    }
+
+    .trans-hero-actions {
+      gap: 8px !important;
+    }
+
+    .trans-hero-actions .btn {
+      min-height: 38px !important;
+      padding: 0 14px !important;
+      border-radius: 10px !important;
+      font-size: 12.5px !important;
+    }
+
+    .quick-panel {
+      margin-top: 0 !important;
+      padding: 15px !important;
+      border-radius: 20px !important;
+      max-width: 500px !important;
+      justify-self: end !important;
+      box-shadow: 0 14px 34px rgba(7, 30, 58, 0.16) !important;
+    }
+
+    .quick-panel h2 {
+      font-size: 18px !important;
+      margin-bottom: 10px !important;
+    }
+
+    .quick-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 8px !important;
+    }
+
+    .quick-list a {
+      min-height: 42px !important;
+      border-radius: 12px !important;
+      padding: 8px 10px !important;
+      font-size: 11.5px !important;
+      line-height: 1.15 !important;
+    }
+
+    .quick-list i {
+      width: 28px !important;
+      height: 28px !important;
+      min-width: 28px !important;
+      border-radius: 9px !important;
+      font-size: 14px !important;
+    }
+
+    @media (max-width: 1100px) {
+      .trans-hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .quick-panel {
+        max-width: 100% !important;
+        justify-self: stretch !important;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .trans-hero {
+        padding: 24px 0 22px !important;
+      }
+
+      .trans-crumb {
+        padding: 6px 10px !important;
+        font-size: 10px !important;
+        margin-bottom: 9px !important;
+      }
+
+      .trans-hero h1 {
+        font-size: 34px !important;
+        letter-spacing: -1.2px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .trans-hero p {
+        font-size: 12.8px !important;
+        line-height: 1.35 !important;
+        margin-bottom: 12px !important;
+      }
+
+      .trans-hero-actions {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 7px !important;
+      }
+
+      .trans-hero-actions .btn {
+        width: 100% !important;
+        min-height: 36px !important;
+        padding: 0 8px !important;
+        font-size: 11px !important;
+      }
+
+      .quick-panel {
+        padding: 13px !important;
+        border-radius: 18px !important;
+      }
+
+      .quick-panel h2 {
+        font-size: 16px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .quick-list {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 7px !important;
+      }
+
+      .quick-list a {
+        min-height: 40px !important;
+        padding: 7px 8px !important;
+        font-size: 10.5px !important;
+        gap: 7px !important;
+      }
+
+      .quick-list i {
+        width: 25px !important;
+        height: 25px !important;
+        min-width: 25px !important;
+        font-size: 12px !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .trans-hero h1 {
+        font-size: 31px !important;
+      }
+
+      .trans-hero-actions {
+        grid-template-columns: 1fr !important;
+      }
+
+      .quick-list {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .float-help {
+  width: 64px;
+  height: 64px;
+  right: 18px;
+  bottom: 92px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 4px solid #dff3ff;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.float-help img,
+#assistantToro {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  max-width: none;
+  transform: scale(0.92);
+}
+    @media (max-width: 780px) {
+  .float-help {
+    width: 56px;
+    height: 56px;
+    right: 15px;
+    bottom: 82px;
+  }
+
+  .float-help img,
+  #assistantToro {
+    width: 48px;
+    height: 48px;
+    transform: scale(0.92);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="top-strip">
+    <div class="container">
+      <span>Trámites simples</span>
+      <span>Atención al vecino</span>
+      <span>Servicios municipales</span>
+      <span>Maipú crece con vos</span>
+      <span>Transparencia</span>
+    </div>
+  </div>
+
+  <div class="topbar">
+    <div class="container">
+      <div class="top-info">
+        <span><i class="bi bi-geo-alt"></i> Pablo Pescara 190, Maipú, Mendoza</span>
+        <span><i class="bi bi-clock"></i> Lun-Vie 8:00 a 18:00 hs.</span>
+        <span><i class="bi bi-telephone"></i> 0800 222 8030 Atención al Vecino</span>
+      </div>
+      <div class="top-social">
+        <span><i class="bi bi-whatsapp"></i> WhatsApp 261716-6619</span>
+        <a href="https://www.facebook.com/MunicipalidadMaipuMendoza" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/maipumunicipio/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        <a href="mailto:info@maipu.gob.ar" aria-label="Email"><i class="bi bi-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="hola.html" aria-label="Volver al inicio">
+        <img src="assets/img/logo-maipu.png" alt="Maipú Municipio" />
+        <div>
+          <strong>Maipú Municipio</strong>
+          <small>Gestión y servicios</small>
+        </div>
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Navegación principal">
+        <div class="nav-item">
+          <a class="nav-link" href="hola.html#inicio">Inicio</a>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button" onclick="toggleDropdown(this)">
+            Guía de Trámites <i class="bi bi-chevron-down"></i>
+          </button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <a class="drop-btn" href="hola.html#tramites"><i class="bi bi-credit-card"></i><span><b>Pago Online</b><small>Tasas, boletas y deudas.</small></span></a>
+              <a class="drop-btn" href="hola.html#tramites"><i class="bi bi-house-check"></i><span><b>Rentas</b><small>Consultas y regularización.</small></span></a>
+              <a class="drop-btn" href="hola.html#tramites"><i class="bi bi-person-vcard"></i><span><b>Licencia</b><small>Requisitos y turnos.</small></span></a>
+              <a class="drop-btn" href="hola.html#tramites"><i class="bi bi-folder2-open"></i><span><b>Expedientes</b><small>Seguimiento de trámites.</small></span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a class="nav-link" href="hola.html#noticias">Noticias</a>
+        </div>
+
+        <div class="nav-item">
+          <button class="nav-link" type="button" onclick="toggleDropdown(this)">
+            Servicios <i class="bi bi-chevron-down"></i>
+          </button>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <a class="drop-btn" href="hola.html#servicios"><i class="bi bi-heart-pulse"></i><span><b>Salud</b><small>Operativos y prevención.</small></span></a>
+              <a class="drop-btn" href="hola.html#servicios"><i class="bi bi-mortarboard"></i><span><b>Educación</b><small>Cursos y talleres.</small></span></a>
+              <a class="drop-btn" href="hola.html#servicios"><i class="bi bi-signpost-2"></i><span><b>Turismo</b><small>Experiencias y recorridos.</small></span></a>
+              <a class="drop-btn" href="hola.html#contacto"><i class="bi bi-headset"></i><span><b>Atención</b><small>Canales de contacto.</small></span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a class="nav-link active" href="transparencia.html">Transparencia</a>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <button class="search-btn" type="button" onclick="openSearch()"><i class="bi bi-search"></i> Buscar</button>
+        <a class="back-site-btn" href="hola.html"><i class="bi bi-arrow-left-circle"></i> Volver al sitio</a>
+      </div>
+
+      <button class="hamb" id="hamb" type="button" aria-label="Abrir menú">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="search-panel" id="searchPanel">
+    <div class="search-box">
+      <div class="search-head">
+        <input type="text" id="globalSearch" placeholder="Buscá dentro de Transparencia: institucional, fiscal, licitaciones, calidad, proveedores..." />
+        <button class="close-search" type="button" onclick="closeSearch()"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <main>
+    <section class="trans-hero">
+      <div class="container trans-hero-grid">
+        <div>
+          <a class="trans-crumb" href="hola.html"target="_blank">
+            <i class="bi bi-arrow-left-circle"></i> Volver al sitio principal
+          </a>
+          <h1>Transparencia <span>Municipal</span></h1>
+          <p>
+            Acceso ordenado a las principales áreas de transparencia del Maipú Municipio:
+            información institucional, fiscalidad, compras, planificación, calidad y proveedores.
+          </p>
+          <div class="trans-hero-actions">
+            <a class="btn btn-white" href="#institucional"><i class="bi bi-building"></i> Institucional</a>
+            <a class="btn btn-green" href="#compras"><i class="bi bi-hammer"></i> Licitaciones</a>
+            <a class="btn btn-orange" href="#proveedores"><i class="bi bi-box-seam"></i> Proveedores</a>
+          </div>
+        </div>
+
+        <aside class="quick-panel" aria-label="Accesos rápidos de transparencia">
+          <h2>Accesos rápidos</h2>
+          <div class="quick-list">
+            <a href="#institucional"><i class="bi bi-building"></i> Institucional</a>
+            <a href="#fiscal"><i class="bi bi-receipt-cutoff"></i> Responsabilidad fiscal</a>
+            <a href="#compras"><i class="bi bi-hammer"></i> Compras y licitaciones</a>
+            <a href="#planificacion"><i class="bi bi-diagram-3"></i> Planificación y desarrollo</a>
+            <a href="#calidad"><i class="bi bi-patch-check"></i> Gestión de la calidad</a>
+            <a href="#proveedores"><i class="bi bi-box-seam"></i> Portal de proveedores</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container trans-search-section">
+      <div class="trans-search-wrap">
+        <input id="transSearch" type="search" placeholder="Buscar: gabinete, historia, presupuesto, licitaciones, calidad, proveedores..." />
+        <button type="button" onclick="filterTransparency()"><i class="bi bi-search"></i> Buscar</button>
+      </div>
+    </section>
+
+    <section class="container content-layout">
+      <aside class="side-card">
+        <h3>Transparencia</h3>
+        <nav class="side-nav" aria-label="Secciones de transparencia">
+          <a href="#institucional"><i class="bi bi-building"></i> Institucional</a>
+          <a href="#fiscal"><i class="bi bi-receipt-cutoff"></i> Responsabilidad fiscal</a>
+          <a href="#compras"><i class="bi bi-hammer"></i> Compras y licitaciones</a>
+          <a href="#planificacion"><i class="bi bi-diagram-3"></i> Planificación y desarrollo</a>
+          <a href="#calidad"><i class="bi bi-patch-check"></i> Gestión de la calidad</a>
+          <a href="#proveedores"><i class="bi bi-box-seam"></i> Portal de proveedores</a>
+        </nav>
+      </aside>
+
+      <div class="trans-content">
+        <article class="section-card blue" id="institucional" data-search="institucional mapa institucional intendente gabinete historia maipú misión visión autoridades municipio">
+          <div class="section-icon"><i class="bi bi-building"></i></div>
+          <div>
+            <h2>Institucional</h2>
+            <p>Información general del municipio, autoridades, estructura institucional, historia local y principios de gestión.</p>
+            <div class="includes">
+              <span>Mapa Institucional</span>
+              <span>Intendente y Gabinete</span>
+              <span>Historia de Maipú</span>
+              <span>Misión y Visión</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="small-btn" type="button" onclick="openTransparencyModal('institucional')"><i class="bi bi-eye"></i> Consultar</button>
+            <a class="small-btn pdf" href="assets/pdf/institucional.pdf" download><i class="bi bi-filetype-pdf"></i> PDF</a>
+          </div>
+        </article>
+
+        <article class="section-card green" id="fiscal" data-search="responsabilidad fiscal presupuesto ejecución rendición cuentas recursos económicos informes fiscales">
+          <div class="section-icon"><i class="bi bi-receipt-cutoff"></i></div>
+          <div>
+            <h2>Responsabilidad Fiscal</h2>
+            <p>Información vinculada con presupuesto, ejecución, rendición de cuentas y administración responsable de los recursos públicos.</p>
+            <div class="includes">
+              <span>Presupuesto</span>
+              <span>Ejecución</span>
+              <span>Rendición de cuentas</span>
+              <span>Informes fiscales</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="small-btn green" type="button" onclick="openTransparencyModal('fiscal')"><i class="bi bi-eye"></i> Consultar</button>
+            <a class="small-btn pdf" href="assets/pdf/responsabilidad-fiscal.pdf" download><i class="bi bi-filetype-pdf"></i> PDF</a>
+          </div>
+        </article>
+
+        <article class="section-card orange" id="compras" data-search="compras licitaciones contrataciones pliegos llamados adjudicaciones proveedores compras públicas">
+          <div class="section-icon"><i class="bi bi-hammer"></i></div>
+          <div>
+            <h2>Compras y Licitaciones</h2>
+            <p>Acceso a procesos de compras municipales, licitaciones, contrataciones, pliegos y documentación relacionada.</p>
+            <div class="includes">
+              <span>Licitaciones vigentes</span>
+              <span>Compras</span>
+              <span>Contrataciones</span>
+              <span>Pliegos</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="small-btn orange" type="button" onclick="openTransparencyModal('compras')"><i class="bi bi-eye"></i> Consultar</button>
+            <a class="small-btn pdf" href="assets/pdf/compras-licitaciones.pdf" download><i class="bi bi-filetype-pdf"></i> PDF</a>
+          </div>
+        </article>
+
+        <article class="section-card blue" id="planificacion" data-search="planificación desarrollo urbano territorial obras proyectos crecimiento ordenamiento municipio">
+          <div class="section-icon"><i class="bi bi-diagram-3"></i></div>
+          <div>
+            <h2>Planificación y Desarrollo</h2>
+            <p>Planes, programas y proyectos relacionados con el crecimiento urbano, territorial y estratégico del departamento.</p>
+            <div class="includes">
+              <span>Planificación estratégica</span>
+              <span>Desarrollo territorial</span>
+              <span>Obras y proyectos</span>
+              <span>Ordenamiento</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="small-btn" type="button" onclick="openTransparencyModal('planificacion')"><i class="bi bi-eye"></i> Consultar</button>
+            <a class="small-btn pdf" href="assets/pdf/planificacion-desarrollo.pdf" download><i class="bi bi-filetype-pdf"></i> PDF</a>
+          </div>
+        </article>
+
+        <article class="section-card green" id="calidad" data-search="gestión calidad mejora continua atención ciudadana procesos servicios indicadores sistemas">
+          <div class="section-icon"><i class="bi bi-patch-check"></i></div>
+          <div>
+            <h2>Gestión de la Calidad</h2>
+            <p>Información sobre mejora continua, procesos de atención, indicadores, calidad de servicios y gestión institucional.</p>
+            <div class="includes">
+              <span>Mejora continua</span>
+              <span>Procesos</span>
+              <span>Atención ciudadana</span>
+              <span>Indicadores</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="small-btn green" type="button" onclick="openTransparencyModal('calidad')"><i class="bi bi-eye"></i> Consultar</button>
+            <a class="small-btn pdf" href="assets/pdf/gestion-calidad.pdf" download><i class="bi bi-filetype-pdf"></i> PDF</a>
+          </div>
+        </article>
+
+        <article class="section-card dark" id="proveedores" data-search="portal proveedores compras registro proveedores licitaciones contrataciones sistema externo">
+          <div class="section-icon"><i class="bi bi-box-seam"></i></div>
+          <div>
+            <h2>Portal de Proveedores</h2>
+            <p>Acceso externo al portal oficial de proveedores para consultas, compras y procesos vinculados con contrataciones municipales.</p>
+            <div class="includes">
+              <span>Acceso externo</span>
+              <span>Compras</span>
+              <span>Proveedores</span>
+              <span>Contrataciones</span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a class="small-btn orange" href="https://vps.infogov.com.ar/proveedores/compras/?cm=m4MpW" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Ingresar al portal</a>
+          </div>
+        </article>
+
+        <div class="help-cta">
+          <div>
+            <h2>¿Necesitás volver al sitio principal?</h2>
+            <p>Desde acá podés regresar a la web municipal o seguir consultando las áreas de Transparencia sin abrir muchas pantallas.</p>
+          </div>
+          <a class="btn btn-white" href="hola.html"><i class="bi bi-arrow-left-circle"></i> Volver a hola.html</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/img/logo-maipu.png" alt="Maipú Municipio" />
+        <h4>Maipú Municipio</h4>
+        <p>Portal institucional de servicios, trámites y atención al vecino.</p>
+      </div>
+      <div>
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="hola.html#inicio">Inicio</a></li>
+          <li><a href="hola.html#tramites">Guía de Trámites</a></li>
+          <li><a href="hola.html#noticias">Noticias</a></li>
+          <li><a href="hola.html#servicios">Servicios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Transparencia</h4>
+        <ul>
+          <li><a href="#institucional">Institucional</a></li>
+          <li><a href="#fiscal">Responsabilidad Fiscal</a></li>
+          <li><a href="#compras">Compras y Licitaciones</a></li>
+          <li><a href="#proveedores">Portal de Proveedores</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Atención</h4>
+        <ul>
+          <li>0800 222 8030</li>
+          <li>WhatsApp 261716-6619</li>
+          <li>Pablo Pescara 190</li>
+          <li>Lun-Vie 8:00 a 18:00 hs.</li>
+        </ul>
+      </div>
+      <div class="numbers">
+        <h4>Teléfonos útiles</h4>
+        <ul>
+          <li>Emergencias <b>911</b></li>
+          <li>Defensa Civil <b>103</b></li>
+          <li>Bomberos <b>100</b></li>
+          <li>Atención al Vecino <b>0800</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© Maipú Municipio</span>
+        <span>Transparencia municipal | Maipú crece con vos</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="float-help" type="button" aria-label="Asistente virtual" onclick="openAssistant()">
+    <img id="assistantToro" src="assets/img/toro_maipu_transparente_real.png" alt="Asistente Maipú" />
+  </button>
+  <div class="assistant-bubble">¿En qué podemos ayudarte?</div>
+
+  <a class="float-wp" href="https://wa.me/542617166619" target="_blank" rel="noopener" aria-label="WhatsApp Maipú">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <div class="modal" id="infoModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div class="modal-title-wrap">
+          <div class="modal-icon" id="modalIcon"><i class="bi bi-info-circle"></i></div>
+          <div>
+            <span class="modal-kicker" id="modalKicker">Transparencia</span>
+            <h2 id="modalTitle">Título</h2>
+            <p id="modalSubtitle">Subtítulo</p>
+          </div>
+        </div>
+        <button class="modal-close" type="button" onclick="closeModal()" aria-label="Cerrar modal"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const menu = document.getElementById("menu");
+    const hamb = document.getElementById("hamb");
+    const searchPanel = document.getElementById("searchPanel");
+    const globalSearch = document.getElementById("globalSearch");
+    const searchResults = document.getElementById("searchResults");
+    const infoModal = document.getElementById("infoModal");
+    const modalIcon = document.getElementById("modalIcon");
+    const modalKicker = document.getElementById("modalKicker");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSubtitle = document.getElementById("modalSubtitle");
+    const modalBody = document.getElementById("modalBody");
+
+    const modalData = {
+      institucional: {
+        icon: "bi-building",
+        kicker: "Institucional",
+        title: "Institucional",
+        subtitle: "Mapa institucional, autoridades, historia, misión y visión del municipio.",
+        body: `
+          <p>En esta sección podés cargar la información institucional general del Maipú Municipio. La idea es que el vecino encuentre rápidamente cómo se organiza la gestión, quiénes son sus autoridades y cuál es la identidad institucional.</p>
+          <div class="modal-grid">
+            <div class="modal-info"><b>Mapa Institucional</b><small>Espacio para colocar el organigrama, áreas municipales, secretarías, direcciones y responsables.</small></div>
+            <div class="modal-info"><b>Intendente y Gabinete</b><small>Espacio para cargar autoridades, equipo de gobierno y datos institucionales de cada área.</small></div>
+            <div class="modal-info"><b>Historia de Maipú</b><small>Espacio para sumar una reseña histórica del departamento, identidad local y patrimonio.</small></div>
+            <div class="modal-info"><b>Misión y Visión</b><small>Espacio para explicar objetivos, principios de gestión y compromiso institucional.</small></div>
+          </div>
+          <div class="modal-actions">
+            <a class="btn btn-blue" href="assets/pdf/institucional.pdf" download><i class="bi bi-filetype-pdf"></i> Descargar PDF</a>
+          </div>
+          <div class="modal-note">Reemplazá este texto por la información oficial. También podés cambiar el enlace del PDF por el archivo real que corresponda.</div>
+        `
+      },
+      fiscal: {
+        icon: "bi-receipt-cutoff",
+        kicker: "Responsabilidad fiscal",
+        title: "Responsabilidad Fiscal",
+        subtitle: "Presupuesto, ejecución, rendición de cuentas y administración de recursos.",
+        body: `
+          <p>Este espacio está pensado para publicar información fiscal municipal de manera clara y ordenada, facilitando el acceso a documentos de presupuesto, ejecución y rendición.</p>
+          <div class="modal-grid">
+            <div class="modal-info"><b>Presupuesto municipal</b><small>Documentos presupuestarios, recursos proyectados y distribución de partidas.</small></div>
+            <div class="modal-info"><b>Ejecución presupuestaria</b><small>Información sobre avance de ingresos, gastos y aplicación de recursos.</small></div>
+            <div class="modal-info"><b>Rendición de cuentas</b><small>Informes y documentación vinculada al control y seguimiento de la gestión.</small></div>
+            <div class="modal-info"><b>Reportes fiscales</b><small>Espacio para balances, indicadores e informes económicos publicados por el municipio.</small></div>
+          </div>
+          <div class="modal-actions">
+            <a class="btn btn-green" href="assets/pdf/responsabilidad-fiscal.pdf" download><i class="bi bi-filetype-pdf"></i> Descargar PDF</a>
+          </div>
+          <div class="modal-note">Acá podés pegar los textos oficiales o dejar solo botones de descarga cuando tengan los documentos definitivos.</div>
+        `
+      },
+      compras: {
+        icon: "bi-hammer",
+        kicker: "Compras y licitaciones",
+        title: "Compras y Licitaciones",
+        subtitle: "Procesos de compras, contrataciones, llamados, pliegos y adjudicaciones.",
+        body: `
+          <p>Sección destinada a organizar la información de compras públicas y licitaciones para vecinos, instituciones y proveedores interesados.</p>
+          <div class="modal-grid">
+            <div class="modal-info"><b>Licitaciones vigentes</b><small>Llamados activos, fechas importantes, requisitos y documentación disponible.</small></div>
+            <div class="modal-info"><b>Pliegos</b><small>Espacio para publicar o enlazar pliegos, anexos y condiciones de participación.</small></div>
+            <div class="modal-info"><b>Compras y contrataciones</b><small>Información general sobre procesos de compra, contrataciones y adjudicaciones.</small></div>
+            <div class="modal-info"><b>Consultas</b><small>Canales o instrucciones para realizar consultas relacionadas con procesos abiertos.</small></div>
+          </div>
+          <div class="modal-actions">
+            <a class="btn btn-orange" href="assets/pdf/compras-licitaciones.pdf" download><i class="bi bi-filetype-pdf"></i> Descargar PDF</a>
+            <a class="btn btn-blue" href="https://vps.infogov.com.ar/proveedores/compras/?cm=m4MpW" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Portal de proveedores</a>
+          </div>
+        `
+      },
+      planificacion: {
+        icon: "bi-diagram-3",
+        kicker: "Planificación y desarrollo",
+        title: "Planificación y Desarrollo",
+        subtitle: "Planes, proyectos, desarrollo urbano y crecimiento territorial.",
+        body: `
+          <p>En esta sección podés cargar la información sobre planificación estratégica, obras, programas territoriales y desarrollo del departamento.</p>
+          <div class="modal-grid">
+            <div class="modal-info"><b>Planificación estratégica</b><small>Planes de gestión, metas institucionales y líneas de trabajo prioritarias.</small></div>
+            <div class="modal-info"><b>Desarrollo territorial</b><small>Información sobre crecimiento urbano, ordenamiento y acciones por distrito.</small></div>
+            <div class="modal-info"><b>Obras y proyectos</b><small>Proyectos municipales, intervenciones y programas de infraestructura.</small></div>
+            <div class="modal-info"><b>Informes de avance</b><small>Espacio para publicar reportes de estado, indicadores o documentos de seguimiento.</small></div>
+          </div>
+          <div class="modal-actions">
+            <a class="btn btn-blue" href="assets/pdf/planificacion-desarrollo.pdf" download><i class="bi bi-filetype-pdf"></i> Descargar PDF</a>
+          </div>
+        `
+      },
+      calidad: {
+        icon: "bi-patch-check",
+        kicker: "Gestión de la calidad",
+        title: "Gestión de la Calidad",
+        subtitle: "Mejora continua, procesos, atención ciudadana e indicadores de gestión.",
+        body: `
+          <p>Espacio para mostrar cómo el municipio organiza sus procesos, mejora la atención y trabaja con estándares de calidad institucional.</p>
+          <div class="modal-grid">
+            <div class="modal-info"><b>Mejora continua</b><small>Acciones orientadas a mejorar servicios, tiempos de respuesta y circuitos internos.</small></div>
+            <div class="modal-info"><b>Procesos de gestión</b><small>Procedimientos, sistemas de trabajo y documentación institucional.</small></div>
+            <div class="modal-info"><b>Atención ciudadana</b><small>Información sobre canales de atención, seguimiento y experiencia del vecino.</small></div>
+            <div class="modal-info"><b>Indicadores</b><small>Espacio para métricas, reportes y resultados vinculados a la calidad del servicio.</small></div>
+          </div>
+          <div class="modal-actions">
+            <a class="btn btn-green" href="assets/pdf/gestion-calidad.pdf" download><i class="bi bi-filetype-pdf"></i> Descargar PDF</a>
+          </div>
+        `
+      }
+    };
+
+    const searchItems = [
+      { title: "Institucional", text: "Mapa institucional, intendente, gabinete, historia, misión y visión", href: "#institucional", icon: "bi-building" },
+      { title: "Responsabilidad Fiscal", text: "Presupuesto, ejecución, rendición de cuentas e informes fiscales", href: "#fiscal", icon: "bi-receipt-cutoff" },
+      { title: "Compras y Licitaciones", text: "Compras, licitaciones, contrataciones, pliegos y adjudicaciones", href: "#compras", icon: "bi-hammer" },
+      { title: "Planificación y Desarrollo", text: "Planes, proyectos, desarrollo urbano y territorial", href: "#planificacion", icon: "bi-diagram-3" },
+      { title: "Gestión de la Calidad", text: "Mejora continua, procesos, atención ciudadana e indicadores", href: "#calidad", icon: "bi-patch-check" },
+      { title: "Portal de Proveedores", text: "Acceso externo a proveedores, compras y contrataciones", href: "#proveedores", icon: "bi-box-seam" },
+      { title: "Volver al sitio", text: "Regresar a hola.html", href: "hola.html", icon: "bi-arrow-left-circle" }
+    ];
+
+    hamb?.addEventListener("click", () => {
+      menu.classList.toggle("open");
+      hamb.innerHTML = menu.classList.contains("open") ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+    });
+
+    function toggleDropdown(button) {
+      if (window.innerWidth > 780) return;
+      const item = button.closest(".nav-item");
+      document.querySelectorAll(".nav-item.open").forEach(el => {
+        if (el !== item) el.classList.remove("open");
+      });
+      item.classList.toggle("open");
+    }
+
+    function openSearch() {
+      searchPanel.classList.add("show");
+      document.body.style.overflow = "hidden";
+      setTimeout(() => globalSearch?.focus(), 80);
+      renderSearchResults("");
+    }
+
+    function closeSearch() {
+      searchPanel.classList.remove("show");
+      document.body.style.overflow = "auto";
+    }
+
+    function renderSearchResults(query) {
+      const q = (query || "").toLowerCase().trim();
+      const data = searchItems.filter(item => !q || `${item.title} ${item.text}`.toLowerCase().includes(q));
+      searchResults.innerHTML = data.map(item => `
+        <a class="search-result" href="${item.href}" onclick="closeSearch()">
+          <i class="bi ${item.icon}"></i>
+          <span><b>${item.title}</b><small>${item.text}</small></span>
+        </a>
+      `).join("") || `<div class="search-result"><i class="bi bi-search"></i><span><b>Sin resultados</b><small>Probá con otra palabra clave.</small></span></div>`;
+    }
+
+    globalSearch?.addEventListener("input", (e) => renderSearchResults(e.target.value));
+
+    function filterTransparency() {
+      const input = document.getElementById("transSearch");
+      const q = (input?.value || "").toLowerCase().trim();
+      const cards = document.querySelectorAll(".section-card");
+      cards.forEach(card => {
+        const hayTexto = `${card.innerText} ${card.dataset.search || ""}`.toLowerCase();
+        card.style.display = !q || hayTexto.includes(q) ? "grid" : "none";
+      });
+    }
+
+    document.getElementById("transSearch")?.addEventListener("input", filterTransparency);
+
+    function openTransparencyModal(key) {
+      const data = modalData[key];
+      if (!data) return;
+      modalIcon.innerHTML = `<i class="bi ${data.icon}"></i>`;
+      modalKicker.textContent = data.kicker || "Transparencia";
+      modalTitle.textContent = data.title;
+      modalSubtitle.textContent = data.subtitle;
+      modalBody.innerHTML = data.body;
+      infoModal.classList.add("show");
+      infoModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      infoModal.classList.remove("show");
+      infoModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "auto";
+    }
+
+    infoModal?.addEventListener("click", (e) => {
+      if (e.target === infoModal) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+        closeSearch();
+      }
+    });
+
+    function openAssistant() {
+      openTransparencyModal("calidad");
+    }
+
+    /* Corrección para que el asistente tenga una sola imagen del toro */
+    document.addEventListener("DOMContentLoaded", function () {
+      const assistant = document.querySelector(".float-help");
+      if (!assistant) return;
+
+      assistant.querySelectorAll("i, .assistant-fallback").forEach(el => el.remove());
+      const images = Array.from(assistant.querySelectorAll("img"));
+      images.forEach((img, index) => { if (index > 0) img.remove(); });
+
+      let img = assistant.querySelector("img");
+      if (!img) {
+        img = document.createElement("img");
+        assistant.appendChild(img);
+      }
+      img.src = "assets/img/toro_maipu_transparente_real.png";
+      img.alt = "Asistente Maipú";
+      img.onerror = function () {
+        if (!this.dataset.retry) {
+          this.dataset.retry = "1";
+          this.src = "toro_maipu_transparente_real.png";
+        }
+      };
+    });
+  </script>
+</body>
+</html>

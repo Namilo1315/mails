@@ -5116,6 +5116,20 @@
           height: 68px !important;
         }
       }
+
+      /* ===== TRANSPARENCIA COMO PÁGINA INTERNA ===== */
+      .nav-link[href="transparencia.html"] {
+        text-decoration: none;
+      }
+      footer a {
+        color: #d2dbe8;
+        transition: .2s ease;
+      }
+      footer a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
     </style>
 
   </head>  <body>
@@ -5282,47 +5296,9 @@
           </div>
 
           <div class="nav-item">
-            <button class="nav-link dropdown-toggle" type="button">
-              Transparencia <i class="bi bi-chevron-down"></i>
-            </button>
-            <div class="dropdown">
-              <div class="dropdown-grid">
-                <button class="drop-btn" onclick="openInfo('intendencia')">
-                  <i class="bi bi-people-fill"></i
-                  ><span><b>Intendencia</b><small>Autoridades</small></span>
-                </button>
-                <button class="drop-btn" onclick="openInfo('transparencia')">
-                  <i class="bi bi-eye"></i
-                  ><span
-                    ><b>Transparencia</b
-                    ><small>Información pública</small></span
-                  >
-                </button>
-                <button class="drop-btn" onclick="openInfo('gobierno')">
-                  <i class="bi bi-diagram-3-fill"></i
-                  ><span
-                    ><b>Gobierno Abierto</b
-                    ><small>Datos y participación</small></span
-                  >
-                </button>
-                <button class="drop-btn" onclick="openInfo('datosAbiertos')">
-                  <i class="bi bi-file-earmark-arrow-down"></i
-                  ><span
-                    ><b>Datos Abiertos</b
-                    ><small>PDF y recursos públicos</small></span
-                  >
-                </button>
-                <button class="drop-btn" onclick="openInfo('licitaciones')">
-                  <i class="bi bi-hammer"></i
-                  ><span><b>Licitaciones</b><small>Compras</small></span>
-                </button>
-                <button class="drop-btn" onclick="openInfo('normativa')">
-                  <i class="bi bi-journal-text"></i
-                  ><span><b>Normativa</b><small>Ordenanzas</small></span>
-                </button>
-               
-              </div>
-            </div>
+            <a class="nav-link" href="transparencia.html">
+              Transparencia
+            </a>
           </div>
         </nav>
         <div class="header-actions">
@@ -5620,30 +5596,33 @@
         <aside class="box transparency-box">
           <h2 class="section-title">Transparencia</h2>
           <p class="section-lead">
-            Accesos institucionales, datos abiertos, normativa, compras y
-            contacto oficial.
+            Portal institucional para consultar información pública, datos abiertos,
+            compras, licitaciones, fiscalidad y gestión municipal.
           </p>
           <div class="inst-grid">
-            <button class="inst-card" onclick="openInfo('intendencia')">
-              <i class="bi bi-people-fill"></i><span>Intendencia</span>
+            <button class="inst-card" onclick="location.href='transparencia.html#acceso-info'">
+              <i class="bi bi-info-circle-fill"></i><span>Acceso a la Información Pública</span>
             </button>
-            <button class="inst-card" onclick="openInfo('transparencia')">
-              <i class="bi bi-eye-fill"></i><span>Transparencia</span>
+            <button class="inst-card" onclick="location.href='transparencia.html#institucional'">
+              <i class="bi bi-building-fill"></i><span>Institucional</span>
             </button>
-            <button class="inst-card" onclick="openInfo('gobierno')">
-              <i class="bi bi-diagram-3-fill"></i><span>Gobierno Abierto</span>
+            <button class="inst-card" onclick="location.href='transparencia.html#fiscal'">
+              <i class="bi bi-receipt-cutoff"></i><span>Responsabilidad Fiscal</span>
             </button>
-            <button class="inst-card" onclick="openInfo('datosAbiertos')">
-              <i class="bi bi-file-earmark-arrow-down-fill"></i><span>Datos Abiertos</span>
+            <button class="inst-card" onclick="location.href='transparencia.html#compras'">
+              <i class="bi bi-hammer"></i><span>Compras y Licitaciones</span>
             </button>
-            <button class="inst-card" onclick="openInfo('licitaciones')">
-              <i class="bi bi-hammer"></i><span>Licitaciones y Compras</span>
+            <button class="inst-card" onclick="location.href='transparencia.html#planificacion'">
+              <i class="bi bi-diagram-3-fill"></i><span>Planificación y Desarrollo</span>
             </button>
-            <button class="inst-card" onclick="openInfo('normativa')">
-              <i class="bi bi-journal-text"></i
-              ><span>Ordenanzas / Normativa</span>
+            <button class="inst-card" onclick="location.href='transparencia.html#proveedores'">
+              <i class="bi bi-box-seam-fill"></i><span>Portal de Proveedores</span>
             </button>
-           
+          </div>
+          <div class="modal-actions" style="margin-top:16px;">
+            <a class="btn btn-blue" href="transparencia.html">
+              <i class="bi bi-box-arrow-up-right"></i> Ver portal de transparencia
+            </a>
           </div>
         </aside>
       </div>
@@ -7623,15 +7602,11 @@
         <div>
           <h4>Transparencia</h4>
           <ul>
-            <li>Intendencia</li>
-            <li>Transparencia</li>
-            <li>Normativa</li>
-            <li>Licitaciones</li>
-            <li>
-              <button class="footer-link-btn" type="button" onclick="openInfo('datosAbiertos')">
-                Datos Abiertos
-              </button>
-            </li>
+            <li><a href="transparencia.html#acceso-info">Acceso a la Información Pública</a></li>
+            <li><a href="transparencia.html#institucional">Institucional</a></li>
+            <li><a href="transparencia.html#fiscal">Responsabilidad Fiscal</a></li>
+            <li><a href="transparencia.html#compras">Compras y Licitaciones</a></li>
+            <li><a href="transparencia.html#proveedores">Portal de Proveedores</a></li>
           </ul>
         </div>
         <div>
@@ -8788,6 +8763,19 @@
       }
 
       function openInfo(key) {
+        const transparencyRoutes = {
+          transparencia: "transparencia.html",
+          datosAbiertos: "transparencia.html#acceso-info",
+          gobierno: "transparencia.html#acceso-info",
+          intendencia: "transparencia.html#institucional",
+          normativa: "transparencia.html#institucional",
+          licitaciones: "transparencia.html#compras",
+          proveedores: "transparencia.html#proveedores"
+        };
+        if (transparencyRoutes[key]) {
+          window.location.href = transparencyRoutes[key];
+          return;
+        }
         const item = modalData[key];
         if (!item || !modal) return;
         modal.classList.remove("news-mode");
