@@ -1711,6 +1711,355 @@
   }
 }
 
+  
+
+    /* ===== AJUSTE: 6 OPCIONES EN GRILLA 3 + 3 ===== */
+    .content-layout {
+      grid-template-columns: 1fr !important;
+      gap: 18px !important;
+      padding: 16px 0 30px !important;
+    }
+
+    .side-card {
+      position: static !important;
+      top: auto !important;
+      padding: 14px !important;
+      border-radius: 18px !important;
+    }
+
+    .side-card h3 {
+      margin-bottom: 10px !important;
+    }
+
+    .side-nav {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 9px !important;
+    }
+
+    .side-nav a {
+      min-height: 46px !important;
+      justify-content: center !important;
+      text-align: center !important;
+      background: #fbfdff !important;
+      border: 1px solid #dfe8f2 !important;
+      border-radius: 13px !important;
+      padding: 10px 8px !important;
+    }
+
+    .side-nav a i {
+      color: var(--azul) !important;
+      font-size: 16px !important;
+    }
+
+    .trans-content {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 16px !important;
+      align-items: stretch !important;
+    }
+
+    .section-card {
+      grid-template-columns: 1fr !important;
+      align-content: start !important;
+      align-items: start !important;
+      min-height: 100% !important;
+      padding: 18px !important;
+      gap: 12px !important;
+      border-radius: 22px !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+    }
+
+    .section-card:hover {
+      transform: translateY(-3px) !important;
+      border-color: rgba(0, 114, 188, 0.22) !important;
+    }
+
+    .section-icon {
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: 17px !important;
+      font-size: 24px !important;
+    }
+
+    .section-card h2 {
+      font-size: 20px !important;
+      line-height: 1.12 !important;
+      margin-bottom: 7px !important;
+    }
+
+    .section-card p {
+      font-size: 13px !important;
+      line-height: 1.43 !important;
+      max-width: none !important;
+    }
+
+    .includes {
+      gap: 5px !important;
+      margin-top: 10px !important;
+    }
+
+    .includes span {
+      font-size: 10.2px !important;
+      padding: 5px 8px !important;
+    }
+
+    .card-actions {
+      width: 100% !important;
+      min-width: 0 !important;
+      flex-direction: row !important;
+      gap: 8px !important;
+      margin-top: auto !important;
+    }
+
+    .card-actions .small-btn {
+      width: 100% !important;
+      min-height: 39px !important;
+      padding: 0 10px !important;
+      font-size: 12px !important;
+      border-radius: 12px !important;
+      white-space: nowrap !important;
+    }
+
+    .help-cta {
+      grid-column: 1 / -1 !important;
+      margin-top: 2px !important;
+    }
+
+    @media (max-width: 1050px) {
+      .trans-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .side-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .trans-content,
+      .side-nav {
+        grid-template-columns: 1fr !important;
+      }
+
+      .section-card {
+        padding: 16px !important;
+      }
+
+      .card-actions {
+        flex-direction: column !important;
+      }
+    }
+
+
+    /* ===== ADAPTACIÓN SIMPLE: TARJETAS COMO LA ÚLTIMA VERSIÓN ===== */
+    .trans-search-section {
+      display: none !important;
+    }
+
+    .trans-hero {
+      padding: 34px 0 30px !important;
+    }
+
+    .trans-hero-grid {
+      grid-template-columns: 1.05fr .95fr !important;
+      gap: 30px !important;
+      align-items: center !important;
+    }
+
+    .trans-hero h1 {
+      font-size: clamp(42px, 5vw, 62px) !important;
+      line-height: .92 !important;
+      letter-spacing: -2px !important;
+      max-width: 620px !important;
+    }
+
+    .trans-hero p {
+      font-size: 15px !important;
+      line-height: 1.45 !important;
+      max-width: 650px !important;
+    }
+
+    .content-layout {
+      display: block !important;
+      padding: 24px 0 30px !important;
+    }
+
+    .simple-section-head {
+      margin-bottom: 18px !important;
+    }
+
+    .simple-section-head h2 {
+      font-size: 29px !important;
+      line-height: 1.05 !important;
+      font-weight: 900 !important;
+      color: #122b49 !important;
+      letter-spacing: -.8px !important;
+      margin-bottom: 8px !important;
+      position: relative !important;
+      padding-bottom: 10px !important;
+    }
+
+    .simple-section-head h2::after {
+      content: "" !important;
+      position: absolute !important;
+      left: 0 !important;
+      bottom: 0 !important;
+      width: 75px !important;
+      height: 5px !important;
+      border-radius: 999px !important;
+      background: linear-gradient(90deg, var(--azul), var(--verde), var(--naranja)) !important;
+    }
+
+    .simple-section-head p {
+      color: var(--muted) !important;
+      font-size: 14px !important;
+      line-height: 1.55 !important;
+      max-width: 820px !important;
+      font-weight: 650 !important;
+    }
+
+    .trans-content {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 16px !important;
+      align-items: stretch !important;
+    }
+
+    .section-card {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      grid-template-rows: auto 1fr auto !important;
+      min-height: 235px !important;
+      padding: 18px !important;
+      gap: 0 !important;
+      border-radius: 22px !important;
+      background: #fff !important;
+      border: 1px solid var(--borde) !important;
+      box-shadow: var(--shadow2) !important;
+      text-align: left !important;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease !important;
+    }
+
+    .section-card:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: var(--shadow) !important;
+      border-color: rgba(0, 114, 188, .22) !important;
+    }
+
+    .section-icon {
+      width: 58px !important;
+      height: 58px !important;
+      border-radius: 18px !important;
+      font-size: 26px !important;
+      margin-bottom: 14px !important;
+    }
+
+    .section-card h2 {
+      font-size: 21px !important;
+      line-height: 1.08 !important;
+      font-weight: 900 !important;
+      color: #143656 !important;
+      margin-bottom: 10px !important;
+      letter-spacing: -.4px !important;
+    }
+
+    .section-card p {
+      color: #617185 !important;
+      font-size: 13.8px !important;
+      line-height: 1.45 !important;
+      font-weight: 650 !important;
+      max-width: none !important;
+      margin: 0 0 18px !important;
+    }
+
+    .includes {
+      display: none !important;
+    }
+
+    .card-actions {
+      width: 100% !important;
+      min-width: 0 !important;
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+      margin-top: auto !important;
+    }
+
+    .card-actions .small-btn {
+      width: 100% !important;
+      min-height: 44px !important;
+      border-radius: 12px !important;
+      font-size: 14px !important;
+      padding: 0 14px !important;
+      white-space: normal !important;
+    }
+
+    .small-btn.pdf {
+      display: none !important;
+    }
+
+    .simple-final-banner {
+      grid-column: 1 / -1 !important;
+      margin-top: 8px !important;
+      border-radius: 24px !important;
+      padding: 26px !important;
+    }
+
+    @media (max-width: 1100px) {
+      .trans-hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+      }
+
+      .quick-panel {
+        max-width: none !important;
+        justify-self: stretch !important;
+      }
+
+      .trans-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .trans-hero {
+        padding: 28px 0 24px !important;
+      }
+
+      .trans-hero h1 {
+        font-size: 38px !important;
+        letter-spacing: -1.4px !important;
+      }
+
+      .trans-hero p {
+        font-size: 13.5px !important;
+      }
+
+      .trans-hero-actions {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+      }
+
+      .trans-content {
+        grid-template-columns: 1fr !important;
+      }
+
+      .section-card {
+        min-height: 210px !important;
+        padding: 16px !important;
+      }
+
+      .simple-section-head h2 {
+        font-size: 25px !important;
+      }
+
+      .simple-section-head p {
+        font-size: 13px !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -1819,17 +2168,17 @@
     <section class="trans-hero">
       <div class="container trans-hero-grid">
         <div>
-          <a class="trans-crumb" href="hola.html"target="_blank">
+          <a class="trans-crumb" href="hola.html">
             <i class="bi bi-arrow-left-circle"></i> Volver al sitio principal
           </a>
           <h1>Transparencia <span>Municipal</span></h1>
           <p>
-            Acceso ordenado a las principales áreas de transparencia del Maipú Municipio:
-            información institucional, fiscalidad, compras, planificación, calidad y proveedores.
+            Acceso simple a las principales áreas de transparencia del Maipú Municipio.
+            Elegí una opción, apretá el botón y consultá la información de manera rápida.
           </p>
           <div class="trans-hero-actions">
-            <a class="btn btn-white" href="#institucional"><i class="bi bi-building"></i> Institucional</a>
-            <a class="btn btn-green" href="#compras"><i class="bi bi-hammer"></i> Licitaciones</a>
+            <a class="btn btn-white" href="#secciones"><i class="bi bi-grid"></i> Ver secciones</a>
+            <a class="btn btn-green" href="hola.html"><i class="bi bi-house-door"></i> Ir a inicio</a>
             <a class="btn btn-orange" href="#proveedores"><i class="bi bi-box-seam"></i> Proveedores</a>
           </div>
         </div>
@@ -1847,26 +2196,8 @@
         </aside>
       </div>
     </section>
-
-    <section class="container trans-search-section">
-      <div class="trans-search-wrap">
-        <input id="transSearch" type="search" placeholder="Buscar: gabinete, historia, presupuesto, licitaciones, calidad, proveedores..." />
-        <button type="button" onclick="filterTransparency()"><i class="bi bi-search"></i> Buscar</button>
-      </div>
-    </section>
-
-    <section class="container content-layout">
-      <aside class="side-card">
-        <h3>Transparencia</h3>
-        <nav class="side-nav" aria-label="Secciones de transparencia">
-          <a href="#institucional"><i class="bi bi-building"></i> Institucional</a>
-          <a href="#fiscal"><i class="bi bi-receipt-cutoff"></i> Responsabilidad fiscal</a>
-          <a href="#compras"><i class="bi bi-hammer"></i> Compras y licitaciones</a>
-          <a href="#planificacion"><i class="bi bi-diagram-3"></i> Planificación y desarrollo</a>
-          <a href="#calidad"><i class="bi bi-patch-check"></i> Gestión de la calidad</a>
-          <a href="#proveedores"><i class="bi bi-box-seam"></i> Portal de proveedores</a>
-        </nav>
-      </aside>
+<section class="container content-layout">
+      
 
       <div class="trans-content">
         <article class="section-card blue" id="institucional" data-search="institucional mapa institucional intendente gabinete historia maipú misión visión autoridades municipio">
@@ -1874,16 +2205,9 @@
           <div>
             <h2>Institucional</h2>
             <p>Información general del municipio, autoridades, estructura institucional, historia local y principios de gestión.</p>
-            <div class="includes">
-              <span>Mapa Institucional</span>
-              <span>Intendente y Gabinete</span>
-              <span>Historia de Maipú</span>
-              <span>Misión y Visión</span>
-            </div>
           </div>
           <div class="card-actions">
-            <button class="small-btn" type="button" onclick="openTransparencyModal('institucional')"><i class="bi bi-eye"></i> Consultar</button>
-            <a class="small-btn pdf" href="assets/pdf/institucional.pdf" download><i class="bi bi-filetype-pdf"></i> PDF</a>
+            <button class="small-btn" type="button" onclick="openTransparencyModal('institucional')"><i class="bi bi-eye"></i> Abrir sección</button>
           </div>
         </article>
 
@@ -1892,16 +2216,9 @@
           <div>
             <h2>Responsabilidad Fiscal</h2>
             <p>Información vinculada con presupuesto, ejecución, rendición de cuentas y administración responsable de los recursos públicos.</p>
-            <div class="includes">
-              <span>Presupuesto</span>
-              <span>Ejecución</span>
-              <span>Rendición de cuentas</span>
-              <span>Informes fiscales</span>
-            </div>
           </div>
           <div class="card-actions">
-            <button class="small-btn green" type="button" onclick="openTransparencyModal('fiscal')"><i class="bi bi-eye"></i> Consultar</button>
-            <a class="small-btn pdf" href="assets/pdf/responsabilidad-fiscal.pdf" download><i class="bi bi-filetype-pdf"></i> PDF</a>
+            <button class="small-btn green" type="button" onclick="openTransparencyModal('fiscal')"><i class="bi bi-eye"></i> Abrir sección</button>
           </div>
         </article>
 
@@ -1910,16 +2227,9 @@
           <div>
             <h2>Compras y Licitaciones</h2>
             <p>Acceso a procesos de compras municipales, licitaciones, contrataciones, pliegos y documentación relacionada.</p>
-            <div class="includes">
-              <span>Licitaciones vigentes</span>
-              <span>Compras</span>
-              <span>Contrataciones</span>
-              <span>Pliegos</span>
-            </div>
           </div>
           <div class="card-actions">
-            <button class="small-btn orange" type="button" onclick="openTransparencyModal('compras')"><i class="bi bi-eye"></i> Consultar</button>
-            <a class="small-btn pdf" href="assets/pdf/compras-licitaciones.pdf" download><i class="bi bi-filetype-pdf"></i> PDF</a>
+            <button class="small-btn orange" type="button" onclick="openTransparencyModal('compras')"><i class="bi bi-eye"></i> Abrir sección</button>
           </div>
         </article>
 
@@ -1928,16 +2238,9 @@
           <div>
             <h2>Planificación y Desarrollo</h2>
             <p>Planes, programas y proyectos relacionados con el crecimiento urbano, territorial y estratégico del departamento.</p>
-            <div class="includes">
-              <span>Planificación estratégica</span>
-              <span>Desarrollo territorial</span>
-              <span>Obras y proyectos</span>
-              <span>Ordenamiento</span>
-            </div>
           </div>
           <div class="card-actions">
-            <button class="small-btn" type="button" onclick="openTransparencyModal('planificacion')"><i class="bi bi-eye"></i> Consultar</button>
-            <a class="small-btn pdf" href="assets/pdf/planificacion-desarrollo.pdf" download><i class="bi bi-filetype-pdf"></i> PDF</a>
+            <button class="small-btn" type="button" onclick="openTransparencyModal('planificacion')"><i class="bi bi-eye"></i> Abrir sección</button>
           </div>
         </article>
 
@@ -1946,16 +2249,9 @@
           <div>
             <h2>Gestión de la Calidad</h2>
             <p>Información sobre mejora continua, procesos de atención, indicadores, calidad de servicios y gestión institucional.</p>
-            <div class="includes">
-              <span>Mejora continua</span>
-              <span>Procesos</span>
-              <span>Atención ciudadana</span>
-              <span>Indicadores</span>
-            </div>
           </div>
           <div class="card-actions">
-            <button class="small-btn green" type="button" onclick="openTransparencyModal('calidad')"><i class="bi bi-eye"></i> Consultar</button>
-            <a class="small-btn pdf" href="assets/pdf/gestion-calidad.pdf" download><i class="bi bi-filetype-pdf"></i> PDF</a>
+            <button class="small-btn green" type="button" onclick="openTransparencyModal('calidad')"><i class="bi bi-eye"></i> Abrir sección</button>
           </div>
         </article>
 
@@ -1964,24 +2260,18 @@
           <div>
             <h2>Portal de Proveedores</h2>
             <p>Acceso externo al portal oficial de proveedores para consultas, compras y procesos vinculados con contrataciones municipales.</p>
-            <div class="includes">
-              <span>Acceso externo</span>
-              <span>Compras</span>
-              <span>Proveedores</span>
-              <span>Contrataciones</span>
-            </div>
           </div>
           <div class="card-actions">
-            <a class="small-btn orange" href="https://vps.infogov.com.ar/proveedores/compras/?cm=m4MpW" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Ingresar al portal</a>
+            <a class="small-btn orange" href="https://vps.infogov.com.ar/proveedores/compras/?cm=m4MpW" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Abrir portal</a>
           </div>
         </article>
 
-        <div class="help-cta">
+        <div class="help-cta simple-final-banner">
           <div>
-            <h2>¿Necesitás volver al sitio principal?</h2>
-            <p>Desde acá podés regresar a la web municipal o seguir consultando las áreas de Transparencia sin abrir muchas pantallas.</p>
+            <h2>Versión simple y clara</h2>
+            <p>Esta pantalla está pensada para que el vecino no se pierda: entra a Transparencia, toca la sección que necesita y listo.</p>
           </div>
-          <a class="btn btn-white" href="hola.html"><i class="bi bi-arrow-left-circle"></i> Volver al Inicio</a>
+          <a class="btn btn-white" href="hola.html"><i class="bi bi-arrow-left-circle"></i> Volver al sitio</a>
         </div>
       </div>
     </section>
