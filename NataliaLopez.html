@@ -3,7 +3,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="./assets/img/logo-maipu.png" type="image/x-icon">
-  <title>Natalia López · Dirección de Comunicación</title>
+  <title>Natalia López · Rol técnico y digital</title>
 
   <style>
     :root{
@@ -640,6 +640,12 @@
       color:var(--azul);
     }
 
+
+    /* IMAGEN PARA RESUMEN IMPRESO */
+    .print-image-preview{
+      display:none;
+    }
+
     /* SOLAPAS */
     .content{
       margin-top:16px;
@@ -1145,6 +1151,89 @@
       font-weight:700;
     }
 
+
+    /* MODAL RESUMEN IMAGEN */
+    .resumen-modal{
+      position:fixed;
+      inset:0;
+      z-index:300;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+      background:rgba(8,25,43,.74);
+      backdrop-filter:blur(10px);
+    }
+
+    .resumen-modal.open{
+      display:flex;
+    }
+
+    body.modal-open{
+      overflow:hidden;
+    }
+
+    .resumen-box{
+      width:min(920px, 96vw);
+      max-height:92vh;
+      background:#fff;
+      border-radius:22px;
+      box-shadow:0 28px 80px rgba(0,0,0,.28);
+      border:1px solid rgba(255,255,255,.45);
+      overflow:hidden;
+    }
+
+    .resumen-head{
+      min-height:58px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 16px;
+      border-bottom:1px solid var(--linea);
+      background:linear-gradient(135deg, #ffffff, #f4faff);
+    }
+
+    .resumen-head strong{
+      color:var(--azul);
+      font-size:16px;
+      font-weight:950;
+      letter-spacing:-.2px;
+    }
+
+    .resumen-close{
+      width:36px;
+      height:36px;
+      border:0;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background:var(--azul);
+      color:white;
+      cursor:pointer;
+      font-size:24px;
+      line-height:1;
+      font-weight:800;
+    }
+
+    .resumen-body{
+      max-height:calc(92vh - 58px);
+      overflow:auto;
+      padding:14px;
+      background:#f7fbff;
+    }
+
+    .resumen-body img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-width:860px;
+      margin:0 auto;
+      border-radius:16px;
+      box-shadow:0 16px 34px rgba(7,89,155,.14);
+      background:#fff;
+    }
+
     /* BARRA CELULAR */
     .mobile-dock{
       display:none;
@@ -1422,6 +1511,36 @@
         width:74px;
       }
 
+
+      .resumen-modal{
+        padding:12px;
+      }
+
+      .resumen-box{
+        width:96vw;
+        max-height:88vh;
+        border-radius:18px;
+      }
+
+      .resumen-head{
+        min-height:52px;
+        padding:11px 12px;
+      }
+
+      .resumen-head strong{
+        font-size:14.5px;
+      }
+
+      .resumen-close{
+        width:34px;
+        height:34px;
+      }
+
+      .resumen-body{
+        max-height:calc(88vh - 52px);
+        padding:10px;
+      }
+
       .mobile-dock{
         position:fixed;
         left:0;
@@ -1531,6 +1650,26 @@
         page-break-inside:avoid;
         break-inside:avoid;
       }
+
+      .print-image-preview{
+        display:block;
+        margin:18px 0;
+        padding:16px;
+        border:1px solid var(--linea);
+        border-radius:18px;
+        page-break-inside:avoid;
+        break-inside:avoid;
+      }
+
+      .print-image-preview img{
+        display:block;
+        width:100%;
+        max-width:920px;
+        max-height:95vh;
+        object-fit:contain;
+        margin:0 auto;
+        border-radius:14px;
+      }
     }
   </style>
 </head>
@@ -1578,10 +1717,10 @@
               Programación
             </button>
 
-            <button class="btn orange" onclick="window.print()">
+            <a class="btn orange" href="./assets/img/natalia.jpeg" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
-              Desc. PDF
-            </button>
+              Resumen
+            </a>
           </div>
         </section>
 
@@ -2083,10 +2222,10 @@
   </main>
 
   <nav class="mobile-dock" aria-label="Navegación móvil">
-    <button class="dock-btn pdf" onclick="window.print()">
+    <a class="dock-btn pdf" href="./assets/img/natalia.jpeg" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
-      PDF
-    </button>
+      Resumen
+    </a>
 
     <button class="dock-btn active" data-tab-open="crm">
       <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
@@ -2108,6 +2247,24 @@
       Auto
     </button>
   </nav>
+
+
+  <div class="resumen-modal" id="resumenModal" aria-hidden="true">
+    <div class="resumen-box" role="dialog" aria-modal="true" aria-label="Resumen visual">
+      <div class="resumen-head">
+        <strong>Resumen visual del trabajo</strong>
+        <button class="resumen-close" type="button" data-close-resumen aria-label="Cerrar">×</button>
+      </div>
+
+      <div class="resumen-body">
+        <img
+          src="./assets/img/natalia.jpeg"
+          alt="Resumen visual de tareas de Natalia López"
+          onerror="if(this.dataset.fallback !== '1'){this.dataset.fallback='1'; this.src='nataloa.jepg';}"
+        >
+      </div>
+    </div>
+  </div>
 
   <script>
     const panels = document.querySelectorAll(".panel");
@@ -2141,7 +2298,6 @@
     });
 
     /* La manito guía dos veces el recorrido 1-2-3-4 y después se borra */
-    const lastHand = document.querySelector(".step-card:nth-child(4) .tap-hand");
     if(lastHand){
       lastHand.addEventListener("animationend", () => {
         stepCards.forEach(card => card.classList.add("hand-finished"));
@@ -2158,6 +2314,48 @@
         onlineToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
       });
     }
+
+    /* Abrir imagen de resumen */
+    const resumenModal = document.getElementById("resumenModal");
+    const resumenOpenButtons = document.querySelectorAll("[data-open-resumen]");
+    const resumenCloseButtons = document.querySelectorAll("[data-close-resumen]");
+
+    function openResumen(){
+      if(!resumenModal) return;
+      resumenModal.classList.add("open");
+      resumenModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeResumen(){
+      if(!resumenModal) return;
+      resumenModal.classList.remove("open");
+      resumenModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+    }
+
+    resumenOpenButtons.forEach(btn => {
+      btn.addEventListener("click", openResumen);
+    });
+
+    resumenCloseButtons.forEach(btn => {
+      btn.addEventListener("click", closeResumen);
+    });
+
+    if(resumenModal){
+      resumenModal.addEventListener("click", (event) => {
+        if(event.target === resumenModal){
+          closeResumen();
+        }
+      });
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if(event.key === "Escape"){
+        closeResumen();
+      }
+    });
+
   </script>
 </body>
 </html>
