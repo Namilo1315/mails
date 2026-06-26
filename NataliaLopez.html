@@ -1671,6 +1671,22 @@
         border-radius:14px;
       }
     }
+
+    /* FIX CELULAR - Botón "Sitios web" siempre clickeable */
+    @media(max-width:620px){
+      #sitios-web .online-toggle{
+        position:relative;
+        z-index:4;
+        pointer-events:auto !important;
+        touch-action:manipulation;
+        -webkit-tap-highlight-color:transparent;
+      }
+
+      #sitios-web.open .online-body{
+        display:grid !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -2224,7 +2240,7 @@
   <nav class="mobile-dock" aria-label="Navegación móvil">
     <a class="dock-btn pdf" href="./assets/img/natalia.jpeg" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
-      Resumen
+      Img
     </a>
 
     <button class="dock-btn active" data-tab-open="crm">
@@ -2267,95 +2283,111 @@
   </div>
 
   <script>
-    const panels = document.querySelectorAll(".panel");
-    const stepCards = document.querySelectorAll(".step-card");
-    const dockButtons = document.querySelectorAll(".dock-btn[data-tab-open]");
-    const openButtons = document.querySelectorAll("[data-tab-open]");
+    document.addEventListener("DOMContentLoaded", () => {
+      const panels = document.querySelectorAll(".panel");
+      const stepCards = document.querySelectorAll(".step-card");
+      const dockButtons = document.querySelectorAll(".dock-btn[data-tab-open]");
+      const openButtons = document.querySelectorAll("[data-tab-open]");
 
-    function openTab(name, shouldScroll = true){
-      panels.forEach(panel => {
-        panel.classList.toggle("active", panel.id === "panel-" + name);
-      });
+      function openTab(name, shouldScroll = true){
+        panels.forEach(panel => {
+          panel.classList.toggle("active", panel.id === "panel-" + name);
+        });
 
-      stepCards.forEach(card => {
-        card.classList.toggle("active", card.dataset.tabOpen === name);
-      });
+        stepCards.forEach(card => {
+          card.classList.toggle("active", card.dataset.tabOpen === name);
+        });
 
-      dockButtons.forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.tabOpen === name);
-      });
+        dockButtons.forEach(btn => {
+          btn.classList.toggle("active", btn.dataset.tabOpen === name);
+        });
 
-      if(shouldScroll){
-        const detail = document.getElementById("detalle");
-        detail.scrollIntoView({ behavior:"smooth", block:"start" });
+        if(shouldScroll){
+          const detail = document.getElementById("detalle");
+          if(detail){
+            detail.scrollIntoView({ behavior:"smooth", block:"start" });
+          }
+        }
       }
-    }
 
-    openButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        openTab(btn.dataset.tabOpen, true);
+      openButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const tabName = btn.dataset.tabOpen;
+          if(tabName){
+            openTab(tabName, true);
+          }
+        });
       });
-    });
 
-    /* La manito guía dos veces el recorrido 1-2-3-4 y después se borra */
-    if(lastHand){
-      lastHand.addEventListener("animationend", () => {
-        stepCards.forEach(card => card.classList.add("hand-finished"));
+      /* La manito guía dos veces el recorrido 1-2-3-4 y después se borra */
+      const lastHand = document.querySelector(".step-card:nth-child(4) .tap-hand");
+
+      if(lastHand){
+        lastHand.addEventListener("animationend", () => {
+          stepCards.forEach(card => card.classList.add("hand-finished"));
+        });
+      }
+
+      /* Desplegable móvil de sitios web */
+      const onlineWork = document.getElementById("sitios-web");
+      const onlineToggle = onlineWork ? onlineWork.querySelector(".online-toggle") : null;
+
+      if(onlineWork && onlineToggle){
+        onlineToggle.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          const isOpen = onlineWork.classList.toggle("open");
+          onlineToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+          if(isOpen && window.innerWidth <= 620){
+            setTimeout(() => {
+              onlineWork.scrollIntoView({ behavior:"smooth", block:"center" });
+            }, 80);
+          }
+        });
+      }
+
+      /* Abrir imagen de resumen */
+      const resumenModal = document.getElementById("resumenModal");
+      const resumenOpenButtons = document.querySelectorAll("[data-open-resumen]");
+      const resumenCloseButtons = document.querySelectorAll("[data-close-resumen]");
+
+      function openResumen(){
+        if(!resumenModal) return;
+        resumenModal.classList.add("open");
+        resumenModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+      }
+
+      function closeResumen(){
+        if(!resumenModal) return;
+        resumenModal.classList.remove("open");
+        resumenModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      }
+
+      resumenOpenButtons.forEach(btn => {
+        btn.addEventListener("click", openResumen);
       });
-    }
 
-    /* Desplegable móvil de sitios web */
-    const onlineWork = document.querySelector(".online-work");
-    const onlineToggle = document.querySelector(".online-toggle");
-
-    if(onlineWork && onlineToggle){
-      onlineToggle.addEventListener("click", () => {
-        const isOpen = onlineWork.classList.toggle("open");
-        onlineToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      resumenCloseButtons.forEach(btn => {
+        btn.addEventListener("click", closeResumen);
       });
-    }
 
-    /* Abrir imagen de resumen */
-    const resumenModal = document.getElementById("resumenModal");
-    const resumenOpenButtons = document.querySelectorAll("[data-open-resumen]");
-    const resumenCloseButtons = document.querySelectorAll("[data-close-resumen]");
+      if(resumenModal){
+        resumenModal.addEventListener("click", (event) => {
+          if(event.target === resumenModal){
+            closeResumen();
+          }
+        });
+      }
 
-    function openResumen(){
-      if(!resumenModal) return;
-      resumenModal.classList.add("open");
-      resumenModal.setAttribute("aria-hidden", "false");
-      document.body.classList.add("modal-open");
-    }
-
-    function closeResumen(){
-      if(!resumenModal) return;
-      resumenModal.classList.remove("open");
-      resumenModal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("modal-open");
-    }
-
-    resumenOpenButtons.forEach(btn => {
-      btn.addEventListener("click", openResumen);
-    });
-
-    resumenCloseButtons.forEach(btn => {
-      btn.addEventListener("click", closeResumen);
-    });
-
-    if(resumenModal){
-      resumenModal.addEventListener("click", (event) => {
-        if(event.target === resumenModal){
+      document.addEventListener("keydown", (event) => {
+        if(event.key === "Escape"){
           closeResumen();
         }
       });
-    }
-
-    document.addEventListener("keydown", (event) => {
-      if(event.key === "Escape"){
-        closeResumen();
-      }
     });
-
   </script>
 </body>
 </html>
