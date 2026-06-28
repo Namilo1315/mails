@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/img/logo-maipu.png" type="image/x-icon">
+  <title>Natalia López · Rol técnico y digital</title>
+
+  <style>
+    :root{
+      --azul:#07599b;
+      --azul-2:#0d73bd;
+      --azul-3:#e8f4ff;
+      --azul-50:#f6fbff;
+      --verde:#159a78;
+      --verde-2:#e8f8f3;
+      --naranja:#f1972c;
+      --naranja-2:#fff2df;
+      --rosa:#e65d8f;
+      --rosa-2:#fff0f6;
+      --texto:#132033;
+      --muted:#65758b;
+      --linea:#dce8f3;
+      --fondo:#f5f8fb;
+      --blanco:#ffffff;
+      --sombra:0 18px 48px rgba(7, 89, 155, .12);
+      --sombra-suave:0 10px 28px rgba(7, 89, 155, .08);
+      --radio:18px;
+      --radio-sm:10px;
+      --mobilebar:62px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      min-height:100vh;
+      font-family:"Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 5%, rgba(13,115,189,.12), transparent 28%),
+        radial-gradient(circle at 92% 10%, rgba(241,151,44,.13), transparent 25%),
+        var(--fondo);
+      color:var(--texto);
+      line-height:1.5;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button{
+      font-family:inherit;
+    }
+
+    svg{
+      width:18px;
+      height:18px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      flex:0 0 auto;
+    }
+
+    .page{
+      width:min(1130px, 94%);
+      margin:0 auto;
+      padding:24px 0 36px;
+    }
+
+    /* PORTADA */
+    .hero{
+      background:var(--blanco);
+      border:1px solid var(--linea);
+      border-radius:26px;
+      box-shadow:var(--sombra);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero-top{
+      min-height:10px;
+      background:linear-gradient(90deg, var(--azul), var(--verde), var(--naranja), var(--rosa));
+    }
+
+    .hero-content{
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:22px;
+      padding:30px;
+      align-items:stretch;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 11px;
+      border-radius:var(--radio-sm);
+      background:var(--azul-3);
+      color:var(--azul);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.2px;
+      margin-bottom:15px;
+    }
+
+    h1{
+      font-size:clamp(29px, 4.2vw, 48px);
+      line-height:1;
+      letter-spacing:-1.5px;
+      color:var(--texto);
+      margin-bottom:13px;
+    }
+
+    h1 span{
+      color:var(--azul);
+    }
+
+    .lead{
+      color:var(--muted);
+      font-size:16px;
+      max-width:780px;
+      line-height:1.58;
+      margin-bottom:17px;
+    }
+
+    .lead strong{
+      display:block;
+      color:var(--azul);
+      font-size:15px;
+      font-weight:950;
+      letter-spacing:.2px;
+      margin-bottom:5px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-top:18px;
+    }
+
+    .btn{
+      min-height:42px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border-radius:var(--radio-sm);
+      border:1px solid transparent;
+      padding:10px 13px;
+      cursor:pointer;
+      font-weight:900;
+      font-size:13.5px;
+      transition:.2s ease;
+      line-height:1;
+      background:white;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 24px rgba(7,89,155,.15);
+    }
+
+    .btn.primary{
+      background:var(--azul);
+      border-color:var(--azul);
+      color:white;
+    }
+
+    .btn.light{
+      background:var(--azul-3);
+      border-color:#cde4f7;
+      color:var(--azul);
+    }
+
+    .btn.green{
+      background:var(--verde-2);
+      border-color:#c8eee3;
+      color:var(--verde);
+    }
+
+    .btn.orange{
+      background:var(--naranja);
+      border-color:var(--naranja);
+      color:white;
+    }
+
+    .profile-card{
+      border:1px solid var(--linea);
+      border-radius:20px;
+      background:linear-gradient(180deg, #ffffff, #f8fbff);
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .profile-card h2{
+      font-size:19px;
+      letter-spacing:-.5px;
+      margin-bottom:9px;
+      position:relative;
+      display:block;
+      padding-bottom:7px;
+    }
+
+    .profile-card h2:after,
+    .section-title:after,
+    .card h3:after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:48px;
+      height:3px;
+      border-radius:9px;
+      background:linear-gradient(90deg, var(--azul), var(--naranja));
+    }
+
+    .profile-list{
+      display:grid;
+      gap:7px;
+    }
+
+    .profile-row{
+      display:grid;
+      grid-template-columns:96px 1fr;
+      gap:10px;
+      padding:8px 0;
+      border-bottom:1px solid var(--linea);
+      font-size:13.5px;
+    }
+
+    .profile-row:last-child{
+      border-bottom:none;
+    }
+
+    .profile-row strong{
+      color:var(--texto);
+    }
+
+    .profile-row span{
+      color:var(--muted);
+    }
+
+    .system-box{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:8px;
+      padding:14px;
+      border-radius:14px;
+      background:linear-gradient(135deg, #f4faff, #e8f4ff);
+      border:1px solid #c9e0f4;
+    }
+
+    .system-box .mini-icon{
+      display:none;
+    }
+
+    .system-box strong{
+      display:block;
+      font-size:14px;
+      margin-bottom:4px;
+      color:var(--azul);
+    }
+
+    .system-box span{
+      display:block;
+      color:#46627f;
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    /* STEPS */
+    .steps{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:12px;
+    }
+
+    .step-card{
+      --glow-rgb:13,115,189;
+      position:relative;
+      isolation:isolate;
+      border:2px solid rgba(var(--glow-rgb), .45);
+      background:var(--blanco);
+      border-radius:18px;
+      padding:15px;
+      cursor:pointer;
+      box-shadow:
+        var(--sombra-suave),
+        0 0 0 3px rgba(var(--glow-rgb), .13),
+        0 0 22px rgba(var(--glow-rgb), .22);
+      display:grid;
+      grid-template-columns:45px 1fr;
+      gap:12px;
+      align-items:center;
+      transition:.2s ease;
+      text-align:left;
+      animation:stepLight 1.9s ease-in-out infinite;
+    }
+
+    .step-card:before{
+      content:"";
+      position:absolute;
+      inset:-4px;
+      border-radius:22px;
+      border:1px solid rgba(var(--glow-rgb), .35);
+      opacity:.85;
+      pointer-events:none;
+      z-index:-1;
+      animation:stepHalo 1.9s ease-in-out infinite;
+    }
+
+    .step-card:nth-child(2){
+      --glow-rgb:21,154,120;
+    }
+
+    .step-card:nth-child(3){
+      --glow-rgb:241,151,44;
+    }
+
+    .step-card:nth-child(4){
+      --glow-rgb:230,93,143;
+    }
+
+    .step-card:hover,
+    .step-card.active{
+      transform:translateY(-2px);
+      border-color:rgba(var(--glow-rgb), .72);
+      box-shadow:
+        0 18px 35px rgba(7,89,155,.13),
+        0 0 0 4px rgba(var(--glow-rgb), .18),
+        0 0 30px rgba(var(--glow-rgb), .34);
+    }
+
+    @keyframes stepLight{
+      0%,100%{
+        box-shadow:
+          var(--sombra-suave),
+          0 0 0 3px rgba(var(--glow-rgb), .12),
+          0 0 18px rgba(var(--glow-rgb), .19);
+      }
+      50%{
+        box-shadow:
+          var(--sombra-suave),
+          0 0 0 5px rgba(var(--glow-rgb), .2),
+          0 0 34px rgba(var(--glow-rgb), .36);
+      }
+    }
+
+    @keyframes stepHalo{
+      0%,100%{
+        opacity:.45;
+        transform:scale(.985);
+      }
+      50%{
+        opacity:1;
+        transform:scale(1.018);
+      }
+    }
+
+    .step-number{
+      width:44px;
+      height:44px;
+      border-radius:13px;
+      display:grid;
+      place-items:center;
+      color:white;
+      font-size:18px;
+      font-weight:950;
+      background:var(--azul);
+    }
+
+    .step-card:nth-child(2) .step-number{
+      background:var(--verde);
+    }
+
+    .step-card:nth-child(3) .step-number{
+      background:var(--naranja);
+    }
+
+    .step-card:nth-child(4) .step-number{
+      background:var(--rosa);
+    }
+
+    .step-card small{
+      color:var(--muted);
+      display:block;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:2px;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+    }
+
+    .step-card strong{
+      color:var(--texto);
+      font-size:15px;
+      line-height:1.22;
+      display:block;
+    }
+
+
+    /* MANITO ANIMADA PARA GUIAR LOS BOTONES 1-2-3-4 */
+    .step-card{
+      overflow:visible;
+    }
+
+    .tap-hand{
+      position:absolute;
+      right:76px;
+      top:28px;
+      width:44px;
+      height:44px;
+      pointer-events:none;
+      z-index:8;
+      opacity:0;
+      transform-origin:65% 70%;
+      animation:tapHand 7.2s linear 2 forwards;
+      filter:drop-shadow(0 10px 14px rgba(19,32,51,.22));
+    }
+
+    .step-card:nth-child(1) .tap-hand{
+      animation-delay:0s;
+    }
+
+    .step-card:nth-child(2) .tap-hand{
+      animation-delay:1.8s;
+    }
+
+    .step-card:nth-child(3) .tap-hand{
+      animation-delay:3.6s;
+    }
+
+    .step-card:nth-child(4) .tap-hand{
+      animation-delay:5.4s;
+    }
+
+    .tap-hand svg{
+      width:38px;
+      height:38px;
+      stroke:#132033;
+      stroke-width:2.6;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      fill:none;
+      transform:rotate(-18deg);
+    }
+
+    .tap-hand .hand-fill{
+      fill:#ffffff;
+    }
+
+    .tap-ring{
+      position:absolute;
+      left:5px;
+      top:2px;
+      width:21px;
+      height:21px;
+      border-radius:999px;
+      border:2px solid rgba(var(--glow-rgb), .85);
+      opacity:0;
+      transform:scale(.35);
+      animation:tapRing 7.2s linear 2 forwards;
+    }
+
+    .step-card:nth-child(1) .tap-ring{
+      animation-delay:0s;
+    }
+
+    .step-card:nth-child(2) .tap-ring{
+      animation-delay:1.8s;
+    }
+
+    .step-card:nth-child(3) .tap-ring{
+      animation-delay:3.6s;
+    }
+
+    .step-card:nth-child(4) .tap-ring{
+      animation-delay:5.4s;
+    }
+
+    @keyframes tapHand{
+      0%, 2%{
+        opacity:0;
+        transform:translate(10px, 5px) scale(.9);
+      }
+      5%, 10%{
+        opacity:1;
+        transform:translate(0, 0) scale(.92);
+      }
+      13%{
+        opacity:1;
+        transform:translate(-4px, 7px) scale(.78);
+      }
+      17%{
+        opacity:1;
+        transform:translate(0, 0) scale(.92);
+      }
+      25%{
+        opacity:0;
+        transform:translate(-10px, 10px) scale(.9);
+      }
+      100%{
+        opacity:0;
+        transform:translate(10px, 5px) scale(.9);
+      }
+    }
+
+    @keyframes tapRing{
+      0%, 9%{
+        opacity:0;
+        transform:scale(.35);
+      }
+      13%{
+        opacity:.95;
+        transform:scale(.5);
+      }
+      22%{
+        opacity:0;
+        transform:scale(1.45);
+      }
+      100%{
+        opacity:0;
+        transform:scale(.35);
+      }
+    }
+
+
+    .step-card.hand-finished .tap-hand,
+    .step-card.hand-finished .tap-ring{
+      display:none;
+    }
+
+    /* TRABAJOS ONLINE */
+    .online-work{
+      display:none;
+      margin-top:16px;
+      background:linear-gradient(135deg, #ffffff, #f7fbff);
+      border:1px solid var(--linea);
+      border-radius:22px;
+      box-shadow:var(--sombra-suave);
+      padding:18px;
+    }
+
+    .online-work.open{
+      display:block;
+    }
+
+    .online-toggle{
+      width:100%;
+      min-height:54px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      border:0;
+      background:transparent;
+      color:var(--texto);
+      cursor:pointer;
+      text-align:left;
+      padding:0;
+    }
+
+    .online-toggle-title{
+      display:block;
+      color:var(--texto);
+      font-size:17px;
+      line-height:1.18;
+      font-weight:950;
+      letter-spacing:-.25px;
+    }
+
+    .online-toggle-sub{
+      display:block;
+      color:var(--muted);
+      font-size:12.8px;
+      line-height:1.25;
+      margin-top:3px;
+      font-weight:750;
+    }
+
+    .online-toggle-icon{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+      background:var(--azul);
+      color:white;
+      transition:.2s ease;
+    }
+
+    .online-toggle-icon svg{
+      width:17px;
+      height:17px;
+      transition:.2s ease;
+    }
+
+    .online-work.open .online-toggle-icon{
+      background:var(--naranja);
+    }
+
+    .online-work.open .online-toggle-icon svg{
+      transform:rotate(180deg);
+    }
+
+    .online-body{
+      display:none;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      align-items:center;
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--linea);
+    }
+
+    .online-work.open .online-body{
+      display:grid;
+    }
+
+    .online-work h2{
+      font-size:20px;
+      letter-spacing:-.5px;
+      margin-bottom:4px;
+    }
+
+    .online-work p{
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.5;
+    }
+
+    .online-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      justify-content:flex-end;
+    }
+
+    /* SOLAPAS */
+    .content{
+      display:none;
+      margin-top:16px;
+      background:var(--blanco);
+      border:1px solid var(--linea);
+      border-radius:26px;
+      box-shadow:var(--sombra);
+      overflow:hidden;
+    }
+
+    .content.visible{
+      display:block;
+    }
+
+    .tab-panels{
+      padding:26px;
+    }
+
+    .panel{
+      display:none;
+      animation:fade .22s ease;
+    }
+
+    .panel.active{
+      display:block;
+    }
+
+    @keyframes fade{
+      from{opacity:.45; transform:translateY(5px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:18px;
+      margin-bottom:18px;
+    }
+
+    .section-tag{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      color:var(--azul);
+      font-size:12px;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+      margin-bottom:8px;
+    }
+
+    .section-tag b{
+      width:30px;
+      height:30px;
+      border-radius:9px;
+      display:grid;
+      place-items:center;
+      color:white;
+      background:var(--azul);
+      font-size:14px;
+      letter-spacing:0;
+      flex:0 0 auto;
+    }
+
+    .section-tag.green b{
+      background:var(--verde);
+    }
+
+    .section-tag.orange b{
+      background:var(--naranja);
+    }
+
+    .section-tag.pink b{
+      background:var(--rosa);
+    }
+
+    .section-title{
+      display:block;
+      position:relative;
+      padding-bottom:8px;
+      font-size:clamp(21px, 2.25vw, 28px);
+      line-height:1.12;
+      letter-spacing:-.7px;
+      max-width:860px;
+    }
+
+    .section-copy{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.58;
+      margin-top:11px;
+      max-width:930px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .cards.two{
+      grid-template-columns:repeat(2, 1fr);
+    }
+
+    .card{
+      border:1px solid var(--linea);
+      border-radius:18px;
+      padding:18px;
+      background:#fff;
+      min-height:100%;
+    }
+
+    .card.blue-soft{
+      background:linear-gradient(180deg,#ffffff,var(--azul-50));
+    }
+
+    .card.green-soft{
+      background:linear-gradient(180deg,#ffffff,var(--verde-2));
+    }
+
+    .card.orange-soft{
+      background:linear-gradient(180deg,#ffffff,var(--naranja-2));
+    }
+
+    .card.pink-soft{
+      background:linear-gradient(180deg,#ffffff,var(--rosa-2));
+    }
+
+    .card h3{
+      font-size:16.5px;
+      letter-spacing:-.3px;
+      margin-bottom:10px;
+      position:relative;
+      display:block;
+      padding-bottom:6px;
+    }
+
+    .card h3:after{
+      height:2px;
+      width:38px;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:14.2px;
+      line-height:1.55;
+      margin-bottom:10px;
+    }
+
+    .icon-title{
+      display:grid;
+      grid-template-columns:38px 1fr;
+      gap:10px;
+      align-items:start;
+      margin-bottom:5px;
+    }
+
+    .icon{
+      width:38px;
+      height:38px;
+      border-radius:11px;
+      display:grid;
+      place-items:center;
+      background:var(--azul-3);
+      color:var(--azul);
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+
+    .icon.green{
+      background:var(--verde-2);
+      color:var(--verde);
+    }
+
+    .icon.orange{
+      background:var(--naranja-2);
+      color:#ad5b06;
+    }
+
+    .icon.pink{
+      background:var(--rosa-2);
+      color:var(--rosa);
+    }
+
+    .list{
+      display:grid;
+      gap:7px;
+      list-style:none;
+    }
+
+    .list li{
+      color:#344054;
+      font-size:13.8px;
+      line-height:1.46;
+      position:relative;
+      padding-left:16px;
+    }
+
+    .list li:before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:2px;
+      background:var(--azul);
+      position:absolute;
+      left:0;
+      top:.56em;
+    }
+
+    .green-soft .list li:before,
+    .metric-list li:before{
+      background:var(--verde);
+    }
+
+    .orange-soft .list li:before{
+      background:var(--naranja);
+    }
+
+    .pink-soft .list li:before{
+      background:var(--rosa);
+    }
+
+    .feature{
+      margin-top:15px;
+      border-radius:20px;
+      padding:22px;
+      color:white;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,.18), transparent 34%),
+        linear-gradient(135deg, #06284f, #0d73bd);
+    }
+
+    .feature h3{
+      font-size:22px;
+      letter-spacing:-.6px;
+      margin-bottom:8px;
+    }
+
+    .feature p{
+      color:rgba(255,255,255,.87);
+      font-size:14.7px;
+      line-height:1.58;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:10px;
+      margin-top:15px;
+    }
+
+    .feature-item{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:12px;
+      padding:13px;
+    }
+
+    .feature-item strong{
+      display:block;
+      font-size:14.5px;
+      color:white;
+      margin-bottom:4px;
+    }
+
+    .feature-item span{
+      display:block;
+      color:rgba(255,255,255,.76);
+      font-size:12.8px;
+      line-height:1.35;
+    }
+
+    .work-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+    }
+
+    .web-layout{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:14px;
+      align-items:stretch;
+      margin-top:16px;
+    }
+
+    .mock{
+      border:1px solid var(--linea);
+      border-radius:20px;
+      overflow:hidden;
+      background:#fff;
+    }
+
+    .mock-bar{
+      height:42px;
+      background:#eef5fb;
+      border-bottom:1px solid var(--linea);
+      display:flex;
+      align-items:center;
+      gap:7px;
+      padding:0 14px;
+    }
+
+    .mock-bar span{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:#cbd8e6;
+    }
+
+    .mock-hero{
+      margin:16px;
+      border-radius:15px;
+      padding:18px;
+      color:white;
+      background:linear-gradient(135deg, var(--azul), var(--azul-2));
+    }
+
+    .mock-hero h3{
+      font-size:24px;
+      letter-spacing:-.6px;
+      margin-bottom:6px;
+    }
+
+    .mock-hero p{
+      font-size:14px;
+      color:rgba(255,255,255,.86);
+    }
+
+    .mock-list{
+      display:grid;
+      gap:9px;
+      padding:0 16px 16px;
+    }
+
+    .mock-row{
+      display:grid;
+      grid-template-columns:34px 1fr;
+      gap:10px;
+      align-items:center;
+      border:1px solid var(--linea);
+      border-radius:12px;
+      padding:10px;
+      font-size:13.5px;
+      color:#344054;
+      font-weight:850;
+      background:#fbfdff;
+    }
+
+    .mock-row .mini{
+      width:32px;
+      height:32px;
+      display:grid;
+      place-items:center;
+      border-radius:9px;
+      color:var(--azul);
+      background:var(--azul-3);
+    }
+
+    .web-cards{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:0;
+    }
+
+    .web-cards .card{
+      min-height:0;
+      display:block;
+    }
+
+    .tools-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:9px;
+      margin-top:16px;
+    }
+
+    .tool{
+      min-height:44px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:9px 10px;
+      border-radius:8px;
+      border:1px solid var(--linea);
+      background:#fff;
+      color:#344054;
+      font-size:13px;
+      font-weight:850;
+      line-height:1.25;
+    }
+
+    .tool:nth-child(4n+1){
+      background:var(--azul-3);
+      color:var(--azul);
+      border-color:#cde4f7;
+    }
+
+    .tool:nth-child(4n+2){
+      background:var(--verde-2);
+      color:var(--verde);
+      border-color:#c8eee3;
+    }
+
+    .tool:nth-child(4n+3){
+      background:var(--naranja-2);
+      color:#9a570c;
+      border-color:#ffdca9;
+    }
+
+    .tool:nth-child(4n+4){
+      background:var(--rosa-2);
+      color:var(--rosa);
+      border-color:#ffd1e2;
+    }
+
+    .closing{
+      margin-top:16px;
+      border:1px solid var(--linea);
+      border-radius:22px;
+      background:
+        linear-gradient(90deg, #ffffff 0%, #f7fbff 58%, #eef8ff 100%);
+      box-shadow:var(--sombra-suave);
+      padding:18px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .closing:before{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      height:6px;
+      width:100%;
+      background:linear-gradient(90deg, var(--azul), var(--verde), var(--naranja));
+    }
+
+    .footer-person{
+      display:flex;
+      align-items:center;
+      gap:13px;
+      position:relative;
+      z-index:2;
+    }
+
+    .avatar{
+      width:46px;
+      height:46px;
+      border-radius:15px;
+      background:var(--azul-3);
+      color:var(--azul);
+      display:grid;
+      place-items:center;
+      border:1px solid #cde4f7;
+      flex:0 0 auto;
+    }
+
+    .closing strong{
+      display:block;
+      font-size:17px;
+      margin-bottom:3px;
+    }
+
+    .closing span{
+      color:var(--muted);
+      font-size:13.7px;
+    }
+
+    .footer-brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding-left:18px;
+      border-left:1px solid var(--linea);
+      position:relative;
+      z-index:2;
+    }
+
+    .footer-brand img{
+      width:88px;
+      max-height:48px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .footer-brand b{
+      display:block;
+      font-size:13.5px;
+      color:var(--azul);
+      letter-spacing:.2px;
+      text-transform:uppercase;
+    }
+
+    .footer-brand small{
+      display:block;
+      color:var(--muted);
+      margin-top:2px;
+      font-weight:700;
+    }
+@media(max-width:980px){
+      .hero-content,
+      .cards,
+      .cards.two,
+      .web-layout{
+        grid-template-columns:1fr;
+      }
+
+      .online-body{
+        grid-template-columns:1fr;
+      }
+
+      .steps{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .feature-grid,
+      .tools-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .section-head{
+        flex-direction:column;
+      }
+
+      .online-buttons{
+        justify-content:flex-start;
+      }
+    }
+
+    @media(max-width:620px){
+      body{
+        padding-bottom:0;
+      }
+
+      .desktop-role-card{
+        display:none;
+      }
+
+      .page{
+        width:94%;
+        padding-top:14px;
+      }
+
+      .hero-content{
+        padding:21px;
+        gap:16px;
+      }
+
+      h1{
+        font-size:30px;
+        letter-spacing:-1px;
+      }
+
+      .lead{
+        font-size:14.8px;
+      }
+
+      .eyebrow{
+        font-size:11.5px;
+      }
+
+      .hero-actions{
+        display:flex;
+      }
+
+      .hero-actions .btn[data-tab-open]{
+        display:none;
+      }
+
+      .hero-actions .sites-btn{
+        width:100%;
+      }
+
+      .profile-card{
+        padding:17px;
+      }
+
+      .profile-card h2{
+        font-size:17px;
+      }
+
+      .profile-row{
+        grid-template-columns:82px 1fr;
+        gap:8px;
+        font-size:13px;
+      }
+
+      .system-box{
+        grid-template-columns:1fr;
+        padding:12px;
+      }
+
+      .system-box .mini-icon{
+        display:none;
+      }
+
+      .system-box span{
+        font-size:12.5px;
+      }
+
+      .steps{
+        grid-template-columns:1fr;
+        gap:9px;
+      }
+
+      .step-card{
+        padding:12px;
+        grid-template-columns:39px 1fr;
+      }
+
+
+      .tap-hand{
+        right:34px;
+        top:22px;
+        width:44px;
+        height:44px;
+      }
+
+      .tap-hand svg{
+        width:38px;
+        height:38px;
+      }
+
+      .tap-ring{
+        left:5px;
+        top:2px;
+        width:21px;
+        height:21px;
+      }
+
+      .step-number{
+        width:38px;
+        height:38px;
+        border-radius:11px;
+        font-size:16px;
+      }
+
+      .online-work{
+        padding:14px;
+      }
+
+      .online-work{
+        border-radius:18px;
+      }
+
+      .online-toggle{
+        width:100%;
+        min-height:54px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
+        border:0;
+        background:transparent;
+        color:var(--texto);
+        cursor:pointer;
+        text-align:left;
+        padding:0;
+      }
+
+      .online-toggle-title{
+        display:block;
+        color:var(--texto);
+        font-size:16px;
+        line-height:1.18;
+        font-weight:950;
+        letter-spacing:-.25px;
+      }
+
+      .online-toggle-sub{
+        display:block;
+        color:var(--muted);
+        font-size:12.5px;
+        line-height:1.25;
+        margin-top:3px;
+        font-weight:750;
+      }
+
+      .online-toggle-icon{
+        width:34px;
+        height:34px;
+        border-radius:10px;
+        display:grid;
+        place-items:center;
+        flex:0 0 auto;
+        background:var(--azul);
+        color:white;
+        transition:.2s ease;
+      }
+
+      .online-toggle-icon svg{
+        width:17px;
+        height:17px;
+        transition:.2s ease;
+      }
+
+      .online-work.open .online-toggle-icon{
+        background:var(--naranja);
+      }
+
+      .online-work.open .online-toggle-icon svg{
+        transform:rotate(180deg);
+      }
+
+      .online-body{
+        display:none;
+        grid-template-columns:1fr;
+        gap:12px;
+        margin-top:13px;
+        padding-top:13px;
+        border-top:1px solid var(--linea);
+      }
+
+      .online-work.open .online-body{
+        display:grid;
+      }
+
+      .online-work h2{
+        font-size:18px;
+      }
+
+      .online-work p{
+        font-size:14px;
+      }
+
+      .online-work h2,
+      .online-work p{
+        display:none;
+      }
+
+      .online-work.open h2,
+      .online-work.open p{
+        display:block;
+      }
+
+      .tab-panels{
+        padding:18px;
+      }
+
+      .section-title{
+        font-size:21px;
+      }
+
+      .section-tag{
+        font-size:11px;
+        letter-spacing:.45px;
+      }
+
+      .feature-grid,
+      .tools-grid{
+        grid-template-columns:1fr;
+      }
+
+      .work-links,
+      .online-buttons{
+        width:100%;
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .closing{
+        grid-template-columns:1fr;
+        padding:16px;
+      }
+
+      .footer-brand{
+        border-left:0;
+        border-top:1px solid var(--linea);
+        padding-left:0;
+        padding-top:14px;
+      }
+
+      .footer-brand img{
+        width:74px;
+      }
+    }
+
+    @media print{
+      body{
+        background:white;
+        padding-bottom:0;
+      }
+
+      .content,
+      .online-work{
+        display:block !important;
+      }
+
+      .page{
+        width:100%;
+        padding:0;
+      }
+
+      .hero,
+      .online-work,
+      .content,
+      .closing{
+        box-shadow:none;
+      }
+
+      .steps{
+        display:none;
+      }
+
+      .panel{
+        display:block !important;
+        break-inside:avoid;
+        page-break-inside:avoid;
+      }
+
+      .content{
+        border:none;
+        overflow:visible;
+      }
+
+      .tab-panels{
+        padding:0;
+      }
+
+      .panel{
+        margin-top:22px;
+        border:1px solid var(--linea);
+        border-radius:18px;
+        padding:20px;
+      }
+
+      .online-work{
+        page-break-inside:avoid;
+        break-inside:avoid;
+      }
+    }
+
+    /* FIX CELULAR - Botón "Sitios web" siempre clickeable */
+    @media(max-width:620px){
+      #sitios-web .online-toggle{
+        position:relative;
+        z-index:4;
+        pointer-events:auto !important;
+        touch-action:manipulation;
+        -webkit-tap-highlight-color:transparent;
+      }
+
+      #sitios-web.open .online-body{
+        display:grid !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="hero" id="inicio">
+      <div class="hero-top"></div>
+
+      <div class="hero-content">
+        <section>
+          <div class="eyebrow">
+            <svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg>
+            Dirección de Comunicación · Maipú Municipio
+          </div>
+
+          <h1>Natalia López<br><span>Rol técnico y digital</span></h1>
+
+          <p class="lead">
+            <strong>Síntesis profesional</strong>
+            Mi función combina comunicación digital, diseño web, programación y automatización de datos.
+            Preparo piezas e imágenes públicas para CRM, desarrollo HTML para campañas institucionales,
+            analizo métricas de redes sociales, organizo reclamos recibidos por redes y desarrollo
+            herramientas que transforman datos en información y analisis para la gestión.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn primary" data-tab-open="crm">
+              <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+              CRM
+            </button>
+
+            <button class="btn light" data-tab-open="metricas">
+              <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-7"/></svg>
+              Métricas
+            </button>
+
+            <button class="btn green" data-tab-open="web">
+              <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16"/></svg>
+              Web
+            </button>
+
+            <button class="btn light" data-tab-open="programacion">
+              <svg viewBox="0 0 24 24"><path d="M8 9l-4 3 4 3"/><path d="M16 9l4 3-4 3"/><path d="M14 5l-4 14"/></svg>
+              Programación
+            </button>
+
+            <button class="btn orange sites-btn" type="button" data-open-sites>
+              <svg viewBox="0 0 24 24"><path d="M10 6H6v12h12v-4"/><path d="M14 4h6v6"/><path d="M20 4 10 14"/></svg>
+              Sitios
+            </button>
+          </div>
+        </section>
+
+        <aside class="profile-card desktop-role-card">
+          <div>
+            <h2>Resumen del rol</h2>
+
+            <div class="profile-list">
+              <div class="profile-row">
+                <strong>Nombre</strong>
+                <span>Natalia López</span>
+              </div>
+
+              <div class="profile-row">
+                <strong>Área</strong>
+                <span>Dirección de Comunicación</span>
+              </div>
+
+              <div class="profile-row">
+                <strong>A cargo de</strong>
+                <span>Aldana Bollati Sanfeliu</span>
+              </div>
+
+              <div class="profile-row">
+                <strong>Perfil</strong>
+                <span>Programadora Full Stack · Desarrolladora Web · Estudiante de Desarrollo en Software.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="system-box">
+            <div>
+              <strong>Trabajo sistematizado</strong>
+              <span>
+                Procesos, planillas, paneles visuales, sistemas internos, base de datos y herramientas
+                web para ordenar información, controlar tareas y mejorar la continuidad del trabajo.
+              </span>
+            </div>
+          </div>
+        </aside>
+
+
+      </div>
+    </header>
+
+    <section class="steps" aria-label="Navegación principal">
+      <button class="step-card" data-tab-open="crm">
+        <span class="step-number">1</span>
+        <span>
+          <small>Comunicación digital</small>
+          <strong>CRM, imágenes públicas y HTML</strong>
+        </span>
+        <span class="tap-hand" aria-hidden="true">
+          <span class="tap-ring"></span>
+          <svg viewBox="0 0 64 64">
+            <path class="hand-fill" d="M28 7c-3 0-5.3 2.3-5.3 5.3v21.4l-4.6-4.6c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2l13.4 15.8c2.4 2.9 6 4.6 9.8 4.6h10.2c7.1 0 12.8-5.7 12.8-12.8V30.5c0-2.8-2.2-5-5-5-1.4 0-2.7.6-3.6 1.5v-2.4c0-2.8-2.2-5-5-5-1.5 0-2.8.6-3.7 1.7-.7-2.1-2.6-3.7-4.9-3.7-1.3 0-2.5.5-3.4 1.3v-6.6C33.3 9.3 31 7 28 7z"/>
+            <path d="M28 7c-3 0-5.3 2.3-5.3 5.3v26"/>
+            <path d="M33.3 19v18"/>
+            <path d="M39.8 21.4v16.4"/>
+            <path d="M48.5 27v13.5"/>
+            <path d="M22.7 33.7l-4.6-4.6c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2l13.4 15.8c2.4 2.9 6 4.6 9.8 4.6h10.2c7.1 0 12.8-5.7 12.8-12.8V30.5"/>
+          </svg>
+        </span>
+      </button>
+
+      <button class="step-card" data-tab-open="metricas">
+        <span class="step-number">2</span>
+        <span>
+          <small>Análisis institucional</small>
+          <strong>Métricas, reclamos y reportes</strong>
+        </span>
+        <span class="tap-hand" aria-hidden="true">
+          <span class="tap-ring"></span>
+          <svg viewBox="0 0 64 64">
+            <path class="hand-fill" d="M28 7c-3 0-5.3 2.3-5.3 5.3v21.4l-4.6-4.6c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2l13.4 15.8c2.4 2.9 6 4.6 9.8 4.6h10.2c7.1 0 12.8-5.7 12.8-12.8V30.5c0-2.8-2.2-5-5-5-1.4 0-2.7.6-3.6 1.5v-2.4c0-2.8-2.2-5-5-5-1.5 0-2.8.6-3.7 1.7-.7-2.1-2.6-3.7-4.9-3.7-1.3 0-2.5.5-3.4 1.3v-6.6C33.3 9.3 31 7 28 7z"/>
+            <path d="M28 7c-3 0-5.3 2.3-5.3 5.3v26"/>
+            <path d="M33.3 19v18"/>
+            <path d="M39.8 21.4v16.4"/>
+            <path d="M48.5 27v13.5"/>
+            <path d="M22.7 33.7l-4.6-4.6c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2l13.4 15.8c2.4 2.9 6 4.6 9.8 4.6h10.2c7.1 0 12.8-5.7 12.8-12.8V30.5"/>
+          </svg>
+        </span>
+      </button>
+
+      <button class="step-card" data-tab-open="web">
+        <span class="step-number">3</span>
+        <span>
+          <small>Proyecto Nuevo</small>
+          <strong>Nueva web institucional</strong>
+        </span>
+        <span class="tap-hand" aria-hidden="true">
+          <span class="tap-ring"></span>
+          <svg viewBox="0 0 64 64">
+            <path class="hand-fill" d="M28 7c-3 0-5.3 2.3-5.3 5.3v21.4l-4.6-4.6c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2l13.4 15.8c2.4 2.9 6 4.6 9.8 4.6h10.2c7.1 0 12.8-5.7 12.8-12.8V30.5c0-2.8-2.2-5-5-5-1.4 0-2.7.6-3.6 1.5v-2.4c0-2.8-2.2-5-5-5-1.5 0-2.8.6-3.7 1.7-.7-2.1-2.6-3.7-4.9-3.7-1.3 0-2.5.5-3.4 1.3v-6.6C33.3 9.3 31 7 28 7z"/>
+            <path d="M28 7c-3 0-5.3 2.3-5.3 5.3v26"/>
+            <path d="M33.3 19v18"/>
+            <path d="M39.8 21.4v16.4"/>
+            <path d="M48.5 27v13.5"/>
+            <path d="M22.7 33.7l-4.6-4.6c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2l13.4 15.8c2.4 2.9 6 4.6 9.8 4.6h10.2c7.1 0 12.8-5.7 12.8-12.8V30.5"/>
+          </svg>
+        </span>
+      </button>
+
+      <button class="step-card" data-tab-open="programacion">
+        <span class="step-number">4</span>
+        <span>
+          <small>Soporte técnico</small>
+          <strong>Automatización de tareas</strong>
+        </span>
+        <span class="tap-hand" aria-hidden="true">
+          <span class="tap-ring"></span>
+          <svg viewBox="0 0 64 64">
+            <path class="hand-fill" d="M28 7c-3 0-5.3 2.3-5.3 5.3v21.4l-4.6-4.6c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2l13.4 15.8c2.4 2.9 6 4.6 9.8 4.6h10.2c7.1 0 12.8-5.7 12.8-12.8V30.5c0-2.8-2.2-5-5-5-1.4 0-2.7.6-3.6 1.5v-2.4c0-2.8-2.2-5-5-5-1.5 0-2.8.6-3.7 1.7-.7-2.1-2.6-3.7-4.9-3.7-1.3 0-2.5.5-3.4 1.3v-6.6C33.3 9.3 31 7 28 7z"/>
+            <path d="M28 7c-3 0-5.3 2.3-5.3 5.3v26"/>
+            <path d="M33.3 19v18"/>
+            <path d="M39.8 21.4v16.4"/>
+            <path d="M48.5 27v13.5"/>
+            <path d="M22.7 33.7l-4.6-4.6c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2l13.4 15.8c2.4 2.9 6 4.6 9.8 4.6h10.2c7.1 0 12.8-5.7 12.8-12.8V30.5"/>
+          </svg>
+        </span>
+      </button>
+    </section>
+
+    <section class="online-work" id="sitios-web">
+      <button class="online-toggle" type="button" aria-expanded="false" aria-controls="sitios-web-body">
+        <span>
+          <span class="online-toggle-title">Sitios web para visualizar trabajos</span>
+          <span class="online-toggle-sub">Tocá para ver los accesos</span>
+        </span>
+
+        <span class="online-toggle-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+        </span>
+      </button>
+
+      <div class="online-body" id="sitios-web-body">
+        <div>
+          <h2>Sitios web para visualizar trabajos</h2>
+          <p>
+            Accesos directos a paneles desarrollados para presentar datos, métricas, reclamos
+            y trabajos institucionales de forma clara y visual.
+          </p>
+        </div>
+
+        <div class="online-buttons">
+          <a class="btn primary" target="_blank" rel="noopener" href="https://namilo1315.github.io/metricas_maipumunicipio/?year=2026&compare=0">
+            <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-7"/></svg>
+            Métricas Maipú
+          </a>
+
+          <a class="btn green" target="_blank" rel="noopener" href="https://namilo1315.github.io/metricas_maipumunicipio/reclamos.html?year=2026&compare=0">
+            <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9h8"/><path d="M8 13h6"/><path d="M8 17h3"/></svg>
+            Reclamos
+          </a>
+
+          <a class="btn light" target="_blank" rel="noopener" href="https://maipu-municipio-prueba.appsavia.com/">
+            <svg viewBox="0 0 24 24"><path d="M10 6H6v12h12v-4"/><path d="M14 4h6v6"/><path d="M20 4 10 14"/></svg>
+            Web institucional
+          </a>
+        </div>
+      </div>
+    </section>
+
+   
+
+    <section class="content" id="detalle">
+      <div class="tab-panels">
+
+        <!-- 1 CRM -->
+        <article class="panel" id="panel-crm">
+          <div class="section-head">
+            <div>
+              <div class="section-tag"><b>1</b> CRM y comunicación digital</div>
+              <h2 class="section-title">Preparación de HTML, piezas e imágenes para campañas institucionales</h2>
+              <p class="section-copy">
+               Mi función es preparar el material técnico y visual necesario para realizar en envío de las campañas por mails dentro del CRM: imágenes públicas, estructura HTML, botones, enlaces y contenido ordenado
+              </p>
+            </div>
+          </div>
+
+          <div class="cards">
+            <div class="card blue-soft">
+              <div class="icon-title">
+                <span class="icon">
+                  <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg>
+                </span>
+                <h3>HTML para campañas</h3>
+              </div>
+              <p>Maquetación y armado del código utilizado en piezas institucionales por correo electrónico.</p>
+              <ul class="list">
+                <li>Programación de HTML para campañas institucionales.</li>
+                <li>Uso de estilos compatibles con correos electrónicos.</li>
+                <li>Armado de bloques, botones, textos, imágenes y enlaces.</li>
+                <li>Adaptación para correcta visualización en celular y computadora.</li>
+              </ul>
+            </div>
+
+            <div class="card green-soft">
+              <div class="icon-title">
+                <span class="icon green">
+                  <svg viewBox="0 0 24 24"><path d="M4 16l4-4 4 4 4-5 4 5"/><path d="M4 20h16"/><path d="M6 4h12v8H6z"/></svg>
+                </span>
+                <h3>Piezas e imágenes públicas</h3>
+              </div>
+              <p>Preparación de recursos visuales para que puedan ser utilizados dentro del CRM.</p>
+              <ul class="list">
+                <li>Preparación de imágenes públicas para insertar en mails.</li>
+                <li>Optimización de tamaños, visualización y orden de archivos.</li>
+                <li>Revisión de botones, vínculos y recursos gráficos.</li>
+                <li>Ajustes visuales para mejorar claridad y presentación.</li>
+              </ul>
+            </div>
+
+            <div class="card orange-soft">
+              <div class="icon-title">
+                <span class="icon orange">
+                  <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-5"/><path d="M5 4h14v16H5z"/></svg>
+                </span>
+                <h3>Control técnico</h3>
+              </div>
+              <p>Revisión del material antes de que sea utilizado en el proceso de comunicación.</p>
+              <ul class="list">
+                <li>Chequeo de estructura, textos, imágenes y enlaces.</li>
+                <li>Ordenamiento del contenido institucional.</li>
+                <li>Corrección de detalles visuales y funcionales.</li>
+                <li>Acompañamiento técnico en la preparación de campañas.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2 METRICAS -->
+        <article class="panel" id="panel-metricas">
+          <div class="section-head">
+            <div>
+              <div class="section-tag green"><b>2</b> Métricas, reclamos y reportes</div>
+              <h2 class="section-title">Análisis de redes sociales y reclamos mediante sistemas propios</h2>
+              <p class="section-copy">
+                Analizo información de redes sociales institucionales y reclamos recibidos por bandejas de entrada.
+                Esa información se organiza, se filtra y se visualiza mediante el sistema Métricas Maipú,
+                generado para leer datos con gráficos, indicadores y comparaciones.
+              </p>
+            </div>
+
+            <div class="work-links">
+              <a class="btn primary" target="_blank" rel="noopener" href="https://namilo1315.github.io/metricas_maipumunicipio/?year=2026&compare=0">
+                <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-7"/></svg>
+                Ver Métricas
+              </a>
+
+              <a class="btn green" target="_blank" rel="noopener" href="https://namilo1315.github.io/metricas_maipumunicipio/reclamos.html?year=2026&compare=0">
+                <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9h8"/><path d="M8 13h6"/><path d="M8 17h3"/></svg>
+                Ver Reclamos
+              </a>
+            </div>
+          </div>
+
+          <div class="cards two">
+            <div class="card blue-soft">
+              <div class="icon-title">
+                <span class="icon">
+                  <svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg>
+                </span>
+                <h3>Métricas de redes sociales</h3>
+              </div>
+              <p>Análisis de estadísticas de las cuentas institucionales de Matías Stevanato y Maipú Municipio.</p>
+              <ul class="list metric-list">
+                <li>Visualizaciones, alcance, seguidores, visitas y mensajes.</li>
+                <li>Eventos destacados y publicaciones con mayor impacto.</li>
+                <li>Comparación de resultados por período y año.</li>
+                <li>Lectura de evolución para detectar crecimiento, movimiento y respuesta.</li>
+              </ul>
+            </div>
+
+            <div class="card orange-soft">
+              <div class="icon-title">
+                <span class="icon orange">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.5L4 18z"/><path d="M8 8h8"/><path d="M8 12h5"/></svg>
+                </span>
+                <h3>Reclamos recibidos en redes</h3>
+              </div>
+              <p>Procesamiento de reclamos que ingresan por las bandejas de entrada de redes sociales institucionales.</p>
+              <ul class="list">
+                <li>Migración y ordenamiento de datos en Excel.</li>
+                <li>Clasificación por red social, área, zona, distrito y tipo de reclamo.</li>
+                <li>Filtros para identificar reclamos frecuentes y zonas con mayor demanda.</li>
+                <li>Preparación de información clara para seguimiento y análisis interno.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="feature">
+            <h3>Sistema Métricas Maipú</h3>
+            <p>
+              Sistema desarrollado para centralizar la información de redes sociales y reclamos.
+              Permite mostrar datos en tarjetas, gráficos y tablas, aplicar filtros y comparar resultados
+              con períodos anteriores. Su lógica se asemeja a Power BI, pero adaptada a las necesidades
+              internas de comunicación.
+            </p>
+
+            <div class="feature-grid">
+              <div class="feature-item">
+                <strong>Indicadores</strong>
+                <span>Datos principales visibles de forma rápida.</span>
+              </div>
+
+              <div class="feature-item">
+                <strong>Gráficos</strong>
+                <span>Lectura visual de evolución y resultados.</span>
+              </div>
+
+              <div class="feature-item">
+                <strong>Filtros</strong>
+                <span>Red, fecha, área, zona, distrito y reclamo.</span>
+              </div>
+
+              <div class="feature-item">
+                <strong>Comparación</strong>
+                <span>Análisis frente al año o período anterior.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3 WEB -->
+        <article class="panel" id="panel-web">
+          <div class="section-head">
+            <div>
+              <div class="section-tag orange"><b>3</b> Web institucional</div>
+              <h2 class="section-title">Diseño, programación y armado de la nueva página institucional</h2>
+              <p class="section-copy">
+                Actualmente trabajo en el análisis, diseño y programación de la nueva página institucional
+                de la Municipalidad de Maipú. El proyecto busca ordenar la información, mejorar la experiencia
+                del vecino y permitir la administración interna de contenidos.
+              </p>
+            </div>
+
+            <a class="btn primary" target="_blank" rel="noopener" href="https://maipu-municipio-prueba.appsavia.com/">
+              <svg viewBox="0 0 24 24"><path d="M10 6H6v12h12v-4"/><path d="M14 4h6v6"/><path d="M20 4 10 14"/></svg>
+              Sitio institucional
+            </a>
+          </div>
+
+          <div class="web-layout">
+            <div class="mock">
+              <div class="mock-bar">
+                <span></span><span></span><span></span>
+              </div>
+
+              <div class="mock-hero">
+                <h3>Maipú Municipio</h3>
+                <p>Sitio moderno, responsive, con secciones institucionales y contenido administrable.</p>
+              </div>
+
+              <div class="mock-list">
+                <div class="mock-row">
+                  <span class="mini"><svg viewBox="0 0 24 24"><path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-6h6v6"/></svg></span>
+                  Portada con carrusel institucional y accesos rápidos.
+                </div>
+
+                <div class="mock-row">
+                  <span class="mini"><svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></span>
+                  Trámites, noticias, áreas, atención, transparencia y datos abiertos.
+                </div>
+
+                <div class="mock-row">
+                  <span class="mini"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg></span>
+                  Noticias, banners y cronogramas administrables.
+                </div>
+
+                <div class="mock-row">
+                  <span class="mini"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+                  Panel admin conectado a base de datos.
+                </div>
+              </div>
+            </div>
+
+            <div class="web-cards">
+              <div class="card blue-soft">
+                <div class="icon-title">
+                  <span class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16"/><path d="M8 13h4"/><path d="M8 17h8"/></svg>
+                  </span>
+                  <h3>Funcionalidades</h3>
+                </div>
+                <ul class="list">
+                  <li>Home con carrusel, accesos rápidos y banners institucionales.</li>
+                  <li>Noticias destacadas, listado general y detalle individual.</li>
+                  <li>Modales informativos para trámites y servicios.</li>
+                  <li>Secciones como Rentas, Transparencia, Datos Abiertos y Atención al vecino.</li>
+                  <li>Diseño responsive para celular y computadora.</li>
+                </ul>
+              </div>
+
+              <div class="card green-soft">
+                <div class="icon-title">
+                  <span class="icon green">
+                    <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M3 12h18"/><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>
+                  </span>
+                  <h3>Panel administrador</h3>
+                </div>
+                <ul class="list">
+                  <li>Login interno para administrar contenido.</li>
+                  <li>CRUD de noticias: crear, editar, publicar y eliminar.</li>
+                  <li>Gestión de portada, banners, imágenes, textos y enlaces.</li>
+                  <li>Carga de fechas del Móvil Veterinario ordenadas por distrito.</li>
+                  <li>Conexión con base de datos MySQL mediante PHP.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 AUTOMATIZACION -->
+        <article class="panel" id="panel-programacion">
+          <div class="section-head">
+            <div>
+              <div class="section-tag pink"><b>4</b> Automatización y sistemas internos</div>
+              <h2 class="section-title">Herramientas aplicadas y sistematización del trabajo</h2>
+              <p class="section-copy">
+                Todo el trabajo se apoya en herramientas técnicas y procesos sistematizados:
+                programación, bases de datos, paneles visuales, análisis de información
+                y administración de contenido. Esto permite que las tareas no dependan solo de archivos sueltos,
+                sino de estructuras reutilizables y controladas.
+              </p>
+            </div>
+          </div>
+
+          <div class="tools-grid">
+            <span class="tool">HTML</span>
+            <span class="tool">CSS</span>
+            <span class="tool">JavaScript</span>
+            <span class="tool">PHP</span>
+            <span class="tool">MySQL</span>
+            <span class="tool">Excel</span>
+            <span class="tool">GitHub Pages</span>
+            <span class="tool">Diseño responsive</span>
+            <span class="tool">CRM</span>
+            <span class="tool">Bases de datos</span>
+            <span class="tool">Panel administrador</span>
+            <span class="tool">Gráficos e indicadores</span>
+            <span class="tool">Análisis de métricas</span>
+            <span class="tool">Procesamiento de reclamos</span>
+            <span class="tool">Automatización de tareas</span>
+            <span class="tool">Organización de contenidos</span>
+          </div>
+
+          <div class="feature">
+            <h3>Aporte técnico del rol</h3>
+            <p>
+              Además de acompañar tareas de comunicación, el trabajo incorpora desarrollo de soluciones digitales
+              para ordenar procesos internos. Esto incluye armado de HTML, visualización de métricas, clasificación
+              de reclamos, construcción de paneles, administración de contenidos, automatización de tareas y desarrollo
+              de la nueva web institucional con base de datos y panel interno.
+            </p>
+
+            <div class="feature-grid">
+              <div class="feature-item">
+                <strong>Orden</strong>
+                <span>Datos clasificados y procesos claros.</span>
+              </div>
+
+              <div class="feature-item">
+                <strong>Control</strong>
+                <span>Información trazable y fácil de revisar.</span>
+              </div>
+
+              <div class="feature-item">
+                <strong>Lectura</strong>
+                <span>Paneles visuales para comprender resultados.</span>
+              </div>
+
+              <div class="feature-item">
+                <strong>Continuidad</strong>
+                <span>Sistemas que pueden seguir actualizándose.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <footer class="closing">
+      <div class="footer-person">
+        <span class="avatar">
+          <svg viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        <div>
+          <strong>Natalia López</strong>
+          <span>Dirección de Comunicación </span>
+        </div>
+      </div>
+
+      <div class="footer-brand">
+        <img src="assets/img/logo-maipu.png" alt="Logo Maipú Municipio">
+        <div>
+          <b>Maipú Municipio</b>
+          <small>Rol técnico · desarrollo digital · datos</small>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const detail = document.getElementById("detalle");
+      const panels = document.querySelectorAll(".panel");
+      const stepCards = document.querySelectorAll(".step-card");
+      const openButtons = document.querySelectorAll("[data-tab-open]");
+      const onlineWork = document.getElementById("sitios-web");
+      const onlineToggle = onlineWork ? onlineWork.querySelector(".online-toggle") : null;
+      const siteButtons = document.querySelectorAll("[data-open-sites]");
+
+      function closeSites(){
+        if(!onlineWork) return;
+        onlineWork.classList.remove("open");
+        if(onlineToggle){
+          onlineToggle.setAttribute("aria-expanded", "false");
+        }
+      }
+
+      function openSites(shouldScroll = true){
+        if(!onlineWork) return;
+        onlineWork.classList.add("open");
+        if(onlineToggle){
+          onlineToggle.setAttribute("aria-expanded", "true");
+        }
+        if(shouldScroll){
+          onlineWork.scrollIntoView({ behavior:"smooth", block:"center" });
+        }
+      }
+
+      function openTab(name, shouldScroll = true){
+        if(detail){
+          detail.classList.add("visible");
+        }
+
+        closeSites();
+
+        panels.forEach(panel => {
+          panel.classList.toggle("active", panel.id === "panel-" + name);
+        });
+
+        stepCards.forEach(card => {
+          card.classList.toggle("active", card.dataset.tabOpen === name);
+        });
+
+        if(shouldScroll && detail){
+          detail.scrollIntoView({ behavior:"smooth", block:"start" });
+        }
+      }
+
+      openButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const tabName = btn.dataset.tabOpen;
+          if(tabName){
+            openTab(tabName, true);
+          }
+        });
+      });
+
+      siteButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          openSites(true);
+        });
+      });
+
+      if(onlineWork && onlineToggle){
+        onlineToggle.addEventListener("click", (event) => {
+          event.preventDefault();
+          const isOpen = onlineWork.classList.toggle("open");
+          onlineToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      }
+
+      const lastHand = document.querySelector(".step-card:nth-child(4) .tap-hand");
+      if(lastHand){
+        lastHand.addEventListener("animationend", () => {
+          stepCards.forEach(card => card.classList.add("hand-finished"));
+        });
+      }
+    });
+  </script>
+</body>
+</html>
