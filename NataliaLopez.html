@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -547,6 +548,7 @@
 
     /* TRABAJOS ONLINE */
     .online-work{
+      display:none;
       margin-top:16px;
       background:linear-gradient(135deg, #ffffff, #f7fbff);
       border:1px solid var(--linea);
@@ -555,15 +557,81 @@
       padding:18px;
     }
 
+    .online-work.open{
+      display:block;
+    }
+
     .online-toggle{
-      display:none;
+      width:100%;
+      min-height:54px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      border:0;
+      background:transparent;
+      color:var(--texto);
+      cursor:pointer;
+      text-align:left;
+      padding:0;
+    }
+
+    .online-toggle-title{
+      display:block;
+      color:var(--texto);
+      font-size:17px;
+      line-height:1.18;
+      font-weight:950;
+      letter-spacing:-.25px;
+    }
+
+    .online-toggle-sub{
+      display:block;
+      color:var(--muted);
+      font-size:12.8px;
+      line-height:1.25;
+      margin-top:3px;
+      font-weight:750;
+    }
+
+    .online-toggle-icon{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+      background:var(--azul);
+      color:white;
+      transition:.2s ease;
+    }
+
+    .online-toggle-icon svg{
+      width:17px;
+      height:17px;
+      transition:.2s ease;
+    }
+
+    .online-work.open .online-toggle-icon{
+      background:var(--naranja);
+    }
+
+    .online-work.open .online-toggle-icon svg{
+      transform:rotate(180deg);
     }
 
     .online-body{
-      display:grid;
+      display:none;
       grid-template-columns:1fr auto;
       gap:18px;
       align-items:center;
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--linea);
+    }
+
+    .online-work.open .online-body{
+      display:grid;
     }
 
     .online-work h2{
@@ -585,75 +653,19 @@
       justify-content:flex-end;
     }
 
-    /* RESUMEN */
-    .summary{
-      margin-top:16px;
-      background:var(--blanco);
-      border:1px solid var(--linea);
-      border-radius:22px;
-      box-shadow:var(--sombra-suave);
-      padding:22px;
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:18px;
-      align-items:center;
-    }
-
-    .summary h2{
-      font-size:21px;
-      letter-spacing:-.5px;
-      margin-bottom:8px;
-    }
-
-    .summary p{
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.62;
-    }
-
-    .summary-highlight{
-      display:grid;
-      gap:10px;
-    }
-
-    .highlight-line{
-      display:grid;
-      grid-template-columns:36px 1fr;
-      gap:10px;
-      align-items:center;
-      border:1px solid var(--linea);
-      border-radius:13px;
-      padding:10px;
-      background:#fbfdff;
-      color:#344054;
-      font-weight:800;
-      font-size:13.8px;
-    }
-
-    .highlight-line span{
-      width:34px;
-      height:34px;
-      border-radius:10px;
-      display:grid;
-      place-items:center;
-      background:var(--azul-3);
-      color:var(--azul);
-    }
-
-
-    /* IMAGEN PARA RESUMEN IMPRESO */
-    .print-image-preview{
-      display:none;
-    }
-
     /* SOLAPAS */
     .content{
+      display:none;
       margin-top:16px;
       background:var(--blanco);
       border:1px solid var(--linea);
       border-radius:26px;
       box-shadow:var(--sombra);
       overflow:hidden;
+    }
+
+    .content.visible{
+      display:block;
     }
 
     .tab-panels{
@@ -1150,98 +1162,8 @@
       margin-top:2px;
       font-weight:700;
     }
-
-
-    /* MODAL RESUMEN IMAGEN */
-    .resumen-modal{
-      position:fixed;
-      inset:0;
-      z-index:300;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:22px;
-      background:rgba(8,25,43,.74);
-      backdrop-filter:blur(10px);
-    }
-
-    .resumen-modal.open{
-      display:flex;
-    }
-
-    body.modal-open{
-      overflow:hidden;
-    }
-
-    .resumen-box{
-      width:min(920px, 96vw);
-      max-height:92vh;
-      background:#fff;
-      border-radius:22px;
-      box-shadow:0 28px 80px rgba(0,0,0,.28);
-      border:1px solid rgba(255,255,255,.45);
-      overflow:hidden;
-    }
-
-    .resumen-head{
-      min-height:58px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:14px 16px;
-      border-bottom:1px solid var(--linea);
-      background:linear-gradient(135deg, #ffffff, #f4faff);
-    }
-
-    .resumen-head strong{
-      color:var(--azul);
-      font-size:16px;
-      font-weight:950;
-      letter-spacing:-.2px;
-    }
-
-    .resumen-close{
-      width:36px;
-      height:36px;
-      border:0;
-      border-radius:10px;
-      display:grid;
-      place-items:center;
-      background:var(--azul);
-      color:white;
-      cursor:pointer;
-      font-size:24px;
-      line-height:1;
-      font-weight:800;
-    }
-
-    .resumen-body{
-      max-height:calc(92vh - 58px);
-      overflow:auto;
-      padding:14px;
-      background:#f7fbff;
-    }
-
-    .resumen-body img{
-      display:block;
-      width:100%;
-      height:auto;
-      max-width:860px;
-      margin:0 auto;
-      border-radius:16px;
-      box-shadow:0 16px 34px rgba(7,89,155,.14);
-      background:#fff;
-    }
-
-    /* BARRA CELULAR */
-    .mobile-dock{
-      display:none;
-    }
-
-    @media(max-width:980px){
+@media(max-width:980px){
       .hero-content,
-      .summary,
       .cards,
       .cards.two,
       .web-layout{
@@ -1272,7 +1194,11 @@
 
     @media(max-width:620px){
       body{
-        padding-bottom:var(--mobilebar);
+        padding-bottom:0;
+      }
+
+      .desktop-role-card{
+        display:none;
       }
 
       .page{
@@ -1299,7 +1225,15 @@
       }
 
       .hero-actions{
+        display:flex;
+      }
+
+      .hero-actions .btn[data-tab-open]{
         display:none;
+      }
+
+      .hero-actions .sites-btn{
+        width:100%;
       }
 
       .profile-card{
@@ -1366,7 +1300,6 @@
         font-size:16px;
       }
 
-      .summary,
       .online-work{
         padding:14px;
       }
@@ -1447,12 +1380,10 @@
         display:grid;
       }
 
-      .summary h2,
       .online-work h2{
         font-size:18px;
       }
 
-      .summary p,
       .online-work p{
         font-size:14px;
       }
@@ -1510,94 +1441,6 @@
       .footer-brand img{
         width:74px;
       }
-
-
-      .resumen-modal{
-        padding:12px;
-      }
-
-      .resumen-box{
-        width:96vw;
-        max-height:88vh;
-        border-radius:18px;
-      }
-
-      .resumen-head{
-        min-height:52px;
-        padding:11px 12px;
-      }
-
-      .resumen-head strong{
-        font-size:14.5px;
-      }
-
-      .resumen-close{
-        width:34px;
-        height:34px;
-      }
-
-      .resumen-body{
-        max-height:calc(88vh - 52px);
-        padding:10px;
-      }
-
-      .mobile-dock{
-        position:fixed;
-        left:0;
-        right:0;
-        bottom:0;
-        z-index:100;
-        display:flex;
-        align-items:center;
-        gap:5px;
-        height:var(--mobilebar);
-        padding:8px 8px 10px;
-        background:rgba(255,255,255,.95);
-        border-top:1px solid var(--linea);
-        box-shadow:0 -12px 30px rgba(7,89,155,.15);
-        overflow-x:auto;
-        backdrop-filter:blur(12px);
-      }
-
-      .mobile-dock::-webkit-scrollbar{
-        display:none;
-      }
-
-      .dock-btn{
-        min-width:68px;
-        height:43px;
-        border:1px solid var(--linea);
-        background:#fff;
-        color:var(--azul);
-        border-radius:10px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        gap:5px;
-        font-size:11.5px;
-        font-weight:900;
-        cursor:pointer;
-        flex:0 0 auto;
-        padding:0 8px;
-      }
-
-      .dock-btn svg{
-        width:15px;
-        height:15px;
-      }
-
-      .dock-btn.active{
-        background:var(--azul);
-        color:#fff;
-        border-color:var(--azul);
-      }
-
-      .dock-btn.pdf{
-        min-width:76px;
-        background:var(--naranja);
-        color:white;
-        border-color:var(--naranja);
-      }
     }
 
     @media print{
@@ -1606,21 +1449,24 @@
         padding-bottom:0;
       }
 
+      .content,
+      .online-work{
+        display:block !important;
+      }
+
       .page{
         width:100%;
         padding:0;
       }
 
       .hero,
-      .summary,
       .online-work,
       .content,
       .closing{
         box-shadow:none;
       }
 
-      .steps,
-      .mobile-dock{
+      .steps{
         display:none;
       }
 
@@ -1650,26 +1496,6 @@
         page-break-inside:avoid;
         break-inside:avoid;
       }
-
-      .print-image-preview{
-        display:block;
-        margin:18px 0;
-        padding:16px;
-        border:1px solid var(--linea);
-        border-radius:18px;
-        page-break-inside:avoid;
-        break-inside:avoid;
-      }
-
-      .print-image-preview img{
-        display:block;
-        width:100%;
-        max-width:920px;
-        max-height:95vh;
-        object-fit:contain;
-        margin:0 auto;
-        border-radius:14px;
-      }
     }
 
     /* FIX CELULAR - Botón "Sitios web" siempre clickeable */
@@ -1690,7 +1516,8 @@
   </style>
 </head>
 
-<body>  <main class="page">
+<body>
+  <main class="page">
 
     <header class="hero" id="inicio">
       <div class="hero-top"></div>
@@ -1733,14 +1560,14 @@
               Programación
             </button>
 
-            <a class="btn orange" href="./assets/img/natalia.jpeg" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
-              Resumen
-            </a>
+            <button class="btn orange sites-btn" type="button" data-open-sites>
+              <svg viewBox="0 0 24 24"><path d="M10 6H6v12h12v-4"/><path d="M14 4h6v6"/><path d="M20 4 10 14"/></svg>
+              Sitios
+            </button>
           </div>
         </section>
 
-        <aside class="profile-card">
+        <aside class="profile-card desktop-role-card">
           <div>
             <h2>Resumen del rol</h2>
 
@@ -1777,11 +1604,13 @@
             </div>
           </div>
         </aside>
+
+
       </div>
     </header>
 
     <section class="steps" aria-label="Navegación principal">
-      <button class="step-card active" data-tab-open="crm">
+      <button class="step-card" data-tab-open="crm">
         <span class="step-number">1</span>
         <span>
           <small>Comunicación digital</small>
@@ -1904,7 +1733,7 @@
       <div class="tab-panels">
 
         <!-- 1 CRM -->
-        <article class="panel active" id="panel-crm">
+        <article class="panel" id="panel-crm">
           <div class="section-head">
             <div>
               <div class="section-tag"><b>1</b> CRM y comunicación digital</div>
@@ -2223,7 +2052,7 @@
         </span>
         <div>
           <strong>Natalia López</strong>
-          <span>Dirección de Comunicación · A cargo de Aldana Bollati Sanfeliu</span>
+          <span>Dirección de Comunicación </span>
         </div>
       </div>
 
@@ -2237,59 +2066,42 @@
     </footer>
   </main>
 
-  <nav class="mobile-dock" aria-label="Navegación móvil">
-    <a class="dock-btn pdf" href="./assets/img/natalia.jpeg" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>
-      Img
-    </a>
-
-    <button class="dock-btn active" data-tab-open="crm">
-      <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-      CRM
-    </button>
-
-    <button class="dock-btn" data-tab-open="metricas">
-      <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-7"/></svg>
-      Datos
-    </button>
-
-    <button class="dock-btn" data-tab-open="web">
-      <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16"/></svg>
-      Web
-    </button>
-
-    <button class="dock-btn" data-tab-open="programacion">
-      <svg viewBox="0 0 24 24"><path d="M8 9l-4 3 4 3"/><path d="M16 9l4 3-4 3"/><path d="M14 5l-4 14"/></svg>
-      Auto
-    </button>
-  </nav>
-
-
-  <div class="resumen-modal" id="resumenModal" aria-hidden="true">
-    <div class="resumen-box" role="dialog" aria-modal="true" aria-label="Resumen visual">
-      <div class="resumen-head">
-        <strong>Resumen visual del trabajo</strong>
-        <button class="resumen-close" type="button" data-close-resumen aria-label="Cerrar">×</button>
-      </div>
-
-      <div class="resumen-body">
-        <img
-          src="./assets/img/natalia.jpeg"
-          alt="Resumen visual de tareas de Natalia López"
-          onerror="if(this.dataset.fallback !== '1'){this.dataset.fallback='1'; this.src='nataloa.jepg';}"
-        >
-      </div>
-    </div>
-  </div>
-
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      const detail = document.getElementById("detalle");
       const panels = document.querySelectorAll(".panel");
       const stepCards = document.querySelectorAll(".step-card");
-      const dockButtons = document.querySelectorAll(".dock-btn[data-tab-open]");
       const openButtons = document.querySelectorAll("[data-tab-open]");
+      const onlineWork = document.getElementById("sitios-web");
+      const onlineToggle = onlineWork ? onlineWork.querySelector(".online-toggle") : null;
+      const siteButtons = document.querySelectorAll("[data-open-sites]");
+
+      function closeSites(){
+        if(!onlineWork) return;
+        onlineWork.classList.remove("open");
+        if(onlineToggle){
+          onlineToggle.setAttribute("aria-expanded", "false");
+        }
+      }
+
+      function openSites(shouldScroll = true){
+        if(!onlineWork) return;
+        onlineWork.classList.add("open");
+        if(onlineToggle){
+          onlineToggle.setAttribute("aria-expanded", "true");
+        }
+        if(shouldScroll){
+          onlineWork.scrollIntoView({ behavior:"smooth", block:"center" });
+        }
+      }
 
       function openTab(name, shouldScroll = true){
+        if(detail){
+          detail.classList.add("visible");
+        }
+
+        closeSites();
+
         panels.forEach(panel => {
           panel.classList.toggle("active", panel.id === "panel-" + name);
         });
@@ -2298,15 +2110,8 @@
           card.classList.toggle("active", card.dataset.tabOpen === name);
         });
 
-        dockButtons.forEach(btn => {
-          btn.classList.toggle("active", btn.dataset.tabOpen === name);
-        });
-
-        if(shouldScroll){
-          const detail = document.getElementById("detalle");
-          if(detail){
-            detail.scrollIntoView({ behavior:"smooth", block:"start" });
-          }
+        if(shouldScroll && detail){
+          detail.scrollIntoView({ behavior:"smooth", block:"start" });
         }
       }
 
@@ -2319,74 +2124,26 @@
         });
       });
 
-      /* La manito guía dos veces el recorrido 1-2-3-4 y después se borra */
-      const lastHand = document.querySelector(".step-card:nth-child(4) .tap-hand");
+      siteButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          openSites(true);
+        });
+      });
 
+      if(onlineWork && onlineToggle){
+        onlineToggle.addEventListener("click", (event) => {
+          event.preventDefault();
+          const isOpen = onlineWork.classList.toggle("open");
+          onlineToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      }
+
+      const lastHand = document.querySelector(".step-card:nth-child(4) .tap-hand");
       if(lastHand){
         lastHand.addEventListener("animationend", () => {
           stepCards.forEach(card => card.classList.add("hand-finished"));
         });
       }
-
-      /* Desplegable móvil de sitios web */
-      const onlineWork = document.getElementById("sitios-web");
-      const onlineToggle = onlineWork ? onlineWork.querySelector(".online-toggle") : null;
-
-      if(onlineWork && onlineToggle){
-        onlineToggle.addEventListener("click", (event) => {
-          event.preventDefault();
-
-          const isOpen = onlineWork.classList.toggle("open");
-          onlineToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-
-          if(isOpen && window.innerWidth <= 620){
-            setTimeout(() => {
-              onlineWork.scrollIntoView({ behavior:"smooth", block:"center" });
-            }, 80);
-          }
-        });
-      }
-
-      /* Abrir imagen de resumen */
-      const resumenModal = document.getElementById("resumenModal");
-      const resumenOpenButtons = document.querySelectorAll("[data-open-resumen]");
-      const resumenCloseButtons = document.querySelectorAll("[data-close-resumen]");
-
-      function openResumen(){
-        if(!resumenModal) return;
-        resumenModal.classList.add("open");
-        resumenModal.setAttribute("aria-hidden", "false");
-        document.body.classList.add("modal-open");
-      }
-
-      function closeResumen(){
-        if(!resumenModal) return;
-        resumenModal.classList.remove("open");
-        resumenModal.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("modal-open");
-      }
-
-      resumenOpenButtons.forEach(btn => {
-        btn.addEventListener("click", openResumen);
-      });
-
-      resumenCloseButtons.forEach(btn => {
-        btn.addEventListener("click", closeResumen);
-      });
-
-      if(resumenModal){
-        resumenModal.addEventListener("click", (event) => {
-          if(event.target === resumenModal){
-            closeResumen();
-          }
-        });
-      }
-
-      document.addEventListener("keydown", (event) => {
-        if(event.key === "Escape"){
-          closeResumen();
-        }
-      });
     });
   </script>
 </body>
