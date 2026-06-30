@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/img/logo-maipu.png" type="image/x-icon">
+  <title>Demo Cursos · Bromatología / Fiscalización</title>
+
+  <style>
+    :root{
+      --muni-celeste:#06acd5;
+      --muni-celeste-2:#0bb9dc;
+      --muni-azul:#07599b;
+      --muni-azul-2:#0d73bd;
+      --muni-verde:#159a78;
+      --muni-verde-2:#e8f8f3;
+      --muni-naranja:#f1972c;
+      --muni-naranja-2:#fff2df;
+      --fondo:#f4f7fa;
+      --blanco:#ffffff;
+      --texto:#1f2937;
+      --muted:#667085;
+      --linea:#dbe5ee;
+      --input:#ffffff;
+      --input-focus:#eaf3ff;
+      --shadow:0 16px 34px rgba(31,41,55,.16);
+      --shadow-soft:0 10px 28px rgba(7,89,155,.10);
+      --radius:16px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    html{ scroll-behavior:smooth; }
+
+    body{
+      min-height:100vh;
+      font-family:"Segoe UI", Arial, sans-serif;
+      color:var(--texto);
+      background:
+        radial-gradient(circle at 10% 5%, rgba(6,172,213,.16), transparent 28%),
+        radial-gradient(circle at 95% 8%, rgba(241,151,44,.14), transparent 24%),
+        var(--fondo);
+      line-height:1.45;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    button, input, select, textarea{ font-family:inherit; }
+
+    .topbar{
+      width:100%;
+      min-height:66px;
+      background:var(--muni-celeste);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 4px 14px rgba(0,0,0,.06);
+    }
+
+    .topbar-inner{
+      width:min(1120px, 94%);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:0;
+    }
+
+    .brand-logo{
+      width:118px;
+      height:44px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .brand-fallback{
+      display:none;
+      font-weight:950;
+      line-height:1;
+      letter-spacing:-.6px;
+      font-size:20px;
+    }
+
+    .brand-title{
+      font-size:20px;
+      font-weight:500;
+      white-space:nowrap;
+    }
+
+    .login{
+      font-size:15px;
+      font-weight:500;
+      opacity:.96;
+    }
+
+    .progress-wrap{
+      width:min(1020px, 82%);
+      margin:14px auto 0;
+      height:16px;
+      border-radius:4px;
+      background:#e6ebf0;
+      overflow:hidden;
+    }
+
+    .progress-bar{
+      height:100%;
+      width:18%;
+      background:#0d7fea;
+      transition:.25s ease;
+    }
+
+    .page{
+      width:min(1120px, 94%);
+      margin:0 auto;
+      padding:26px 0 40px;
+    }
+
+    .intro{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:16px;
+      align-items:stretch;
+      margin-bottom:18px;
+    }
+
+    .intro-card,
+    .admin-mini{
+      background:rgba(255,255,255,.92);
+      border:1px solid var(--linea);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+      padding:18px;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#e8f7fc;
+      color:var(--muni-azul);
+      font-weight:850;
+      font-size:12.5px;
+      margin-bottom:8px;
+    }
+
+    .intro h1{
+      font-size:clamp(25px, 3.2vw, 38px);
+      line-height:1.05;
+      letter-spacing:-1px;
+      color:var(--muni-azul);
+      margin-bottom:8px;
+    }
+
+    .intro p{
+      color:var(--muted);
+      font-size:15px;
+      max-width:820px;
+    }
+
+    .admin-mini h2{
+      font-size:18px;
+      margin-bottom:10px;
+      color:var(--texto);
+    }
+
+    .status-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:8px;
+    }
+
+    .status-pill{
+      border:1px solid var(--linea);
+      background:#fff;
+      border-radius:12px;
+      padding:10px;
+    }
+
+    .status-pill small{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+      margin-bottom:3px;
+    }
+
+    .status-pill strong{
+      display:block;
+      font-size:15px;
+      color:var(--muni-azul);
+      line-height:1.2;
+    }
+
+    .turnero-card{
+      width:min(760px, 100%);
+      margin:0 auto;
+      background:var(--blanco);
+      border:1px solid #d3d7dc;
+      border-radius:8px;
+      box-shadow:var(--shadow);
+      padding:28px 16px 18px;
+    }
+
+    .turnero-inner{
+      width:min(710px, 100%);
+      margin:0 auto;
+    }
+
+    .screen-title{
+      text-align:center;
+      font-size:29px;
+      line-height:1.15;
+      letter-spacing:-.4px;
+      color:#1f2937;
+      margin:12px 0 26px;
+      font-weight:800;
+    }
+
+    .help{
+      color:#68717d;
+      font-size:12px;
+      margin-bottom:3px;
+    }
+
+    .form-grid{ display:grid; gap:10px; }
+    .row{ display:grid; gap:10px; }
+    .row.two{ grid-template-columns:1fr 1fr; }
+    .row.three{ grid-template-columns:170px 1fr 110px; }
+    .row.address{ grid-template-columns:1fr 110px 110px 110px; }
+    .row.address-bottom{ grid-template-columns:1fr 1fr 230px; }
+
+    .field{ position:relative; }
+
+    .field label{
+      position:absolute;
+      left:12px;
+      top:-8px;
+      background:#fff;
+      padding:0 5px;
+      color:#6b7280;
+      font-size:11px;
+      font-weight:700;
+      opacity:0;
+      transform:translateY(4px);
+      transition:.15s ease;
+      pointer-events:none;
+    }
+
+    .field input:not(:placeholder-shown) + label,
+    .field select:valid + label,
+    .field textarea:not(:placeholder-shown) + label,
+    .field input:focus + label,
+    .field select:focus + label,
+    .field textarea:focus + label{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      min-height:38px;
+      border:1px solid #cfd6de;
+      border-radius:5px;
+      background:var(--input);
+      color:#2b3440;
+      font-size:14.5px;
+      outline:none;
+      padding:9px 12px;
+      transition:.15s ease;
+    }
+
+    textarea{ resize:vertical; min-height:38px; max-height:86px; }
+
+    input:focus,
+    select:focus,
+    textarea:focus{
+      border-color:#9bbbe1;
+      background:var(--input-focus);
+      box-shadow:0 0 0 3px rgba(13,115,189,.08);
+    }
+
+    .address-title{
+      margin:4px 0 4px;
+      font-size:20px;
+      font-weight:800;
+      color:#202832;
+    }
+
+    .main-submit{
+      width:100%;
+      min-height:39px;
+      border:0;
+      border-radius:5px;
+      background:#20a3b6;
+      color:#fff;
+      font-size:14px;
+      font-weight:900;
+      letter-spacing:.3px;
+      cursor:pointer;
+      margin-top:10px;
+      transition:.2s ease;
+    }
+
+    .main-submit:hover{
+      background:#158da0;
+      transform:translateY(-1px);
+    }
+
+    .mini-note{
+      margin-top:12px;
+      background:#fff7db;
+      border:1px solid #ffe59a;
+      border-radius:8px;
+      padding:10px 12px;
+      color:#7a5500;
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .confirm-body{
+      width:min(710px, 100%);
+      margin:0 auto;
+      padding:0 4px;
+    }
+
+    .data-list{
+      display:grid;
+      gap:18px;
+      font-size:15px;
+      margin-bottom:18px;
+    }
+
+    .data-list p strong{ font-weight:900; }
+
+    .captcha{
+      width:302px;
+      min-height:76px;
+      border:1px solid #d6d6d6;
+      background:#fafafa;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 14px;
+      margin:4px 0 26px;
+    }
+
+    .check{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:14px;
+      color:#111827;
+    }
+
+    .checkmark{ font-size:30px; color:#14966b; line-height:1; }
+
+    .recaptcha{
+      text-align:center;
+      color:#77808a;
+      font-size:10px;
+      line-height:1.1;
+    }
+
+    .recaptcha-box{
+      width:32px;
+      height:32px;
+      margin:0 auto 3px;
+      border-radius:5px;
+      background:linear-gradient(135deg, #4b8df7, #e7eefc);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:900;
+    }
+
+    .confirm-actions{
+      display:flex;
+      justify-content:center;
+      gap:7px;
+    }
+
+    .btn{
+      min-height:38px;
+      border:0;
+      border-radius:5px;
+      padding:9px 14px;
+      color:#fff;
+      cursor:pointer;
+      font-size:14px;
+      transition:.2s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .btn.blue{ background:#0d7fea; }
+    .btn.red{ background:#dc3545; }
+    .btn.gray{ background:#667085; }
+    .btn.green{ background:var(--muni-verde); }
+
+    .btn:hover{
+      filter:brightness(.96);
+      transform:translateY(-1px);
+    }
+
+    .success-card{
+      width:min(1110px, 100%);
+      margin:0 auto;
+      background:#fff;
+      border:1px solid #d3d7dc;
+      border-radius:6px;
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+
+    .success-card h2{
+      font-size:24px;
+      margin-bottom:8px;
+      color:#17212d;
+    }
+
+    .success-name{
+      font-weight:900;
+      margin-bottom:20px;
+    }
+
+    .success-lines{
+      display:grid;
+      gap:16px;
+      font-size:15px;
+    }
+
+    .code-badge{
+      display:inline-flex;
+      width:max-content;
+      background:#1b9caf;
+      color:#fff;
+      border-radius:4px;
+      padding:4px 7px;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+
+    .important{
+      width:min(1110px, 100%);
+      margin:22px auto 0;
+    }
+
+    .important h3{
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .important strong{
+      display:block;
+      font-size:15px;
+      margin-bottom:6px;
+    }
+
+    .big-blue{
+      text-align:center;
+      color:var(--muni-celeste);
+      font-size:28px;
+      line-height:1.08;
+      font-weight:950;
+      letter-spacing:-.5px;
+      margin-top:4px;
+    }
+
+    .admin-panel{
+      background:#fff;
+      border:1px solid var(--linea);
+      border-radius:18px;
+      box-shadow:var(--shadow-soft);
+      padding:18px;
+      margin-top:22px;
+    }
+
+    .admin-head{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:flex-start;
+      margin-bottom:14px;
+    }
+
+    .admin-head h2{
+      color:var(--muni-azul);
+      font-size:24px;
+      letter-spacing:-.4px;
+      margin-bottom:4px;
+    }
+
+    .admin-head p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .admin-form{
+      display:grid;
+      grid-template-columns:1fr 150px 110px 120px auto;
+      gap:10px;
+      align-items:end;
+      margin-bottom:14px;
+    }
+
+    .admin-form label{
+      display:block;
+      color:#344054;
+      font-size:12px;
+      font-weight:900;
+      margin-bottom:4px;
+    }
+
+    .small-btn{
+      min-height:38px;
+      border:0;
+      border-radius:8px;
+      background:var(--muni-azul);
+      color:#fff;
+      font-weight:900;
+      cursor:pointer;
+      padding:9px 12px;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      border:1px solid var(--linea);
+      border-radius:12px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:760px;
+    }
+
+    th, td{
+      padding:10px 12px;
+      border-bottom:1px solid var(--linea);
+      text-align:left;
+      font-size:13.5px;
+      vertical-align:top;
+    }
+
+    th{
+      background:#eef8ff;
+      color:var(--muni-azul);
+      font-weight:900;
+    }
+
+    tr:last-child td{ border-bottom:none; }
+
+    .empty{
+      color:var(--muted);
+      text-align:center;
+      padding:18px;
+    }
+
+    .hidden{ display:none !important; }
+
+    @media(max-width:900px){
+      .intro{ grid-template-columns:1fr; }
+      .status-grid{ grid-template-columns:1fr 1fr 1fr; }
+      .admin-form{ grid-template-columns:1fr 1fr; }
+      .admin-form .full-mobile{ grid-column:1 / -1; }
+    }
+
+    @media(max-width:650px){
+      .topbar-inner{ width:94%; }
+      .brand{ gap:10px; }
+      .brand-logo{ width:96px; }
+      .brand-title{ font-size:16px; white-space:normal; line-height:1.15; }
+      .login{ font-size:13px; }
+      .progress-wrap{ width:82%; }
+      .page{ width:94%; padding-top:18px; }
+      .turnero-card{ padding:22px 11px 14px; }
+      .screen-title{ font-size:24px; margin-bottom:20px; }
+      .row.two, .row.three, .row.address, .row.address-bottom{ grid-template-columns:1fr; }
+      .address-title{ font-size:18px; }
+      .captcha{ width:100%; }
+      .confirm-actions{ width:100%; }
+      .btn{ flex:1; }
+      .status-grid, .admin-form{ grid-template-columns:1fr; }
+      .admin-head{ flex-direction:column; }
+      .big-blue{ font-size:22px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <img class="brand-logo" src="./assets/img/logo-maipu.png" alt="Maipú Municipio Mendoza" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="brand-fallback">maipú<br><small>municipio</small></div>
+        <div class="brand-title">Bromatología/Fiscalización</div>
+      </div>
+      <a href="#admin" class="login">Login</a>
+    </div>
+  </header>
+
+  <div class="progress-wrap" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <main class="page">
+    <section class="intro">
+      <div class="intro-card">
+        <span class="tag">Cursos municipales · Demo local</span>
+        <h1>Inscripción a Curso de Manipulación de Alimentos</h1>
+        <p>
+          Este demo muestra cómo podría verse el circuito: fecha cargada desde el admin,
+          formulario del vecino, confirmación, código de turno y migración de datos para análisis interno.
+        </p>
+      </div>
+
+      <aside class="admin-mini">
+        <h2>Fecha habilitada</h2>
+        <div class="status-grid">
+          <div class="status-pill">
+            <small>Día</small>
+            <strong id="statusFecha">1/7/2026</strong>
+          </div>
+          <div class="status-pill">
+            <small>Horario</small>
+            <strong id="statusHora">00:00</strong>
+          </div>
+          <div class="status-pill">
+            <small>Cupos</small>
+            <strong><span id="cuposLibres">25</span>/<span id="cuposTotal">25</span></strong>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="turnero-card" id="screenForm">
+      <div class="turnero-inner">
+        <h2 class="screen-title">Por favor complete los siguientes datos</h2>
+        <p class="help">Los campos marcados * son obligatorios</p>
+
+        <form class="form-grid" id="courseForm">
+          <div class="row two">
+            <div class="field">
+              <input type="text" id="nombre" placeholder="Nombre *" value="susana" required>
+              <label for="nombre">Nombre *</label>
+            </div>
+            <div class="field">
+              <input type="text" id="apellido" placeholder="Apellido *" value="ramos" required>
+              <label for="apellido">Apellido *</label>
+            </div>
+          </div>
+
+          <div class="row three">
+            <div class="field">
+              <input type="tel" id="telefono" placeholder="Teléfono *" value="2616246767" required>
+              <label for="telefono">Teléfono *</label>
+            </div>
+            <div class="field">
+              <input type="email" id="email" placeholder="E-mail *" value="natalia89751315@gmail.com" required>
+              <label for="email">E-mail *</label>
+            </div>
+            <div class="field">
+              <input type="text" id="dni" placeholder="DNI *" value="13324190" required>
+              <label for="dni">DNI *</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <input type="text" id="actividad" placeholder="Comercio / actividad / dato adicional">
+              <label for="actividad">Comercio / actividad / dato adicional</label>
+            </div>
+          </div>
+
+          <h3 class="address-title">Complete su dirección, por favor</h3>
+
+          <div class="row address">
+            <div class="field">
+              <input type="text" id="calle" placeholder="Calle *" value="Barcala" required>
+              <label for="calle">Calle *</label>
+            </div>
+            <div class="field">
+              <input type="text" id="numero" placeholder="Número *" value="181" required>
+              <label for="numero">Número *</label>
+            </div>
+            <div class="field">
+              <input type="text" id="manzana" placeholder="Mzna.">
+              <label for="manzana">Mzna.</label>
+            </div>
+            <div class="field">
+              <input type="text" id="casa" placeholder="Casa">
+              <label for="casa">Casa</label>
+            </div>
+          </div>
+
+          <div class="row address-bottom">
+            <div class="field">
+              <input type="text" id="barrio" placeholder="Barrio">
+              <label for="barrio">Barrio</label>
+            </div>
+            <div class="field">
+              <input type="text" id="provincia" placeholder="Provincia *" value="Mendoza" required>
+              <label for="provincia">Provincia *</label>
+            </div>
+            <div class="field">
+              <select id="departamento" required>
+                <option value="Maipú" selected>Maipú</option>
+                <option value="Godoy Cruz">Godoy Cruz</option>
+                <option value="Guaymallén">Guaymallén</option>
+                <option value="Luján de Cuyo">Luján de Cuyo</option>
+                <option value="Ciudad de Mendoza">Ciudad de Mendoza</option>
+              </select>
+              <label for="departamento">Departamento *</label>
+            </div>
+          </div>
+
+          <button class="main-submit" type="submit">ENVIAR</button>
+        </form>
+
+        <div class="mini-note">
+          <strong>Demo:</strong> al enviar, se muestra la pantalla de confirmación.
+          Al confirmar, el dato se agrega abajo como si migrara al panel para análisis.
+        </div>
+      </div>
+    </section>
+
+    <section class="turnero-card hidden" id="screenConfirm">
+      <div class="confirm-body">
+        <h2 class="screen-title">Confirmar creación de turno</h2>
+        <div class="data-list">
+          <p><strong>Fecha:</strong> <span id="confirmFecha">1/7/2026</span></p>
+          <p><strong>Nombre:</strong> <span id="confirmNombre">susana ramos</span></p>
+          <p><strong>DNI:</strong> <span id="confirmDni">13324190</span></p>
+          <p><strong>Area:</strong> Bromatología/Fiscalización</p>
+          <p><strong>Trámite:</strong> <span id="confirmTramite">Manip.alim Cine Teatro Imperial</span></p>
+          <p><strong>E-Mail:</strong> <span id="confirmEmail">natalia89751315@gmail.com</span></p>
+        </div>
+
+        <div class="captcha">
+          <div class="check">
+            <span class="checkmark">✓</span>
+            <span>No soy un robot</span>
+          </div>
+          <div class="recaptcha">
+            <div class="recaptcha-box">↻</div>
+            reCAPTCHA
+          </div>
+        </div>
+
+        <div class="confirm-actions">
+          <button class="btn blue" type="button" id="btnConfirmar">Confirmar</button>
+          <button class="btn red" type="button" id="btnCancelar">Cancelar</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="hidden" id="screenSuccess">
+      <div class="success-card">
+        <h2>Turno creado para:</h2>
+        <p class="success-name" id="successNombre">susana ramos</p>
+        <div class="success-lines">
+          <p>Día: <strong id="successFecha">1/7/26</strong></p>
+          <p><strong>DNI:</strong> <span id="successDni">13324190</span></p>
+          <p><strong>Area:</strong> Bromatología/Fiscalización</p>
+          <p><strong>Trámite:</strong> <span id="successTramite">Manip.alim Cine Teatro Imperial</span></p>
+          <span class="code-badge" id="successCodigo">CÓDIGO: AD-409</span>
+          <p><strong>Se ha enviado la información de su turno a: <span id="successEmail">natalia89751315@gmail.com</span></strong></p>
+        </div>
+      </div>
+
+      <div class="important">
+        <h3>IMPORTANTE</h3>
+        <strong>ATENCIÓN SI USTED RESIDE EN MAIPÚ LE CORRESPONDE PAGAR EL 50% DEL ARANCEL</strong>
+        <strong>EL PAGO DE ARANCEL DEL CURSO, DEBERÁ REALIZARLO EN LA MUNICIPALIDAD O EN SUS DELEGACIONES</strong>
+        <div class="big-blue">
+          Dirección de Fiscalización y Control // Cursos de Manipulación de Alimentos<br>
+          BROMATOLOGÍA
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:18px;">
+          <button class="btn gray" type="button" id="btnNuevo">Nueva inscripción</button>
+          <a href="#admin" class="btn green">Ver datos migrados</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-panel" id="admin">
+      <div class="admin-head">
+        <div>
+          <h2>Panel admin demo</h2>
+          <p>Acá se simula la fecha que cargaría el área y la tabla donde migran los datos para consultar, filtrar o exportar.</p>
+        </div>
+        <button class="small-btn" type="button" id="exportCsv">Exportar CSV demo</button>
+      </div>
+
+      <div class="admin-form">
+        <div class="full-mobile">
+          <label for="adminTramite">Trámite</label>
+          <input id="adminTramite" type="text" value="Manip.alim Cine Teatro Imperial">
+        </div>
+        <div>
+          <label for="adminFecha">Fecha</label>
+          <input id="adminFecha" type="date" value="2026-07-01">
+        </div>
+        <div>
+          <label for="adminHora">Hora</label>
+          <input id="adminHora" type="time" value="00:00">
+        </div>
+        <div>
+          <label for="adminCupos">Cupos</label>
+          <input id="adminCupos" type="number" min="1" value="25">
+        </div>
+        <button class="small-btn" type="button" id="applyAdmin">Aplicar</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>DNI</th>
+              <th>Teléfono</th>
+              <th>E-mail</th>
+              <th>Domicilio</th>
+              <th>Fecha</th>
+            </tr>
+          </thead>
+          <tbody id="dataTable">
+            <tr>
+              <td colspan="7" class="empty">Todavía no hay inscripciones cargadas en este demo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const progressBar = document.getElementById("progressBar");
+      const screenForm = document.getElementById("screenForm");
+      const screenConfirm = document.getElementById("screenConfirm");
+      const screenSuccess = document.getElementById("screenSuccess");
+      const form = document.getElementById("courseForm");
+      const btnConfirmar = document.getElementById("btnConfirmar");
+      const btnCancelar = document.getElementById("btnCancelar");
+      const btnNuevo = document.getElementById("btnNuevo");
+      const dataTable = document.getElementById("dataTable");
+      const exportCsv = document.getElementById("exportCsv");
+      const adminTramite = document.getElementById("adminTramite");
+      const adminFecha = document.getElementById("adminFecha");
+      const adminHora = document.getElementById("adminHora");
+      const adminCupos = document.getElementById("adminCupos");
+      const applyAdmin = document.getElementById("applyAdmin");
+      const statusFecha = document.getElementById("statusFecha");
+      const statusHora = document.getElementById("statusHora");
+      const cuposLibres = document.getElementById("cuposLibres");
+      const cuposTotal = document.getElementById("cuposTotal");
+
+      let currentData = {};
+      let registros = [];
+      let cupos = Number(adminCupos.value);
+      let cuposOcupados = 0;
+
+      function formatDateSlash(dateValue){
+        const [year, month, day] = dateValue.split("-");
+        return `${Number(day)}/${Number(month)}/${year}`;
+      }
+
+      function formatDateShort(dateValue){
+        const [year, month, day] = dateValue.split("-");
+        return `${Number(day)}/${Number(month)}/${String(year).slice(-2)}`;
+      }
+
+      function showScreen(name){
+        screenForm.classList.add("hidden");
+        screenConfirm.classList.add("hidden");
+        screenSuccess.classList.add("hidden");
+
+        if(name === "form"){
+          screenForm.classList.remove("hidden");
+          progressBar.style.width = "18%";
+        }
+
+        if(name === "confirm"){
+          screenConfirm.classList.remove("hidden");
+          progressBar.style.width = "84%";
+        }
+
+        if(name === "success"){
+          screenSuccess.classList.remove("hidden");
+          progressBar.style.width = "100%";
+        }
+
+        window.scrollTo({ top:0, behavior:"smooth" });
+      }
+
+      function syncAdminStatus(){
+        statusFecha.textContent = formatDateSlash(adminFecha.value);
+        statusHora.textContent = adminHora.value;
+        cuposTotal.textContent = cupos;
+        cuposLibres.textContent = Math.max(cupos - cuposOcupados, 0);
+      }
+
+      function getFormData(){
+        return {
+          nombre: document.getElementById("nombre").value.trim(),
+          apellido: document.getElementById("apellido").value.trim(),
+          telefono: document.getElementById("telefono").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          dni: document.getElementById("dni").value.trim(),
+          actividad: document.getElementById("actividad").value.trim(),
+          calle: document.getElementById("calle").value.trim(),
+          numero: document.getElementById("numero").value.trim(),
+          manzana: document.getElementById("manzana").value.trim(),
+          casa: document.getElementById("casa").value.trim(),
+          barrio: document.getElementById("barrio").value.trim(),
+          provincia: document.getElementById("provincia").value.trim(),
+          departamento: document.getElementById("departamento").value,
+          tramite: adminTramite.value.trim(),
+          fecha: adminFecha.value,
+          hora: adminHora.value
+        };
+      }
+
+      function setConfirmData(data){
+        document.getElementById("confirmFecha").textContent = formatDateSlash(data.fecha);
+        document.getElementById("confirmNombre").textContent = `${data.nombre} ${data.apellido}`;
+        document.getElementById("confirmDni").textContent = data.dni;
+        document.getElementById("confirmEmail").textContent = data.email;
+        document.getElementById("confirmTramite").textContent = data.tramite;
+      }
+
+      function makeCode(){
+        return "AD-" + Math.floor(100 + Math.random() * 900);
+      }
+
+      function setSuccessData(data){
+        document.getElementById("successNombre").textContent = `${data.nombre} ${data.apellido}`;
+        document.getElementById("successFecha").textContent = formatDateShort(data.fecha);
+        document.getElementById("successDni").textContent = data.dni;
+        document.getElementById("successEmail").textContent = data.email;
+        document.getElementById("successTramite").textContent = data.tramite;
+        document.getElementById("successCodigo").textContent = "CÓDIGO: " + data.codigo;
+      }
+
+      function domicilio(data){
+        const partes = [
+          data.calle,
+          data.numero,
+          data.manzana ? "Mzna. " + data.manzana : "",
+          data.casa ? "Casa " + data.casa : "",
+          data.barrio ? "Barrio " + data.barrio : "",
+          data.departamento,
+          data.provincia
+        ].filter(Boolean);
+        return partes.join(", ");
+      }
+
+      function renderTable(){
+        if(registros.length === 0){
+          dataTable.innerHTML = '<tr><td colspan="7" class="empty">Todavía no hay inscripciones cargadas en este demo.</td></tr>';
+          return;
+        }
+
+        dataTable.innerHTML = registros.map(item => `
+          <tr>
+            <td><strong>${item.codigo}</strong></td>
+            <td>${item.nombre} ${item.apellido}</td>
+            <td>${item.dni}</td>
+            <td>${item.telefono}</td>
+            <td>${item.email}</td>
+            <td>${domicilio(item)}</td>
+            <td>${formatDateSlash(item.fecha)} ${item.hora}</td>
+          </tr>
+        `).join("");
+      }
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if(cuposOcupados >= cupos){
+          alert("No quedan cupos disponibles para esta fecha.");
+          return;
+        }
+
+        currentData = getFormData();
+        setConfirmData(currentData);
+        showScreen("confirm");
+      });
+
+      btnCancelar.addEventListener("click", () => showScreen("form"));
+
+      btnConfirmar.addEventListener("click", () => {
+        currentData.codigo = makeCode();
+        registros.push({...currentData});
+        cuposOcupados += 1;
+        setSuccessData(currentData);
+        renderTable();
+        syncAdminStatus();
+        showScreen("success");
+      });
+
+      btnNuevo.addEventListener("click", () => showScreen("form"));
+
+      applyAdmin.addEventListener("click", () => {
+        const nuevoCupo = Number(adminCupos.value);
+        if(nuevoCupo < cuposOcupados){
+          alert("El cupo no puede ser menor a la cantidad de inscriptos ya cargados.");
+          adminCupos.value = cupos;
+          return;
+        }
+        cupos = nuevoCupo;
+        syncAdminStatus();
+        alert("Fecha, horario y cupos actualizados en el demo.");
+      });
+
+      exportCsv.addEventListener("click", () => {
+        if(registros.length === 0){
+          alert("No hay datos para exportar todavía.");
+          return;
+        }
+
+        const encabezado = ["codigo","nombre","apellido","dni","telefono","email","domicilio","fecha","hora"];
+        const filas = registros.map(item => [
+          item.codigo,
+          item.nombre,
+          item.apellido,
+          item.dni,
+          item.telefono,
+          item.email,
+          domicilio(item),
+          formatDateSlash(item.fecha),
+          item.hora
+        ]);
+
+        const csv = [encabezado, ...filas]
+          .map(row => row.map(value => `"${String(value).replaceAll('"','""')}"`).join(","))
+          .join("\n");
+
+        const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "inscripciones_curso_demo.csv";
+        link.click();
+        URL.revokeObjectURL(url);
+      });
+
+      syncAdminStatus();
+      renderTable();
+    });
+  </script>
+</body>
+</html>
