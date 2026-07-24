@@ -1,0 +1,2193 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Agenda Institucional — Municipalidad de Maipú</title> 
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="shortcut icon" href="https://publicassets.maipu.gob.ar/public/assets/83/3c0b73b0-c6d2-439c
+81da-8c2e4b2e366e/6a565cdbd2136021563817.png" type="image/x-icon"> 
+<link 
+href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+San
+s:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+<style> 
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0} 
+:root{ 
+/* Identidad institucional Maipú */ --blue:#3DA9E0; --blue-dark:#1E7BB8; --blue-deeper:#155A8A; --blue-light:#EBF6FD; --blue-mid:#BDE4F7; --green:#78B833; --green-dark:#5A9020; --green-light:#EEF7E0; --green-mid:#C4E49A; --red:#C0392B;--red-l:#FDECEA; --amber:#D4860A;--amber-l:#FEF5E4; --purple:#7c3aed;--purple-l:#f0ebff; --gray:#64748b;--gray-l:#F4F7FB;--gray-m:#E2E8F0; --surface:#fff;--border:#DDE5EF;--border2:#C4D0DD; --text:#1A2D3F;--text2:#4A5F72;--text3:#8A9BAD; --r:8px;--r2:14px;--r3:20px; --shadow:0 1px 3px rgba(30,60,100,.06),0 4px 14px rgba(30,60,100,.09); --shadow-lg:0 8px 32px rgba(30,60,100,.14); 
+} 
+html{scroll-behavior:smooth} 
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#EBF0F6;color:var(--text);min-height:100vh;font
+size:13px} 
+/* ── TOPBAR ── */ 
+.topbar{background:var(--blue-deeper);position:sticky;top:0;z-index:300;box-shadow:0 2px 10px 
+rgba(0,0,0,.2)} 
+.topbar-inner{max-width:1400px;margin:0 auto;padding:0 24px;height:58px;display:flex;align
+items:center;gap:14px} 
+.t-logo{width:42px;height:42px;background:#fff;border-radius:9px;display:flex;align-items:center;justify
+content:center;flex-shrink:0;overflow:hidden;padding:3px} 
+.t-logo img{width:100%;height:100%;object-fit:contain} 
+.t-info{flex:1} 
+.t-title{font-family:'Playfair Display',serif;font-size:15px;color:#fff;line-height:1.15;letter-spacing:.01em} 
+.t-sub{font-size:11px;color:rgba(255,255,255,.45);margin-top:2px;letter-spacing:.02em} 
+.t-time{font-size:12px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:6px;white
+space:nowrap} 
+.t-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite} 
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}} 
+.btn-refresh{padding:7px 16px;background:var(--blue-dark);color:#fff;border:none;border-radius:var(-
+r);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;display:flex;align
+items:center;gap:6px;transition:background .15s;white-space:nowrap} 
+.btn-refresh:hover{background:var(--blue-deeper)} 
+/* ── TABS ── */ 
+.tabs-bar{background:var(--blue-deeper);border-bottom:1px solid rgba(255,255,255,.08)} 
+.tabs-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;gap:2px} 
+.tab-btn{padding:11px 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font
+weight:600;color:rgba(255,255,255,.5);background:none;border:none;border-bottom:2px solid 
+transparent;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:7px;letter-spacing:.01em} 
+.tab-btn:hover{color:rgba(255,255,255,.8)} 
+.tab-btn.active{color:#fff;border-bottom-color:var(--green)} 
+.prog-bar{height:2px;background:rgba(255,255,255,.08)} 
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--green-dark),var(-
+green));width:0;transition:width .4s} 
+.page{max-width:1400px;margin:0 auto;padding:22px 24px 60px} 
+.panel{display:none}.panel.active{display:block} 
+/* ── FILTERS ── */ 
+.filter-bar{background:var(--surface);border-radius:var(--r2);box-shadow:var(--shadow);padding:14px 
+18px;margin-bottom:18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid 
+rgba(200,215,230,.4)} 
+.f-lbl{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter
+spacing:.08em;margin-right:4px} 
+.filter-bar select{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;padding:7px 32px 7px 
+10px;border:1.5px solid var(--border);border-radius:var(--r);background:var(--gray-l);color:var(-
+text);outline:none;cursor:pointer;min-width:160px;-webkit-appearance:none;background
+image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' 
+viewBox='0 0 24 24' fill='none' stroke='%238A9BAD' stroke-width='2.5' stroke-linecap='round' stroke
+linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no
+repeat;background-position:right 10px center} 
+.filter-bar select:focus{border-color:var(--blue);background-color:#fff} 
+.btn-clear{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;padding:7px 
+13px;background:#fff;border:1.5px solid var(--border);border-radius:var(--r);cursor:pointer;color:var(-
+text2);display:flex;align-items:center;gap:5px;font-weight:500} 
+.btn-clear:hover{border-color:var(--red);color:var(--red)} 
+.f-right{margin-left:auto;font-size:12px;color:var(--text3);font-weight:500} 
+/* ── KPIS ── */ 
+.kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:18px} 
+.kpi{background:var(--surface);border-radius:var(--r2);box-shadow:var(--shadow);padding:18px 18px 
+16px;border-left:4px solid var(--border);position:relative;overflow:hidden;border:1px solid 
+rgba(200,215,230,.4);border-left-width:4px} 
+.kpi.k-total{border-left-color:var(--blue-deeper)}.kpi.k-conf{border-left-color:var(--green)}.kpi.k-int{border
+left-color:var(--blue)}.kpi.k-tanq{border-left-color:var(--purple)}.kpi.k-terr{border-left-color:#0891b2}.kpi.k
+alta{border-left-color:var(--red)} 
+.kpi-val{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;line-height:1;margin-bottom:6px} 
+.kpi.k-total .kpi-val{color:var(--blue-deeper)}.kpi.k-conf .kpi-val{color:var(--green)}.kpi.k-int .kpi
+val{color:var(--blue-dark)}.kpi.k-tanq .kpi-val{color:var(--purple)}.kpi.k-terr .kpi-val{color:#0891b2}.kpi.k-alta 
+.kpi-val{color:var(--red)} 
+.kpi-lbl{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em} 
+.kpi-ico{position:absolute;top:14px;right:14px;font-size:20px;opacity:.15} 
+/* ── STATS ── */ 
+.stats-row{display:grid;grid-template-columns:1fr 1fr 2fr;gap:14px;margin-bottom:18px} 
+.card{background:var(--surface);border-radius:var(--r2);box-shadow:var(-
+shadow);overflow:hidden;border:1px solid rgba(200,215,230,.4)} 
+.card-head{padding:12px 16px;border-bottom:1px solid var(--border);font-size:11px;font
+weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;display:flex;align
+items:center;justify-content:space-between} 
+.bc{background:var(--gray-l);border-radius:20px;padding:2px 9px;font-size:11px;font-weight:600;color:var(--text3)} 
+.card-body{padding:16px} 
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}.bar-row:last-child{margin-bottom:0} 
+.bar-label{font-size:11.5px;color:var(--text2);flex:1;white-space:nowrap;overflow:hidden;text
+overflow:ellipsis;min-width:0} 
+.bar-track{width:100px;background:var(--gray-l);border-radius:3px;height:6px;flex-shrink:0} 
+.bar-fill{height:100%;border-radius:3px;transition:width .6s ease} 
+.bar-num{font-size:11px;font-weight:600;color:var(--text);min-width:18px;text-align:right} 
+.cat-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding:8px 10px;border
+radius:var(--r)} 
+.cat-row:last-child{margin-bottom:0} 
+.cat-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0} 
+.cat-name{font-size:12px;font-weight:500;color:var(--text);flex:1} 
+.cat-num{font-size:18px;font-weight:700;font-family:'Playfair Display',serif} 
+.m-chart{display:flex;align-items:flex-end;gap:5px;height:80px;padding-top:8px} 
+.m-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px} 
+.m-bw{flex:1;display:flex;align-items:flex-end;width:100%} 
+.m-b{width:100%;border-radius:3px 3px 0 0;background:var(--gray-m);min-height:2px;transition:height .4s} 
+.m-b.has{background:var(--blue-deeper)} 
+.m-lbl{font-size:9px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.04em} 
+.m-v{font-size:9px;font-weight:700;color:var(--text2);min-height:12px} 
+/* ── TABLE ── */ 
+.agenda-wrap{background:var(--surface);border-radius:var(--r2);box-shadow:var(-
+shadow);overflow:hidden;border:1px solid rgba(200,215,230,.4)} 
+.agenda-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align
+items:center;justify-content:space-between} 
+.a-title{font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.07em} 
+.a-count{font-size:12px;color:var(--text3);background:var(--gray-l);padding:3px 10px;border
+radius:20px;font-weight:500} 
+table{width:100%;border-collapse:collapse} 
+thead th{background:var(--blue-deeper);color:rgba(255,255,255,.82);padding:10px 14px;text
+align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;white
+space:nowrap} 
+tbody tr{border-bottom:1px solid var(--gray-l);transition:background .1s} 
+tbody tr:hover{background:#F5F8FC} 
+tbody tr:last-child{border-bottom:none} 
+td{padding:11px 14px;vertical-align:middle;font-size:12.5px} 
+.td-act{font-weight:600;color:var(--text)} 
+.td-area{font-size:11px;color:var(--text3);margin-top:2px} 
+/* ── BADGES ── */ 
+.badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:20px;font-size:10px;font
+weight:700;white-space:nowrap} 
+.b-tanque{background:var(--purple-l);color:var(--purple)}.b-intendente{background:var(--blue
+light);color:var(--blue-dark)} 
+.b-terreno{background:var(--green-light);color:var(--green-dark)}.b-direcciones{background:var(--amber
+l);color:var(--amber)} 
+/* .b-cotidiana removed — category no longer in use */ 
+.b-conf{background:var(--green-light);color:var(--green-dark)}.b-tent{background:var(--amber-l);color:var(-
+amber)} 
+.b-proc{background:var(--blue-light);color:var(--blue-dark)}.b-fin{background:var(--gray-l);color:var(-
+gray)}.b-susp{background:var(--red-l);color:var(--red)} 
+.b-alta{background:var(--red-l);color:var(--red)}.b-media{background:var(--amber-l);color:var(--amber)}.b
+baja{background:var(--gray-l);color:var(--gray)} 
+/* ── CALENDAR - FIXED ── */ 
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex
+wrap:wrap;gap:10px} 
+.cal-nav-l{display:flex;align-items:center;gap:8px} 
+.cal-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--blue-deeper)} 
+.btn-nav{width:32px;height:32px;border:1.5px solid var(--border);background:var(--surface);border
+radius:var(--r);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--text2);transition:all .15s;flex-shrink:0} 
+.btn-nav:hover{background:var(--blue-light);border-color:var(--blue);color:var(--blue-dark)} 
+.btn-today{padding:6px 16px;background:var(--blue-dark);color:#fff;border:none;border-radius:var(-
+r);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font
+weight:600;cursor:pointer;transition:background .15s} 
+.btn-today:hover{background:var(--blue-deeper)} 
+.cal-legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap} 
+.leg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);font-weight:500} 
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0} 
+/* Calendar grid — key fixes for overflow and event rendering */ 
+.cal-outer{width:100%;overflow:hidden} 
+.cal-grid{background:var(--surface);border-radius:var(--r2);box-shadow:var(-
+shadow);overflow:hidden;border:1px solid rgba(200,215,230,.4);width:100%;table-layout:fixed} 
+.cal-hdr{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:var(--blue-deeper)} 
+.cal-dow{padding:10px 8px;text-align:center;font-size:10px;font
+weight:700;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.07em} 
+.cal-body{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));width:100%} 
+.cal-cell{ 
+/* Critical: contain content, never let it overflow the column */ 
+min-height:110px; 
+max-height:160px; 
+border-right:1px solid var(--border); 
+border-bottom:1px solid var(--border); 
+padding:6px; 
+overflow:hidden; 
+min-width:0; 
+word-break:break-word; 
+display:flex; 
+flex-direction:column; 
+} 
+.cal-cell:nth-child(7n){border-right:none} 
+.cal-cell.other{background:#FAFBFC} 
+.cal-cell.today .cal-day-num{background:var(--blue-dark);color:#fff;border
+radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center} 
+.cal-day-num{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:4px;line
+height:1;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0} 
+.cal-cell.other .cal-day-num{color:var(--text3)} 
+.cal-evs{flex:1;overflow:hidden;min-width:0;display:flex;flex-direction:column;gap:2px} 
+.cal-ev{ 
+font-size:10px; 
+font-weight:500; 
+padding:2px 5px; 
+border-radius:3px; 
+white-space:nowrap; 
+overflow:hidden; 
+text-overflow:ellipsis; 
+border-left:2px solid; 
+flex-shrink:0; 
+max-width:100%; 
+min-width:0; 
+line-height:1.4; 
+} 
+.ev-tanque{background:#f0ebff;color:#7c3aed;border-left-color:#7c3aed} 
+.ev-intendente{background:var(--blue-light);color:var(--blue-dark);border-left-color:var(--blue-dark)} 
+.ev-terreno{background:var(--green-light);color:var(--green-dark);border-left-color:var(--green-dark)} 
+.ev-direcciones{background:var(--amber-l);color:var(--amber);border-left-color:var(--amber)} 
+.ev-cotidiana{background:var(--gray-l);color:var(--gray);border-left-color:var(--gray)} 
+.cal-more{font-size:10px;color:var(--blue-dark);font-weight:600;margin-top:2px;flex
+shrink:0;cursor:pointer;text-decoration:underline;text-underline-offset:2px} 
+.cal-more:hover{color:var(--blue-deeper)} 
+/* Day panel overlay */ 
+.day-panel-overlay{display:none;position:fixed;inset:0;background:rgba(15,30,50,.45);z-index:1001;align
+items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px)} 
+.day-panel-overlay.open{display:flex} 
+.day-panel{background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.22);width:100%;max
+width:480px;max-height:80vh;overflow:hidden;display:flex;flex-direction:column;animation:modalIn .2s 
+ease} 
+.day-panel-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align
+items:center;justify-content:space-between;flex-shrink:0} 
+.day-panel-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--text)} 
+.day-panel-sub{font-size:11px;color:var(--text3);margin-top:2px} 
+.day-panel-close{width:28px;height:28px;border-radius:50%;border:none;background:var(--gray
+l);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--text2);flex
+shrink:0} 
+.day-panel-close:hover{background:var(--border)} 
+.day-panel-list{overflow-y:auto;padding:12px 16px;display:flex;flex-direction:column;gap:8px} 
+.day-panel-item{padding:10px 14px;border-radius:var(--r2);border-left:3px 
+solid;cursor:pointer;transition:filter .1s} 
+.day-panel-item:hover{filter:brightness(.96)} 
+.day-panel-item-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px} 
+.day-panel-item-meta{font-size:11px;color:var(--text3);display:flex;gap:10px;flex-wrap:wrap} 
+/* ── FORM ── */ 
+.form-outer{max-width:860px} 
+.f-card{background:var(--surface);border-radius:var(--r2);box-shadow:var(-
+shadow);overflow:hidden;margin-bottom:16px;border:1px solid rgba(200,215,230,.4)} 
+.f-head{padding:15px 20px;border-bottom:1px solid var(--border);display:flex;align-items:flex
+start;gap:12px} 
+.f-ico{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font
+size:15px;flex-shrink:0} 
+.fi-b{background:var(--blue-light)}.fi-g{background:var(--green-light)}.fi-a{background:var(--amber-l)}.fi
+n{background:#E6EEF7}.fi-gr{background:var(--gray-l)} 
+.f-head-txt{} 
+.f-step{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:.10em;text
+transform:uppercase;color:var(--blue-dark);background:var(--blue-light);border-radius:20px;padding:2px 
+9px;margin-bottom:4px} 
+.f-ct{font-family:'Playfair Display',serif;font-size:15px;color:var(--text);line-height:1.2} 
+.f-cs{font-size:11.5px;color:var(--text3);margin-top:3px;font-weight:400} 
+.fb{padding:20px} 
+.fg{display:grid;gap:14px}.fg2{grid-template-columns:1fr 1fr}.fg3{grid-template-columns:1fr 1fr 
+1fr}.fg1{grid-template-columns:1fr} 
+.field{display:flex;flex-direction:column;gap:6px} 
+.field label{font-size:12px;font-weight:600;color:var(--text2)} 
+.req{color:var(--red)}.opt{color:var(--text3);font-weight:400;font-size:10.5px;font-style:italic} 
+input[type=text],input[type=date],input[type=time],input[type=number],input[type=url],select,textarea{fo
+nt-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--text);background:var(--gray-l);border:1.5px 
+solid var(--border);border-radius:var(--r);padding:9px 12px;width:100%;outline:none;transition:all .15s;
+webkit-appearance:none} 
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
+width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A9BAD' stroke-width='2.5' stroke
+linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 
+9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding
+right:34px;cursor:pointer} 
+input:focus,select:focus,textarea:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px 
+rgba(61,169,224,.13)} 
+input.err,select.err,textarea.err{border-color:var(--red);box-shadow:0 0 0 3px rgba(192,57,43,.09)} 
+textarea{resize:vertical;min-height:78px;line-height:1.55} 
+.tog-g{display:flex;gap:6px;flex-wrap:wrap} 
+.tog{padding:6px 14px;border-radius:22px;font-size:12px;cursor:pointer;border:1.5px solid var(-
+border2);background:#fff;color:var(--text2);transition:all .15s;user-select:none;font-family:'Plus Jakarta 
+Sans',sans-serif;font-weight:500} 
+.tog:hover{border-color:var(--blue);color:var(--blue-dark);background:var(--blue-light)} 
+.tog.on{background:var(--blue-deeper);border-color:var(--blue-deeper);color:#fff} 
+.btn-submit{width:100%;padding:14px;font-family:'Playfair Display',serif;font
+size:16px;color:#fff;background:linear-gradient(135deg,var(--blue-dark),var(--blue
+deeper));border:none;border-radius:var(--r2);cursor:pointer;transition:all .2s;display:flex;align
+items:center;justify-content:center;gap:8px;box-shadow:0 4px 16px rgba(21,90,138,.22)} 
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(21,90,138,.3)} 
+.btn-submit:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none} 
+.hint{font-size:11px;color:var(--text3);margin-top:3px;line-height:1.45} 
+.toast{display:none;align-items:flex-start;gap:10px;padding:12px 16px;border-radius:var(--r);font
+size:12.5px;margin-bottom:14px;border:1.5px solid} 
+.toast.ok{background:var(--green-light);border-color:var(--green-mid);color:var(--green-dark)} 
+.toast.err{background:var(--red-l);border-color:#f5c6c2;color:var(--red)} 
+.t-ttl{font-weight:700;margin-bottom:2px} 
+.suc{display:none;text-align:center;padding:60px 24px} 
+.suc-c{width:72px;height:72px;background:var(--green-light);border-radius:50%;display:flex;align
+items:center;justify-content:center;margin:0 auto 18px;font-size:32px;border:2px solid var(--green-mid)} 
+.suc h2{font-family:'Playfair Display',serif;font-size:26px;color:var(--blue-deeper);margin-bottom:10px} 
+.suc p{font-size:13px;color:var(--text2);max-width:380px;margin:0 auto 24px;line-height:1.7;font
+weight:300} 
+.btn-new{padding:10px 24px;background:var(--blue-dark);color:#fff;border:none;border-radius:var(-
+r);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font
+weight:600;cursor:pointer;transition:background .15s} 
+.btn-new:hover{background:var(--blue-deeper)} 
+.loading{display:flex;flex-direction:column;align-items:center;justify
+content:center;padding:60px;gap:10px} 
+.spin{width:28px;height:28px;border:2.5px solid var(--border);border-top-color:var(--blue-dark);border
+radius:50%;animation:spin .7s linear infinite} 
+@keyframes spin{to{transform:rotate(360deg)}} 
+.ltxt{font-size:12px;color:var(--text3)} 
+.empty-row td{text-align:center;padding:40px;color:var(--text3)} 
+@media(max-width:1024px){.kpi-grid{grid-template-columns:repeat(3,1fr)}.stats-row{grid-template
+columns:1fr}} 
+@media(max-width:900px){.page{padding:14px 14px 40px}.topbar-inner,.tabs-inner{padding:0 14px}} 
+@media(max-width:640px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.fg2,.fg3{grid-template
+columns:1fr}.cal-cell{min-height:72px;max-height:100px;padding:4px}.cal-ev{font-size:9px}.cal-day
+num{font-size:11px}.t-sub,.t-time{display:none}} 
+/* ── ACTIVITY MODAL ── */ 
+.cal-ev{cursor:pointer;} 
+.cal-ev:hover{filter:brightness(.93);transform:translateX(1px)} 
+.modal-overlay{ 
+display:none;position:fixed;inset:0;background:rgba(15,30,50,.45); 
+z-index:1000;align-items:center;justify-content:center;padding:20px; 
+backdrop-filter:blur(3px); 
+} 
+.modal-overlay.open{display:flex;} 
+.modal-card{ 
+background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.22); 
+width:100%;max-width:420px;overflow:hidden;animation:modalIn .2s ease; 
+} 
+@keyframes modalIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}} 
+.modal-head{ 
+padding:18px 22px 16px; 
+display:flex;align-items:flex-start;justify-content:space-between;gap:12px; 
+border-bottom:1px solid var(--border); 
+} 
+.modal-cat{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin
+bottom:6px} 
+.modal-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--text);line-height:1.25} 
+.modal-close{ 
+width:28px;height:28px;border-radius:50%;border:none;background:var(--gray-l); 
+cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center; 
+flex-shrink:0;color:var(--text2);transition:background .15s;margin-top:2px; 
+} 
+.modal-close:hover{background:var(--border)} 
+.modal-body{padding:18px 22px 22px;display:flex;flex-direction:column;gap:12px} 
+.modal-row{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2)} 
+.modal-ico{width:28px;height:28px;border-radius:8px;background:var(--blue-light); 
+display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0} 
+.modal-row-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(-
+text3);margin-bottom:2px} 
+.modal-row-val{font-size:13px;color:var(--text);font-weight:500} 
+/* ========================================================= 
+LOGIN INSTITUCIONAL - AGREGADO SIN MODIFICAR LA AGENDA 
+========================================================= */ 
+[hidden]{display:none!important} 
+#maipuLoginScreen{ --login-blue-950:#062f55; --login-blue-900:#073d6d; --login-blue-800:#0b4f8a; --login-blue-700:#1267aa; --login-green-700:#11836d; --login-green-600:#19977e; --login-ink-900:#16324a; --login-ink-700:#476378; --login-ink-500:#718697; --login-line:#dbe7ef; --login-surface:#fff; --login-soft:#f5f9fc; --login-danger:#c83e46; --login-danger-soft:#fff1f2; --login-success:#14745f; --login-success-soft:#eaf8f4; 
+position:relative; 
+z-index:5000; 
+min-height:100vh; 
+min-height:100svh; 
+display:grid; 
+place-items:center; 
+padding:28px 22px; 
+overflow:hidden; 
+font-family:'Plus Jakarta Sans','Segoe UI',Arial,sans-serif; 
+color:var(--login-ink-900); 
+background: 
+radial-gradient(circle at 12% 12%,rgba(255,255,255,.11),transparent 25%), 
+radial-gradient(circle at 88% 82%,rgba(25,151,126,.28),transparent 28%), 
+linear-gradient(135deg,var(--login-blue-950),var(--login-blue-800) 55%,#08766f); 
+} 
+#maipuLoginScreen *{box-sizing:border-box} 
+.maipu-login-shape{ 
+position:absolute; 
+border-radius:50%; 
+pointer-events:none; 
+} 
+.maipu-login-shape.one{ 
+width:290px;height:290px;top:-150px;right:5%; 
+border:58px solid rgba(255,255,255,.05); 
+} 
+.maipu-login-shape.two{ 
+width:220px;height:220px;left:-85px;bottom:-105px; 
+background:rgba(255,255,255,.04); 
+} 
+.maipu-login-shell{ 
+position:relative; 
+z-index:1; 
+width:min(950px,100%); 
+min-height:525px; 
+display:grid; 
+grid-template-columns:1.08fr .92fr; 
+overflow:hidden; 
+border:1px solid rgba(255,255,255,.22); 
+border-radius:24px; 
+background:rgba(255,255,255,.10); 
+box-shadow:0 25px 65px rgba(4,39,68,.27); 
+backdrop-filter:blur(16px); 
+} 
+.maipu-login-info{ 
+position:relative; 
+display:flex; 
+flex-direction:column; 
+justify-content:space-between; 
+padding:39px; 
+overflow:hidden; 
+color:#fff; 
+} 
+background:linear-gradient(155deg,rgba(4,45,80,.97),rgba(8,101,120,.89)); 
+.maipu-login-info::after{ 
+content:""; 
+position:absolute; 
+width:190px;height:190px;right:-80px;bottom:-65px; 
+border:34px solid rgba(255,255,255,.06); 
+border-radius:50%; 
+} 
+.maipu-login-badge{ 
+position:relative; 
+z-index:1; 
+width:max-content; 
+display:inline-flex; 
+align-items:center; 
+gap:8px; 
+padding:8px 12px; 
+border:1px solid rgba(255,255,255,.18); 
+border-radius:999px; 
+background:rgba(255,255,255,.09); 
+font-size:12px; 
+font-weight:700; 
+} 
+.maipu-login-badge svg{width:17px;height:17px;fill:#86ead8} 
+.maipu-login-copy{ 
+position:relative; 
+z-index:1; 
+margin-top:44px; 
+} 
+.maipu-login-copy small{ 
+display:block; 
+margin-bottom:9px; 
+color:#86ead8; 
+font-size:12px; 
+font-weight:800; 
+letter-spacing:.11em; 
+} 
+text-transform:uppercase; 
+.maipu-login-copy h1{ 
+max-width:365px; 
+margin:0; 
+color:#fff; 
+font-family:'Plus Jakarta Sans','Segoe UI',Arial,sans-serif; 
+font-size:clamp(38px,4vw,51px); 
+font-weight:800; 
+line-height:1.02; 
+letter-spacing:-.045em; 
+} 
+.maipu-login-copy p{ 
+max-width:390px; 
+margin:19px 0 0; 
+color:rgba(255,255,255,.76); 
+font-size:14px; 
+line-height:1.65; 
+} 
+.maipu-login-features{ 
+position:relative; 
+z-index:1; 
+display:grid; 
+gap:13px; 
+margin-top:34px; 
+} 
+.maipu-login-feature{ 
+display:flex; 
+align-items:center; 
+gap:12px; 
+} 
+.maipu-login-feature-icon{ 
+flex:0 0 38px; 
+width:38px;height:38px; 
+display:grid; 
+place-items:center; 
+border:1px solid rgba(255,255,255,.13); 
+} 
+border-radius:11px; 
+background:rgba(255,255,255,.10); 
+.maipu-login-feature-icon svg{width:19px;height:19px;fill:#fff} 
+.maipu-login-feature div{display:grid;gap:2px} 
+.maipu-login-feature strong{font-size:13px} 
+.maipu-login-feature span{color:rgba(255,255,255,.63);font-size:12px} 
+.maipu-login-card{ 
+display:flex; 
+flex-direction:column; 
+justify-content:center; 
+padding:36px 43px 30px; 
+background:rgba(255,255,255,.99); 
+} 
+.maipu-login-head{text-align:center} 
+.maipu-login-logo{ 
+display:block; 
+width:auto; 
+max-width:min(185px,73%); 
+max-height:60px; 
+margin:0 auto 14px; 
+object-fit:contain; 
+} 
+.maipu-login-mobile-label{display:none} 
+.maipu-login-head h2{ 
+margin:0; 
+color:var(--login-ink-900); 
+font-family:'Plus Jakarta Sans','Segoe UI',Arial,sans-serif; 
+font-size:26px; 
+font-weight:800; 
+letter-spacing:-.03em; 
+} 
+.maipu-login-head p{ 
+max-width:310px; 
+margin:7px auto 0; 
+color:var(--login-ink-700); 
+} 
+font-size:13px; 
+line-height:1.5; 
+.maipu-login-form{ 
+width:100%; 
+max-width:355px; 
+margin:23px auto 0; 
+} 
+.maipu-login-group + .maipu-login-group{margin-top:11px} 
+.maipu-login-group label{ 
+display:block; 
+margin:0 0 6px 2px; 
+color:var(--login-ink-900); 
+font-size:12px; 
+font-weight:800; 
+} 
+.maipu-login-field{position:relative} 
+.maipu-login-field input{ 
+width:100%; 
+height:48px; 
+padding:0 45px; 
+border:1px solid var(--login-line); 
+border-radius:12px; 
+outline:none; 
+color:var(--login-ink-900); 
+background:var(--login-soft); 
+font-family:'Plus Jakarta Sans','Segoe UI',Arial,sans-serif; 
+font-size:13px; 
+transition:border-color .18s,box-shadow .18s,background .18s; 
+} 
+.maipu-login-field input::placeholder{color:#8ca0af} 
+.maipu-login-field input:focus{ 
+border-color:var(--login-blue-700); 
+background:#fff; 
+box-shadow:0 0 0 4px rgba(18,103,170,.10); 
+} 
+.maipu-login-field input[aria-invalid="true"]{ 
+} 
+border-color:var(--login-danger); 
+background:#fffafa; 
+.maipu-login-field-icon{ 
+position:absolute; 
+top:50%;left:15px; 
+width:18px;height:18px; 
+transform:translateY(-50%); 
+pointer-events:none; 
+} 
+.maipu-login-field-icon svg{width:100%;height:100%;fill:#71899a} 
+.maipu-login-password-toggle{ 
+position:absolute; 
+top:50%;right:6px; 
+width:37px;height:37px; 
+display:grid; 
+place-items:center; 
+border:0; 
+border-radius:9px; 
+transform:translateY(-50%); 
+color:#71899a; 
+background:transparent; 
+cursor:pointer; 
+} 
+.maipu-login-password-toggle:hover, 
+.maipu-login-password-toggle:focus-visible{ 
+color:var(--login-blue-800); 
+background:#e8f1f7; 
+outline:none; 
+} 
+.maipu-login-password-toggle svg{width:19px;height:19px;fill:currentColor} 
+.maipu-login-eye-closed{display:none} 
+.maipu-login-password-toggle[aria-pressed="true"] .maipu-login-eye-open{display:none} 
+.maipu-login-password-toggle[aria-pressed="true"] .maipu-login-eye-closed{display:block} 
+.maipu-login-error{ 
+min-height:15px; 
+display:block; 
+margin:4px 0 0 2px; 
+color:var(--login-danger); 
+font-size:11px; 
+} 
+.maipu-login-options{ 
+display:flex; 
+align-items:center; 
+justify-content:space-between; 
+gap:12px; 
+margin:2px 2px 16px; 
+} 
+.maipu-login-remember{ 
+position:relative; 
+display:inline-flex; 
+align-items:center; 
+gap:7px; 
+color:var(--login-ink-700); 
+font-size:11.5px; 
+cursor:pointer; 
+user-select:none; 
+} 
+.maipu-login-remember input{ 
+position:absolute; 
+width:1px;height:1px; 
+opacity:0; 
+} 
+.maipu-login-check{ 
+position:relative; 
+width:17px;height:17px; 
+border:1px solid #b9cbd8; 
+border-radius:5px; 
+background:#fff; 
+} 
+.maipu-login-remember input:checked + .maipu-login-check{ 
+border-color:var(--login-green-700); 
+background:var(--login-green-700); 
+} 
+.maipu-login-remember input:checked + .maipu-login-check::after{ 
+content:""; 
+position:absolute; 
+top:2px;left:5px; 
+width:4px;height:8px; 
+border:solid #fff; 
+border-width:0 2px 2px 0; 
+transform:rotate(45deg); 
+} 
+.maipu-login-secure{ 
+display:inline-flex; 
+align-items:center; 
+gap:5px; 
+color:var(--login-green-700); 
+font-size:11px; 
+font-weight:700; 
+white-space:nowrap; 
+} 
+.maipu-login-secure svg{width:14px;height:14px;fill:currentColor} 
+.maipu-login-message{ 
+display:none; 
+margin:0 0 11px; 
+padding:10px 12px; 
+border-radius:10px; 
+font-size:11.5px; 
+line-height:1.4; 
+} 
+.maipu-login-message.visible{display:block} 
+.maipu-login-message.error{ 
+color:#982a32; 
+border:1px solid #ffd0d3; 
+background:var(--login-danger-soft); 
+} 
+.maipu-login-message.success{ 
+color:var(--login-success); 
+border:1px solid #c7ecdf; 
+background:var(--login-success-soft); 
+} 
+.maipu-login-submit{ 
+width:100%; 
+min-height:48px; 
+display:flex; 
+align-items:center; 
+justify-content:center; 
+gap:9px; 
+padding:12px 20px; 
+border:0; 
+border-radius:12px; 
+color:#fff; 
+background:linear-gradient(100deg,var(--login-blue-800),var(--login-green-700)); 
+box-shadow:0 10px 23px rgba(11,79,138,.20); 
+font-family:'Plus Jakarta Sans','Segoe UI',Arial,sans-serif; 
+font-size:13px; 
+font-weight:800; 
+cursor:pointer; 
+transition:transform .18s,box-shadow .18s; 
+} 
+.maipu-login-submit:hover:not(:disabled){ 
+transform:translateY(-1px); 
+box-shadow:0 13px 28px rgba(11,79,138,.25); 
+} 
+.maipu-login-submit:disabled{opacity:.82;cursor:wait} 
+.maipu-login-submit svg{width:18px;height:18px;fill:currentColor} 
+.maipu-login-spinner{ 
+display:none; 
+width:17px;height:17px; 
+border:2px solid rgba(255,255,255,.35); 
+border-top-color:#fff; 
+border-radius:50%; 
+animation:maipuLoginSpin .7s linear infinite; 
+} 
+.maipu-login-submit.loading .maipu-login-spinner{display:block} 
+.maipu-login-submit.loading .maipu-login-arrow{display:none} 
+@keyframes maipuLoginSpin{to{transform:rotate(360deg)}} 
+.maipu-login-footer{ 
+display:flex; 
+align-items:center; 
+justify-content:center; 
+gap:7px; 
+margin-top:18px; 
+color:#758a99; 
+font-size:10.5px; 
+text-align:center; 
+} 
+.maipu-login-status{ 
+width:6px;height:6px; 
+border-radius:50%; 
+background:var(--login-green-600); 
+box-shadow:0 0 0 3px rgba(25,151,126,.11); 
+} 
+.maipu-login-page-footer{ 
+position:absolute; 
+left:50%;bottom:9px; 
+z-index:2; 
+margin:0; 
+transform:translateX(-50%); 
+color:rgba(255,255,255,.65); 
+font-size:10px; 
+white-space:nowrap; 
+} 
+/* Mientras está abierto el login, la página exterior no muestra barra lateral. */ 
+body:not(.agenda-activa){ 
+overflow:hidden; 
+} 
+/* El login puede desplazarse en celulares bajos, pero sin mostrar la barra. */ 
+#maipuLoginScreen{ 
+overflow-x:hidden; 
+scrollbar-width:none; 
+} -ms-overflow-style:none; 
+#maipuLoginScreen::-webkit-scrollbar{ 
+width:0; 
+height:0; 
+display:none; 
+} 
+/* Botón de salida dentro de la agenda */ 
+.maipu-agenda-logout{ 
+position:fixed; 
+right:16px; 
+bottom:16px; 
+z-index:1200; 
+display:inline-flex; 
+align-items:center; 
+gap:7px; 
+padding:9px 13px; 
+border:0; 
+border-radius:999px; 
+color:#fff; 
+background:rgba(21,90,138,.95); 
+box-shadow:0 8px 25px rgba(21,90,138,.26); 
+font-family:'Plus Jakarta Sans',sans-serif; 
+font-size:11px; 
+font-weight:700; 
+cursor:pointer; 
+backdrop-filter:blur(8px); 
+} 
+.maipu-agenda-logout:hover{background:#0f4b79} 
+.maipu-agenda-logout svg{width:15px;height:15px;fill:currentColor} 
+@media(max-width:800px){ 
+#maipuLoginScreen{ 
+min-height:100svh; 
+display:flex; 
+align-items:flex-start; 
+    justify-content:center; 
+    padding:54px 17px 28px; 
+    overflow-x:hidden; 
+    overflow-y:auto; 
+  } 
+  .maipu-login-shell{ 
+    width:min(430px,100%); 
+    min-height:auto; 
+    display:block; 
+    margin-top:10px; 
+    border-radius:21px; 
+    background:transparent; 
+  } 
+  .maipu-login-info{display:none} 
+  .maipu-login-card{ 
+    padding:30px 29px 25px; 
+    border-radius:21px; 
+  } 
+  .maipu-login-mobile-label{ 
+    width:max-content; 
+    display:inline-flex; 
+    margin:0 auto 9px; 
+    padding:6px 10px; 
+    border-radius:999px; 
+    color:var(--login-green-700); 
+    background:#e8f7f3; 
+    font-size:10px; 
+    font-weight:800; 
+    letter-spacing:.04em; 
+    text-transform:uppercase; 
+  } 
+  .maipu-login-page-footer{display:none} 
+} 
+ 
+@media(max-width:520px){ 
+  #maipuLoginScreen{ 
+    padding:max(60px,env(safe-area-inset-top)) 10px max(22px,env(safe-area-inset-bottom)); 
+  } 
+  .maipu-login-shell{ 
+    width:100%; 
+    max-width:410px; 
+    margin-top:10px; 
+  } 
+  .maipu-login-card{ 
+    width:100%; 
+    padding:22px 18px 18px; 
+    border-radius:18px; 
+  } 
+  .maipu-login-logo{ 
+    max-width:min(170px,65vw); 
+    max-height:49px; 
+    margin-bottom:9px; 
+  } 
+  .maipu-login-mobile-label{ 
+    margin-bottom:7px; 
+    padding:5px 9px; 
+    font-size:9px; 
+  } 
+  .maipu-login-head h2{font-size:23px} 
+  .maipu-login-head p{margin-top:5px;font-size:12px} 
+  .maipu-login-form{margin-top:16px} 
+  .maipu-login-group + .maipu-login-group{margin-top:7px} 
+  .maipu-login-group label{margin-bottom:5px;font-size:11.5px} 
+  .maipu-login-field input{height:44px;padding-left:42px;font-size:12.5px} 
+  .maipu-login-field-icon{left:14px;width:17px;height:17px} 
+  .maipu-login-error{min-height:12px;font-size:10.5px} 
+  .maipu-login-options{margin-bottom:12px} 
+  .maipu-login-remember{font-size:10.7px} 
+  .maipu-login-secure{font-size:10px} 
+  .maipu-login-submit{min-height:45px;font-size:12.5px} 
+  .maipu-login-footer{margin-top:13px;font-size:9.7px} 
+  .maipu-login-shape.one{ 
+    width:190px;height:190px;top:-110px;right:-70px;border-width:39px; 
+  } 
+  .maipu-agenda-logout{ 
+    right:10px; 
+    bottom:10px; 
+    padding:8px 11px; 
+    font-size:10px; 
+  } 
+} 
+ 
+@media(max-height:650px) and (max-width:520px){ 
+  #maipuLoginScreen{ 
+    padding:max(34px,env(safe-area-inset-top)) 9px max(14px,env(safe-area-inset-bottom)); 
+  } 
+  .maipu-login-shell{margin-top:6px} 
+  .maipu-login-card{padding:15px 17px 13px} 
+  .maipu-login-logo{max-height:40px;margin-bottom:5px} 
+  .maipu-login-mobile-label{margin-bottom:4px} 
+  .maipu-login-head h2{font-size:20px} 
+  .maipu-login-head p{font-size:11px} 
+  .maipu-login-form{margin-top:11px} 
+  .maipu-login-field input{height:40px} 
+  .maipu-login-group + .maipu-login-group{margin-top:3px} 
+  .maipu-login-options{margin-bottom:8px} 
+  .maipu-login-footer{margin-top:8px} 
+} 
+ 
+@media(max-width:350px){ 
+  .maipu-login-card{padding-inline:14px} 
+  .maipu-login-options{ 
+    align-items:flex-start; 
+    flex-direction:column; 
+    gap:8px; 
+  } 
+} 
+ 
+</style> 
+</head> 
+<body> 
+ 
+<section id="maipuLoginScreen" aria-label="Acceso a la Agenda Institucional"> 
+  <span class="maipu-login-shape one" aria-hidden="true"></span> 
+  <span class="maipu-login-shape two" aria-hidden="true"></span> 
+ 
+  <div class="maipu-login-shell"> 
+    <aside class="maipu-login-info"> 
+      <div> 
+        <span class="maipu-login-badge"> 
+          <svg viewBox="0 0 24 24" aria-hidden="true"> 
+            <path d="M12 2 4.5 5.2v5.4c0 5.1 3.2 9.7 7.5 11.4 4.3-1.7 7.5-6.3 7.5-11.4V5.2L12 2Zm0 2.2 5.3 
+2.2v4.2c0 3.8-2.2 7.5-5.3 9.1-3.1-1.6-5.3-5.3-5.3-9.1V6.4L12 4.2Z"/> 
+            <path d="m10.7 14.9-2.5-2.5 1.4-1.4 1.1 1.1 3.7-3.7 1.4 1.4-5.1 5.1Z"/> 
+          </svg> 
+          Acceso institucional 
+        </span> 
+ 
+        <div class="maipu-login-copy"> 
+          <small>Municipalidad de Maipú</small> 
+          <h1>Agenda Institucional</h1> 
+          <p> 
+            Espacio interno para organizar actividades, reuniones, 
+            eventos y compromisos institucionales. 
+          </p> 
+        </div> 
+      </div> 
+ 
+      <div class="maipu-login-features"> 
+        <div class="maipu-login-feature"> 
+          <span class="maipu-login-feature-icon"> 
+            <svg viewBox="0 0 24 24" aria-hidden="true"> 
+              <path d="M7 2h2v2h6V2h2v2h1a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3
+3h1V2Zm11 8H6v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9ZM6 8h12V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v1Z"/> 
+            </svg> 
+          </span> 
+          <div> 
+            <strong>Gestión centralizada</strong> 
+            <span>Agenda compartida entre las áreas.</span> 
+          </div> 
+        </div> 
+ 
+        <div class="maipu-login-feature"> 
+          <span class="maipu-login-feature-icon"> 
+            <svg viewBox="0 0 24 24" aria-hidden="true"> 
+              <path d="M12 2a5 5 0 0 1 5 5v2h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3
+3h1V7a5 5 0 0 1 5-5Zm6 9H6a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1Zm-6-7a3 3 0 0 
+0-3 3v2h6V7a3 3 0 0 0-3-3Z"/> 
+            </svg> 
+          </span> 
+          <div> 
+            <strong>Acceso restringido</strong> 
+            <span>Exclusivo para personal autorizado.</span> 
+          </div> 
+        </div> 
+      </div> 
+    </aside> 
+ 
+    <div class="maipu-login-card"> 
+      <header class="maipu-login-head"> 
+        <img class="maipu-login-logo" src="https://publicassets.maipu.gob.ar/public/assets/83/3c0b73b0
+c6d2-439c-81da-8c2e4b2e366e/6a565cdbd2136021563817.png" alt="Municipalidad de Maipú"> 
+        <span class="maipu-login-mobile-label">Agenda Institucional</span> 
+        <h2>Bienvenido</h2> 
+        <p>Ingresá con tu usuario y contraseña institucional.</p> 
+      </header> 
+ 
+      <form id="maipuLoginForm" class="maipu-login-form" novalidate> 
+        <div class="maipu-login-group"> 
+          <label for="maipuUsuario">Usuario</label> 
+          <div class="maipu-login-field"> 
+            <span class="maipu-login-field-icon" aria-hidden="true"> 
+              <svg viewBox="0 0 24 24"> 
+                <path d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 10c5 0 9 2.5 9 
+5.5V22H3v-2.5C3 16.5 7 14 12 14Zm0 2c-4.2 0-7 2-7 3.5v.5h14v-.5c0-1.5-2.8-3.5-7-3.5Z"/> 
+              </svg> 
+            </span> 
+            <input 
+              id="maipuUsuario" 
+              name="usuario" 
+              type="text" 
+              placeholder="Ingresá tu usuario" 
+              autocomplete="username" 
+              autocapitalize="none" 
+              spellcheck="false" 
+              maxlength="40" 
+              required 
+            > 
+          </div> 
+          <small id="maipuUsuarioError" class="maipu-login-error"></small> 
+        </div> 
+ 
+        <div class="maipu-login-group"> 
+          <label for="maipuContrasena">Contraseña</label> 
+          <div class="maipu-login-field"> 
+            <span class="maipu-login-field-icon" aria-hidden="true"> 
+              <svg viewBox="0 0 24 24"> 
+                <path d="M12 2a5 5 0 0 1 5 5v2h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3
+3h1V7a5 5 0 0 1 5-5Zm6 9H6a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1Zm-6-7a3 3 0 0 
+0-3 3v2h6V7a3 3 0 0 0-3-3Z"/> 
+              </svg> 
+            </span> 
+            <input 
+              id="maipuContrasena" 
+              name="contrasena" 
+              type="password" 
+              placeholder="Ingresá tu contraseña" 
+              autocomplete="current-password" 
+              maxlength="100" 
+              required 
+            > 
+            <button 
+              id="maipuMostrarContrasena" 
+              class="maipu-login-password-toggle" 
+              type="button" 
+              aria-label="Mostrar contraseña" 
+              aria-pressed="false" 
+            > 
+              <svg class="maipu-login-eye-open" viewBox="0 0 24 24" aria-hidden="true"> 
+                <path d="M12 5c5.3 0 9.4 4.4 10.7 6.1a1.5 1.5 0 0 1 0 1.8C21.4 14.6 17.3 19 12 19S2.6 14.6 1.3 
+12.9a1.5 1.5 0 0 1 0-1.8C2.6 9.4 6.7 5 12 5Zm0 2c-4 0-7.4 3.2-8.8 5 1.4 1.8 4.8 5 8.8 5s7.4-3.2 8.8-5C19.4 
+10.2 16 7 12 7Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/> 
+              </svg> 
+              <svg class="maipu-login-eye-closed" viewBox="0 0 24 24" aria-hidden="true"> 
+                <path d="m3.3 2 18.7 18.7-1.3 1.3-3.2-3.2A11.8 11.8 0 0 1 12 20C6.7 20 2.6 15.6 1.3 13.9a1.5 1.5 
+0 0 1 0-1.8 20.2 20.2 0 0 1 3.2-3.5L2 3.3 3.3 2Zm2.6 8A17.3 17.3 0 0 0 3.2 13c1.4 1.8 4.8 5 8.8 5 1.4 0 2.7-.4 
+3.9-1L14.2 15a4 4 0 0 1-5.3-5.3L7.2 8.1 5.9 10Zm4.5 1.1a2 2 0 0 0 2.5 2.5l-2.5-2.5ZM12 6c5.3 0 9.4 4.4 10.7 
+6.1a1.5 1.5 0 0 1 0 1.8c-.6.8-1.6 1.9-2.8 3l-1.4-1.4c1-.8 1.8-1.7 2.3-2.5C19.4 11.2 16 8 12 8c-.6 0-1.2.1
+1.8.2L8.6 6.6A11.5 11.5 0 0 1 12 6Z"/> 
+              </svg> 
+            </button> 
+          </div> 
+          <small id="maipuContrasenaError" class="maipu-login-error"></small> 
+        </div> 
+ 
+        <div class="maipu-login-options"> 
+          <label class="maipu-login-remember" for="maipuRecordarUsuario"> 
+            <input id="maipuRecordarUsuario" type="checkbox"> 
+            <span class="maipu-login-check" aria-hidden="true"></span> 
+            Recordar usuario 
+          </label> 
+          <span class="maipu-login-secure"> 
+            <svg viewBox="0 0 24 24" aria-hidden="true"> 
+              <path d="M12 2a5 5 0 0 1 5 5v2h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3
+3h1V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v2h6V7a3 3 0 0 0-3-3Z"/> 
+            </svg> 
+            Conexión segura 
+          </span> 
+        </div> 
+ 
+        <div id="maipuLoginMessage" class="maipu-login-message" role="alert" aria-live="polite"></div> 
+ 
+        <button id="maipuLoginSubmit" class="maipu-login-submit" type="submit"> 
+          <span id="maipuLoginButtonText">Ingresar a la agenda</span> 
+          <span class="maipu-login-spinner" aria-hidden="true"></span> 
+          <svg class="maipu-login-arrow" viewBox="0 0 24 24" aria-hidden="true"> 
+            <path d="m13.2 5.8 1.4-1.4 7.6 7.6-7.6 7.6-1.4-1.4 5.2-5.2H2v-2h16.4l-5.2-5.2Z"/> 
+          </svg> 
+        </button> 
+      </form> 
+ 
+      <footer class="maipu-login-footer"> 
+        <span class="maipu-login-status" aria-hidden="true"></span> 
+        Acceso exclusivo para personal autorizado 
+      </footer> 
+    </div> 
+  </div> 
+ 
+  <p class="maipu-login-page-footer">Municipalidad de Maipú · Mendoza</p> 
+</section> 
+ 
+<div id="agendaApp" hidden> 
+ 
+<button id="maipuAgendaLogout" class="maipu-agenda-logout" type="button" title="Cerrar sesión"> 
+  <svg viewBox="0 0 24 24" aria-hidden="true"> 
+    <path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5v-2H5V5h5V3Zm4.6 4.4L13.2 8.8l2.2 2.2H8v2h7.4l
+2.2 2.2 1.4 1.4 4.6-4.6-4.6-4.6Z"/> 
+  </svg> 
+  Cerrar sesión 
+</button> 
+ 
+ 
+<div class="topbar"> 
+  <div class="topbar-inner"> 
+    <div class="t-logo"> 
+      <img 
+src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIbGNtc
+wIQAABtbnRyUkdCIFhZWiAH4gADABQACQAOAB1hY3NwTVNGVAAAAABzYXdzY3RybAAAAAAAAAAAAAAA
+AAAA9tYAAQAAAADTLWhhbmSdkQA9QICwPUB0LIGepSKOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAlkZXNjAAAA8AAAAF9jcHJ0AAABDAAAAAx3dHB0AAABGAAAABRyWFlaAAABLAAAABRnWFlaAAA
+BQAAAABRiWFlaAAABVAAAABRyVFJDAAABaAAAAGBnVFJDAAABaAAAAGBiVFJDAAABaAAAAGBkZXNjAAAA
+AAAAAAV1UkdCAAAAAAAAAAAAAAAAdGV4dAAAAABDQzAAWFlaIAAAAAAAAPNUAAEAAAABFslYWVogAA
+AAAAAAb6AAADjyAAADj1hZWiAAAAAAAABilgAAt4kAABjaWFlaIAAAAAAAACSgAAAPhQAAtsRjdXJ2AAAAAA
+AAACoAAAB8APgBnAJ1A4MEyQZOCBIKGAxiDvQRzxT2GGocLiBDJKwpai5+M+s5sz/WRldNNlR2XBdkHWyGd
+VZ+jYgskjacq6eMstu+mcrH12Xkd/H5////2wBDAAcHBwcHBwwHBwwRDAwMERcRERERFx4XFxcXFx4kHh4e
+Hh4eJCQkJCQkJCQrKysrKysyMjIyMjg4ODg4ODg4ODj/2wBDAQkJCQ4NDhkNDRk7KCEoOzs7Ozs7Ozs7Ozs7Oz
+s7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAIvAi8DASIAAhEBAxEB/8QAHwAAAQUB
+AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1F
+hByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZn
+aGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi
+4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBA
+QDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpK
+jU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanq
+KmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6
+RooooAKKKKACiiigAooooAKKKKACiiigApMClooATApMD0p1FADcD0owPSnUUAN2r6UbV9KdRQA3avpRtX0p
+1FADdq+lG1fSnUUAN2r6UbV9KdRQA3avpRtX0p1FADdo9KMD0p1FADcD0owPSnUUAJgUYFLRQAmKWiigAo
+oooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAC
+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKK
+KKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooo
+oAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiig
+AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK
+ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA
+KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAo
+oooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApM0tJkUAGaM0maXNABmjNGRR
+kUAGaM0ZFGRQAZozRkUZFABmjNGRRkUAGaM0ZFJkUALmlpoIp1ABRRRQAUUUUAFFFFABRRRQAUUUUAFF
+FFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUA
+FFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFACVzPiS4nt4YzA7IWbGQcV01cn4r/ANRF/vH+Vc+JbVN2FLY
+5j+1NR/57v+ZpP7U1H/nu/wCdUqSvn/bTf2mZXdi9/amo/wDPd/zo/tTUf+e7/nVGin7Wf8wXZe/tTUf+e7/nR/a
+mo/8APd/zqjRR7Wf8wXZe/tTUf+e7/nR/amo/893/ADqjRR7Wf8wXZe/tPUf+fh/zpP7T1D/nvJ+ZqlRgjHvR7afc
+Lsv/ANp6iMfv5Ofc1YtLnVbyUQwzSEk9dx4HeqFpazXkwhgBJJ5PoO9ejadp0Onw7E5Y/ebuTXVhqdSq1K7sXFP
+qWbSB7eERvI0jd2bk571cpKWvcSsrFhRRRTAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA
+CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigBO1cn4r
+/wCPeH/eP8q6ztXJ+K/+PeH/AHj/ACrmxX8JilscVSUtJXziMegUUUUwCiiigApaSjBGPegBcHjPep7S1mvJRDCpyx
+5PoO9FpazXkwhhBJJ5PoO9ejadp0OnwhE5Y/ebuTXVhsM6r5uhcY33F07TotPh2Jyx+83cmtMUUte9CKirI0Ciiir
+AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooATtXJ+K/+PeH/AHj/ACrrO1cn4r/494f94/yrmx
+X8JilscVSUtJXziMegUUUUwClpKMEY96AFweM96ntLWa8lEMKnLHk+g70WlrNeTCGEEknk+g716Np2nQ6fCET
+lj95u5NdWGwzqvm6FRjfcNO02LT4dicsfvN3JrUFFLXvQgoqyNQoooqwCiiigAooooAKKKKACiiigAooooAKKKKA
+CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK
+KKKACiiigAooooAKKKKACiiigBO1cn4r/AOPeH/eP8q6ztXJ+K/8Aj3h/3j/KubFfwmKWxxVJS0lfOIx6BS0lGCMe9
+MBcHjPep7S1mvJRDCpyx5PoO9FpazXkwhhBJJ5PoO9ejadp0OnwhE5Y/ebuTXVhsM6r5uhUY33DTtNi0+HYnL
+H7zdya1BRS170IKKsjUKKKKsAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoo
+ooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAE7
+Vyfiv/j3h/wB4/wAq6ztXJ+K/+PeH/eP8q5sV/CYpbHFUUUhBGPevnFsY9BcHjPep7S1mvJRDCpyx5PoO9FpazXk
+whhBJJ5PoO9ejadp0OnwhE5Y/ebuTXXhsM6r5uhUY33DTtNi0+HYnLH7zdya1BRS170IKKsjUKKKKsAooooAKK
+KKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooo
+oAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArkfFf+oh/3v6V11cj4q5gh/wB4/wAq
+5cX/AAmKWxxWCAPerFpazXkohhU5J5PoO9JaWs13MIYQSSevoO9ekadp0Onw7E5Y/eb1NeRhcM6r5uhEY9x
+NO02LT4dicsfvN3JrUFFFe9CCirI0FoooqwCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooo
+oAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiig
+AooooAKKKKACiiigBK5vX7Wa7WCGAcs/J9BjvXSUnNZzpqacXsJq5madp0Wnw7E5Y/ebuTWmOlFLThBRVo7DF
+oooqwCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApM0tNPXNA
+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
+m/2PS7s8I/4RzW/+fV/0/wAaP+Ec1v8A59X/AE/xr3fAowKP7TqdkH9j0+7PCP8AhHNb/wCfV/0/xo/4RzW/+fV/
+0/xr3fAowKP7TqdkH9j0+7PCf+Ec1v8A59X/AE/xo/4RzW/+fV/0/wAa92wKMUv7TqdkH9j0u7OO8HWV1YafJFe
+RmN2lLYPpgDt9K7EUmMU6uCc+eTk+p6dKmqcVBdBaKKKk1CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooo
+oAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACkxS0UAIaMUtFACYoxS0UAJijFLRQAmKM
+UtFACYpaKKACkpaKAExRilooATFGKWigBMUtFFABSUtFACYoxS0UAJijFLRQAmKMUtFACYoxjpS0UANwe9Oooo
+AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiikz
+QAtFJn2paACikzRkUALRRSZFAC0UUmcUALRSA5paACiikzQAtFFc9fapcRXiWFhGJZW5YtnCg+tAHQZpaiTdtG/G
+cDOOmfb2qWgAoopMigBaKKQkCgBaKaCD0pScUALRSZFGaAFopM0ZGcUALRTcjvxSgg9KAFopM0ZoAWikzR
+mgBaKTNLQAUUhIFHXmgBaKTNGaAFopAc0ZoAWikyKMigBaKQciloAKKKKACiiigAooooAKKKKACiiigAooooAK
+KKKACiiigAooooAKKKKACiiigAooooAKoXsdzLaslowSXIwx7cgn17VfpKAPLhrmrQT/vZWcRttcADnBweo74r02O
+RHRZEOVYAg+oPSvNra0+2jUYVHzqd6/VWJH510Ph/Ul/shjLwbYEEH+7yR/hQBn69rV5b3zQWchQRqN+ADyT7
+j3rY0B9QuIDeXkwkjkB2jHIwSDnjHauSSFp9LvNUnGXldVB/wCBAmu08N/8ga3/AOBf+hNQBryyrDE0zHhAWP4
+CuE0vXb6TUkF05MMzFVBAABJ4x9K2vFF35Gn+Qhw0xC/8BHWsjVtNNrotrKn+sgILY65bkkfQ/pQB39cr4hk1O
+0UXlpPsiACsuATknqOPT3rdsLlby0iuF/jUE/Xv+tZPin/kFN/vr/OgA0BtRmt/tV7MJFkGUGORg454rD1m71nT7zC
+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
+mTVvEMBtPnWParMOmFYsTXTTeHtJmcyPDyeeGYD8s4q5aadaWKbbZAvGCepP1JoAtSzRwoZJWCqvUk4x9a
+4rw5cwJfXe91UO/yZIGfmPSuwurWG7haCcbkbGRkjODntWanh/SUdZUgAdSCDuY4I59aAOd1+zksLv+0rb5VlD
+K/oCwwc+xrT8JZ/s6TPH75v/QVro5raG5hMNwodW6qf/rVFbWNtZRGG0TYpO4jJPJ475oA5fxbLG8UMKspZXJ
+ZcjIGO4rpNOmimsovLYNtRQcHODgcH3qC50PTLyZri5h3u2MncR0GB0Iq3Z6fa2CGO1Ty1Y5IyTz+JNAHF28o8P
+6xKlxkQSZwevBPH/wBeuju9bsUtpHgnRn2naAcncRxkVpXNlb3kfl3KCRe2ev51mr4b0dXDeTnHYkkflmgCXRL6a
+/sFuLjG9mI4GOlcvf3Nu3iSGZZEZFKZYEYGOuTXdxwxwoI4VCKvQAYFZI8N6OP+WH/jzf40AahuIVi89nUJjO7Ixz
+05rgtE+wS6nci6EbK2du8KQSW7Zrtn0+2ks/sLL+5wBtyegxxnr2qnH4f0qN1lSAB1IZTuY4I+poA0YbS2g/494kjz/
+dUD+VSySxwoZJWCqvUscAfUmpqqXVrDdwtBONyNjIyRnBz2oA4rw9cQJqtwWdQHDbSSACS3GK2vE1jJd2Aki
+BLREtgdcEc4q1H4f0qN1lSAB1IIO5jgj6mtvHrQBzGk69ZyWSJcyLHJGoVg3GccZFYuqTjXtThtLTLRx/eYdMN1OfT
+FdPc6BplzJ5rxAMTk7Ttz+VXbSwtbFNltGEB6nqT9SeaALaqFUKvQDAp9FFABRRRQAUUUUAFFFFABRRRQAUU
+UUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQA
+UUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRR
+QAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABR
+RRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFA
+BRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFF
+FABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF
+FFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUU
+AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUU
+UUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQA
+UUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRR
+QAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABR
+RRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFA
+BRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFF
+FABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF
+FFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUU
+AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUU
+UUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQA
+UUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRR
+QAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABR
+RRQAUUUUAFFFFABRRRQB//Z" alt="Maipú Municipio"> 
+</div> 
+<div class="t-info"> 
+<div class="t-title">Agenda Institucional — Municipalidad de Maipú</div> 
+<div class="t-sub">Tablero Ejecutivo 2026</div> 
+</div> 
+<div class="t-time"><span class="t-dot"></span><span id="clock"></span></div> 
+<button class="btn-refresh" onclick="loadData()">↻ Actualizar</button> 
+</div> 
+</div> 
+<div class="tabs-bar"> 
+  <div class="tabs-inner"> 
+    <button class="tab-btn active" onclick="showTab('p-dash',this)">        Tablero</button> 
+    <button class="tab-btn" onclick="showTab('p-cal',this)">        Calendario</button> 
+    <button class="tab-btn" onclick="showTab('p-form',this)">    Nueva actividad</button> 
+  </div> 
+  <div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div> 
+</div> 
+ 
+<div class="page"> 
+ 
+<!-- TABLERO --> 
+<div class="panel active" id="p-dash"> 
+  <div class="filter-bar"> 
+    <span class="f-lbl">Filtrar por</span> 
+    <select id="df-cat" onchange="renderDash()"><option value="">Todas las Categorías</option></select> 
+    <select id="df-est" onchange="renderDash()"><option value="">Todos los Estados</option></select> 
+    <select id="df-mes" onchange="renderDash()"><option value="">Todos los meses</option></select> 
+    <button class="btn-clear" onclick="clearF()">✕ Limpiar</button> 
+    <div class="f-right" id="d-count"></div> 
+  </div> 
+  <div class="kpi-grid" id="kpi-grid"> 
+    <div class="loading" style="grid-column:1/-1"><div class="spin"></div><div class="ltxt">Cargando 
+datos…</div></div> 
+  </div> 
+  <div class="stats-row" id="stats-row" style="display:none"> 
+ 
+    <div class="card"> 
+      <div class="card-head">Por categoría</div> 
+      <div class="card-body" id="cat-chart"></div> 
+    </div> 
+    <div class="card"> 
+      <div class="card-head">Actividades por mes</div> 
+      <div class="card-body" style="padding:12px 16px"><div class="m-chart" id="m-chart"></div></div> 
+    </div> 
+  </div> 
+  <div class="agenda-wrap" id="agenda-wrap" style="display:none"> 
+    <div class="agenda-head"> 
+      <span class="a-title">Agenda detallada</span> 
+      <span class="a-count" id="a-count"></span> 
+    </div> 
+    <div style="overflow-x:auto"> 
+      <table> 
+        <thead><tr> 
+          <th>Fecha</th><th>Hora</th><th>Actividad</th> 
+          <th>Categoría</th><th>Lugar</th><th>Modalidad</th> 
+          <th>Intendente</th><th>Estado</th><th>Prioridad</th> 
+        </tr></thead> 
+        <tbody id="a-body"></tbody> 
+      </table> 
+    </div> 
+  </div> 
+</div> 
+ 
+<!-- CALENDARIO --> 
+<div class="panel" id="p-cal"> 
+  <div class="cal-nav"> 
+    <div class="cal-nav-l"> 
+      <button class="btn-nav" onclick="calMv(-1)">&#8249;</button> 
+      <div class="cal-title" id="cal-title"></div> 
+      <button class="btn-nav" onclick="calMv(1)">&#8250;</button> 
+      <button class="btn-today" onclick="calToday()">Hoy</button> 
+    </div> 
+    <div class="cal-legend"> 
+      <div class="leg"><div class="leg-dot" style="background:#7c3aed"></div>TANQUE</div> 
+      <div class="leg"><div class="leg-dot" style="background:var(--blue-dark)"></div>INTENDENTE</div> 
+      <div class="leg"><div class="leg-dot" style="background:var(--green-dark)"></div>EN TERRENO</div> 
+      <div class="leg"><div class="leg-dot" style="background:var(--amber)"></div>DIRECCIONES</div> 
+      <div class="leg"><div class="leg-dot" style="background:var(--gray)"></div>COTIDIANA</div> 
+    </div> 
+  </div> 
+  <div class="cal-outer"> 
+    <div class="cal-grid"> 
+      <div class="cal-hdr"> 
+        <div class="cal-dow">LUN</div><div class="cal-dow">MAR</div><div class="cal-dow">MIÉ</div> 
+        <div class="cal-dow">JUE</div><div class="cal-dow">VIE</div><div class="cal-dow">SÁB</div><div 
+class="cal-dow">DOM</div> 
+      </div> 
+      <div class="cal-body" id="cal-body"></div> 
+    </div> 
+  </div> 
+</div> 
+ 
+<!-- NUEVA ACTIVIDAD --> 
+<div class="panel" id="p-form"> 
+  <div class="form-outer"> 
+    <div class="toast err" id="t-err"> 
+      <span style="font-size:16px;margin-top:1px">⚠</span> 
+      <div><div class="t-ttl">Campos incompletos</div><div id="t-err-msg"></div></div> 
+    </div> 
+    <div class="toast err" id="t-send-err"> 
+      <span style="font-size:16px;margin-top:1px">⚠</span> 
+      <div><div class="t-ttl">Error de conexión</div><div>No se pudo enviar. Verificá la configuración del 
+Google Apps Script.</div></div> 
+    </div> 
+    <div class="suc" id="f-suc"> 
+      <div class="suc-c">✓</div> 
+      <h2>Actividad registrada</h2> 
+      <p>La actividad fue cargada correctamente en la agenda institucional.</p> 
+      <div style="display:flex;gap:10px;justify-content:center"> 
+        <button class="btn-new" onclick="resetForm()">+ Registrar otra</button> 
+        <button class="btn-new" style="background:var(--blue-deeper)" onclick="showTab('p
+dash',document.querySelectorAll('.tab-btn')[0]);loadData()">Ver tablero</button> 
+      </div> 
+    </div> 
+    <div id="f-body"> 
+ 
+      <!-- PASO 1: SECRETARÍA Y ÁREA --> 
+      <div class="f-card"> 
+        <div class="f-head"> 
+          <div class="f-ico fi-n">🏛</div> 
+          <div class="f-head-txt"> 
+            <div class="f-step">Paso 1</div> 
+            <div class="f-ct">Área responsable de la actividad</div> 
+            <div class="f-cs">Indicá el área que carga la actividad</div> 
+          </div> 
+        </div> 
+        <div class="fb"><div class="fg fg1"> 
+ 
+          <div class="field"><label>Área <span class="req">*</span></label> 
+            <input type="text" id="ff-area" placeholder="Ej: Dirección de Salud, Comunicación, Deportes…"> 
+          </div> 
+          <div class="field"><label>Responsable de la actividad <span class="req">*</span></label><input 
+type="text" id="ff-responsable" placeholder="Nombre y apellido"></div> 
+        </div></div> 
+      </div> 
+ 
+      <!-- PASO 2: DATOS DE LA ACTIVIDAD --> 
+      <div class="f-card"> 
+        <div class="f-head"> 
+          <div class="f-ico fi-g">       </div> 
+          <div class="f-head-txt"> 
+            <div class="f-step">Paso 2</div> 
+            <div class="f-ct">Datos de la Actividad</div> 
+            <div class="f-cs">Ingresá toda la información referida a la actividad que quieras agendar</div> 
+          </div> 
+        </div> 
+        <div class="fb"><div class="fg fg1"> 
+          <div class="field"><label>Nombre de la actividad <span class="req">*</span></label><input 
+type="text" id="ff-act" placeholder="Título claro y descriptivo"></div> 
+          <div class="fg fg3"> 
+            <div class="field"><label>Fecha <span class="req">*</span></label><input type="date" id="ff
+fecha"></div> 
+            <div class="field"><label>Hora de inicio <span class="req">*</span></label><input type="time" 
+id="ff-hi"></div> 
+            <div class="field"><label>Hora de fin <span class="opt">opcional</span></label><input type="time" 
+id="ff-hf"></div> 
+          </div> 
+          <div class="field"><label>Tipo de actividad <span class="req">*</span></label> 
+            <select id="ff-tipo"> 
+              <option value="">— Seleccionar tipo —</option> 
+              <option>Inauguración</option> 
+              <option>Acto Institucional</option> 
+              <option>Actividad territorial</option> 
+              <option>Actividad propia del área</option> 
+            </select> 
+          </div> 
+          <div class="field"><label>Categoría <span class="req">*</span></label> 
+            <select id="ff-cat"> 
+              <option value="">— Seleccionar categoría —</option> 
+              <option value="ACTIVIDADES DEL INTENDENTE">Actividades del intendente</option> 
+              <option value="AGENDA TANQUE">Agenda tanque</option> 
+              <option value="FUNDAMENTALES EN TERRENO">Agenda en terreno</option> 
+              <option value="AGENDA DIRECCIONES">Agenda Direcciones</option> 
+            </select> 
+          </div> 
+          <div class="field"><label>Breve descripción <span class="req">*</span></label><textarea id="ff
+desc" placeholder="Contexto, objetivo, participantes…"></textarea></div> 
+          <div class="field"><label>Responsable de carga de la agenda <span 
+class="req">*</span></label><input type="text" id="ff-resp" placeholder="Tu nombre completo"></div> 
+        </div></div> 
+      </div> 
+ 
+      <!-- PASO 3: LUGAR Y MODALIDAD --> 
+      <div class="f-card"> 
+        <div class="f-head"> 
+          <div class="f-ico fi-a">     </div> 
+          <div class="f-head-txt"> 
+            <div class="f-step">Paso 3</div> 
+            <div class="f-ct">Lugar y Modalidad</div> 
+            <div class="f-cs">Dónde y cómo se realiza la actividad</div> 
+          </div> 
+        </div> 
+        <div class="fb"><div class="fg fg2"> 
+          <div class="field"><label>Lugar <span class="opt">opcional</span></label><input type="text" id="ff
+lugar" placeholder="Nombre del espacio"></div> 
+          <div class="field"><label>Dirección <span class="opt">opcional</span></label><input type="text" 
+id="ff-dir" placeholder="Calle y número"></div> 
+          <div class="field"><label>Distrito <span class="req">*</span></label> 
+            <select id="ff-dist"> 
+              <option value="">— Seleccionar —</option> 
+              <option>Ciudad</option> 
+              <option>Gral. Gutiérrez</option> 
+              <option>Luzuriaga</option> 
+              <option>Coquimbito</option> 
+              <option>Gral. Ortega</option> 
+              <option>Rodeo del Medio</option> 
+              <option>San Roque</option> 
+              <option>Fray Luis Beltrán</option> 
+              <option>Lunlunta</option> 
+              <option>Russell</option> 
+              <option>Barrancas</option> 
+              <option>Cruz de Piedra</option> 
+            </select> 
+          </div> 
+          <div class="field"><label>Modalidad</label> 
+            <div class="tog-g"> 
+              <div class="tog on" onclick="selTog(this,'ff-mod','Presencial')">Presencial</div> 
+              <div class="tog" onclick="selTog(this,'ff-mod','Virtual')">Virtual</div> 
+              <div class="tog" onclick="selTog(this,'ff-mod','Mixta')">Mixta</div> 
+            </div><input type="hidden" id="ff-mod" value="Presencial"> 
+          </div> 
+        </div></div> 
+      </div> 
+ 
+      <!-- PASO 4: ESTADO Y PRIORIDAD --> 
+      <div class="f-card"> 
+        <div class="f-head"> 
+          <div class="f-ico fi-gr">⚙</div> 
+          <div class="f-head-txt"> 
+            <div class="f-step">Paso 4</div> 
+            <div class="f-ct">Estado y Prioridad</div> 
+            <div class="f-cs">Clasificación operativa de la actividad</div> 
+          </div> 
+        </div> 
+        <div class="fb"><div class="fg fg2"> 
+          <div class="field"><label>Estado <span class="req">*</span></label> 
+            <select id="ff-est"> 
+              <option value="">— Seleccionar —</option> 
+              <option>Confirmada con fecha</option> 
+              <option>Confirmada sin fecha</option> 
+              <option>Idea o proyecto</option> 
+            </select> 
+          </div> 
+          <div class="field"><label>Prioridad</label> 
+            <div class="tog-g"> 
+              <div class="tog" onclick="selTog(this,'ff-pri','Alta')">Alta</div> 
+              <div class="tog on" onclick="selTog(this,'ff-pri','Media')">Media</div> 
+              <div class="tog" onclick="selTog(this,'ff-pri','Baja')">Baja</div> 
+            </div><input type="hidden" id="ff-pri" value="Media"> 
+          </div> 
+          <div class="field"><label>¿Sugiere presencia del Intendente?</label> 
+            <div class="tog-g"> 
+              <div class="tog" onclick="selTog(this,'ff-int','Sí')">Sí</div> 
+              <div class="tog on" onclick="selTog(this,'ff-int','No')">No</div> 
+            </div><input type="hidden" id="ff-int" value="No"> 
+          </div> 
+          <div class="field"><label>Cant. asistentes <span class="opt">opcional</span></label><input 
+type="number" id="ff-asist" min="0" placeholder="Número aproximado"></div> 
+        </div></div> 
+      </div> 
+ 
+      <!-- PASO 5: INFO ADICIONAL --> 
+      <div class="f-card"> 
+        <div class="f-head"> 
+          <div class="f-ico fi-b">    </div> 
+          <div class="f-head-txt"> 
+            <div class="f-step">Paso 5</div> 
+            <div class="f-ct">Información Adicional</div> 
+            <div class="f-cs">Áreas articuladas, observaciones y materiales</div> 
+          </div> 
+        </div> 
+        <div class="fb"><div class="fg fg1"> 
+          <div class="field"><label>Área articulada <span class="opt">opcional</span></label><input 
+type="text" id="ff-art" placeholder="Otra área participante"></div> 
+          <div class="field"><label>Observaciones <span class="opt">opcional</span></label><textarea id="ff
+obs" placeholder="Notas, contingencias…"></textarea></div> 
+          <div class="field"><label>Link Drive <span class="opt">opcional</span></label><input type="url" 
+id="ff-link" placeholder="https://drive.google.com/…"><div class="hint">Material, carpeta o presentación 
+de referencia.</div></div> 
+        </div></div> 
+      </div> 
+ 
+      <button class="btn-submit" id="ff-btn" onclick="ffSubmit()"> 
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" 
+stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 
+9l20-7z"/></svg> 
+        Registrar actividad en la agenda 
+      </button> 
+      <p style="text-align:center;font-size:11px;color:var(--text3);margin-top:10px">Los datos se guardan 
+directamente en el Google Sheets institucional.</p> 
+    </div> 
+  </div> 
+</div> 
+ 
+ 
+<!-- Activity detail modal --> 
+<div class="modal-overlay" id="act-modal" onclick="closeModal(event)"> 
+  <div class="modal-card"> 
+    <div class="modal-head"> 
+      <div> 
+        <div class="modal-cat" id="m-cat"></div> 
+        <div class="modal-title" id="m-title"></div> 
+      </div> 
+      <button class="modal-close" onclick="document.getElementById('act
+modal').classList.remove('open')">✕</button> 
+    </div> 
+    <div class="modal-body"> 
+      <div class="modal-row"> 
+        <div class="modal-ico">       </div> 
+        <div><div class="modal-row-label">Fecha</div><div class="modal-row-val" id="m-fecha"></div></div> 
+      </div> 
+      <div class="modal-row"> 
+        <div class="modal-ico">        </div> 
+        <div><div class="modal-row-label">Horario</div><div class="modal-row-val" id="m
+hora"></div></div> 
+      </div> 
+      <div class="modal-row"> 
+        <div class="modal-ico">     </div> 
+        <div><div class="modal-row-label">Lugar</div><div class="modal-row-val" id="m-lugar"></div></div> 
+      </div> 
+      <div class="modal-row" id="m-desc-row"> 
+        <div class="modal-ico">          </div> 
+        <div><div class="modal-row-label">Descripción</div><div class="modal-row-val" id="m
+desc"></div></div> 
+      </div> 
+    </div> 
+  </div> 
+</div> 
+</div><!-- /page --> 
+ 
+<script> 
+const SHEET_ID='1KJj-q1y96ZcREgMHoerfe9ipVrrbfDLx-_RQulZKn-A'; 
+const SHEET_NAME='Base_Agenda_Actualizada'; 
+const 
+SCRIPT_URL='https://script.google.com/macros/s/AKfycbxsLnZPeXtr87nZNvI3JRhA06HruRIZnaldP06VnW4n
+LXVFq_n1VRzakHWL9LxpROs/exec'; 
+let ALL=[]; 
+ 
+function updateClock(){document.getElementById('clock').textContent=new Date().toLocaleTimeString('es
+AR',{hour:'2-digit',minute:'2-digit'});} 
+updateClock();setInterval(updateClock,10000); 
+ 
+async function loadData(){ 
+  try{ 
+    const 
+url=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComp
+onent(SHEET_NAME)}&t=${Date.now()}`; 
+    const r=await fetch(url,{cache:'no-store'}); 
+    if(!r.ok)throw new Error(); 
+    ALL=parseCSV(await r.text()); 
+  }catch(e){ALL=[];} 
+  populateFilters();renderDash();renderCal(); 
+} 
+ 
+function parseCSV(csv){ 
+  // Parser robusto: maneja celdas con saltos de línea y comas dentro de comillas 
+  const rows=[]; 
+  const records=splitCSVRecords(csv.trim()); 
+  records.slice(1).forEach(c=>{ 
+    if(c.length<5) return; 
+    const anio=parseInt(c[5]); 
+    const tieneId    = (c[0]||'').startsWith('AG-'); 
+    const tieneFecha = c[1] && /^\d{1,2}\/\d{1,2}\/\d{4}$/.test(c[1].trim()); 
+    const tieneAnio  = !isNaN(anio) && anio>=2000 && anio<=2100; 
+    if(!tieneId && !(tieneFecha && tieneAnio)) return; 
+    if(!c[9]) return; 
+    rows.push({ 
+      id:c[0],fecha:c[1]||'',dia:c[2],semana:c[3],mes:c[4],anio:c[5], 
+      sec:c[6],area:c[7],responsable:c[8],actividad:c[9], 
+      tipo:c[10],cat:c[11],hini:c[12],hfin:c[13], 
+      lugar:c[14],distrito:c[15],dir:c[16],modalidad:c[17], 
+      intendente:c[18],estado:c[19],desc:c[20],obs:c[21], 
+      prioridad:c[22],asist:c[23],articulada:c[24],link:c[25],respCarga:c[26] 
+    }); 
+  }); 
+  return rows; 
+} 
+ 
+function splitCSVRecords(csv){ 
+  // Divide el CSV respetando celdas con saltos de línea dentro de comillas 
+  const records=[]; 
+  let cur='', inQ=false, fields=[], i=0; 
+  while(i<csv.length){ 
+    const ch=csv[i]; 
+    if(ch==='"'){ 
+      if(inQ && csv[i+1]==='"'){cur+='"';i+=2;continue;} 
+      inQ=!inQ;i++;continue; 
+    } 
+    if(ch===','&&!inQ){fields.push(cur.trim());cur='';i++;continue;} 
+    if((ch==='\n'||ch==='\r')&&!inQ){ 
+      if(ch==='\r'&&csv[i+1]==='\n')i++; 
+      fields.push(cur.trim()); 
+      if(fields.some(f=>f))records.push(fields); 
+      fields=[];cur='';i++;continue; 
+    } 
+    cur+=ch;i++; 
+  } 
+  if(cur||fields.length){fields.push(cur.trim());if(fields.some(f=>f))records.push(fields);} 
+  return records; 
+} 
+ 
+ 
+function showTab(id,btn){ 
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active')); 
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active')); 
+  document.getElementById(id).classList.add('active'); 
+  btn.classList.add('active'); 
+} 
+ 
+const 
+MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','D
+iciembre']; 
+ 
+function populateFilters(){ 
+const add=(id,vals,lbl)=>{const s=document.getElementById(id);const f=`<option 
+value="">${lbl}</option>`;s.innerHTML=f+[...new 
+Set(vals.filter(Boolean))].sort().map(v=>`<option>${v}</option>`).join('');}; 
+add('df-cat',ALL.map(r=>r.cat),'Todas las Categorías'); 
+add('df-est',ALL.map(r=>r.estado),'Todos los Estados'); 
+const ms=[...new Set(ALL.map(r=>parseInt(r.mes)).filter(Boolean))].sort((a,b)=>a-b); 
+document.getElementById('df-mes').innerHTML='<option value="">Todos los 
+meses</option>'+ms.map(m=>`<option value="${m}">${MESES[m-1]}</option>`).join(''); 
+} 
+function getF(){ 
+const cat=document.getElementById('df-cat').value,est=document.getElementById('df
+est').value,mes=document.getElementById('df-mes').value; 
+return ALL.filter(r=>(!cat||r.cat===cat)&&(!est||r.estado===est)&&(!mes||String(r.mes)===String(mes))); 
+} 
+function clearF(){['df-cat','df-est','df
+mes'].forEach(id=>document.getElementById(id).value='');renderDash();} 
+function catCls(c){ 
+var map={ 
+'AGENDA TANQUE':'tanque','Agenda tanque':'tanque', 
+'ACTIVIDADES DEL INTENDENTE':'intendente','Actividades del intendente':'intendente','Actividades del 
+Intendente':'intendente', 
+'FUNDAMENTALES EN TERRENO':'terreno','Agenda en terreno':'terreno', 
+'AGENDA DIRECCIONES':'direcciones','Agenda Direcciones':'direcciones' 
+}; 
+return map[c]||'terreno'; 
+} 
+const catAbbr={ 
+'AGENDA TANQUE':'Agenda tanque','Agenda tanque':'Agenda tanque', 
+'ACTIVIDADES DEL INTENDENTE':'Actividades del Intendente','Actividades del intendente':'Actividades del 
+Intendente','Actividades del Intendente':'Actividades del Intendente', 
+'FUNDAMENTALES EN TERRENO':'Agenda en terreno','Agenda en terreno':'Agenda en terreno', 
+'AGENDA DIRECCIONES':'Agenda Direcciones','Agenda Direcciones':'Agenda Direcciones' 
+}; 
+function catB(c){return`<span class="badge b-${catCls(c)}">${catAbbr[c]||c||'—'}</span>`;} 
+function estB(e){const m={'Confirmada':'conf','Confirmada con fecha':'conf','Confirmada sin 
+fecha':'conf','Tentativa':'tent','Idea o proyecto':'tent','En 
+proceso':'proc','Finalizada':'fin','Suspendida':'susp'};return`<span class="badge b-${m[e]||'fin'}">${e||'—
+'}</span>`;} 
+function priB(p){return`<span class="badge b-${(p||''). toLowerCase()}">${p||'—'}</span>`;} 
+ 
+function renderDash(){ 
+  const data=getF(); 
+  document.getElementById('d-count').textContent=`${data.length} actividad${data.length!==1?'es':''}`; 
+  const kpis=[ 
+    {cls:'k-total',val:data.length,lbl:'Total actividades',ico:'       '}, 
+    {cls:'k
+conf',val:data.filter(r=>r.estado&&r.estado.startsWith('Confirmada')).length,lbl:'Confirmadas',ico:'    '}, 
+    {cls:'k-int',val:data.filter(r=>r.intendente==='Sí').length,lbl:'Con intendente',ico:'🏛'}, 
+    {cls:'k-tanq',val:data.filter(r=>r.cat==='AGENDA TANQUE'||r.cat==='Agenda tanque').length,lbl:'Agenda 
+tanque',ico:'   '}, 
+    {cls:'k-terr',val:data.filter(r=>r.cat==='FUNDAMENTALES EN TERRENO'||r.cat==='Agenda en 
+terreno').length,lbl:'En terreno',ico:'     '}, 
+    {cls:'k-alta',val:data.filter(r=>r.prioridad==='Alta').length,lbl:'Alta prioridad',ico:'   '} 
+  ]; 
+  document.getElementById('kpi-grid').innerHTML=kpis.map(k=>`<div class="kpi ${k.cls}"><div class="kpi
+ico">${k.ico}</div><div class="kpi-val">${k.val}</div><div class="kpi-lbl">${k.lbl}</div></div>`).join(''); 
+   
+  const cats=[ 
+    {k:'ACTIVIDADES DEL INTENDENTE',alt:'Actividades del intendente',lbl:'Actividades del 
+Intendente',c:'var(--blue-dark)'}, 
+    {k:'AGENDA TANQUE',alt:'Agenda tanque',lbl:'Agenda tanque',c:'#7c3aed'}, 
+    {k:'FUNDAMENTALES EN TERRENO',alt:'Agenda en terreno',lbl:'Agenda en terreno',c:'var(--green-dark)'}, 
+    {k:'AGENDA DIRECCIONES',alt:'Agenda Direcciones',lbl:'Agenda Direcciones',c:'var(--amber)'} 
+  ]; 
+  document.getElementById('cat-chart').innerHTML=cats.map(x=>{const 
+n=data.filter(r=>r.cat===x.k||r.cat===x.alt).length;return`<div class="cat-row"><div class="cat-dot" 
+style="background:${x.c}"></div><div class="cat-name">${x.lbl}</div><div class="cat-num" 
+style="color:${x.c}">${n}</div></div>`;}).join(''); 
+  const maxM=Math.max(...MESES.map((_,i)=>data.filter(r=>parseInt(r.mes)===i+1).length),1); 
+  document.getElementById('m-chart').innerHTML=MESES.map((m,i)=>{const 
+n=data.filter(r=>parseInt(r.mes)===i+1).length;const h=Math.max(n/maxM*64,n>0?4:1);return`<div 
+class="m-col"><div class="m-v">${n>0?n:''}</div><div class="m-bw"><div class="m-b${n>0?' has':''}" 
+style="height:${h}px"></div></div><div class="m
+lbl">${m.substring(0,3).toUpperCase()}</div></div>`;}).join(''); 
+  document.getElementById('stats-row').style.display='grid'; 
+  document.getElementById('agenda-wrap').style.display='block'; 
+  // Ordenar por fecha correlativa (dd/mm/yyyy → comparable) 
+  const sorted = [...data].sort((a,b)=>{ 
+    const toDate = s => { 
+      if(!s) return 0; 
+      const p=s.split('/'); 
+      if(p.length<3) return 0; 
+      return new Date(+p[2],+p[1]-1,+p[0]).getTime(); 
+    }; 
+    return toDate(a.fecha)-toDate(b.fecha); 
+  }); 
+  document.getElementById('a-count').textContent=`${sorted.length} registros`; 
+  document.getElementById('a-body').innerHTML=sorted.length?sorted.map(r=>`<tr> 
+    <td style="white-space:nowrap;font-size:12px;color:var(--text2)">${r.fecha}</td> 
+    <td style="white-space:nowrap;font-size:12px;color:var(--text3)">${r.hini||'—'}</td> 
+    <td><div class="td-act">${r.actividad}</div><div class="td-area">${r.area||''}</div></td> 
+    <td>${catB(r.cat)}</td> 
+    <td style="font-size:12px;color:var(--text2)">${r.lugar||'—'}</td> 
+    <td style="font-size:12px;color:var(--text3)">${r.modalidad||'—'}</td> 
+    <td style="text-align:center">${r.intendente==='Sí'?'<span style="color:var(--green-dark);font
+size:14px">✓</span>':'<span style="color:var(--text3)">—</span>'}</td> 
+    <td>${estB(r.estado)}</td> 
+    <td>${priB(r.prioridad)}</td> 
+  </tr>`).join(''):'<tr class="empty-row"><td colspan="9">Sin actividades para los filtros 
+seleccionados.</td></tr>'; 
+} 
+ 
+let calY=new Date().getFullYear(),calM=new Date().getMonth(); 
+function renderCal(){ 
+  document.getElementById('cal-title').textContent=`${MESES[calM]} ${calY}`; 
+  const now=new Date(); 
+  const first=new Date(calY,calM,1),last=new Date(calY,calM+1,0); 
+  let dow=first.getDay()-1;if(dow<0)dow=6; 
+  const total=Math.ceil((dow+last.getDate())/7)*7; 
+  _evIdx={}; 
+  let html=''; 
+  for(let i=0;i<total;i++){ 
+const dn=i-dow+1,dt=new Date(calY,calM,dn); 
+const other=dn<1||dn>last.getDate(); 
+const isToday=!other&&dt.toDateString()===now.toDateString(); 
+const evs=ALL.filter(r=>{const p=r.fecha.split('/');if(p.length<3)return false;return 
+parseInt(p[0])===dt.getDate()&&parseInt(p[1])===(dt.getMonth()+1)&&parseInt(p[2])===dt.getFullYear();})
+; 
+const dateKey=`${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}`; 
+if(!other&&evs.length) _evIdx[dateKey]=evs; 
+const show=evs.slice(0,3).map((e,idx)=>`<div class="cal-ev ev-${catCls(e.cat)}" 
+onclick="openActivity('${dateKey}',${idx})" 
+title="${e.actividad.replace(/'/g,'&#39;')}">${e.actividad}</div>`).join(''); 
+const more=evs.length>3?`<div class="cal-more" onclick="openDayPanel('${dateKey}')">+${evs.length-3} 
+más</div>`:''; 
+html+=`<div class="cal-cell${other?' other':''}${isToday?' today':''}"><div class="cal-day
+num">${other?dt.getDate():dn}</div><div class="cal-evs">${!other?show+more:''}</div></div>`; 
+} 
+document.getElementById('cal-body').innerHTML=html; 
+} 
+function calMv(d){calM+=d;if(calM>11){calM=0;calY++;}else if(calM<0){calM=11;calY--;}renderCal();} 
+function calToday(){calY=new Date().getFullYear();calM=new Date().getMonth();renderCal();} 
+/* Área responsable de la actividad ahora son campos abiertos */ 
+function selTog(el,h,v){el.closest('.tog
+g').querySelectorAll('.tog').forEach(t=>t.classList.remove('on'));el.classList.add('on');document.getElementB
+yId(h).value=v;ffProg();} 
+const FFR=['ff-fecha','ff-resp','ff-area','ff-responsable','ff-act','ff-tipo','ff-cat','ff-est','ff-dist','ff-hi','ff-desc']; 
+function ffProg(){const 
+n=FFR.filter(id=>(document.getElementById(id)?.value||'').trim()).length;document.getElementById('prog
+fill').style.width=Math.round(n/FFR.length*100)+'%';} 
+document.addEventListener('input',ffProg);document.addEventListener('change',ffProg); 
+const g=id=>(document.getElementById(id)?.value||'').trim(); 
+function wk(ds){if(!ds)return'';const[y,m,d]=ds.split('-');const dt=new Date(parseInt(y),parseInt(m)
+1,parseInt(d)),j=new Date(parseInt(y),0,1);return Math.ceil((((dt-j)/86400000)+j.getDay()+1)/7);} 
+function dn(ds){if(!ds)return'';const[y,m,d]=ds.split('-');const dt=new Date(parseInt(y),parseInt(m)
+1,parseInt(d));return['domingo','lunes','martes','miércoles','jueves','viernes','sábado'][dt.getDay()];} 
+function fd(v){if(!v||!v.includes('-'))return'';const[y,m,d]=v.split('
+');if(!y||!m||!d)return'';return`${d.padStart(2,'0')}/${m.padStart(2,'0')}/${y}`;} 
+/* ── Envío al Apps Script — fire and forget ── */ 
+function ffSubmit(){ 
+const miss=FFR.filter(id=>!g(id)); 
+if(miss.length){ 
+miss.forEach(id=>{const 
+el=document.getElementById(id);if(el){el.classList.add('err');el.addEventListener('input',()=>el.classList.rem
+ove('err'),{once:true});el.addEventListener('change',()=>el.classList.remove('err'),{once:true});}}); 
+document.getElementById('t-err-msg').textContent=`Faltan ${miss.length} campo${miss.length>1?'s':''} 
+obligatorio${miss.length>1?'s':''}.`; 
+const t=document.getElementById('t-err');t.style.display='flex'; 
+t.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>t.style.display='none',5000);return; 
+} 
+document.getElementById('t-err').style.display='none'; 
+const btn=document.getElementById('ff-btn');btn.disabled=true;btn.innerHTML='Enviando…'; 
+const ds=g('ff-fecha'),d=new Date(ds); 
+const row=['',fd(ds),dn(ds),wk(ds),d.getMonth()+1,d.getFullYear(),'',g('ff-area'),g('ff-responsable'),g('ff
+act'),g('ff-tipo'),g('ff-cat'),g('ff-hi'),g('ff-hf'),g('ff-lugar'),g('ff-dist'),g('ff-dir'),g('ff-mod'),g('ff-int'),g('ff-est'),g('ff
+desc'),g('ff-obs'),g('ff-pri'),g('ff-asist'),g('ff-art'),g('ff-link'),g('ff-resp')]; 
+// Enviar en background — mostrar éxito de inmediato 
+_sendToSheet(row); 
+document.getElementById('f-body').style.display='none'; 
+document.getElementById('f-suc').style.display='block'; 
+document.getElementById('prog-fill').style.width='100%'; 
+window.scrollTo({top:0,behavior:'smooth'}); 
+setTimeout(loadData,3000); 
+} 
+function _sendToSheet(row){ 
+var cbName='_cb'+Date.now(); 
+var 
+url=SCRIPT_URL+'?action=write&callback='+cbName+'&sheetId='+encodeURIComponent(SHEET_ID)+'&she
+etName='+encodeURIComponent(SHEET_NAME)+'&data='+encodeURIComponent(JSON.stringify(row)); 
+window[cbName]=function(){delete window[cbName];var 
+el=document.getElementById('_s'+cbName);if(el)el.remove();}; 
+var s=document.createElement('script'); 
+s.id='_s'+cbName;s.src=url; 
+} 
+s.onerror=function(){delete window[cbName];s.remove();}; 
+document.body.appendChild(s); 
+function resetForm(){ 
+document.querySelectorAll('#f-body input[type=text],#f-body input[type=url],#f-body 
+input[type=number],#f-body textarea').forEach(el=>el.value=''); 
+['ff-fecha','ff-hi','ff-hf'].forEach(id=>document.getElementById(id).value=''); 
+['ff-area','ff-est','ff-dist','ff-tipo','ff-cat'].forEach(id=>{const 
+el=document.getElementById(id);if(el)el.value='';}); 
+document.getElementById('ff-mod').value='Presencial'; 
+document.getElementById('ff-pri').value='Media'; 
+document.getElementById('ff-int').value='No'; 
+document.querySelectorAll('.tog-g').forEach(g=>{ 
+g.querySelectorAll('.tog').forEach(t=>t.classList.remove('on')); 
+if(g.querySelector('[onclick*="ff-mod"]'))g.querySelector('[onclick*="ff-mod"]').classList.add('on'); 
+if(g.querySelector('[onclick*="Media"]'))g.querySelector('[onclick*="Media"]').classList.add('on'); 
+if(g.querySelector('[onclick*=\"No\"]'))g.querySelector('[onclick*=\"No\"]').classList.add('on'); 
+}); 
+document.getElementById('ff-btn').disabled=false; 
+document.getElementById('ff-btn').innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" 
+fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path 
+d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Registrar actividad en la agenda'; 
+document.getElementById('f-body').style.display='block'; 
+document.getElementById('f-suc').style.display='none'; 
+document.getElementById('prog-fill').style.width='0%'; 
+window.scrollTo({top:0,behavior:'smooth'}); 
+} 
+loadData(); 
+/* ── MODAL ── */ 
+var _evIdx = {};   // date-string → [row, row, ...] 
+function openActivity(dateStr, idx) { 
+var list = _evIdx[dateStr]; 
+if (!list || !list[idx]) return; 
+  var r = list[idx]; 
+ 
+  // Category badge color 
+  var cls = catCls(r.cat); 
+  var clrMap = {tanque:'#7c3aed',intendente:'var(--blue-dark)',terreno:'var(--green-dark)',direcciones:'var(-
+amber)'}; 
+  document.getElementById('m-cat').textContent = catAbbr[r.cat] || r.cat; 
+  document.getElementById('m-cat').style.color = clrMap[cls] || 'var(--text3)'; 
+  document.getElementById('m-title').textContent = r.actividad || '—'; 
+ 
+  // Fecha + día 
+  var fechaTxt = (r.dia ? r.dia.charAt(0).toUpperCase() + r.dia.slice(1) + ', ' : '') + r.fecha; 
+  document.getElementById('m-fecha').textContent = fechaTxt; 
+ 
+  // Hora 
+  var hora = r.hini || '—'; 
+  if (r.hfin) hora += ' — ' + r.hfin; 
+  document.getElementById('m-hora').textContent = hora; 
+ 
+  // Lugar + distrito 
+  var lugar = [r.lugar, r.distrito].filter(Boolean).join(' · ') || '—'; 
+  document.getElementById('m-lugar').textContent = lugar; 
+ 
+  // Descripción 
+  if (r.desc) { 
+    document.getElementById('m-desc').textContent = r.desc; 
+    document.getElementById('m-desc-row').style.display = 'flex'; 
+  } else { 
+    document.getElementById('m-desc-row').style.display = 'none'; 
+  } 
+ 
+  document.getElementById('act-modal').classList.add('open'); 
+} 
+ 
+function closeModal(e) { 
+  if (e.target === document.getElementById('act-modal')) { 
+    document.getElementById('act-modal').classList.remove('open'); 
+  } 
+} 
+ 
+document.addEventListener('keydown', function(e) { 
+  if (e.key === 'Escape') document.getElementById('act-modal').classList.remove('open'); 
+}); 
+ 
+/* ── DAY PANEL: muestra todas las actividades de un día ── */ 
+var DIAS_ES=['domingo','lunes','martes','miércoles','jueves','viernes','sábado']; 
+var 
+MESES_ES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','
+diciembre']; 
+ 
+function openDayPanel(dateKey){ 
+  var list=_evIdx[dateKey]; 
+  if(!list||!list.length) return; 
+  var parts=dateKey.split('-'); 
+  var dt=new Date(parseInt(parts[0]),parseInt(parts[1]),parseInt(parts[2])); 
+  var titulo=DIAS_ES[dt.getDay()].charAt(0).toUpperCase()+DIAS_ES[dt.getDay()].slice(1) 
+    +' '+dt.getDate()+' de '+MESES_ES[dt.getMonth()]+' '+dt.getFullYear(); 
+  document.getElementById('day-panel-title').textContent=titulo; 
+  document.getElementById('day-panel-sub').textContent=list.length+' actividad'+(list.length!==1?'es':''); 
+  var clrMap={ 
+    tanque:{bg:'#f0ebff',border:'#7c3aed'}, 
+    intendente:{bg:'var(--blue-light)',border:'var(--blue-dark)'}, 
+    terreno:{bg:'var(--green-light)',border:'var(--green-dark)'}, 
+    direcciones:{bg:'var(--amber-l)',border:'var(--amber)'}, 
+    cotidiana:{bg:'var(--gray-l)',border:'var(--text3)'} 
+  }; 
+  document.getElementById('day-panel-list').innerHTML=list.map(function(e,idx){ 
+    var cls=catCls(e.cat); 
+    var clr=clrMap[cls]||{bg:'var(--gray-l)',border:'var(--text3)'}; 
+    var hora=e.hini?'         '+e.hini+(e.hfin?' — '+e.hfin:''):''; 
+    var lugar=e.lugar?'      '+e.lugar:''; 
+    var meta=[hora,lugar].filter(Boolean).join('  ·  '); 
+    return '<div class="day-panel-item" style="background:'+clr.bg+';border-left-color:'+clr.border+'"' 
+      +' onclick="document.getElementById(\'day-panel
+overlay\').classList.remove(\'open\');openActivity(\''+dateKey+'\','+idx+')">' 
+      +'<div class="day-panel-item-name">'+(e.actividad||'—')+'</div>' 
+      +(meta?'<div class="day-panel-item-meta">'+meta+'</div>':'') 
+      +'</div>'; 
+  }).join(''); 
+  document.getElementById('day-panel-overlay').classList.add('open'); 
+} 
+ 
+function closeDayPanel(e){ 
+  if(e.target===document.getElementById('day-panel-overlay')) 
+    document.getElementById('day-panel-overlay').classList.remove('open'); 
+} 
+ 
+</script> 
+<!-- Day panel: todas las actividades del día --> 
+<div class="day-panel-overlay" id="day-panel-overlay" onclick="closeDayPanel(event)"> 
+  <div class="day-panel"> 
+    <div class="day-panel-head"> 
+      <div> 
+        <div class="day-panel-title" id="day-panel-title"></div> 
+        <div class="day-panel-sub" id="day-panel-sub"></div> 
+      </div> 
+      <button class="day-panel-close" onclick="document.getElementById('day-panel
+overlay').classList.remove('open')">✕</button> 
+    </div> 
+    <div class="day-panel-list" id="day-panel-list"></div> 
+  </div> 
+</div> 
+ 
+</div><!-- /#agendaApp --> 
+ 
+<script> 
+/* ========================================================= 
+   CONTROL DEL LOGIN - NO ALTERA LAS FUNCIONES DE LA AGENDA 
+   ========================================================= */ 
+(function(){ 
+  "use strict"; 
+ 
+  var USUARIOS_HABILITADOS = new Set([ 
+    "intendencia", 
+    "protocolo", 
+    "comunicacion", 
+    "hcd" 
+  ]); 
+ 
+  /* Hash de acceso de la versión integrada. */ 
+  var HASH_CONTRASENA = "54f79d42fdb7be2dff4420fe46619bedb5e0efc7a294449bc47e360720188397"; 
+  var CLAVE_SESION = "agenda_maipu_sesion_activa"; 
+  var CLAVE_USUARIO = "agenda_maipu_usuario_recordado"; 
+ 
+  var loginScreen = document.getElementById("maipuLoginScreen"); 
+  var agendaApp = document.getElementById("agendaApp"); 
+  var form = document.getElementById("maipuLoginForm"); 
+  var userInput = document.getElementById("maipuUsuario"); 
+  var passwordInput = document.getElementById("maipuContrasena"); 
+  var rememberInput = document.getElementById("maipuRecordarUsuario"); 
+  var passwordToggle = document.getElementById("maipuMostrarContrasena"); 
+  var submitButton = document.getElementById("maipuLoginSubmit"); 
+  var buttonText = document.getElementById("maipuLoginButtonText"); 
+  var messageBox = document.getElementById("maipuLoginMessage"); 
+  var userError = document.getElementById("maipuUsuarioError"); 
+  var passwordError = document.getElementById("maipuContrasenaError"); 
+  var logoutButton = document.getElementById("maipuAgendaLogout"); 
+ 
+  function normalizarUsuario(valor){ 
+    return String(valor || "").trim().toLowerCase(); 
+  } 
+ 
+  function mostrarAgenda(){ 
+    sessionStorage.setItem(CLAVE_SESION, "1"); 
+    loginScreen.hidden = true; 
+    agendaApp.hidden = false; 
+    document.body.classList.add("agenda-activa"); 
+    window.scrollTo(0, 0); 
+  } 
+ 
+  function mostrarLogin(){ 
+    sessionStorage.removeItem(CLAVE_SESION); 
+    agendaApp.hidden = true; 
+    loginScreen.hidden = false; 
+    document.body.classList.remove("agenda-activa"); 
+    passwordInput.value = ""; 
+    limpiarMensaje(); 
+    window.scrollTo(0, 0); 
+    setTimeout(function(){ passwordInput.focus(); }, 50); 
+  } 
+ 
+  function marcarError(input, elemento, texto){ 
+    elemento.textContent = texto; 
+    input.setAttribute("aria-invalid", texto ? "true" : "false"); 
+  } 
+ 
+  function limpiarMensaje(){ 
+    messageBox.textContent = ""; 
+    messageBox.className = "maipu-login-message"; 
+  } 
+ 
+  function mostrarMensaje(texto, tipo){ 
+    messageBox.textContent = texto; 
+    messageBox.className = "maipu-login-message visible " + tipo; 
+  } 
+ 
+  function activarCarga(estado){ 
+    submitButton.disabled = estado; 
+    submitButton.classList.toggle("loading", estado); 
+    buttonText.textContent = estado ? "Verificando acceso..." : "Ingresar a la agenda"; 
+  } 
+ 
+  async function crearHash(valor){ 
+    var datos = new TextEncoder().encode(valor); 
+    var resultado = await crypto.subtle.digest("SHA-256", datos); 
+    return Array.from(new Uint8Array(resultado)) 
+      .map(function(numero){ return numero.toString(16).padStart(2, "0"); }) 
+      .join(""); 
+  } 
+ 
+  function recuperarUsuario(){ 
+    try{ 
+      var guardado = localStorage.getItem(CLAVE_USUARIO); 
+      if(guardado && USUARIOS_HABILITADOS.has(guardado)){ 
+        userInput.value = guardado; 
+        rememberInput.checked = true; 
+      } 
+    }catch(error){} 
+  } 
+ 
+  passwordToggle.addEventListener("click", function(){ 
+    var visible = passwordInput.type === "text"; 
+    passwordInput.type = visible ? "password" : "text"; 
+    passwordToggle.setAttribute("aria-pressed", String(!visible)); 
+    passwordToggle.setAttribute("aria-label", visible ? "Mostrar contraseña" : "Ocultar contraseña"); 
+    passwordInput.focus({preventScroll:true}); 
+  }); 
+ 
+  userInput.addEventListener("input", function(){ 
+    limpiarMensaje(); 
+    marcarError(userInput, userError, ""); 
+  }); 
+ 
+  passwordInput.addEventListener("input", function(){ 
+    limpiarMensaje(); 
+    marcarError(passwordInput, passwordError, ""); 
+  }); 
+ 
+  form.addEventListener("submit", async function(event){ 
+    event.preventDefault(); 
+    limpiarMensaje(); 
+ 
+    var nombreUsuario = normalizarUsuario(userInput.value); 
+    var clave = passwordInput.value.trim(); 
+    var valido = true; 
+ 
+    marcarError(userInput, userError, ""); 
+    marcarError(passwordInput, passwordError, ""); 
+ 
+    if(!nombreUsuario){ 
+      marcarError(userInput, userError, "Ingresá tu usuario institucional."); 
+      valido = false; 
+    } 
+ 
+    if(!clave){ 
+      marcarError(passwordInput, passwordError, "Ingresá tu contraseña."); 
+      valido = false; 
+    } 
+ 
+    if(!valido) return; 
+ 
+    activarCarga(true); 
+ 
+    try{ 
+      var hashIngresado = await crearHash(clave); 
+      await new Promise(function(resolve){ setTimeout(resolve, 450); }); 
+ 
+      if(!USUARIOS_HABILITADOS.has(nombreUsuario) || hashIngresado !== HASH_CONTRASENA){ 
+        mostrarMensaje("Usuario o contraseña incorrectos. Verificá los datos ingresados.", "error"); 
+        passwordInput.select(); 
+        activarCarga(false); 
+        return; 
+      } 
+ 
+      try{ 
+        if(rememberInput.checked){ 
+          localStorage.setItem(CLAVE_USUARIO, nombreUsuario); 
+        }else{ 
+          localStorage.removeItem(CLAVE_USUARIO); 
+        } 
+      }catch(error){} 
+ 
+      mostrarMensaje("Acceso correcto. Abriendo la Agenda Institucional...", "success"); 
+      buttonText.textContent = "Abriendo agenda..."; 
+ 
+      setTimeout(function(){ 
+        activarCarga(false); 
+        mostrarAgenda(); 
+      }, 550); 
+ 
+    }catch(error){ 
+      mostrarMensaje("No fue posible verificar el acceso. Intentá nuevamente.", "error"); 
+      activarCarga(false); 
+    } 
+  }); 
+ 
+  logoutButton.addEventListener("click", mostrarLogin); 
+ 
+  recuperarUsuario(); 
+ 
+  if(sessionStorage.getItem(CLAVE_SESION) === "1"){ 
+    loginScreen.hidden = true; 
+    agendaApp.hidden = false; 
+    document.body.classList.add("agenda-activa"); 
+  }else{ 
+    agendaApp.hidden = true; 
+    loginScreen.hidden = false; 
+  } 
+})(); 
+</script> 
+ 
+</body> 
+</html> 

@@ -1,0 +1,1962 @@
+<!doctype html>
+<html lang="es"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#35115f">
+
+  <title>Feria del Juguete 2026</title>
+  <meta
+    name="description"
+    content="Feria del Juguete 2026: stands, shows, propuestas para toda la familia y participación de marcas.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root{
+      --violeta-950:#210b3e;
+      --violeta-900:#33105e;
+      --violeta-800:#46177d;
+      --violeta-700:#6428a2;
+      --rosa:#f43e84;
+      --coral:#ff5e52;
+      --naranja:#ff8808;
+      --amarillo:#ffc823;
+      --celeste:#17afe3;
+      --verde:#25d366;
+      --blanco:#ffffff;
+      --gris:#756d81;
+      --texto:#332640;
+      --fondo:#ffffff;
+      --fondo-suave:#f6f2f8;
+      --sombra:0 16px 38px rgba(49,18,85,.12);
+      --sombra-suave:0 10px 25px rgba(49,18,85,.09);
+      --max:1180px;
+      --header-h:86px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top:24px;
+    }
+
+    body{
+      overflow-x:hidden;
+      background:var(--fondo);
+      color:var(--texto);
+      font-family:"Nunito",system-ui,sans-serif;
+      line-height:1.55;
+    }
+
+    body.menu-open{
+      overflow:hidden;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button,
+    input,
+    textarea{
+      font:inherit;
+    }
+
+    .container{
+      width:min(calc(100% - 34px),var(--max));
+      margin-inline:auto;
+    }
+
+    .section-heading{
+      margin-bottom:25px;
+    }
+
+    .section-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:7px;
+      color:var(--rosa);
+      font-size:.88rem;
+      font-weight:900;
+      letter-spacing:.03em;
+      text-transform:uppercase;
+    }
+
+    .section-title{
+      color:var(--violeta-900);
+      font-family:"Baloo 2",cursive;
+      font-size:clamp(2rem,3.8vw,3.55rem);
+      font-weight:800;
+      line-height:.95;
+    }
+
+    .section-text{
+      max-width:660px;
+      margin-top:11px;
+      color:var(--gris);
+      font-size:1rem;
+    }
+
+    .btn{
+      display:inline-flex;
+      min-height:49px;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:11px 22px;
+      border:0;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:900;
+      transition:transform .2s ease,filter .2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.04);
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--amarillo),var(--naranja));
+      box-shadow:0 11px 25px rgba(255,136,8,.27);
+      color:#352246;
+    }
+
+    /* =========================================================
+       PORTADA Y HEADER SUPERPUESTO
+       ========================================================= */
+
+    .hero{
+      position:relative;
+      width:100%;
+      overflow:hidden;
+      background:#542184;
+    }
+
+    .hero-picture,
+    .hero-picture img{
+      width:100%;
+    }
+
+    .hero-picture img{
+      height:auto;
+      object-fit:contain;
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(34,9,67,.56) 0,
+          rgba(34,9,67,.20) 10%,
+          rgba(34,9,67,.04) 25%,
+          transparent 45%
+        );
+    }
+
+    .site-header{
+      position:absolute;
+      z-index:50;
+      top:0;
+      right:0;
+      left:0;
+      min-height:var(--header-h);
+    }
+
+    .header-inner{
+      position:relative;
+      display:flex;
+      min-height:var(--header-h);
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* No hay logo: el menú queda centrado */
+    .main-nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:27px;
+      padding:0;
+      border:0;
+      border-radius:0;
+      background:transparent;
+      box-shadow:none;
+      color:var(--blanco);
+      font-size:.89rem;
+      font-weight:900;
+      backdrop-filter:none;
+    }
+
+    .main-nav > a:not(.btn){
+      position:relative;
+      text-shadow:0 2px 10px rgba(0,0,0,.20);
+    }
+
+    .main-nav > a:not(.btn)::after{
+      position:absolute;
+      right:0;
+      bottom:-7px;
+      left:0;
+      height:3px;
+      border-radius:20px;
+      background:var(--amarillo);
+      content:"";
+      transform:scaleX(0);
+      transition:transform .2s ease;
+    }
+
+    .main-nav > a:not(.btn):hover::after{
+      transform:scaleX(1);
+    }
+
+    .menu-toggle{
+      position:absolute;
+      right:0;
+      display:none;
+      width:47px;
+      height:47px;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.17);
+      border-radius:15px;
+      background:rgba(44,13,82,.48);
+      box-shadow:0 10px 24px rgba(22,6,43,.18);
+      color:var(--blanco);
+      cursor:pointer;
+      font-size:1.25rem;
+      backdrop-filter:blur(10px);
+    }
+
+    /* =========================================================
+       LA FERIA Y CONTADORES
+       ========================================================= */
+
+    .about{
+      padding:48px 0 52px;
+      background:
+        radial-gradient(circle at 92% 20%,rgba(244,62,132,.07),transparent 23%),
+        var(--blanco);
+    }
+
+    .about-grid{
+      display:grid;
+      align-items:center;
+      grid-template-columns:.86fr 1.14fr;
+      gap:38px;
+    }
+
+    .about-copy{
+      max-width:470px;
+    }
+
+    .about-copy h2{
+      color:var(--violeta-900);
+      font-family:"Baloo 2",cursive;
+      font-size:clamp(2.25rem,3.8vw,3.7rem);
+      font-weight:800;
+      line-height:.92;
+    }
+
+    .about-copy h2 span{
+      display:block;
+      margin-top:8px;
+      color:var(--rosa);
+      font-family:"Nunito",sans-serif;
+      font-size:.49em;
+      font-weight:900;
+      line-height:1.08;
+      text-transform:uppercase;
+    }
+
+    .about-copy p{
+      margin-top:17px;
+      color:var(--gris);
+      font-size:1.02rem;
+      line-height:1.72;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+    }
+
+    .stat{
+      min-height:205px;
+      padding:24px 15px;
+      border-radius:27px;
+      box-shadow:var(--sombra-suave);
+      color:var(--blanco);
+      text-align:center;
+      transition:transform .22s ease;
+    }
+
+    .stat:hover{
+      transform:translateY(-5px);
+    }
+
+    .stat:nth-child(1){
+      background:linear-gradient(150deg,#7034b4,#42136f);
+    }
+
+    .stat:nth-child(2){
+      background:linear-gradient(150deg,#ff9811,#ff694e);
+    }
+
+    .stat:nth-child(3){
+      background:linear-gradient(150deg,#1ab7e8,#0b83c4);
+    }
+
+    .stat-icon{
+      display:grid;
+      width:60px;
+      height:60px;
+      place-items:center;
+      margin:0 auto 15px;
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:20px;
+      background:rgba(255,255,255,.15);
+    }
+
+    .stat-icon i{
+      font-size:1.55rem;
+    }
+
+    .stat strong{
+      display:block;
+      font-family:"Baloo 2",cursive;
+      font-size:clamp(2.2rem,4vw,3.25rem);
+      font-variant-numeric:tabular-nums;
+      line-height:1;
+    }
+
+    .stat span{
+      display:block;
+      margin-top:6px;
+      font-size:.96rem;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+
+    /* =========================================================
+       EDICIONES CON IMÁGENES EXTERNAS
+       ========================================================= */
+
+    .editions{
+      position:relative;
+      overflow:hidden;
+      padding:45px 0 49px;
+      background:
+        radial-gradient(circle at 96% 10%,rgba(244,62,132,.24),transparent 20%),
+        linear-gradient(135deg,var(--violeta-900),var(--violeta-700));
+      color:var(--blanco);
+    }
+
+    .editions::before{
+      position:absolute;
+      top:18px;
+      right:28px;
+      width:42px;
+      height:85px;
+      border-radius:65% 35% 55% 45% / 35% 35% 65% 65%;
+      background:linear-gradient(#ff75ad,var(--rosa));
+      content:"";
+      opacity:.9;
+      transform:rotate(30deg);
+    }
+
+    .editions .section-kicker,
+    .editions .section-title,
+    .editions .section-text{
+      color:var(--blanco);
+    }
+
+    .edition-wrap{
+      position:relative;
+    }
+
+    .edition-track{
+      display:grid;
+      overflow-x:auto;
+      padding:2px 1px 10px;
+      grid-auto-columns:minmax(180px,1fr);
+      grid-auto-flow:column;
+      gap:13px;
+      scroll-behavior:smooth;
+      scrollbar-width:none;
+      scroll-snap-type:x mandatory;
+    }
+
+    .edition-track::-webkit-scrollbar{
+      display:none;
+    }
+
+    .edition-card{
+      overflow:hidden;
+      border:2px solid rgba(255,255,255,.72);
+      border-radius:0;
+      background:var(--blanco);
+      box-shadow:0 13px 28px rgba(18,6,37,.18);
+      scroll-snap-align:start;
+    }
+
+    .edition-card img{
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      object-position:center;
+      cursor:zoom-in;
+      transition:transform 1.15s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .edition-card:hover img{
+      transform:scale(1.18);
+    }
+
+    .edition-card h3{
+      padding:11px 9px 12px;
+      color:var(--violeta-900);
+      font-size:.82rem;
+      font-weight:900;
+      text-align:center;
+      text-transform:uppercase;
+    }
+
+    .slider-button{
+      position:absolute;
+      z-index:3;
+      top:50%;
+      display:grid;
+      width:44px;
+      height:44px;
+      place-items:center;
+      border:0;
+      border-radius:50%;
+      background:var(--blanco);
+      box-shadow:0 9px 22px rgba(24,7,48,.24);
+      color:var(--violeta-900);
+      cursor:pointer;
+      transform:translateY(-50%);
+    }
+
+    .slider-button.previous{
+      left:-19px;
+    }
+
+    .slider-button.next{
+      right:-19px;
+    }
+
+    /* =========================================================
+       GALERÍA EXTERNA
+       ========================================================= */
+
+    .gallery{
+      padding:50px 0;
+      background:var(--blanco);
+    }
+
+    .gallery-layout{
+      display:grid;
+      align-items:center;
+      grid-template-columns:245px 1fr;
+      gap:34px;
+    }
+
+    .gallery-title h2{
+      color:var(--violeta-800);
+      font-family:"Baloo 2",cursive;
+      font-size:2.05rem;
+      font-weight:800;
+      line-height:1;
+      text-transform:uppercase;
+    }
+
+    .gallery-title p{
+      margin-top:8px;
+      color:var(--gris);
+      font-size:.95rem;
+    }
+
+    .gallery-accent{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      margin-top:26px;
+      color:var(--amarillo);
+      font-size:2rem;
+    }
+
+    .gallery-accent::before{
+      width:51px;
+      height:24px;
+      border-radius:60% 40% 55% 45%;
+      background:linear-gradient(90deg,var(--rosa),var(--naranja));
+      content:"";
+      transform:rotate(-25deg);
+    }
+
+    .gallery-mosaic{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:11px;
+    }
+
+    .gallery-item{
+      position:relative;
+      overflow:hidden;
+      aspect-ratio:1/1;
+      border-radius:0;
+      box-shadow:var(--sombra-suave);
+      background:#eee;
+      cursor:zoom-in;
+    }
+
+    .gallery-item.featured,
+    .gallery-item.wide{
+      grid-row:span 1;
+      grid-column:span 1;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      min-width:100%;
+      min-height:100%;
+      object-fit:cover;
+      object-position:center;
+      transition:transform 1.15s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.22);
+    }
+
+    /* =========================================================
+       PARTICIPAR
+       ========================================================= */
+
+    .participate{
+      position:relative;
+      overflow:hidden;
+      padding:47px 0 44px;
+      background:
+        radial-gradient(circle at 95% 15%,rgba(255,200,35,.25),transparent 22%),
+        linear-gradient(115deg,#ff7c24 0%,#f34880 44%,#6428a2 100%);
+      color:var(--blanco);
+    }
+
+    .participate::before,
+    .participate::after{
+      position:absolute;
+      border-radius:60% 40% 55% 45% / 35% 35% 65% 65%;
+      content:"";
+      opacity:.88;
+    }
+
+    .participate::before{
+      bottom:-36px;
+      left:-19px;
+      width:65px;
+      height:130px;
+      background:linear-gradient(#ffb012,#e95f0c);
+      transform:rotate(35deg);
+    }
+
+    .participate::after{
+      right:20px;
+      bottom:15px;
+      width:33px;
+      height:68px;
+      background:linear-gradient(#25c8ef,#168dcb);
+      transform:rotate(35deg);
+    }
+
+    .participate-inner{
+      position:relative;
+      z-index:2;
+      display:grid;
+      align-items:start;
+      grid-template-columns:.75fr 1.25fr;
+      gap:38px;
+    }
+
+    .participate-copy h2{
+      max-width:345px;
+      font-family:"Baloo 2",cursive;
+      font-size:clamp(2.15rem,3.7vw,3.35rem);
+      font-weight:800;
+      line-height:.92;
+      text-transform:uppercase;
+    }
+
+    .participate-copy p{
+      max-width:350px;
+      margin-top:12px;
+      color:rgba(255,255,255,.92);
+      font-size:.98rem;
+      font-weight:700;
+    }
+
+    .participate-panel{
+      display:grid;
+      gap:22px;
+    }
+
+    .process-title{
+      display:block;
+      margin-bottom:17px;
+      text-align:center;
+      font-size:.82rem;
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+
+    .step{
+      position:relative;
+      text-align:center;
+    }
+
+    .step:not(:last-child)::after{
+      position:absolute;
+      top:37px;
+      right:-11px;
+      width:20px;
+      border-top:2px dotted rgba(255,255,255,.52);
+      content:"";
+    }
+
+    .step-circle{
+      position:relative;
+      display:grid;
+      width:74px;
+      height:74px;
+      place-items:center;
+      margin:0 auto 10px;
+      border:4px solid rgba(255,255,255,.32);
+      border-radius:50%;
+      background:var(--blanco);
+      box-shadow:0 8px 22px rgba(44,14,73,.18);
+      color:var(--violeta-800);
+    }
+
+    .step-circle i{
+      font-size:1.7rem;
+    }
+
+    .step-number{
+      position:absolute;
+      right:-3px;
+      bottom:-4px;
+      display:grid;
+      width:24px;
+      height:24px;
+      place-items:center;
+      border-radius:50%;
+      background:var(--amarillo);
+      color:var(--violeta-900);
+      font-size:.75rem;
+      font-weight:900;
+    }
+
+    .step h3{
+      max-width:125px;
+      margin-inline:auto;
+      font-size:.82rem;
+      font-weight:900;
+      line-height:1.2;
+    }
+
+    .quick-form{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+
+    .quick-form .full{
+      grid-column:1/-1;
+    }
+
+    .field{
+      width:100%;
+      min-height:48px;
+      padding:12px 14px;
+      border:1px solid rgba(255,255,255,.34);
+      border-radius:14px;
+      background:rgba(255,255,255,.15);
+      color:var(--blanco);
+      outline:none;
+      transition:border-color .2s ease,background .2s ease;
+    }
+
+    .field:focus{
+      border-color:var(--amarillo);
+      background:rgba(255,255,255,.20);
+    }
+
+    .field::placeholder{
+      color:rgba(255,255,255,.80);
+    }
+
+    textarea.field{
+      resize:vertical;
+    }
+
+    .participate-action{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:14px;
+    }
+
+    .participate-note{
+      color:rgba(255,255,255,.83);
+      font-size:.85rem;
+      font-weight:700;
+    }
+
+    .participate-cta{
+      display:flex;
+      justify-content:center;
+      margin-top:4px;
+    }
+
+    .participate-cta .btn{
+      min-width:235px;
+    }
+
+    /* =========================================================
+       BANNER FINAL
+       ========================================================= */
+
+    .closing-banner{
+      width:100%;
+      overflow:hidden;
+      background:var(--violeta-900);
+    }
+
+    .closing-banner img{
+      width:100%;
+      height:auto;
+    }
+
+    /* =========================================================
+       FOOTER FINAL: LOGO A LA IZQUIERDA + REDES COMO ICONOS
+       ========================================================= */
+
+    .site-footer{
+      overflow:hidden;
+      padding:26px 0 12px;
+      background:
+        radial-gradient(circle at 94% 4%,rgba(244,62,132,.18),transparent 27%),
+        linear-gradient(145deg,#210b3e 0%,#301052 52%,#431673 100%);
+      color:var(--blanco);
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.25fr 1fr .8fr 1fr;
+      align-items:center;
+      gap:24px;
+    }
+
+    .footer-brand{
+      min-width:0;
+    }
+
+    .footer-logo{
+      width:245px;
+      max-width:100%;
+      height:auto;
+      object-fit:contain;
+      object-position:left center;
+    }
+
+    .footer-description{
+      max-width:275px;
+      margin-top:12px;
+      color:rgba(255,255,255,.72);
+      font-size:.87rem;
+      line-height:1.55;
+    }
+
+    .footer-title{
+      margin-bottom:12px;
+      font-family:"Baloo 2",cursive;
+      font-size:1.18rem;
+      font-weight:800;
+      line-height:1;
+      text-transform:uppercase;
+    }
+
+    .footer-list{
+      display:grid;
+      gap:9px;
+      color:rgba(255,255,255,.78);
+      font-size:.88rem;
+    }
+
+    .footer-list span{
+      display:flex;
+      align-items:flex-start;
+      gap:9px;
+    }
+
+    .footer-list i{
+      width:16px;
+      margin-top:3px;
+      color:var(--amarillo);
+      text-align:center;
+    }
+
+    .footer-social{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:2px;
+    }
+
+    .footer-social a{
+      display:grid;
+      width:42px;
+      height:42px;
+      place-items:center;
+      border:0;
+      border-radius:50%;
+      color:var(--blanco);
+      font-size:1.08rem;
+      box-shadow:0 8px 18px rgba(10,3,22,.22);
+      transition:transform .2s ease,filter .2s ease;
+    }
+
+    .footer-social a:nth-child(1){
+      background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+    }
+
+    .footer-social a:nth-child(2){
+      background:#1877f2;
+    }
+
+    .footer-social a:nth-child(3){
+      background:#111111;
+    }
+
+    .footer-social a:nth-child(4){
+      background:#ff0000;
+    }
+
+    .footer-social a:hover{
+      transform:translateY(-3px);
+      filter:brightness(1.08);
+    }
+
+    .footer-user{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:13px;
+      color:rgba(255,255,255,.74);
+      font-size:.83rem;
+      font-weight:800;
+    }
+
+    .footer-user i{
+      color:var(--rosa);
+    }
+
+    .footer-organization strong{
+      display:block;
+      margin-bottom:5px;
+      color:var(--blanco);
+      font-size:1.05rem;
+    }
+
+    .footer-bottom{
+      margin-top:10px;
+      padding-top:9px;
+      border-top:1px solid rgba(255,255,255,.10);
+      color:rgba(255,255,255,.58);
+      font-size:.78rem;
+      text-align:center;
+    }
+
+    @media (max-width:980px){
+      .footer-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media (max-width:700px){
+      .site-footer{
+        padding:25px 0 12px;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+        text-align:center;
+      }
+
+      .footer-logo{
+        width:215px;
+        margin-inline:auto;
+        object-position:center;
+      }
+
+      .footer-description{
+        margin-inline:auto;
+      }
+
+      .footer-list span{
+        justify-content:center;
+      }
+
+      .footer-social{
+        justify-content:center;
+      }
+
+      .footer-user{
+        justify-content:center;
+      }
+
+      .footer-bottom{
+        margin-top:10px;
+        padding-top:9px;
+      }
+    }
+
+
+    /* ZOOM DE IMÁGENES */
+    .image-lightbox{
+      position:fixed;
+      z-index:3000;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      background:rgba(20,6,38,.94);
+      opacity:0;
+      visibility:hidden;
+      transition:opacity .45s ease,visibility .45s ease;
+    }
+
+    .image-lightbox.open{
+      opacity:1;
+      visibility:visible;
+    }
+
+    .image-lightbox img{
+      width:auto;
+      max-width:92vw;
+      max-height:88vh;
+      object-fit:contain;
+      transform:scale(.62);
+      transition:transform 1.15s cubic-bezier(.16,.8,.2,1);
+      box-shadow:0 25px 80px rgba(0,0,0,.46);
+    }
+
+    .image-lightbox.open img{
+      transform:scale(1);
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:18px;
+      right:18px;
+      display:grid;
+      width:48px;
+      height:48px;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:50%;
+      background:rgba(255,255,255,.12);
+      color:#fff;
+      cursor:pointer;
+      font-size:1.35rem;
+    }
+
+    /* =========================================================
+       WHATSAPP
+       ========================================================= */
+
+    .floating-whatsapp{
+      position:fixed;
+      z-index:990;
+      right:17px;
+      bottom:17px;
+      display:grid;
+      width:60px;
+      height:60px;
+      place-items:center;
+      border:4px solid var(--blanco);
+      border-radius:50%;
+      background:var(--verde);
+      box-shadow:0 14px 32px rgba(23,117,58,.34);
+      color:var(--blanco);
+      font-size:1.65rem;
+      transition:transform .2s ease;
+    }
+
+    .floating-whatsapp:hover{
+      transform:scale(1.06);
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .65s ease,transform .65s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width:980px){
+      .menu-toggle{
+        display:grid;
+      }
+
+      .main-nav{
+        position:absolute;
+        top:74px;
+        right:0;
+        left:0;
+        display:none;
+        max-height:calc(100vh - 95px);
+        overflow-y:auto;
+        align-items:stretch;
+        padding:18px;
+        border-radius:22px;
+        background:rgba(40,12,75,.97);
+        box-shadow:0 20px 45px rgba(20,6,39,.30);
+        flex-direction:column;
+      }
+
+      .main-nav.open{
+        display:flex;
+      }
+
+      .main-nav .btn{
+        width:100%;
+      }
+
+      .about-grid,
+      .gallery-layout,
+      .participate-inner{
+        grid-template-columns:1fr;
+      }
+
+      .about-copy,
+      .gallery-title,
+      .participate-copy{
+        max-width:720px;
+      }
+
+      .participate-copy{
+        text-align:center;
+      }
+
+      .participate-copy h2,
+      .participate-copy p{
+        max-width:700px;
+        margin-inline:auto;
+      }
+
+    }
+
+    /* =========================================================
+       CELULAR
+       ========================================================= */
+
+    @media (max-width:700px){
+      :root{
+        --header-h:78px;
+      }
+
+      html{
+        scroll-padding-top:14px;
+      }
+
+      .container{
+        width:min(calc(100% - 22px),var(--max));
+      }
+
+      .hero{
+        background:#5a268b;
+      }
+
+      .header-inner{
+        min-height:var(--header-h);
+        justify-content:center;
+      }
+
+      .menu-toggle{
+        top:10px;
+        left:50%;
+        right:auto;
+        width:48px;
+        height:48px;
+        border-radius:15px;
+        transform:translateX(-50%);
+        background:rgba(44,13,82,.46);
+      }
+
+      .main-nav{
+        top:68px;
+        left:50%;
+        right:auto;
+        width:min(92vw,360px);
+        gap:5px;
+        padding:14px;
+        transform:translateX(-50%);
+        text-align:center;
+      }
+
+      .main-nav > a:not(.btn){
+        display:block;
+        padding:11px 8px;
+        text-align:center;
+      }
+
+      /* En celular usa la portada vertical feriacelu.png */
+      .hero-picture{
+        display:block;
+        width:100%;
+      }
+
+      .hero-picture img{
+        width:100%;
+        height:auto;
+        min-height:0;
+        object-fit:contain;
+      }
+
+      .hero-overlay{
+        background:
+          linear-gradient(
+            180deg,
+            rgba(33,8,65,.28) 0,
+            rgba(33,8,65,.06) 16%,
+            transparent 34%
+          );
+      }
+
+      .about{
+        padding:39px 0 44px;
+      }
+
+      .about-copy{
+        text-align:center;
+      }
+
+      .about-copy h2{
+        font-size:2.55rem;
+      }
+
+      .about-copy p{
+        font-size:.98rem;
+      }
+
+      .stats{
+        grid-template-columns:repeat(3,1fr);
+        gap:7px;
+      }
+
+      .stat{
+        min-width:0;
+        min-height:126px;
+        padding:15px 5px;
+        border-radius:18px;
+      }
+
+      .stat-icon{
+        width:44px;
+        height:44px;
+        margin-bottom:10px;
+        border-radius:14px;
+      }
+
+      .stat-icon i{
+        font-size:1.15rem;
+      }
+
+      .stat strong{
+        font-size:1.52rem;
+        white-space:nowrap;
+      }
+
+      .stat span{
+        margin-top:4px;
+        font-size:.64rem;
+        line-height:1.08;
+      }
+
+      .slider-button{
+        display:none;
+      }
+
+      .editions{
+        padding:40px 0 42px;
+      }
+
+      .edition-track{
+        grid-auto-columns:76%;
+        gap:12px;
+      }
+
+      .gallery{
+        padding:42px 0;
+      }
+
+      .gallery-title{
+        text-align:center;
+      }
+
+      .gallery-accent{
+        justify-content:center;
+      }
+
+      .gallery-mosaic{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:9px;
+      }
+
+      .gallery-item{
+        aspect-ratio:1/1;
+      }
+
+      .gallery-item.featured,
+      .gallery-item.wide{
+        grid-row:span 1;
+        grid-column:span 1;
+      }
+
+      .participate{
+        padding:39px 0 40px;
+      }
+
+      .participate-copy h2{
+        font-size:2.25rem;
+      }
+
+      .participate-panel{
+        gap:19px;
+      }
+
+      /* En celular se ve 2 x 2, sin desplazamiento lateral */
+      .steps{
+        grid-template-columns:repeat(2,1fr);
+        gap:20px 10px;
+      }
+
+      .step:not(:last-child)::after{
+        display:none;
+      }
+
+      .step-circle{
+        width:66px;
+        height:66px;
+      }
+
+      .step-circle i{
+        font-size:1.45rem;
+      }
+
+      .step h3{
+        max-width:145px;
+        font-size:.80rem;
+      }
+
+      .participate-cta{
+        margin-top:2px;
+      }
+
+      .participate-cta .btn{
+        width:100%;
+      }
+
+      /* Banner final completo, sin deformarlo */
+      .closing-banner img{
+        width:100%;
+        height:auto;
+        min-height:0;
+        object-fit:contain;
+      }
+
+
+      .floating-whatsapp{
+        right:13px;
+        bottom:13px;
+        width:56px;
+        height:56px;
+      }
+    }
+
+    @media (max-width:480px){
+      .container{
+        width:min(calc(100% - 18px),var(--max));
+      }
+
+      .menu-toggle{
+        top:8px;
+        width:46px;
+        height:46px;
+      }
+
+      .main-nav{
+        top:64px;
+        width:min(94vw,340px);
+      }
+
+      .edition-track{
+        grid-auto-columns:84%;
+      }
+
+      .gallery-mosaic{
+        grid-template-columns:1fr;
+      }
+
+      .gallery-item{
+        aspect-ratio:1/1;
+      }
+
+      .section-title{
+        font-size:2.15rem;
+      }
+
+      .social-links a{
+        width:44px;
+        height:44px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    ARCHIVOS LOCALES:
+    - feriabaner1.png
+    - feriacelu.png
+    - feriabaner.png
+    - ferialogo.png
+
+    Las imágenes de ediciones y galería se cargan desde enlaces externos.
+    Cambiá 5492610000000 por el WhatsApp real.
+  -->
+
+  <section class="hero" id="inicio" aria-label="Portada de la Feria del Juguete">
+    <picture class="hero-picture">
+      <source media="(max-width:700px)" srcset="feriacelu.png">
+      <img
+        src="feriabaner1.png"
+        alt="Feria del Juguete, del 14 al 17 de agosto">
+    </picture>
+
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+
+        <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+          <a href="#feria">Inicio</a>
+          <a href="#ediciones">Ediciones</a>
+          <a href="#galeria">Galería</a>
+          <a href="#participar">Participar</a>
+          <a href="#redes">Redes</a>
+          <a href="#contacto">Contacto</a>
+
+          <a class="btn btn-primary" href="#participar">
+            <i class="fa-solid fa-store"></i>
+            Quiero participar
+          </a>
+        </nav>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mainNav">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+    </header>
+  </section>
+
+  <main>
+
+    <section class="about" id="feria">
+      <div class="container about-grid">
+
+        <div class="about-copy reveal">
+          <h2>
+            La Feria
+            <span>Una trayectoria que crece</span>
+          </h2>
+
+          <p>
+            La Feria del Juguete es uno de los encuentros más esperados por las
+            familias mendocinas. Un espacio que impulsa el juego, la creatividad,
+            la participación de marcas y el encuentro en familia.
+          </p>
+        </div>
+
+        <div class="stats reveal">
+
+          <article class="stat">
+            <div class="stat-icon">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <strong class="counter" data-target="150" data-prefix="+">0</strong>
+            <span>Stands</span>
+          </article>
+
+          <article class="stat">
+            <div class="stat-icon">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <strong class="counter" data-target="50000" data-prefix="+">0</strong>
+            <span>Visitantes</span>
+          </article>
+
+          <article class="stat">
+            <div class="stat-icon">
+              <i class="fa-solid fa-calendar-days"></i>
+            </div>
+            <strong class="counter" data-target="10" data-prefix="+">0</strong>
+            <span>Ediciones</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="editions" id="ediciones">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-kicker">Ediciones anteriores</span>
+          <h2 class="section-title">La historia de la feria</h2>
+          <p class="section-text">
+            Un recorrido por algunas de las ciudades y ediciones que recibieron
+            este encuentro.
+          </p>
+        </div>
+
+        <div class="edition-wrap reveal">
+
+          <button
+            class="slider-button previous"
+            id="editionPrevious"
+            type="button"
+            aria-label="Ver ediciones anteriores">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="edition-track" id="editionTrack">
+
+            <article class="edition-card">
+              <img
+                src="https://picsum.photos/seed/feria-edicion-7/900/900"
+                alt="Niños participando de actividades"
+                loading="lazy">
+              <h3>Mendoza 2016</h3>
+            </article>
+
+            <article class="edition-card">
+              <img
+                src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=85"
+                alt="Familias disfrutando una actividad"
+                loading="lazy">
+              <h3>Guaymallén 2019</h3>
+            </article>
+
+            <article class="edition-card">
+              <img
+                src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?auto=format&fit=crop&w=900&q=85"
+                alt="Niña disfrutando de un evento"
+                loading="lazy">
+              <h3>Godoy Cruz 2020</h3>
+            </article>
+
+            <article class="edition-card">
+              <img
+                src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=85"
+                alt="Evento y actividades en familia"
+                loading="lazy">
+              <h3>Luján 2021</h3>
+            </article>
+
+            <article class="edition-card">
+              <img
+                src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=900&q=85"
+                alt="Celebración y encuentro"
+                loading="lazy">
+              <h3>Maipú 2022</h3>
+            </article>
+
+            <article class="edition-card">
+              <img
+                src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?auto=format&fit=crop&w=900&q=85"
+                alt="Niños y propuestas recreativas"
+                loading="lazy">
+              <h3>Godoy Cruz 2023</h3>
+            </article>
+
+            <article class="edition-card">
+              <img
+                src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=900&q=85"
+                alt="Evento con público"
+                loading="lazy">
+              <h3>Godoy Cruz 2024</h3>
+            </article>
+
+          </div>
+
+          <button
+            class="slider-button next"
+            id="editionNext"
+            type="button"
+            aria-label="Ver próximas ediciones">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="galeria">
+      <div class="container gallery-layout">
+
+        <div class="gallery-title reveal">
+          <h2>Galería de fotos</h2>
+          <p>
+            Una selección visual para mostrar el espíritu, el color y la alegría
+            de la feria.
+          </p>
+
+          <div class="gallery-accent" aria-hidden="true">
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+
+        <div class="gallery-mosaic reveal">
+
+          <figure class="gallery-item wide">
+            <img
+              src="https://picsum.photos/seed/feria-galeria-7/1000/1000"
+              alt="Niños jugando"
+              loading="lazy">
+          </figure>
+
+          <figure class="gallery-item featured">
+            <img
+              src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?auto=format&fit=crop&w=900&q=85"
+              alt="Niña sonriendo"
+              loading="lazy">
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=85"
+              alt="Actividades familiares"
+              loading="lazy">
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=900&q=85"
+              alt="Evento en vivo"
+              loading="lazy">
+          </figure>
+
+          <figure class="gallery-item wide">
+            <img
+              src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1100&q=85"
+              alt="Encuentro y celebración"
+              loading="lazy">
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?auto=format&fit=crop&w=900&q=85"
+              alt="Propuestas infantiles"
+              loading="lazy">
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=900&q=85"
+              alt="Público disfrutando del evento"
+              loading="lazy">
+          </figure>
+          <figure class="gallery-item wide">
+            <img
+              src="https://picsum.photos/seed/feria-galeria-7/1000/1000"
+              alt="Niños jugando"
+              loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="participate" id="participar">
+      <div class="container participate-inner">
+
+        <div class="participate-copy reveal">
+          <h2>¿Querés participar en la feria?</h2>
+          <p>
+            Sumá tu marca o emprendimiento y formá parte de uno de los eventos
+            más esperados por las familias.
+          </p>
+        </div>
+
+        <div class="participate-panel reveal">
+
+          <div>
+            <span class="process-title">Cómo sumar tu stand</span>
+
+            <div class="steps">
+
+              <article class="step">
+                <div class="step-circle">
+                  <i class="fa-regular fa-clipboard"></i>
+                  <span class="step-number">1</span>
+                </div>
+                <h3>Completá el formulario</h3>
+              </article>
+
+              <article class="step">
+                <div class="step-circle">
+                  <i class="fa-regular fa-envelope"></i>
+                  <span class="step-number">2</span>
+                </div>
+                <h3>Nos contactamos con vos</h3>
+              </article>
+
+              <article class="step">
+                <div class="step-circle">
+                  <i class="fa-regular fa-circle-check"></i>
+                  <span class="step-number">3</span>
+                </div>
+                <h3>Reservá tu lugar</h3>
+              </article>
+
+              <article class="step">
+                <div class="step-circle">
+                  <i class="fa-regular fa-star"></i>
+                  <span class="step-number">4</span>
+                </div>
+                <h3>Ya sos parte de la feria</h3>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="participate-cta">
+            <a class="btn btn-primary" href="participar.html">
+              Quiero participar
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-banner" aria-label="Te esperamos en Godoy Cruz 2026">
+      <img
+        src="feriabaner.png"
+        alt="Te esperamos en Godoy Cruz 2026. Vivamos juntos la magia del juego.">
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contacto">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img
+            class="footer-logo"
+            src="ferialogo.png"
+            alt="Feria del Juguete">
+
+         
+        </div>
+
+        <div>
+          <h3 class="footer-title">Contacto</h3>
+
+          <div class="footer-list">
+            <span>
+              <i class="fa-solid fa-phone"></i>
+              261 123 4567
+            </span>
+
+            <span>
+              <i class="fa-solid fa-envelope"></i>
+              info@feriadeljuguete.mza
+            </span>
+
+            <span>
+              <i class="fa-solid fa-location-dot"></i>
+              Mendoza, Argentina
+            </span>
+          </div>
+        </div>
+
+        <div id="redes">
+          <h3 class="footer-title">Redes</h3>
+
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="#" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="#" aria-label="TikTok">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+
+            <a href="#" aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+
+          <a
+            class="footer-user"
+            href="#"
+            aria-label="Instagram de la Feria del Juguete">
+            <i class="fa-brands fa-instagram"></i>
+            @feriadeljuguete.mza
+          </a>
+        </div>
+
+        <div class="footer-organization">
+          <h3 class="footer-title">Organización</h3>
+
+          <div class="footer-list">
+            <strong>AFJ</strong>
+            <span>Asociación Feria del Juguete</span>
+            <span>Godoy Cruz 2026</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Feria del Juguete. Todos los derechos reservados.
+      </div>
+
+    </div>
+  </footer>
+
+
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Cerrar imagen">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img id="lightboxImage" src="" alt="">
+  </div>
+
+  <a
+    class="floating-whatsapp"
+    href="https://wa.me/5492610000000?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Feria%20del%20Juguete."
+    target="_blank"
+    rel="noopener"
+    aria-label="Consultar por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    function closeMenu(){
+      mainNav.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      menuToggle.setAttribute("aria-expanded","false");
+      menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    }
+
+    menuToggle.addEventListener("click",() => {
+      const isOpen = mainNav.classList.toggle("open");
+      document.body.classList.toggle("menu-open",isOpen);
+      menuToggle.setAttribute("aria-expanded",String(isOpen));
+      menuToggle.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    mainNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click",closeMenu);
+    });
+
+    window.addEventListener("resize",() => {
+      if(window.innerWidth > 980){
+        closeMenu();
+      }
+    });
+
+    const editionTrack = document.getElementById("editionTrack");
+    const editionPrevious = document.getElementById("editionPrevious");
+    const editionNext = document.getElementById("editionNext");
+
+    editionPrevious.addEventListener("click",() => {
+      editionTrack.scrollBy({
+        left:-330,
+        behavior:"smooth"
+      });
+    });
+
+    editionNext.addEventListener("click",() => {
+      editionTrack.scrollBy({
+        left:330,
+        behavior:"smooth"
+      });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },{
+      threshold:.12
+    });
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+
+    const imageLightbox = document.getElementById("imageLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    function openLightbox(image){
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt || "Imagen ampliada";
+      imageLightbox.classList.add("open");
+      imageLightbox.setAttribute("aria-hidden","false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox(){
+      imageLightbox.classList.remove("open");
+      imageLightbox.setAttribute("aria-hidden","true");
+      document.body.style.overflow = "";
+      setTimeout(() => {
+        lightboxImage.src = "";
+      },450);
+    }
+
+    document.querySelectorAll(".gallery-item img, .edition-card img").forEach((image) => {
+      image.addEventListener("click",() => openLightbox(image));
+    });
+
+    lightboxClose.addEventListener("click",closeLightbox);
+
+    imageLightbox.addEventListener("click",(event) => {
+      if(event.target === imageLightbox){
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown",(event) => {
+      if(event.key === "Escape" && imageLightbox.classList.contains("open")){
+        closeLightbox();
+      }
+    });
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(!entry.isIntersecting){
+          return;
+        }
+
+        const counter = entry.target;
+
+        if(counter.dataset.animated === "true"){
+          return;
+        }
+
+        const target = Number(counter.dataset.target || 0);
+        const prefix = counter.dataset.prefix || "";
+        const duration = 1500;
+        const start = performance.now();
+
+        const animateCounter = (time) => {
+          const progress = Math.min((time - start) / duration,1);
+          const eased = 1 - Math.pow(1 - progress,3);
+          const current = Math.floor(target * eased);
+
+          counter.textContent =
+            prefix + current.toLocaleString("es-AR");
+
+          if(progress < 1){
+            requestAnimationFrame(animateCounter);
+          }else{
+            counter.textContent =
+              prefix + target.toLocaleString("es-AR");
+            counter.dataset.animated = "true";
+          }
+        };
+
+        requestAnimationFrame(animateCounter);
+        counterObserver.unobserve(counter);
+      });
+    },{
+      threshold:.35
+    });
+
+    document.querySelectorAll(".counter").forEach((counter) => {
+      counterObserver.observe(counter);
+    });
+  </script>
+</body>
+</html>
