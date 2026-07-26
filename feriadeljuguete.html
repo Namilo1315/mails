@@ -1163,9 +1163,15 @@
       background:var(--violet-900);
     }
 
+    .closing-banner picture,
     .closing-banner img{
+      display:block;
       width:100%;
+    }
+
+    .closing-banner img{
       height:auto;
+      object-fit:contain;
     }
 
     .site-footer{
@@ -1457,13 +1463,31 @@
         object-fit:contain;
       }
 
+      .closing-banner picture,
+      .closing-banner img{
+        width:100%;
+      }
+
+      .closing-banner img{
+        height:auto;
+        object-fit:contain;
+      }
+
       .event-strip-wrap{
-        margin-top:-15px;
+        margin-top:0;
+        padding-top:0;
+        background:var(--paper);
+      }
+
+      .event-strip-wrap .container{
+        width:100%;
       }
 
       .event-strip{
         grid-template-columns:repeat(2,minmax(0,1fr));
-        border-radius:18px;
+        border-width:0 0 1px;
+        border-radius:0 0 18px 18px;
+        box-shadow:0 14px 34px rgba(48,16,79,.12);
       }
 
       .event-fact{
@@ -1861,7 +1885,8 @@
     ARCHIVOS LOCALES QUE DEBEN ESTAR JUNTO A ESTE HTML:
     - feriabaner1.png  (portada de computadora)
     - feriacelu.png    (portada de celular)
-    - feriabaner.png   (banner final)
+    - feriabaner.png   (banner final para computadora)
+    - banercelu.png    (banner final para celular)
     - ferialogo.png    (logo del footer)
 
     Reemplazá 5492610000000 por el WhatsApp real.
@@ -2279,7 +2304,12 @@
     </section>
 
     <section class="closing-banner" aria-label="Te esperamos en Godoy Cruz 2026">
-      <img src="feriabaner.png" alt="Te esperamos en Godoy Cruz 2026. Vivamos juntos la magia del juego.">
+      <picture>
+        <source media="(max-width:760px)" srcset="banercelu.png">
+        <img
+          src="feriabaner.png"
+          alt="Te esperamos en Godoy Cruz 2026. Vivamos juntos la magia del juego.">
+      </picture>
     </section>
   </main>
 
