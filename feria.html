@@ -1,18 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#24105d">
-  <meta name="description" content="Feria del Juguete 2026 en Parque San Vicente, Godoy Cruz. Juegos, sorteos, stands, food trucks, shows en vivo y actividades para toda la familia.">
-  <title>Feria del Juguete 2026 | Godoy Cruz</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#24105d" name="theme-color"/>
+<meta content="Feria del Juguete 2026 en Parque San Vicente, Godoy Cruz. Juegos, sorteos, stands, food trucks, shows en vivo y actividades para toda la familia." name="description"/>
+<title>Feria del Juguete 2026 | Godoy Cruz</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<style>
     /*
       TIPOGRAFÍA OFICIAL
       Para ver Gotham Rounded exacta, colocá estos archivos dentro de /fonts:
@@ -133,116 +132,66 @@
       color:var(--white);
     }
 
-    /* HEADER SOBRE LA PORTADA */
-    .hero{
-      position:relative;
-      isolation:isolate;
-      overflow:hidden;
-      background:var(--purple-900);
-    }
-    .hero img{width:100%;height:auto;object-fit:contain;object-position:center}
-    .hero::after{
-      position:absolute;
-      z-index:1;
-      inset:0;
-      background:linear-gradient(180deg,rgba(13,4,45,.70) 0%,rgba(13,4,45,.18) 18%,transparent 39%);
-      content:"";
-      pointer-events:none;
-    }
-    .site-header{
-      position:absolute;
-      z-index:20;
-      top:0;right:0;left:0;
-      padding:14px 0;
-    }
-    .header-inner{display:flex;align-items:center;justify-content:center}
-    .main-nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:9px;
-      padding:8px 10px;
-      border:1px solid rgba(255,255,255,.23);
-      border-radius:999px;
-      background:rgba(23,7,62,.56);
-      box-shadow:0 14px 34px rgba(10,2,32,.20);
-      backdrop-filter:blur(14px);
-    }
-    .main-nav a{
-      display:inline-flex;
-      min-height:38px;
-      align-items:center;
-      justify-content:center;
-      padding:8px 15px;
-      border-radius:999px;
-      color:var(--white);
-      font-size:.79rem;
-      font-weight:900;
-      white-space:nowrap;
-      transition:background .2s ease,color .2s ease;
-    }
-    .main-nav a:hover{background:rgba(255,255,255,.13)}
-    .main-nav .nav-cta{background:linear-gradient(135deg,var(--yellow),var(--orange));color:#332344}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    /* MAPA INMEDIATAMENTE DESPUÉS DE LA PORTADA */
-    .map-intro{
-      position:relative;
-      overflow:hidden;
-      padding:64px 0 60px;
-      background:linear-gradient(180deg,#ffffff 0%,#fff8fc 100%);
-    }
-    .map-intro::before{display:none}
-    .map-heading{text-align:center}
-    .map-heading .section-title{margin-inline:auto}
-    .map-heading .section-copy{margin-inline:auto}
-    .map-card{
-      position:relative;
-      width:min(100%,1040px);
-      overflow:hidden;
-      margin:32px auto 0;
-      border:1px solid rgba(52,23,131,.10);
-      border-radius:30px;
-      background:var(--white);
-      box-shadow:0 20px 52px rgba(37,16,93,.13);
-    }
-    .desktop-map{position:relative;min-height:340px;background:#fff}
-    .desktop-map img{width:100%;height:auto;max-height:520px;min-height:0;object-fit:contain;object-position:center;background:#fff}
-    .map-placeholder{
-      position:absolute;
-      inset:0;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:40px;
-      text-align:center;
-      background:
-        linear-gradient(rgba(84,34,184,.055) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(84,34,184,.055) 1px,transparent 1px),
-        linear-gradient(135deg,#f8f2fb,#fff);
-      background-size:34px 34px;
-    }
-    .desktop-map.missing .map-placeholder{display:flex}
-    .desktop-map.missing > img{display:none}
-    .map-placeholder i{display:block;margin-bottom:14px;color:var(--pink);font-size:3rem}
-    .map-placeholder strong{display:block;color:var(--purple-900);font-family:"Gotham Rounded","Nunito",sans-serif;font-size:2rem;line-height:1}
-    .map-placeholder span{display:block;margin-top:9px;color:var(--muted);font-size:.9rem}
-    .mobile-google-map{display:none}
-    .mobile-google-map iframe{display:block;width:100%;height:410px;border:0}
-    .map-action{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      background:linear-gradient(135deg,#22105b,#4f20ae);
-    }
-    .map-action .btn{
-      width:min(100%,560px);
-      min-height:62px;
-      background:linear-gradient(135deg,var(--pink-light),var(--orange));
-      box-shadow:0 16px 34px rgba(216,25,120,.28);
-      color:var(--white);
-      font-size:1rem;
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    
+    
+    
+
+    /* ETIQUETAS PARA COMPARAR LAS DOS OPCIONES DE MAPA */
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /* DATOS PRINCIPALES */
     .highlights{padding:0 0 72px;background:#fff8fc}
@@ -546,21 +495,40 @@
     @media (max-width:760px){
       html{scroll-padding-top:64px}
       .container{width:min(calc(100% - 20px),var(--max))}
-      .site-header{padding:7px 0}
-      .header-inner{overflow-x:auto;scrollbar-width:none;justify-content:flex-start}
-      .header-inner::-webkit-scrollbar{display:none}
-      .main-nav{min-width:max-content;margin-inline:auto;padding:6px 7px;gap:3px;background:rgba(23,7,62,.64)}
-      .main-nav a{min-height:34px;padding:7px 11px;font-size:.67rem}
-      .main-nav a:nth-child(4){display:none}
-      .hero img{width:100%;height:auto;min-height:0;object-fit:contain}
+      
+      
+      
+      
+      
+      
+      
+      
 
-      .map-intro{padding:48px 0 46px}
-      .map-card{width:min(100%,680px);margin-top:26px;border-radius:23px}
-      .desktop-map{display:none}
-      .mobile-google-map{display:block}
-      .mobile-google-map iframe{height:330px}
-      .map-action{padding:14px}
-      .map-action .btn{min-height:56px;padding-inline:14px;font-size:.9rem}
+      
+      
+      
+      
+      
+      
+      
+
+
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
 
       .highlights{padding-bottom:52px}
       .highlight-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
@@ -617,322 +585,952 @@
 
     @media (max-width:390px){
       .container{width:min(calc(100% - 16px),var(--max))}
-      .main-nav a{padding-inline:9px;font-size:.63rem}
+      
       .highlight strong{font-size:1.2rem}
       .highlight p{font-size:.62rem}
       .history-stat strong{font-size:.92rem}
       .history-stat:first-child strong{font-size:.82rem}
     }
 
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+    @media (max-width:760px){
+      html{scroll-padding-top:66px}
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    }
+
+    
+
     @media (prefers-reduced-motion:reduce){
       *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
       .reveal{opacity:1;transform:none}
     }
-  </style>
+
+    /* =========================================================
+       HEADER SEPARADO DE LA PORTADA
+       ========================================================= */
+    .top-header{
+      position:sticky;
+      z-index:1000;
+      top:0;
+      padding:14px 0;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(circle at 9% 0%,rgba(255,77,161,.25),transparent 29%),
+        radial-gradient(circle at 91% 100%,rgba(5,169,223,.21),transparent 30%),
+        linear-gradient(135deg,var(--purple-950),var(--purple-900) 58%,var(--purple-800));
+      box-shadow:0 10px 30px rgba(22,8,63,.20);
+    }
+    .top-header::before{
+      position:absolute;
+      top:0;
+      right:0;
+      left:0;
+      height:4px;
+      background:linear-gradient(90deg,var(--pink-light),var(--orange),var(--yellow),var(--cyan),var(--purple-600));
+      content:"";
+    }
+    .top-header-inner{
+      display:flex;
+      min-height:48px;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+    .top-nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:30px;
+    }
+    .top-nav a{
+      position:relative;
+      display:inline-flex;
+      min-height:42px;
+      align-items:center;
+      justify-content:center;
+      padding:8px 2px;
+      color:var(--white);
+      font-size:.83rem;
+      font-weight:900;
+      white-space:nowrap;
+      transition:color .2s ease,transform .2s ease;
+    }
+    .top-nav a:not(.top-nav-cta)::after{
+      position:absolute;
+      right:0;
+      bottom:2px;
+      left:0;
+      height:3px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--pink-light),var(--yellow));
+      content:"";
+      transform:scaleX(0);
+      transform-origin:center;
+      transition:transform .22s ease;
+    }
+    .top-nav a:not(.top-nav-cta):hover,
+    .top-nav a:not(.top-nav-cta):focus-visible{
+      color:var(--yellow);
+      transform:translateY(-1px);
+    }
+    .top-nav a:not(.top-nav-cta):hover::after,
+    .top-nav a:not(.top-nav-cta):focus-visible::after{transform:scaleX(1)}
+    .top-nav-cta{
+      min-height:43px!important;
+      padding:9px 23px!important;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--pink-light),var(--orange));
+      box-shadow:0 11px 26px rgba(216,25,120,.28);
+    }
+    .top-nav-cta:hover{transform:translateY(-2px)!important;filter:brightness(1.05)}
+
+    /* PORTADA: DEBAJO DEL HEADER, NUNCA DETRÁS */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:var(--purple-900);
+    }
+    .hero picture,
+    .hero picture img{
+      display:block;
+      width:100%;
+    }
+    .hero picture img{
+      height:auto;
+      object-fit:contain;
+      object-position:center;
+    }
+
+    /* =========================================================
+       ÚNICA OPCIÓN DE MAPA: TEXTO IZQUIERDA + MAPA DERECHA
+       SIN RECUADRO EXTERIOR
+       ========================================================= */
+    .location-section{
+      position:relative;
+      overflow:hidden;
+      padding:84px 0 78px;
+      background:
+        radial-gradient(circle at 7% 14%,rgba(255,77,161,.13),transparent 25%),
+        radial-gradient(circle at 95% 88%,rgba(5,169,223,.14),transparent 27%),
+        linear-gradient(180deg,#fff 0%,#fff8fc 100%);
+    }
+    .location-section::before{
+      position:absolute;
+      top:-170px;
+      left:-145px;
+      width:390px;
+      height:390px;
+      border:2px solid rgba(84,34,184,.06);
+      border-radius:50%;
+      content:"";
+      pointer-events:none;
+    }
+    .location-section::after{
+      position:absolute;
+      right:-135px;
+      bottom:-220px;
+      width:400px;
+      height:400px;
+      border:2px solid rgba(216,25,120,.07);
+      border-radius:105px;
+      content:"";
+      pointer-events:none;
+      transform:rotate(24deg);
+    }
+    .location-layout{
+      position:relative;
+      z-index:2;
+      display:grid;
+      align-items:center;
+      grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+      gap:64px;
+    }
+    .location-copy h1{
+      max-width:525px;
+      color:var(--purple-900);
+      font-size:clamp(2.7rem,4.5vw,4.7rem);
+      font-weight:900;
+      letter-spacing:-.05em;
+      line-height:.89;
+    }
+    .location-copy > p{
+      max-width:540px;
+      margin-top:20px;
+      color:var(--muted);
+      font-size:1rem;
+      line-height:1.72;
+    }
+    .location-details{
+      display:grid;
+      gap:12px;
+      margin-top:26px;
+    }
+    .location-detail{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--purple-900);
+      font-size:.85rem;
+      font-weight:900;
+    }
+    .location-detail i{
+      display:grid;
+      width:42px;
+      height:42px;
+      flex:0 0 auto;
+      place-items:center;
+      border-radius:14px;
+      background:var(--white);
+      box-shadow:0 9px 24px rgba(37,16,93,.10);
+      color:var(--pink);
+    }
+    .location-button{
+      width:min(100%,425px);
+      min-height:60px;
+      margin-top:29px;
+      background:linear-gradient(135deg,var(--pink-light),var(--orange));
+      box-shadow:0 16px 36px rgba(216,25,120,.25);
+      color:var(--white);
+      font-size:.94rem;
+    }
+    .location-visual{
+      position:relative;
+      min-height:420px;
+      overflow:hidden;
+      border-radius:28px;
+      background:#fff;
+      box-shadow:0 24px 60px rgba(37,16,93,.15);
+    }
+    .location-visual > img{
+      display:block;
+      width:100%;
+      height:100%;
+      min-height:420px;
+      max-height:535px;
+      object-fit:contain;
+      object-position:center;
+      background:#fff;
+    }
+    .location-placeholder{
+      position:absolute;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:30px;
+      background:
+        linear-gradient(rgba(84,34,184,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(84,34,184,.05) 1px,transparent 1px),
+        linear-gradient(135deg,#fbf5ff,#fff);
+      background-size:32px 32px;
+      color:var(--muted);
+      text-align:center;
+    }
+    .location-visual.missing > img{display:none}
+    .location-visual.missing .location-placeholder{display:flex}
+    .location-placeholder i{display:block;margin-bottom:13px;color:var(--pink);font-size:2.7rem}
+    .location-placeholder strong{display:block;color:var(--purple-900);font-size:1.8rem;line-height:1}
+    .location-placeholder span{display:block;margin-top:8px;font-size:.86rem}
+    .location-google-map{display:none}
+    .location-google-map iframe{display:block;width:100%;height:350px;border:0}
+
+    @media (max-width:900px){
+      .top-nav{gap:18px}
+      .location-layout{gap:38px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+      .location-copy h1{font-size:clamp(2.4rem,5vw,3.7rem)}
+    }
+
+    @media (max-width:760px){
+      html{scroll-padding-top:66px}
+      .top-header{padding:8px 0}
+      .top-header::before{height:3px}
+      .top-header-inner{
+        min-height:45px;
+        overflow-x:auto;
+        justify-content:flex-start;
+        scrollbar-width:none;
+      }
+      .top-header-inner::-webkit-scrollbar{display:none}
+      .top-nav{
+        width:max-content;
+        min-width:max-content;
+        margin-inline:auto;
+        gap:3px;
+      }
+      .top-nav a{
+        min-height:35px;
+        padding:7px 9px;
+        font-size:.63rem;
+      }
+      .top-nav a:not(.top-nav-cta)::after{display:none}
+      .top-nav-cta{min-height:35px!important;padding:7px 11px!important}
+
+      .hero picture img{
+        width:100%;
+        height:auto;
+        min-height:0;
+        object-fit:contain;
+        object-position:center;
+      }
+
+      .location-section{padding:54px 0 52px}
+      .location-layout{
+        grid-template-columns:1fr;
+        gap:30px;
+      }
+      .location-copy{
+        display:flex;
+        align-items:center;
+        flex-direction:column;
+        text-align:center;
+      }
+      .location-copy .section-kicker{justify-content:center}
+      .location-copy h1{
+        max-width:620px;
+        font-size:clamp(2.25rem,10vw,3.25rem);
+      }
+      .location-copy > p{margin-inline:auto;font-size:.92rem}
+      .location-details{
+        width:min(100%,430px);
+        margin-inline:auto;
+        text-align:left;
+      }
+      .location-button{
+        width:min(100%,430px);
+        min-height:57px;
+        margin-inline:auto;
+        padding-inline:14px;
+        font-size:.86rem;
+      }
+      .location-visual{
+        min-height:0;
+        border-radius:23px;
+        box-shadow:0 18px 42px rgba(37,16,93,.14);
+      }
+      .location-visual > img,
+      .location-placeholder{display:none!important}
+      .location-google-map{display:block}
+      .location-google-map iframe{height:330px}
+    }
+
+    @media (max-width:390px){
+      .top-nav a{padding-inline:7px;font-size:.59rem}
+      .top-nav-cta{padding-inline:9px!important}
+      .location-detail{font-size:.76rem}
+      .location-detail i{width:38px;height:38px;border-radius:12px}
+    }
+
+
+    /* =========================================================
+       MENÚ HAMBURGUESA PARA CELULAR
+       El botón Participar permanece visible.
+       ========================================================= */
+    .mobile-menu-toggle,
+    .mobile-header-title,
+    .mobile-participate,
+    .mobile-menu-panel{
+      display:none;
+    }
+
+    @media (max-width:760px){
+      body.mobile-menu-open{
+        overflow:hidden;
+      }
+
+      .top-header{
+        padding:8px 0;
+      }
+
+      .top-header-inner{
+        display:grid;
+        min-height:48px;
+        overflow:visible;
+        grid-template-columns:44px minmax(0,1fr) auto;
+        align-items:center;
+        gap:9px;
+      }
+
+      .top-nav{
+        display:none;
+      }
+
+      .mobile-menu-toggle{
+        display:grid;
+        width:42px;
+        height:42px;
+        place-items:center;
+        border:1px solid rgba(255,255,255,.24);
+        border-radius:13px;
+        background:rgba(255,255,255,.10);
+        box-shadow:0 8px 22px rgba(10,2,32,.18);
+        color:var(--white);
+        cursor:pointer;
+        font-size:1.08rem;
+        transition:background .2s ease,transform .2s ease;
+      }
+
+      .mobile-menu-toggle:active{
+        transform:scale(.96);
+      }
+
+      .mobile-menu-toggle[aria-expanded="true"]{
+        background:linear-gradient(135deg,var(--pink-light),var(--orange));
+      }
+
+      .mobile-header-title{
+        display:block;
+        min-width:0;
+        overflow:hidden;
+        color:var(--white);
+        font-size:.83rem;
+        font-weight:900;
+        letter-spacing:-.02em;
+        line-height:1.1;
+        text-align:center;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+      }
+
+      .mobile-participate{
+        display:inline-flex;
+        min-height:40px;
+        align-items:center;
+        justify-content:center;
+        padding:8px 15px;
+        border-radius:999px;
+        background:linear-gradient(135deg,var(--pink-light),var(--orange));
+        box-shadow:0 10px 24px rgba(216,25,120,.28);
+        color:var(--white);
+        font-size:.72rem;
+        font-weight:900;
+        white-space:nowrap;
+      }
+
+      .mobile-menu-panel{
+        position:absolute;
+        z-index:1100;
+        top:100%;
+        right:10px;
+        left:10px;
+        display:grid;
+        max-height:0;
+        overflow:hidden;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:8px;
+        padding:0 10px;
+        border:1px solid transparent;
+        border-radius:0 0 22px 22px;
+        background:linear-gradient(145deg,rgba(22,8,63,.98),rgba(53,23,131,.98));
+        box-shadow:0 22px 42px rgba(15,4,45,.28);
+        opacity:0;
+        transform:translateY(-10px);
+        pointer-events:none;
+        transition:max-height .32s ease,opacity .24s ease,transform .24s ease,padding .32s ease,border-color .24s ease;
+      }
+
+      .mobile-menu-panel.open{
+        max-height:250px;
+        padding:12px 10px 14px;
+        border-color:rgba(255,255,255,.13);
+        opacity:1;
+        transform:translateY(0);
+        pointer-events:auto;
+      }
+
+      .mobile-menu-panel a{
+        display:flex;
+        min-height:52px;
+        align-items:center;
+        gap:10px;
+        padding:11px 12px;
+        border:1px solid rgba(255,255,255,.10);
+        border-radius:15px;
+        background:rgba(255,255,255,.07);
+        color:var(--white);
+        font-size:.76rem;
+        font-weight:900;
+        text-align:left;
+        transition:background .2s ease,transform .2s ease;
+      }
+
+      .mobile-menu-panel a:active{
+        transform:scale(.98);
+      }
+
+      .mobile-menu-panel a i{
+        display:grid;
+        width:31px;
+        height:31px;
+        flex:0 0 auto;
+        place-items:center;
+        border-radius:10px;
+        background:linear-gradient(135deg,var(--pink-light),var(--orange));
+        color:var(--white);
+        font-size:.82rem;
+      }
+    }
+
+    @media (max-width:390px){
+      .top-header-inner{
+        grid-template-columns:40px minmax(0,1fr) auto;
+        gap:6px;
+      }
+
+      .mobile-menu-toggle{
+        width:39px;
+        height:39px;
+        border-radius:12px;
+      }
+
+      .mobile-header-title{
+        font-size:.72rem;
+      }
+
+      .mobile-participate{
+        min-height:38px;
+        padding-inline:12px;
+        font-size:.66rem;
+      }
+
+      .mobile-menu-panel{
+        right:8px;
+        left:8px;
+      }
+    }
+
+</style>
 </head>
 <body>
-  <!--
+<!--
     ARCHIVOS PARA COLOCAR JUNTO A ESTE HTML:
-    - feria.jpeg        Portada principal
-    - mapa.jpg          Mapa diseñado para computadora
+    - feria.jpeg        Portada principal para computadora
+    - feriacelu.png     Portada principal para celular
+    - mapa.jpg          Mapa diseñado para computadora (a la derecha de la información)
     - ferialogo.png     Logo del footer (opcional: si no está, aparece el nombre en texto)
 
     La galería utiliza imágenes externas de demostración y puede reemplazarse después por fotos reales.
     Cambiar el número 5492615031493 por el WhatsApp definitivo.
     Cambiar los enlaces # de las redes sociales por los enlaces reales.
   -->
+<header class="top-header" id="encabezado">
+  <div class="container top-header-inner">
+    <button
+      class="mobile-menu-toggle"
+      id="mobileMenuToggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobileMenuPanel">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
 
-  <section class="hero" id="inicio" aria-label="Portada de la Feria del Juguete 2026">
-    <img src="feria.jpeg" alt="Feria del Juguete Día del Niño 2026 en Parque San Vicente, Godoy Cruz">
+    <a class="mobile-header-title" href="#inicio" aria-label="Ir al inicio">
+      Feria del Juguete
+    </a>
 
-    <header class="site-header">
-      <div class="container header-inner">
-        <nav class="main-nav" aria-label="Navegación principal">
-          <a href="#inicio">Inicio</a>
-          <a href="#mapa">Mapa</a>
-          <a href="#galeria">Galería</a>
-          <a href="#historia">La feria</a>
-          <a class="nav-cta" href="#participar">Participar</a>
-        </nav>
-      </div>
-    </header>
-  </section>
+    <nav aria-label="Navegación principal" class="top-nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#mapa">Ubicación</a>
+      <a href="#galeria">Ediciones</a>
+      <a href="#historia">La feria</a>
+      <a class="top-nav-cta" href="#participar">Participar</a>
+    </nav>
 
-  <main>
-    <section class="map-intro" id="mapa">
-      <div class="container">
-        <div class="map-heading reveal">
-          <span class="section-kicker">Nuevo lugar</span>
-          <h1 class="section-title">Ubicá la feria y empezá a vivir la experiencia.</h1>
-          <p class="section-copy">Mirá el plano completo de la feria y encontrá fácilmente cada espacio. En celular vas a ver directamente la ubicación interactiva de Google Maps.</p>
-        </div>
-
-        <div class="map-card reveal">
-          <div class="desktop-map" id="desktopMap">
-            <img src="mapa.jpg" alt="Mapa general de la Feria del Juguete" onerror="document.getElementById('desktopMap').classList.add('missing')">
-            <div class="map-placeholder" aria-hidden="true">
-              <div>
-                <i class="fa-solid fa-map-location-dot"></i>
-                <strong>Acá va mapa.jpg</strong>
-                <span>Colocá mapa.jpg en la misma carpeta del HTML y se mostrará automáticamente en computadora.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="mobile-google-map">
-            <iframe
-              title="Ubicación del Parque San Vicente en Godoy Cruz"
-              src="https://maps.google.com/maps?q=Parque%20San%20Vicente%2C%20Godoy%20Cruz%2C%20Mendoza&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
-
-          <div class="map-action">
-            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Parque+San+Vicente+Godoy+Cruz+Mendoza" target="_blank" rel="noopener">
-              <i class="fa-solid fa-location-arrow"></i>
-              Ver ubicación por Google Maps
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="highlights" aria-label="Características principales de la feria">
-      <div class="container highlight-grid">
-        <article class="highlight reveal">
-          <span class="highlight-icon"><i class="fa-solid fa-store"></i></span>
-          <strong>+200 stands</strong>
-          <p>Marcas, jugueterías, emprendimientos y propuestas para descubrir.</p>
-        </article>
-        <article class="highlight reveal">
-          <span class="highlight-icon"><i class="fa-solid fa-gift"></i></span>
-          <strong>Juegos y sorteos</strong>
-          <p>Actividades, experiencias y premios durante todas las jornadas.</p>
-        </article>
-        <article class="highlight reveal">
-          <span class="highlight-icon"><i class="fa-solid fa-music"></i></span>
-          <strong>Shows en vivo</strong>
-          <p>Espectáculos, personajes y entretenimiento para disfrutar en familia.</p>
-        </article>
-        <article class="highlight reveal">
-          <span class="highlight-icon"><i class="fa-solid fa-burger"></i></span>
-          <strong>Food trucks</strong>
-          <p>Un espacio gastronómico para acompañar una experiencia completa.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="gallery-section" id="galeria">
-      <div class="container">
-        <div class="gallery-head reveal">
-          <span class="section-kicker">Momentos compartidos</span>
-          <h2 class="section-title">La magia de cada edición.</h2>
-          <p class="section-copy">Una galería general con público, luces, juegos, stands, shows y toda la alegría que se vive en la Feria del Juguete.</p>
-        </div>
-
-        <div class="gallery-grid reveal" id="galleryGrid">
-          <button class="gallery-item" type="button" data-caption="Una feria para disfrutar y compartir en familia">
-            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-familia-01/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Familias disfrutando de una jornada especial" loading="lazy">
-            <span class="gallery-caption"><small>Nuestra feria</small><strong>Compartir en familia</strong><span class="gallery-description">Un encuentro para disfrutar, jugar y crear recuerdos juntos.</span></span>
-          </button>
-          <button class="gallery-item" type="button" data-caption="Juegos, actividades y mucha imaginación">
-            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-juegos-02/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Niños participando de juegos y actividades" loading="lazy">
-            <span class="gallery-caption"><small>Experiencias</small><strong>Juegos y diversión</strong><span class="gallery-description">Actividades pensadas para despertar la imaginación de grandes y chicos.</span></span>
-          </button>
-          <button class="gallery-item" type="button" data-caption="Marcas, jugueterías y emprendimientos en un solo lugar">
-            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-stands-03/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Juguetes y propuestas de los stands" loading="lazy">
-            <span class="gallery-caption"><small>Recorrido</small><strong>Más de 200 stands</strong><span class="gallery-description">Marcas, jugueterías y emprendimientos con propuestas para descubrir.</span></span>
-          </button>
-          <button class="gallery-item" type="button" data-caption="Shows y espectáculos pensados para todas las edades">
-            <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-show-04/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Espectáculo familiar en vivo" loading="lazy">
-            <span class="gallery-caption"><small>Escenario</small><strong>Shows en vivo</strong><span class="gallery-description">Música, personajes y espectáculos para compartir en familia.</span></span>
-          </button>
-          <button class="gallery-item" type="button" data-caption="Sorteos, regalos y sorpresas durante cada jornada">
-            <img src="https://images.unsplash.com/photo-1607453998774-d533f65dac99?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-premios-05/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Regalos y premios de la feria" loading="lazy">
-            <span class="gallery-caption"><small>Sorpresas</small><strong>Premios y sorteos</strong><span class="gallery-description">Regalos y momentos especiales durante cada jornada.</span></span>
-          </button>
-          <button class="gallery-item" type="button" data-caption="Una experiencia llena de color, energía y alegría">
-            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-color-06/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Familia compartiendo una experiencia alegre" loading="lazy">
-            <span class="gallery-caption"><small>La experiencia</small><strong>Luces, color y alegría</strong><span class="gallery-description">Una celebración llena de energía, emoción y creatividad.</span></span>
-          </button>
-          <button class="gallery-item" type="button" data-caption="Encuentros y recuerdos que quedan para siempre">
-            <img src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-recuerdos-07/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Juguetes y momentos para recordar" loading="lazy">
-            <span class="gallery-caption"><small>Recuerdos</small><strong>Momentos únicos</strong><span class="gallery-description">Encuentros que se transforman en historias para recordar.</span></span>
-          </button>
-          <button class="gallery-item" type="button" data-caption="Cuatro días para descubrir, jugar y celebrar juntos">
-            <img src="https://images.unsplash.com/photo-1560961911-ba7ef651a56c?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-fiesta-08/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Celebración colorida para grandes y chicos" loading="lazy">
-            <span class="gallery-caption"><small>Feria del Juguete</small><strong>Una gran fiesta</strong><span class="gallery-description">Cuatro días para descubrir, jugar y celebrar juntos.</span></span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="history" id="historia">
-      <div class="container history-grid">
-        <div class="history-copy reveal">
-          <span class="section-kicker">Nuestra historia</span>
-          <h2 class="section-title">Una feria que crece junto a las familias.</h2>
-          <p>La Feria del Juguete nació como un espacio de encuentro entre marcas, emprendimientos y familias. Con cada edición fue sumando propuestas, juegos, espectáculos y experiencias, hasta convertirse en uno de los eventos más esperados para celebrar el Día del Niño.</p>
-          <p>En 2026 renovamos la propuesta y llegamos a un nuevo lugar para seguir compartiendo la alegría, la imaginación y la magia del juego.</p>
-        </div>
-
-        <div class="history-stats reveal" aria-label="La historia de la feria en números">
-          <article class="history-stat">
-            <i class="fa-solid fa-users"></i>
-            <strong class="counter" data-target="200000" data-prefix="+">0</strong>
-            <span>Personas nos visitaron</span>
-          </article>
-          <article class="history-stat">
-            <i class="fa-regular fa-calendar-check"></i>
-            <strong class="counter" data-target="13">0</strong>
-            <span>Ediciones realizadas</span>
-          </article>
-          <article class="history-stat">
-            <i class="fa-solid fa-trophy"></i>
-            <strong class="counter" data-target="250" data-prefix="+">0</strong>
-            <span>Premios entregados</span>
-          </article>
-        </div>
-
-        <div class="history-cta reveal">
-          <a class="btn" href="#participar">
-            <i class="fa-solid fa-store"></i>
-            Quiero ser parte de la feria
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="participate" id="participar">
-      <div class="container participate-grid">
-        <div class="participate-copy reveal">
-          <span class="section-kicker" style="color:#fff">Sumate a la edición 2026</span>
-          <h2>Tu marca también puede ser parte.</h2>
-          <p>Completá tus datos y escribinos por WhatsApp para recibir información sobre espacios, requisitos y participación.</p>
-          <div class="participate-points">
-            <div class="participate-point"><i class="fa-solid fa-check"></i><span>Espacios para marcas y emprendimientos.</span></div>
-            <div class="participate-point"><i class="fa-solid fa-check"></i><span>Acompañamiento durante la inscripción.</span></div>
-            <div class="participate-point"><i class="fa-solid fa-check"></i><span>Contacto directo con la organización.</span></div>
-          </div>
-        </div>
-
-        <form class="participate-form reveal" id="participationForm" novalidate>
-          <div class="form-head">
-            <span>Formulario de contacto</span>
-            <h3>Quiero participar</h3>
-            <p>Completá tus datos y abriremos el mensaje listo para enviar por WhatsApp.</p>
-          </div>
-
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="name">Nombre y apellido *</label>
-              <input class="form-control" id="name" name="name" type="text" autocomplete="name" required>
-            </div>
-            <div class="form-group">
-              <label for="brand">Marca o emprendimiento *</label>
-              <input class="form-control" id="brand" name="brand" type="text" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">WhatsApp *</label>
-              <input class="form-control" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Correo electrónico *</label>
-              <input class="form-control" id="email" name="email" type="email" autocomplete="email" required>
-            </div>
-            <div class="form-group full">
-              <label for="category">Rubro *</label>
-              <select class="form-control" id="category" name="category" required>
-                <option value="">Seleccioná una opción</option>
-                <option>Juguetería</option>
-                <option>Emprendimiento artesanal</option>
-                <option>Indumentaria infantil</option>
-                <option>Editorial o juegos didácticos</option>
-                <option>Gastronomía</option>
-                <option>Servicios y entretenimiento</option>
-                <option>Otro rubro</option>
-              </select>
-            </div>
-            <div class="form-group full">
-              <label for="message">Contanos brevemente sobre tu propuesta</label>
-              <textarea class="form-control" id="message" name="message" placeholder="Productos, servicios o tipo de stand que te gustaría presentar"></textarea>
-            </div>
-          </div>
-
-          <div class="form-actions">
-            <p class="form-note">Al enviar, se abrirá WhatsApp con tus datos. La información no se almacena en esta página.</p>
-            <button class="btn btn-purple" type="submit">Quiero recibir información <i class="fa-brands fa-whatsapp"></i></button>
-          </div>
-          <div class="form-status" id="formStatus" role="status">Perfecto. Estamos preparando tu mensaje de WhatsApp.</div>
-        </form>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer" id="contacto">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-panel footer-brand" id="footerBrand">
-          <img class="footer-logo" src="ferialogo.png" alt="Feria del Juguete" onerror="document.getElementById('footerBrand').classList.add('logo-missing')">
-          <span class="footer-logo-fallback">Feria del Juguete</span>
-        </div>
-
-        <div class="footer-panel">
-          <h3 class="footer-title">Contacto</h3>
-          <div class="footer-list">
-            <a href="tel:+5492615031493"><i class="fa-solid fa-phone"></i>261 503-1493</a>
-            <a href="mailto:info@feriadeljuguete.com.ar"><i class="fa-solid fa-envelope"></i>info@feriadeljuguete.com.ar</a>
-            <span><i class="fa-solid fa-location-dot"></i>Parque San Vicente, Godoy Cruz</span>
-          </div>
-        </div>
-
-        <div class="footer-panel">
-          <h3 class="footer-title">Recorré</h3>
-          <div class="footer-list">
-            <a href="#mapa">Mapa y ubicación</a>
-            <a href="#galeria">Galería</a>
-            <a href="#historia">Nuestra historia</a>
-            <a href="#participar">Participar</a>
-          </div>
-        </div>
-
-        <div class="footer-panel">
-          <h3 class="footer-title">Seguinos</h3>
-          <div class="footer-social">
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">© 2026 Feria del Juguete · Parque San Vicente, Godoy Cruz · Todos los derechos reservados.</div>
-    </div>
-  </footer>
-
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
-    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Cerrar imagen"><i class="fa-solid fa-xmark"></i></button>
-    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" type="button" aria-label="Imagen anterior"><i class="fa-solid fa-chevron-left"></i></button>
-    <div class="lightbox-stage">
-      <img class="lightbox-image" id="lightboxImage" src="" alt="">
-      <p class="lightbox-caption" id="lightboxCaption"></p>
-    </div>
-    <button class="lightbox-arrow lightbox-next" id="lightboxNext" type="button" aria-label="Imagen siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+    <a class="mobile-participate" href="#participar">
+      Participar
+    </a>
   </div>
 
-  <a class="floating-whatsapp" href="https://wa.me/5492615031493?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Feria%20del%20Juguete." target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <script>
+  <nav class="mobile-menu-panel" id="mobileMenuPanel" aria-label="Menú para celular" aria-hidden="true">
+    <a href="#inicio"><i class="fa-solid fa-house"></i><span>Inicio</span></a>
+    <a href="#mapa"><i class="fa-solid fa-location-dot"></i><span>Ubicación</span></a>
+    <a href="#galeria"><i class="fa-solid fa-images"></i><span>Ediciones</span></a>
+    <a href="#historia"><i class="fa-solid fa-star"></i><span>La feria</span></a>
+  </nav>
+</header>
+<section aria-label="Portada de la Feria del Juguete 2026" class="hero" id="inicio">
+<picture>
+<source media="(max-width:760px)" srcset="feriacelu.png"/>
+<img alt="Feria del Juguete Día del Niño 2026 en Parque San Vicente, Godoy Cruz" src="feria.jpeg"/>
+</picture>
+</section>
+<main>
+<section aria-label="Ubicación de la Feria del Juguete 2026" class="location-section" id="mapa">
+<div class="container location-layout reveal">
+<div class="location-copy">
+<span class="section-kicker">Ubicación 2026</span>
+<h1>Todo preparado para encontrarnos.</h1>
+<p>La Feria del Juguete llega al Parque San Vicente. Consultá la ubicación, organizá tu recorrido y descubrí dónde vas a vivir cuatro días llenos de juegos, propuestas y experiencias.</p>
+<div class="location-details">
+<div class="location-detail">
+<i class="fa-solid fa-location-dot"></i>
+<span>Parque San Vicente, Godoy Cruz, Mendoza</span>
+</div>
+<div class="location-detail">
+<i class="fa-regular fa-calendar"></i>
+<span>Del 13 al 16 de agosto de 2026</span>
+</div>
+<div class="location-detail">
+<i class="fa-solid fa-heart"></i>
+<span>Entrada solidaria: alimento no perecedero</span>
+</div>
+</div>
+<a class="btn location-button" href="https://www.google.com/maps/search/?api=1&amp;query=Parque+San+Vicente+Godoy+Cruz+Mendoza" rel="noopener" target="_blank">
+<i class="fa-solid fa-location-arrow"></i>
+        Ver ubicación en Google Maps
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
+</div>
+<div class="location-visual" id="locationVisual">
+<img alt="Plano general de la Feria del Juguete en Parque San Vicente" onerror="document.getElementById('locationVisual').classList.add('missing')" src="mapa.jpg"/>
+<div aria-hidden="true" class="location-placeholder">
+<div>
+<i class="fa-solid fa-map-location-dot"></i>
+<strong>Acá va mapa.jpg</strong>
+<span>Colocá el archivo en la misma carpeta del HTML.</span>
+</div>
+</div>
+<div class="location-google-map">
+<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Parque%20San%20Vicente%2C%20Godoy%20Cruz%2C%20Mendoza&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" title="Ubicación del Parque San Vicente en Godoy Cruz">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+<section aria-label="Características principales de la feria" class="highlights">
+<div class="container highlight-grid">
+<article class="highlight reveal">
+<span class="highlight-icon"><i class="fa-solid fa-store"></i></span>
+<strong>+200 stands</strong>
+<p>Marcas, jugueterías, emprendimientos y propuestas para descubrir.</p>
+</article>
+<article class="highlight reveal">
+<span class="highlight-icon"><i class="fa-solid fa-gift"></i></span>
+<strong>Juegos y sorteos</strong>
+<p>Actividades, experiencias y premios durante todas las jornadas.</p>
+</article>
+<article class="highlight reveal">
+<span class="highlight-icon"><i class="fa-solid fa-music"></i></span>
+<strong>Shows en vivo</strong>
+<p>Espectáculos, personajes y entretenimiento para disfrutar en familia.</p>
+</article>
+<article class="highlight reveal">
+<span class="highlight-icon"><i class="fa-solid fa-burger"></i></span>
+<strong>Food trucks</strong>
+<p>Un espacio gastronómico para acompañar una experiencia completa.</p>
+</article>
+</div>
+</section>
+<section class="gallery-section" id="galeria">
+<div class="container">
+<div class="gallery-head reveal">
+<span class="section-kicker">Momentos compartidos</span>
+<h2 class="section-title">La magia de cada edición.</h2>
+<p class="section-copy">Una galería general con público, luces, juegos, stands, shows y toda la alegría que se vive en la Feria del Juguete.</p>
+</div>
+<div class="gallery-grid reveal" id="galleryGrid">
+<button class="gallery-item" data-caption="Una feria para disfrutar y compartir en familia" type="button">
+<img alt="Familias disfrutando de una jornada especial" data-fallback="https://picsum.photos/seed/feria-familia-01/1000/1000" loading="lazy" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&amp;fit=crop&amp;w=1000&amp;h=1000&amp;q=85"/>
+<span class="gallery-caption"><small>Nuestra feria</small><strong>Compartir en familia</strong><span class="gallery-description">Un encuentro para disfrutar, jugar y crear recuerdos juntos.</span></span>
+</button>
+<button class="gallery-item" data-caption="Juegos, actividades y mucha imaginación" type="button">
+<img alt="Niños participando de juegos y actividades" data-fallback="https://picsum.photos/seed/feria-juegos-02/1000/1000" loading="lazy" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&amp;fit=crop&amp;w=1000&amp;h=1000&amp;q=85"/>
+<span class="gallery-caption"><small>Experiencias</small><strong>Juegos y diversión</strong><span class="gallery-description">Actividades pensadas para despertar la imaginación de grandes y chicos.</span></span>
+</button>
+<button class="gallery-item" data-caption="Marcas, jugueterías y emprendimientos en un solo lugar" type="button">
+<img alt="Juguetes y propuestas de los stands" data-fallback="https://picsum.photos/seed/feria-stands-03/1000/1000" loading="lazy" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&amp;fit=crop&amp;w=1000&amp;h=1000&amp;q=85"/>
+<span class="gallery-caption"><small>Recorrido</small><strong>Más de 200 stands</strong><span class="gallery-description">Marcas, jugueterías y emprendimientos con propuestas para descubrir.</span></span>
+</button>
+<button class="gallery-item" data-caption="Shows y espectáculos pensados para todas las edades" type="button">
+<img alt="Espectáculo familiar en vivo" data-fallback="https://picsum.photos/seed/feria-show-04/1000/1000" loading="lazy" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&amp;fit=crop&amp;w=1000&amp;h=1000&amp;q=85"/>
+<span class="gallery-caption"><small>Escenario</small><strong>Shows en vivo</strong><span class="gallery-description">Música, personajes y espectáculos para compartir en familia.</span></span>
+</button>
+<button class="gallery-item" data-caption="Sorteos, regalos y sorpresas durante cada jornada" type="button">
+<img alt="Regalos y premios de la feria" data-fallback="https://picsum.photos/seed/feria-premios-05/1000/1000" loading="lazy" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" src="https://images.unsplash.com/photo-1607453998774-d533f65dac99?auto=format&amp;fit=crop&amp;w=1000&amp;h=1000&amp;q=85"/>
+<span class="gallery-caption"><small>Sorpresas</small><strong>Premios y sorteos</strong><span class="gallery-description">Regalos y momentos especiales durante cada jornada.</span></span>
+</button>
+<button class="gallery-item" data-caption="Una experiencia llena de color, energía y alegría" type="button">
+<img alt="Familia compartiendo una experiencia alegre" data-fallback="https://picsum.photos/seed/feria-color-06/1000/1000" loading="lazy" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&amp;fit=crop&amp;w=1000&amp;h=1000&amp;q=85"/>
+<span class="gallery-caption"><small>La experiencia</small><strong>Luces, color y alegría</strong><span class="gallery-description">Una celebración llena de energía, emoción y creatividad.</span></span>
+</button>
+<button class="gallery-item" data-caption="Encuentros y recuerdos que quedan para siempre" type="button">
+<img alt="Juguetes y momentos para recordar" data-fallback="https://picsum.photos/seed/feria-recuerdos-07/1000/1000" loading="lazy" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&amp;fit=crop&amp;w=1000&amp;h=1000&amp;q=85"/>
+<span class="gallery-caption"><small>Recuerdos</small><strong>Momentos únicos</strong><span class="gallery-description">Encuentros que se transforman en historias para recordar.</span></span>
+</button>
+<button class="gallery-item" data-caption="Cuatro días para descubrir, jugar y celebrar juntos" type="button">
+<img alt="Celebración colorida para grandes y chicos" data-fallback="https://picsum.photos/seed/feria-fiesta-08/1000/1000" loading="lazy" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" src="https://images.unsplash.com/photo-1560961911-ba7ef651a56c?auto=format&amp;fit=crop&amp;w=1000&amp;h=1000&amp;q=85"/>
+<span class="gallery-caption"><small>Feria del Juguete</small><strong>Una gran fiesta</strong><span class="gallery-description">Cuatro días para descubrir, jugar y celebrar juntos.</span></span>
+</button>
+</div>
+</div>
+</section>
+<section class="history" id="historia">
+<div class="container history-grid">
+<div class="history-copy reveal">
+<span class="section-kicker">Nuestra historia</span>
+<h2 class="section-title">Una feria que crece junto a las familias.</h2>
+<p>La Feria del Juguete nació como un espacio de encuentro entre marcas, emprendimientos y familias. Con cada edición fue sumando propuestas, juegos, espectáculos y experiencias, hasta convertirse en uno de los eventos más esperados para celebrar el Día del Niño.</p>
+<p>En 2026 renovamos la propuesta y llegamos a un nuevo lugar para seguir compartiendo la alegría, la imaginación y la magia del juego.</p>
+</div>
+<div aria-label="La historia de la feria en números" class="history-stats reveal">
+<article class="history-stat">
+<i class="fa-solid fa-users"></i>
+<strong class="counter" data-prefix="+" data-target="200000">0</strong>
+<span>Personas nos visitaron</span>
+</article>
+<article class="history-stat">
+<i class="fa-regular fa-calendar-check"></i>
+<strong class="counter" data-target="13">0</strong>
+<span>Ediciones realizadas</span>
+</article>
+<article class="history-stat">
+<i class="fa-solid fa-trophy"></i>
+<strong class="counter" data-prefix="+" data-target="250">0</strong>
+<span>Premios entregados</span>
+</article>
+</div>
+<div class="history-cta reveal">
+<a class="btn" href="#participar">
+<i class="fa-solid fa-store"></i>
+            Quiero ser parte de la feria
+            <i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+</div>
+</section>
+<section class="participate" id="participar">
+<div class="container participate-grid">
+<div class="participate-copy reveal">
+<span class="section-kicker" style="color:#fff">Sumate a la edición 2026</span>
+<h2>Tu marca también puede ser parte.</h2>
+<p>Completá tus datos y escribinos por WhatsApp para recibir información sobre espacios, requisitos y participación.</p>
+<div class="participate-points">
+<div class="participate-point"><i class="fa-solid fa-check"></i><span>Espacios para marcas y emprendimientos.</span></div>
+<div class="participate-point"><i class="fa-solid fa-check"></i><span>Acompañamiento durante la inscripción.</span></div>
+<div class="participate-point"><i class="fa-solid fa-check"></i><span>Contacto directo con la organización.</span></div>
+</div>
+</div>
+<form class="participate-form reveal" id="participationForm" novalidate="">
+<div class="form-head">
+<span>Formulario de contacto</span>
+<h3>Quiero participar</h3>
+<p>Completá tus datos y abriremos el mensaje listo para enviar por WhatsApp.</p>
+</div>
+<div class="form-grid">
+<div class="form-group">
+<label for="name">Nombre y apellido *</label>
+<input autocomplete="name" class="form-control" id="name" name="name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="brand">Marca o emprendimiento *</label>
+<input class="form-control" id="brand" name="brand" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="phone">WhatsApp *</label>
+<input autocomplete="tel" class="form-control" id="phone" inputmode="tel" name="phone" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label for="email">Correo electrónico *</label>
+<input autocomplete="email" class="form-control" id="email" name="email" required="" type="email"/>
+</div>
+<div class="form-group full">
+<label for="category">Rubro *</label>
+<select class="form-control" id="category" name="category" required="">
+<option value="">Seleccioná una opción</option>
+<option>Juguetería</option>
+<option>Emprendimiento artesanal</option>
+<option>Indumentaria infantil</option>
+<option>Editorial o juegos didácticos</option>
+<option>Gastronomía</option>
+<option>Servicios y entretenimiento</option>
+<option>Otro rubro</option>
+</select>
+</div>
+<div class="form-group full">
+<label for="message">Contanos brevemente sobre tu propuesta</label>
+<textarea class="form-control" id="message" name="message" placeholder="Productos, servicios o tipo de stand que te gustaría presentar"></textarea>
+</div>
+</div>
+<div class="form-actions">
+<p class="form-note">Al enviar, se abrirá WhatsApp con tus datos. La información no se almacena en esta página.</p>
+<button class="btn btn-purple" type="submit">Quiero recibir información <i class="fa-brands fa-whatsapp"></i></button>
+</div>
+<div class="form-status" id="formStatus" role="status">Perfecto. Estamos preparando tu mensaje de WhatsApp.</div>
+</form>
+</div>
+</section>
+</main>
+<footer class="site-footer" id="contacto">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-panel footer-brand" id="footerBrand">
+<img alt="Feria del Juguete" class="footer-logo" onerror="document.getElementById('footerBrand').classList.add('logo-missing')" src="ferialogo.png"/>
+<span class="footer-logo-fallback">Feria del Juguete</span>
+</div>
+<div class="footer-panel">
+<h3 class="footer-title">Contacto</h3>
+<div class="footer-list">
+<a href="tel:+5492615031493"><i class="fa-solid fa-phone"></i>261 503-1493</a>
+<a href="mailto:info@feriadeljuguete.com.ar"><i class="fa-solid fa-envelope"></i>info@feriadeljuguete.com.ar</a>
+<span><i class="fa-solid fa-location-dot"></i>Parque San Vicente, Godoy Cruz</span>
+</div>
+</div>
+<div class="footer-panel">
+<h3 class="footer-title">Recorré</h3>
+<div class="footer-list">
+<a href="#mapa">Mapa y ubicación</a>
+<a href="#galeria">Galería</a>
+<a href="#historia">Nuestra historia</a>
+<a href="#participar">Participar</a>
+</div>
+</div>
+<div class="footer-panel">
+<h3 class="footer-title">Seguinos</h3>
+<div class="footer-social">
+<a aria-label="Instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
+<a aria-label="Facebook" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+<a aria-label="TikTok" href="#"><i class="fa-brands fa-tiktok"></i></a>
+<a aria-label="YouTube" href="#"><i class="fa-brands fa-youtube"></i></a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">© 2026 Feria del Juguete · Parque San Vicente, Godoy Cruz · Todos los derechos reservados.</div>
+</div>
+</footer>
+<div aria-hidden="true" aria-label="Visor de imágenes" aria-modal="true" class="lightbox" id="lightbox" role="dialog">
+<button aria-label="Cerrar imagen" class="lightbox-close" id="lightboxClose" type="button"><i class="fa-solid fa-xmark"></i></button>
+<button aria-label="Imagen anterior" class="lightbox-arrow lightbox-prev" id="lightboxPrev" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+<div class="lightbox-stage">
+<img alt="" class="lightbox-image" id="lightboxImage" src=""/>
+<p class="lightbox-caption" id="lightboxCaption"></p>
+</div>
+<button aria-label="Imagen siguiente" class="lightbox-arrow lightbox-next" id="lightboxNext" type="button"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+<a aria-label="Consultar por WhatsApp" class="floating-whatsapp" href="https://wa.me/5492615031493?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Feria%20del%20Juguete." rel="noopener" target="_blank">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+<script>
     "use strict";
 
     const WHATSAPP_NUMBER = "5492615031493";
+
+    /* Menú hamburguesa para celular */
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+    const mobileMenuPanel = document.getElementById("mobileMenuPanel");
+
+    const closeMobileMenu = () => {
+      if(!mobileMenuToggle || !mobileMenuPanel) return;
+      mobileMenuPanel.classList.remove("open");
+      mobileMenuPanel.setAttribute("aria-hidden","true");
+      mobileMenuToggle.setAttribute("aria-expanded","false");
+      mobileMenuToggle.setAttribute("aria-label","Abrir menú");
+      mobileMenuToggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+      document.body.classList.remove("mobile-menu-open");
+    };
+
+    if(mobileMenuToggle && mobileMenuPanel){
+      mobileMenuToggle.addEventListener("click",() => {
+        const willOpen = !mobileMenuPanel.classList.contains("open");
+
+        if(willOpen){
+          mobileMenuPanel.classList.add("open");
+          mobileMenuPanel.setAttribute("aria-hidden","false");
+          mobileMenuToggle.setAttribute("aria-expanded","true");
+          mobileMenuToggle.setAttribute("aria-label","Cerrar menú");
+          mobileMenuToggle.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+          document.body.classList.add("mobile-menu-open");
+        }else{
+          closeMobileMenu();
+        }
+      });
+
+      mobileMenuPanel.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click",closeMobileMenu);
+      });
+
+      document.addEventListener("click",(event) => {
+        if(
+          mobileMenuPanel.classList.contains("open") &&
+          !mobileMenuPanel.contains(event.target) &&
+          !mobileMenuToggle.contains(event.target)
+        ){
+          closeMobileMenu();
+        }
+      });
+
+      document.addEventListener("keydown",(event) => {
+        if(event.key === "Escape") closeMobileMenu();
+      });
+
+      window.addEventListener("resize",() => {
+        if(window.innerWidth > 760) closeMobileMenu();
+      });
+    }
+
 
     /* Animaciones de entrada */
     const revealElements = document.querySelectorAll(".reveal");
