@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24105d">
+  <meta name="description" content="Feria del Juguete 2026 en Parque San Vicente, Godoy Cruz. Juegos, sorteos, stands, food trucks, shows en vivo y actividades para toda la familia.">
+  <title>Feria del Juguete 2026 | Godoy Cruz</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    /*
+      TIPOGRAFÍA OFICIAL
+      Para ver Gotham Rounded exacta, colocá estos archivos dentro de /fonts:
+      - GothamRounded-Medium.woff2
+      - GothamRounded-Bold.woff2
+      Mientras tanto se usa Nunito como respaldo similar.
+    */
+    @font-face{
+      font-family:"Gotham Rounded";
+      src:local("Gotham Rounded Medium"),local("GothamRounded-Medium"),url("fonts/GothamRounded-Medium.woff2") format("woff2");
+      font-style:normal;
+      font-weight:400 600;
+      font-display:swap;
+    }
+
+    @font-face{
+      font-family:"Gotham Rounded";
+      src:local("Gotham Rounded Bold"),local("GothamRounded-Bold"),url("fonts/GothamRounded-Bold.woff2") format("woff2");
+      font-style:normal;
+      font-weight:700 900;
+      font-display:swap;
+    }
+    :root{
+      --purple-950:#16083f;
+      --purple-900:#25105d;
+      --purple-800:#351783;
+      --purple-700:#5422b8;
+      --purple-600:#7138dc;
+      --pink:#d81978;
+      --pink-light:#ff4da1;
+      --cyan:#05a9df;
+      --blue:#2f74dd;
+      --orange:#f7a400;
+      --yellow:#ffd43b;
+      --green:#25d366;
+      --ink:#271c34;
+      --muted:#756b7f;
+      --paper:#fffaf7;
+      --soft:#f7f1fb;
+      --white:#ffffff;
+      --line:rgba(45,17,92,.12);
+      --shadow:0 24px 64px rgba(37,16,93,.14);
+      --shadow-soft:0 14px 34px rgba(37,16,93,.10);
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:74px}
+    body{
+      min-width:320px;
+      overflow-x:hidden;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:"Gotham Rounded","Nunito",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.58;
+    }
+    body.lightbox-open{overflow:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    button{color:inherit}
+    .container{width:min(calc(100% - 38px),var(--max));margin-inline:auto}
+
+    .section-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:10px;
+      color:var(--pink);
+      font-size:.75rem;
+      font-weight:900;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .section-kicker::before{
+      width:34px;height:4px;border-radius:999px;
+      background:linear-gradient(90deg,var(--pink),var(--orange));
+      content:"";
+    }
+    .section-title{
+      max-width:830px;
+      color:var(--purple-900);
+      font-family:"Gotham Rounded","Nunito",sans-serif;
+      font-size:clamp(2.4rem,4.8vw,4.65rem);
+      font-weight:800;
+      letter-spacing:-.04em;
+      line-height:.91;
+    }
+    .section-copy{
+      max-width:700px;
+      margin-top:15px;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+    .btn{
+      display:inline-flex;
+      min-height:52px;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 24px;
+      border:0;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:.9rem;
+      font-weight:900;
+      transition:transform .22s ease,box-shadow .22s ease,filter .22s ease;
+    }
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--yellow),var(--orange));
+      box-shadow:0 14px 32px rgba(247,164,0,.31);
+      color:#342344;
+    }
+    .btn-purple{
+      background:linear-gradient(135deg,var(--purple-900),var(--purple-600));
+      box-shadow:0 14px 34px rgba(52,23,131,.27);
+      color:var(--white);
+    }
+
+    /* HEADER SOBRE LA PORTADA */
+    .hero{
+      position:relative;
+      isolation:isolate;
+      overflow:hidden;
+      background:var(--purple-900);
+    }
+    .hero img{width:100%;height:auto;object-fit:contain;object-position:center}
+    .hero::after{
+      position:absolute;
+      z-index:1;
+      inset:0;
+      background:linear-gradient(180deg,rgba(13,4,45,.70) 0%,rgba(13,4,45,.18) 18%,transparent 39%);
+      content:"";
+      pointer-events:none;
+    }
+    .site-header{
+      position:absolute;
+      z-index:20;
+      top:0;right:0;left:0;
+      padding:14px 0;
+    }
+    .header-inner{display:flex;align-items:center;justify-content:center}
+    .main-nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:8px 10px;
+      border:1px solid rgba(255,255,255,.23);
+      border-radius:999px;
+      background:rgba(23,7,62,.56);
+      box-shadow:0 14px 34px rgba(10,2,32,.20);
+      backdrop-filter:blur(14px);
+    }
+    .main-nav a{
+      display:inline-flex;
+      min-height:38px;
+      align-items:center;
+      justify-content:center;
+      padding:8px 15px;
+      border-radius:999px;
+      color:var(--white);
+      font-size:.79rem;
+      font-weight:900;
+      white-space:nowrap;
+      transition:background .2s ease,color .2s ease;
+    }
+    .main-nav a:hover{background:rgba(255,255,255,.13)}
+    .main-nav .nav-cta{background:linear-gradient(135deg,var(--yellow),var(--orange));color:#332344}
+
+    /* MAPA INMEDIATAMENTE DESPUÉS DE LA PORTADA */
+    .map-intro{
+      position:relative;
+      overflow:hidden;
+      padding:64px 0 60px;
+      background:linear-gradient(180deg,#ffffff 0%,#fff8fc 100%);
+    }
+    .map-intro::before{display:none}
+    .map-heading{text-align:center}
+    .map-heading .section-title{margin-inline:auto}
+    .map-heading .section-copy{margin-inline:auto}
+    .map-card{
+      position:relative;
+      width:min(100%,1040px);
+      overflow:hidden;
+      margin:32px auto 0;
+      border:1px solid rgba(52,23,131,.10);
+      border-radius:30px;
+      background:var(--white);
+      box-shadow:0 20px 52px rgba(37,16,93,.13);
+    }
+    .desktop-map{position:relative;min-height:340px;background:#fff}
+    .desktop-map img{width:100%;height:auto;max-height:520px;min-height:0;object-fit:contain;object-position:center;background:#fff}
+    .map-placeholder{
+      position:absolute;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+      text-align:center;
+      background:
+        linear-gradient(rgba(84,34,184,.055) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(84,34,184,.055) 1px,transparent 1px),
+        linear-gradient(135deg,#f8f2fb,#fff);
+      background-size:34px 34px;
+    }
+    .desktop-map.missing .map-placeholder{display:flex}
+    .desktop-map.missing > img{display:none}
+    .map-placeholder i{display:block;margin-bottom:14px;color:var(--pink);font-size:3rem}
+    .map-placeholder strong{display:block;color:var(--purple-900);font-family:"Gotham Rounded","Nunito",sans-serif;font-size:2rem;line-height:1}
+    .map-placeholder span{display:block;margin-top:9px;color:var(--muted);font-size:.9rem}
+    .mobile-google-map{display:none}
+    .mobile-google-map iframe{display:block;width:100%;height:410px;border:0}
+    .map-action{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      background:linear-gradient(135deg,#22105b,#4f20ae);
+    }
+    .map-action .btn{
+      width:min(100%,560px);
+      min-height:62px;
+      background:linear-gradient(135deg,var(--pink-light),var(--orange));
+      box-shadow:0 16px 34px rgba(216,25,120,.28);
+      color:var(--white);
+      font-size:1rem;
+    }
+
+    /* DATOS PRINCIPALES */
+    .highlights{padding:0 0 72px;background:#fff8fc}
+    .highlight-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .highlight{
+      position:relative;
+      min-height:210px;
+      overflow:hidden;
+      padding:24px 20px;
+      border-radius:25px;
+      box-shadow:var(--shadow-soft);
+      color:var(--white);
+    }
+    .highlight:nth-child(1){background:linear-gradient(155deg,#6c31cf,#321070)}
+    .highlight:nth-child(2){background:linear-gradient(155deg,#e52488,#ad0d66)}
+    .highlight:nth-child(3){background:linear-gradient(155deg,#10bae9,#087db5)}
+    .highlight:nth-child(4){background:linear-gradient(155deg,#ffae18,#f06716)}
+    .highlight::after{
+      position:absolute;right:-34px;bottom:-45px;
+      width:130px;height:130px;
+      border:2px solid rgba(255,255,255,.18);
+      border-radius:38px;
+      content:"";
+      transform:rotate(26deg);
+    }
+    .highlight-icon{
+      position:relative;z-index:2;
+      display:grid;width:50px;height:50px;
+      margin-inline:auto;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.24);
+      border-radius:16px;
+      background:rgba(255,255,255,.14);
+      font-size:1.1rem;
+    }
+    .highlight strong{
+      position:relative;z-index:2;
+      display:block;
+      margin-top:25px;
+      text-align:center;
+      font-family:"Gotham Rounded","Nunito",sans-serif;
+      font-size:clamp(1.8rem,2.8vw,2.7rem);
+      letter-spacing:-.035em;
+      line-height:.88;
+    }
+    .highlight p{position:relative;z-index:2;margin-top:10px;color:rgba(255,255,255,.84);font-size:.79rem;font-weight:800;line-height:1.45;text-align:center}
+
+    /* GALERÍA GENERAL */
+    .gallery-section{
+      position:relative;
+      overflow:hidden;
+      padding:78px 0;
+      background:
+        radial-gradient(circle at 8% 8%,rgba(255,77,161,.13),transparent 24%),
+        radial-gradient(circle at 94% 92%,rgba(5,169,223,.13),transparent 24%),
+        linear-gradient(rgba(52,23,131,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(52,23,131,.035) 1px,transparent 1px),
+        var(--soft);
+      background-size:auto,auto,34px 34px,34px 34px,auto;
+    }
+    .gallery-head{text-align:center}
+    .gallery-head .section-title,.gallery-head .section-copy{margin-inline:auto}
+    .gallery-grid{
+      display:grid;
+      margin-top:36px;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+    }
+    .gallery-item{
+      position:relative;
+      min-width:0;
+      overflow:hidden;
+      aspect-ratio:1/1;
+      border:0;
+      border-radius:0;
+      background:linear-gradient(135deg,#6629a5,#f43f86 52%,#ff9b12);
+      box-shadow:0 13px 31px rgba(37,16,93,.12);
+      cursor:zoom-in;
+      isolation:isolate;
+      transform:translateZ(0);
+      transition:box-shadow .35s ease,transform .35s ease;
+    }
+    .gallery-item:nth-child(2n){background:linear-gradient(135deg,#08a9df,#4f20ae 60%,#d81978)}
+    .gallery-item:nth-child(3n){background:linear-gradient(135deg,#ff9d12,#f43f86 55%,#5422b8)}
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      transform:scale(1.001);
+      transition:transform 2.8s cubic-bezier(.16,.72,.18,1),filter .65s ease;
+      will-change:transform;
+    }
+    .gallery-item::before{
+      position:absolute;
+      z-index:1;
+      inset:0;
+      border:1px solid rgba(255,255,255,.22);
+      content:"";
+      pointer-events:none;
+    }
+    .gallery-item::after{
+      position:absolute;
+      z-index:1;
+      inset:0;
+      background:linear-gradient(180deg,rgba(19,5,52,0) 40%,rgba(23,6,56,.93) 100%);
+      content:"";
+      opacity:1;
+      transition:background .55s ease;
+      pointer-events:none;
+    }
+    .gallery-caption{
+      position:absolute;
+      z-index:2;
+      right:0;
+      bottom:0;
+      left:0;
+      padding:17px;
+      color:var(--white);
+      opacity:1;
+      transform:translateY(0);
+      transition:transform .45s ease;
+      pointer-events:none;
+      text-align:left;
+    }
+    .gallery-caption small{display:block;color:rgba(255,255,255,.76);font-size:.60rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+    .gallery-caption strong{display:block;margin-top:3px;font-family:"Gotham Rounded","Nunito",sans-serif;font-size:1.08rem;line-height:1.05}
+    .gallery-description{display:block;margin-top:6px;color:rgba(255,255,255,.84);font-size:.68rem;font-weight:700;line-height:1.35}
+    .gallery-item:hover,
+    .gallery-item:focus-visible{box-shadow:0 22px 54px rgba(37,16,93,.22);transform:translateY(-3px)}
+    .gallery-item:hover img,
+    .gallery-item:focus-visible img{transform:scale(1.16);filter:saturate(1.06)}
+    .gallery-item:hover::after,
+    .gallery-item:focus-visible::after{background:linear-gradient(180deg,rgba(19,5,52,.05) 25%,rgba(23,6,56,.97) 100%)}
+    .gallery-item:hover .gallery-caption,
+    .gallery-item:focus-visible .gallery-caption{transform:translateY(-4px)}
+    .gallery-item:focus-visible{outline:4px solid var(--yellow);outline-offset:3px}
+
+    /* HISTORIA */
+    .history{padding:82px 0;background:var(--white)}
+    .history-grid{display:grid;align-items:center;grid-template-columns:1.05fr .95fr;gap:56px}
+    .history-copy p{max-width:640px;margin-top:19px;color:var(--muted);font-size:1rem}
+    .history-copy .btn{margin-top:25px}
+    .history-cta{
+      display:flex;
+      grid-column:1/-1;
+      justify-content:center;
+      margin-top:2px;
+    }
+    .history-cta .btn{
+      width:min(100%,590px);
+      min-height:64px;
+      padding-inline:28px;
+      background:linear-gradient(135deg,var(--pink-light),var(--orange));
+      box-shadow:0 17px 39px rgba(216,25,120,.25);
+      color:var(--white);
+      font-size:1.02rem;
+    }
+    .history-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+    .history-stat{
+      min-height:185px;
+      padding:25px 14px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:linear-gradient(180deg,#fff,#fbf6fd);
+      box-shadow:var(--shadow-soft);
+      text-align:center;
+    }
+    .history-stat i{display:grid;width:46px;height:46px;margin-inline:auto;place-items:center;border-radius:15px;background:var(--soft);color:var(--pink)}
+    .history-stat strong{display:block;max-width:100%;margin-top:24px;color:var(--purple-900);font-family:"Gotham Rounded","Nunito",sans-serif;font-size:clamp(1.55rem,2.35vw,2.45rem);font-variant-numeric:tabular-nums;letter-spacing:-.055em;line-height:.9;white-space:nowrap}
+    .history-stat:first-child strong{font-size:clamp(1.42rem,2.15vw,2.28rem)}
+    .history-stat span{display:block;margin-top:9px;color:var(--muted);font-size:.67rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
+
+    /* PARTICIPACIÓN */
+    .participate{
+      position:relative;
+      overflow:hidden;
+      padding:78px 0;
+      background:
+        radial-gradient(circle at 10% 15%,rgba(255,212,59,.32),transparent 24%),
+        radial-gradient(circle at 92% 88%,rgba(5,169,223,.28),transparent 27%),
+        linear-gradient(120deg,#f59c09 0%,#dc1b7e 44%,#4f20ae 100%);
+      color:var(--white);
+    }
+    .participate::before,.participate::after{position:absolute;border:2px solid rgba(255,255,255,.17);content:""}
+    .participate::before{top:-105px;left:-88px;width:270px;height:270px;border-radius:75px;transform:rotate(27deg)}
+    .participate::after{right:-95px;bottom:-120px;width:300px;height:300px;border-radius:50%}
+    .participate-grid{position:relative;display:grid;align-items:center;grid-template-columns:.82fr 1.18fr;gap:50px}
+    .participate-copy h2{max-width:520px;font-family:"Gotham Rounded","Nunito",sans-serif;font-size:clamp(2.7rem,4.8vw,4.9rem);letter-spacing:-.04em;line-height:.87}
+    .participate-copy p{max-width:470px;margin-top:17px;color:rgba(255,255,255,.87);font-size:.96rem}
+    .participate-points{display:grid;gap:11px;margin-top:23px}
+    .participate-point{display:flex;align-items:center;gap:11px;font-size:.85rem;font-weight:800}
+    .participate-point i{display:grid;width:32px;height:32px;flex:0 0 auto;place-items:center;border-radius:10px;background:rgba(255,255,255,.16);color:var(--yellow)}
+    .participate-form{padding:29px;border:1px solid rgba(255,255,255,.52);border-radius:29px;background:rgba(255,255,255,.97);box-shadow:0 26px 62px rgba(47,10,72,.25);color:var(--ink)}
+    .form-head{margin-bottom:20px}
+    .form-head span{color:var(--pink);font-size:.7rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+    .form-head h3{margin-top:4px;color:var(--purple-900);font-family:"Gotham Rounded","Nunito",sans-serif;font-size:1.95rem;line-height:1}
+    .form-head p{margin-top:7px;color:var(--muted);font-size:.81rem}
+    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+    .form-group{display:grid;gap:6px;text-align:left}
+    .form-group.full{grid-column:1/-1}
+    .form-group label{color:var(--purple-900);font-size:.74rem;font-weight:900}
+    .form-control{width:100%;min-height:47px;padding:11px 13px;border:1px solid rgba(70,24,111,.16);border-radius:13px;background:#fff;color:var(--ink);outline:none;transition:border-color .2s ease,box-shadow .2s ease}
+    .form-control:focus{border-color:rgba(84,34,184,.52);box-shadow:0 0 0 4px rgba(84,34,184,.09)}
+    textarea.form-control{min-height:98px;resize:vertical}
+    .form-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:17px}
+    .form-note{max-width:285px;color:var(--muted);font-size:.7rem;line-height:1.45}
+    .form-status{display:none;margin-top:13px;padding:10px 12px;border-radius:12px;background:#eefaf2;color:#126733;font-size:.79rem;font-weight:800}
+    .form-status.visible{display:block}
+
+    /* FOOTER LIMPIO Y COLORIDO */
+    .site-footer{
+      position:relative;
+      overflow:hidden;
+      padding:46px 0 17px;
+      background:
+        radial-gradient(circle at 8% 0%,rgba(216,25,120,.22),transparent 26%),
+        radial-gradient(circle at 92% 100%,rgba(5,169,223,.18),transparent 28%),
+        linear-gradient(145deg,#16083f 0%,#25105d 55%,#351783 100%);
+      color:var(--white);
+    }
+    .site-footer::before{
+      position:absolute;
+      top:-110px;
+      left:8%;
+      width:210px;
+      height:210px;
+      border:2px solid rgba(255,255,255,.07);
+      border-radius:55px;
+      content:"";
+      transform:rotate(25deg);
+    }
+    .site-footer::after{
+      position:absolute;
+      right:-100px;
+      bottom:-150px;
+      width:310px;
+      height:310px;
+      border:2px solid rgba(255,255,255,.06);
+      border-radius:50%;
+      content:"";
+    }
+    .footer-grid{
+      position:relative;
+      z-index:2;
+      display:grid;
+      align-items:start;
+      grid-template-columns:1.25fr 1fr .82fr 1fr;
+      gap:38px;
+    }
+    .footer-panel{min-height:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none}
+    .footer-brand{display:flex;min-height:120px;align-items:flex-start;justify-content:flex-start;text-align:left}
+    .footer-logo{width:230px;max-width:100%;object-fit:contain;object-position:left top}
+    .footer-logo-fallback{display:none;color:var(--white);font-family:"Gotham Rounded","Nunito",sans-serif;font-size:1.75rem;font-weight:900;line-height:1.05}
+    .footer-brand.logo-missing .footer-logo{display:none}
+    .footer-brand.logo-missing .footer-logo-fallback{display:block}
+    .footer-title{margin-bottom:15px;color:var(--white);font-family:"Gotham Rounded","Nunito",sans-serif;font-size:1rem;font-weight:900;letter-spacing:.02em;text-transform:uppercase}
+    .footer-list{display:grid;gap:10px;color:rgba(255,255,255,.76);font-size:.81rem}
+    .footer-list span,.footer-list a{display:flex;align-items:flex-start;gap:9px}
+    .footer-list i{width:17px;margin-top:3px;color:var(--yellow);text-align:center}
+    .footer-list a{transition:color .2s ease,transform .2s ease}
+    .footer-list a:hover{color:var(--white);transform:translateX(3px)}
+    .footer-social{display:flex;flex-wrap:wrap;gap:10px}
+    .footer-social a{display:grid;width:46px;height:46px;place-items:center;border:2px solid rgba(255,255,255,.24);border-radius:50%;color:var(--white);font-size:1.15rem;box-shadow:0 10px 24px rgba(7,2,28,.18);transition:transform .22s ease,filter .22s ease}
+    .footer-social a:nth-child(1){background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}
+    .footer-social a:nth-child(2){background:#1877f2}
+    .footer-social a:nth-child(3){background:#111;text-shadow:-2px 0 #25f4ee,2px 0 #fe2c55}
+    .footer-social a:nth-child(4){background:#ff0000}
+    .footer-social a:hover{transform:translateY(-4px);filter:brightness(1.08)}
+    .footer-bottom{position:relative;z-index:2;margin-top:30px;padding-top:14px;border-top:1px solid rgba(255,255,255,.11);color:rgba(255,255,255,.56);font-size:.72rem;text-align:center}
+
+    /* LIGHTBOX */
+    .lightbox{position:fixed;z-index:3000;inset:0;display:grid;padding:22px;place-items:center;background:rgba(15,4,39,.95);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
+    .lightbox.open{opacity:1;visibility:visible}
+    .lightbox-stage{display:grid;width:min(92vw,940px);max-height:90vh;place-items:center}
+    .lightbox-image{width:auto;max-width:100%;max-height:78vh;object-fit:contain;box-shadow:0 30px 90px rgba(0,0,0,.48);transform:scale(.93);transition:transform .35s ease}
+    .lightbox.open .lightbox-image{transform:scale(1)}
+    .lightbox-caption{margin-top:14px;color:rgba(255,255,255,.82);font-size:.84rem;font-weight:800;text-align:center}
+    .lightbox-close,.lightbox-arrow{position:absolute;z-index:2;display:grid;width:47px;height:47px;place-items:center;border:1px solid rgba(255,255,255,.23);border-radius:50%;background:rgba(255,255,255,.11);color:var(--white);cursor:pointer;backdrop-filter:blur(10px)}
+    .lightbox-close{top:17px;right:17px}
+    .lightbox-arrow{top:50%;transform:translateY(-50%)}
+    .lightbox-prev{left:17px}.lightbox-next{right:17px}
+
+    /* WHATSAPP Y ANIMACIONES */
+    .floating-whatsapp{position:fixed;z-index:950;right:18px;bottom:18px;display:grid;width:59px;height:59px;place-items:center;border:4px solid var(--white);border-radius:50%;background:var(--green);box-shadow:0 16px 35px rgba(24,117,57,.35);color:var(--white);font-size:1.65rem;transition:transform .2s ease}
+    .floating-whatsapp:hover{transform:scale(1.08) rotate(-5deg)}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .66s ease,transform .66s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .highlight:nth-child(2),.gallery-item:nth-child(2),.history-stat:nth-child(2){transition-delay:.08s}
+    .highlight:nth-child(3),.gallery-item:nth-child(3),.history-stat:nth-child(3){transition-delay:.15s}
+    .highlight:nth-child(4),.gallery-item:nth-child(4){transition-delay:.22s}
+
+    @media (max-width:1020px){
+      .history-grid,.participate-grid{grid-template-columns:1fr}
+      .history-grid{gap:38px}
+      .history-stats{max-width:690px}
+      .gallery-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width:760px){
+      html{scroll-padding-top:64px}
+      .container{width:min(calc(100% - 20px),var(--max))}
+      .site-header{padding:7px 0}
+      .header-inner{overflow-x:auto;scrollbar-width:none;justify-content:flex-start}
+      .header-inner::-webkit-scrollbar{display:none}
+      .main-nav{min-width:max-content;margin-inline:auto;padding:6px 7px;gap:3px;background:rgba(23,7,62,.64)}
+      .main-nav a{min-height:34px;padding:7px 11px;font-size:.67rem}
+      .main-nav a:nth-child(4){display:none}
+      .hero img{width:100%;height:auto;min-height:0;object-fit:contain}
+
+      .map-intro{padding:48px 0 46px}
+      .map-card{width:min(100%,680px);margin-top:26px;border-radius:23px}
+      .desktop-map{display:none}
+      .mobile-google-map{display:block}
+      .mobile-google-map iframe{height:330px}
+      .map-action{padding:14px}
+      .map-action .btn{min-height:56px;padding-inline:14px;font-size:.9rem}
+
+      .highlights{padding-bottom:52px}
+      .highlight-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+      .highlight{min-height:164px;padding:17px 13px;border-radius:19px;text-align:center}
+      .highlight-icon{width:42px;height:42px;margin-inline:auto;border-radius:13px;font-size:.95rem}
+      .highlight strong{margin-top:20px;font-size:1.38rem}
+      .highlight p{margin-top:7px;font-size:.67rem}
+
+      .gallery-section,.history,.participate{padding:54px 0}
+      .section-kicker{justify-content:center}
+      .section-title,.section-copy{margin-inline:auto;text-align:center}
+      .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:27px}
+      .gallery-caption{padding:10px}
+      .gallery-caption strong{font-size:.82rem}
+      .gallery-caption small{font-size:.48rem}
+      .gallery-description{margin-top:4px;font-size:.56rem;line-height:1.25}
+      .gallery-item:hover,.gallery-item:focus-visible{transform:none}
+      .history-cta{grid-column:1/-1;margin-top:4px}
+      .history-cta .btn{min-height:58px;padding-inline:16px;font-size:.9rem}
+
+      .history-grid{text-align:center}
+      .history-copy p{margin-inline:auto}
+      .history-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+      .history-stat{min-height:142px;padding:16px 7px;border-radius:18px}
+      .history-stat i{width:38px;height:38px;border-radius:12px;font-size:.86rem}
+      .history-stat strong{margin-top:20px;font-size:clamp(.92rem,4.35vw,1.25rem);letter-spacing:-.065em}
+      .history-stat:first-child strong{font-size:clamp(.84rem,4vw,1.12rem)}
+      .history-stat span{margin-top:7px;font-size:.51rem;line-height:1.2}
+
+      .participate-grid{gap:31px}
+      .participate-copy{text-align:center}
+      .participate-copy h2,.participate-copy p{margin-inline:auto}
+      .participate-points{width:min(100%,430px);margin-inline:auto;text-align:left}
+      .participate-form{width:min(100%,610px);margin-inline:auto;padding:22px 16px;border-radius:23px}
+      .form-head{text-align:center}
+      .form-grid{grid-template-columns:1fr}
+      .form-group.full{grid-column:auto}
+      .form-actions{align-items:stretch;flex-direction:column-reverse}
+      .form-actions .btn{width:100%}
+      .form-note{max-width:none;text-align:center}
+
+      .site-footer{padding:34px 0 12px}
+      .footer-grid{grid-template-columns:1fr;gap:21px;text-align:center}
+      .footer-panel{min-height:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+      .footer-brand{min-height:88px;align-items:center;justify-content:center}
+      .footer-logo{width:185px;margin-inline:auto;object-position:center}
+      .footer-title{margin-bottom:8px;font-size:.98rem}
+      .footer-list span,.footer-list a,.footer-social{justify-content:center}
+      .footer-social{margin-inline:auto}
+      .footer-bottom{margin-top:22px;padding-top:11px}
+      .floating-whatsapp{right:12px;bottom:12px;width:55px;height:55px}
+      .lightbox-arrow{top:auto;bottom:16px;transform:none}
+    }
+
+    @media (max-width:390px){
+      .container{width:min(calc(100% - 16px),var(--max))}
+      .main-nav a{padding-inline:9px;font-size:.63rem}
+      .highlight strong{font-size:1.2rem}
+      .highlight p{font-size:.62rem}
+      .history-stat strong{font-size:.92rem}
+      .history-stat:first-child strong{font-size:.82rem}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <!--
+    ARCHIVOS PARA COLOCAR JUNTO A ESTE HTML:
+    - feria.jpeg        Portada principal
+    - mapa.jpg          Mapa diseñado para computadora
+    - ferialogo.png     Logo del footer (opcional: si no está, aparece el nombre en texto)
+
+    La galería utiliza imágenes externas de demostración y puede reemplazarse después por fotos reales.
+    Cambiar el número 5492615031493 por el WhatsApp definitivo.
+    Cambiar los enlaces # de las redes sociales por los enlaces reales.
+  -->
+
+  <section class="hero" id="inicio" aria-label="Portada de la Feria del Juguete 2026">
+    <img src="feria.jpeg" alt="Feria del Juguete Día del Niño 2026 en Parque San Vicente, Godoy Cruz">
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#mapa">Mapa</a>
+          <a href="#galeria">Galería</a>
+          <a href="#historia">La feria</a>
+          <a class="nav-cta" href="#participar">Participar</a>
+        </nav>
+      </div>
+    </header>
+  </section>
+
+  <main>
+    <section class="map-intro" id="mapa">
+      <div class="container">
+        <div class="map-heading reveal">
+          <span class="section-kicker">Nuevo lugar</span>
+          <h1 class="section-title">Ubicá la feria y empezá a vivir la experiencia.</h1>
+          <p class="section-copy">Mirá el plano completo de la feria y encontrá fácilmente cada espacio. En celular vas a ver directamente la ubicación interactiva de Google Maps.</p>
+        </div>
+
+        <div class="map-card reveal">
+          <div class="desktop-map" id="desktopMap">
+            <img src="mapa.jpg" alt="Mapa general de la Feria del Juguete" onerror="document.getElementById('desktopMap').classList.add('missing')">
+            <div class="map-placeholder" aria-hidden="true">
+              <div>
+                <i class="fa-solid fa-map-location-dot"></i>
+                <strong>Acá va mapa.jpg</strong>
+                <span>Colocá mapa.jpg en la misma carpeta del HTML y se mostrará automáticamente en computadora.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mobile-google-map">
+            <iframe
+              title="Ubicación del Parque San Vicente en Godoy Cruz"
+              src="https://maps.google.com/maps?q=Parque%20San%20Vicente%2C%20Godoy%20Cruz%2C%20Mendoza&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <div class="map-action">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Parque+San+Vicente+Godoy+Cruz+Mendoza" target="_blank" rel="noopener">
+              <i class="fa-solid fa-location-arrow"></i>
+              Ver ubicación por Google Maps
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlights" aria-label="Características principales de la feria">
+      <div class="container highlight-grid">
+        <article class="highlight reveal">
+          <span class="highlight-icon"><i class="fa-solid fa-store"></i></span>
+          <strong>+200 stands</strong>
+          <p>Marcas, jugueterías, emprendimientos y propuestas para descubrir.</p>
+        </article>
+        <article class="highlight reveal">
+          <span class="highlight-icon"><i class="fa-solid fa-gift"></i></span>
+          <strong>Juegos y sorteos</strong>
+          <p>Actividades, experiencias y premios durante todas las jornadas.</p>
+        </article>
+        <article class="highlight reveal">
+          <span class="highlight-icon"><i class="fa-solid fa-music"></i></span>
+          <strong>Shows en vivo</strong>
+          <p>Espectáculos, personajes y entretenimiento para disfrutar en familia.</p>
+        </article>
+        <article class="highlight reveal">
+          <span class="highlight-icon"><i class="fa-solid fa-burger"></i></span>
+          <strong>Food trucks</strong>
+          <p>Un espacio gastronómico para acompañar una experiencia completa.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="galeria">
+      <div class="container">
+        <div class="gallery-head reveal">
+          <span class="section-kicker">Momentos compartidos</span>
+          <h2 class="section-title">La magia de cada edición.</h2>
+          <p class="section-copy">Una galería general con público, luces, juegos, stands, shows y toda la alegría que se vive en la Feria del Juguete.</p>
+        </div>
+
+        <div class="gallery-grid reveal" id="galleryGrid">
+          <button class="gallery-item" type="button" data-caption="Una feria para disfrutar y compartir en familia">
+            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-familia-01/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Familias disfrutando de una jornada especial" loading="lazy">
+            <span class="gallery-caption"><small>Nuestra feria</small><strong>Compartir en familia</strong><span class="gallery-description">Un encuentro para disfrutar, jugar y crear recuerdos juntos.</span></span>
+          </button>
+          <button class="gallery-item" type="button" data-caption="Juegos, actividades y mucha imaginación">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-juegos-02/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Niños participando de juegos y actividades" loading="lazy">
+            <span class="gallery-caption"><small>Experiencias</small><strong>Juegos y diversión</strong><span class="gallery-description">Actividades pensadas para despertar la imaginación de grandes y chicos.</span></span>
+          </button>
+          <button class="gallery-item" type="button" data-caption="Marcas, jugueterías y emprendimientos en un solo lugar">
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-stands-03/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Juguetes y propuestas de los stands" loading="lazy">
+            <span class="gallery-caption"><small>Recorrido</small><strong>Más de 200 stands</strong><span class="gallery-description">Marcas, jugueterías y emprendimientos con propuestas para descubrir.</span></span>
+          </button>
+          <button class="gallery-item" type="button" data-caption="Shows y espectáculos pensados para todas las edades">
+            <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-show-04/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Espectáculo familiar en vivo" loading="lazy">
+            <span class="gallery-caption"><small>Escenario</small><strong>Shows en vivo</strong><span class="gallery-description">Música, personajes y espectáculos para compartir en familia.</span></span>
+          </button>
+          <button class="gallery-item" type="button" data-caption="Sorteos, regalos y sorpresas durante cada jornada">
+            <img src="https://images.unsplash.com/photo-1607453998774-d533f65dac99?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-premios-05/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Regalos y premios de la feria" loading="lazy">
+            <span class="gallery-caption"><small>Sorpresas</small><strong>Premios y sorteos</strong><span class="gallery-description">Regalos y momentos especiales durante cada jornada.</span></span>
+          </button>
+          <button class="gallery-item" type="button" data-caption="Una experiencia llena de color, energía y alegría">
+            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-color-06/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Familia compartiendo una experiencia alegre" loading="lazy">
+            <span class="gallery-caption"><small>La experiencia</small><strong>Luces, color y alegría</strong><span class="gallery-description">Una celebración llena de energía, emoción y creatividad.</span></span>
+          </button>
+          <button class="gallery-item" type="button" data-caption="Encuentros y recuerdos que quedan para siempre">
+            <img src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-recuerdos-07/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Juguetes y momentos para recordar" loading="lazy">
+            <span class="gallery-caption"><small>Recuerdos</small><strong>Momentos únicos</strong><span class="gallery-description">Encuentros que se transforman en historias para recordar.</span></span>
+          </button>
+          <button class="gallery-item" type="button" data-caption="Cuatro días para descubrir, jugar y celebrar juntos">
+            <img src="https://images.unsplash.com/photo-1560961911-ba7ef651a56c?auto=format&fit=crop&w=1000&h=1000&q=85" data-fallback="https://picsum.photos/seed/feria-fiesta-08/1000/1000" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback')}else{this.style.display='none'}" alt="Celebración colorida para grandes y chicos" loading="lazy">
+            <span class="gallery-caption"><small>Feria del Juguete</small><strong>Una gran fiesta</strong><span class="gallery-description">Cuatro días para descubrir, jugar y celebrar juntos.</span></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="history" id="historia">
+      <div class="container history-grid">
+        <div class="history-copy reveal">
+          <span class="section-kicker">Nuestra historia</span>
+          <h2 class="section-title">Una feria que crece junto a las familias.</h2>
+          <p>La Feria del Juguete nació como un espacio de encuentro entre marcas, emprendimientos y familias. Con cada edición fue sumando propuestas, juegos, espectáculos y experiencias, hasta convertirse en uno de los eventos más esperados para celebrar el Día del Niño.</p>
+          <p>En 2026 renovamos la propuesta y llegamos a un nuevo lugar para seguir compartiendo la alegría, la imaginación y la magia del juego.</p>
+        </div>
+
+        <div class="history-stats reveal" aria-label="La historia de la feria en números">
+          <article class="history-stat">
+            <i class="fa-solid fa-users"></i>
+            <strong class="counter" data-target="200000" data-prefix="+">0</strong>
+            <span>Personas nos visitaron</span>
+          </article>
+          <article class="history-stat">
+            <i class="fa-regular fa-calendar-check"></i>
+            <strong class="counter" data-target="13">0</strong>
+            <span>Ediciones realizadas</span>
+          </article>
+          <article class="history-stat">
+            <i class="fa-solid fa-trophy"></i>
+            <strong class="counter" data-target="250" data-prefix="+">0</strong>
+            <span>Premios entregados</span>
+          </article>
+        </div>
+
+        <div class="history-cta reveal">
+          <a class="btn" href="#participar">
+            <i class="fa-solid fa-store"></i>
+            Quiero ser parte de la feria
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="participate" id="participar">
+      <div class="container participate-grid">
+        <div class="participate-copy reveal">
+          <span class="section-kicker" style="color:#fff">Sumate a la edición 2026</span>
+          <h2>Tu marca también puede ser parte.</h2>
+          <p>Completá tus datos y escribinos por WhatsApp para recibir información sobre espacios, requisitos y participación.</p>
+          <div class="participate-points">
+            <div class="participate-point"><i class="fa-solid fa-check"></i><span>Espacios para marcas y emprendimientos.</span></div>
+            <div class="participate-point"><i class="fa-solid fa-check"></i><span>Acompañamiento durante la inscripción.</span></div>
+            <div class="participate-point"><i class="fa-solid fa-check"></i><span>Contacto directo con la organización.</span></div>
+          </div>
+        </div>
+
+        <form class="participate-form reveal" id="participationForm" novalidate>
+          <div class="form-head">
+            <span>Formulario de contacto</span>
+            <h3>Quiero participar</h3>
+            <p>Completá tus datos y abriremos el mensaje listo para enviar por WhatsApp.</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Nombre y apellido *</label>
+              <input class="form-control" id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+              <label for="brand">Marca o emprendimiento *</label>
+              <input class="form-control" id="brand" name="brand" type="text" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">WhatsApp *</label>
+              <input class="form-control" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input class="form-control" id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="form-group full">
+              <label for="category">Rubro *</label>
+              <select class="form-control" id="category" name="category" required>
+                <option value="">Seleccioná una opción</option>
+                <option>Juguetería</option>
+                <option>Emprendimiento artesanal</option>
+                <option>Indumentaria infantil</option>
+                <option>Editorial o juegos didácticos</option>
+                <option>Gastronomía</option>
+                <option>Servicios y entretenimiento</option>
+                <option>Otro rubro</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="message">Contanos brevemente sobre tu propuesta</label>
+              <textarea class="form-control" id="message" name="message" placeholder="Productos, servicios o tipo de stand que te gustaría presentar"></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <p class="form-note">Al enviar, se abrirá WhatsApp con tus datos. La información no se almacena en esta página.</p>
+            <button class="btn btn-purple" type="submit">Quiero recibir información <i class="fa-brands fa-whatsapp"></i></button>
+          </div>
+          <div class="form-status" id="formStatus" role="status">Perfecto. Estamos preparando tu mensaje de WhatsApp.</div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contacto">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-panel footer-brand" id="footerBrand">
+          <img class="footer-logo" src="ferialogo.png" alt="Feria del Juguete" onerror="document.getElementById('footerBrand').classList.add('logo-missing')">
+          <span class="footer-logo-fallback">Feria del Juguete</span>
+        </div>
+
+        <div class="footer-panel">
+          <h3 class="footer-title">Contacto</h3>
+          <div class="footer-list">
+            <a href="tel:+5492615031493"><i class="fa-solid fa-phone"></i>261 503-1493</a>
+            <a href="mailto:info@feriadeljuguete.com.ar"><i class="fa-solid fa-envelope"></i>info@feriadeljuguete.com.ar</a>
+            <span><i class="fa-solid fa-location-dot"></i>Parque San Vicente, Godoy Cruz</span>
+          </div>
+        </div>
+
+        <div class="footer-panel">
+          <h3 class="footer-title">Recorré</h3>
+          <div class="footer-list">
+            <a href="#mapa">Mapa y ubicación</a>
+            <a href="#galeria">Galería</a>
+            <a href="#historia">Nuestra historia</a>
+            <a href="#participar">Participar</a>
+          </div>
+        </div>
+
+        <div class="footer-panel">
+          <h3 class="footer-title">Seguinos</h3>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2026 Feria del Juguete · Parque San Vicente, Godoy Cruz · Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Cerrar imagen"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" type="button" aria-label="Imagen anterior"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox-stage">
+      <img class="lightbox-image" id="lightboxImage" src="" alt="">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+    <button class="lightbox-arrow lightbox-next" id="lightboxNext" type="button" aria-label="Imagen siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <a class="floating-whatsapp" href="https://wa.me/5492615031493?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Feria%20del%20Juguete." target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    "use strict";
+
+    const WHATSAPP_NUMBER = "5492615031493";
+
+    /* Animaciones de entrada */
+    const revealElements = document.querySelectorAll(".reveal");
+    if("IntersectionObserver" in window){
+      const revealObserver = new IntersectionObserver((entries,observer) => {
+        entries.forEach((entry) => {
+          if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },{threshold:.10});
+      revealElements.forEach((element) => revealObserver.observe(element));
+    }else{
+      revealElements.forEach((element) => element.classList.add("visible"));
+    }
+
+    /* Contadores */
+    const counters = document.querySelectorAll(".counter");
+    const animateCounter = (counter) => {
+      if(counter.dataset.animated === "true") return;
+      const target = Number(counter.dataset.target || 0);
+      const prefix = counter.dataset.prefix || "";
+      const duration = 1350;
+      const start = performance.now();
+      const update = (time) => {
+        const progress = Math.min((time - start) / duration,1);
+        const eased = 1 - Math.pow(1 - progress,3);
+        const current = Math.floor(target * eased);
+        counter.textContent = prefix + current.toLocaleString("es-AR");
+        if(progress < 1){
+          requestAnimationFrame(update);
+        }else{
+          counter.textContent = prefix + target.toLocaleString("es-AR");
+          counter.dataset.animated = "true";
+        }
+      };
+      requestAnimationFrame(update);
+    };
+
+    if("IntersectionObserver" in window){
+      const counterObserver = new IntersectionObserver((entries,observer) => {
+        entries.forEach((entry) => {
+          if(entry.isIntersecting){
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },{threshold:.45});
+      counters.forEach((counter) => counterObserver.observe(counter));
+    }else{
+      counters.forEach(animateCounter);
+    }
+
+    /* Galería + lightbox */
+    const galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
+    let activeImageIndex = 0;
+
+    const showLightboxImage = (index) => {
+      activeImageIndex = (index + galleryItems.length) % galleryItems.length;
+      const item = galleryItems[activeImageIndex];
+      const image = item.querySelector("img");
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt;
+      lightboxCaption.textContent = item.dataset.caption || image.alt;
+    };
+
+    const openLightbox = (index) => {
+      showLightboxImage(index);
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden","false");
+      document.body.classList.add("lightbox-open");
+      lightboxClose.focus();
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden","true");
+      document.body.classList.remove("lightbox-open");
+      galleryItems[activeImageIndex]?.focus();
+    };
+
+    galleryItems.forEach((item,index) => item.addEventListener("click",() => openLightbox(index)));
+    lightboxClose.addEventListener("click",closeLightbox);
+    lightboxPrev.addEventListener("click",() => showLightboxImage(activeImageIndex - 1));
+    lightboxNext.addEventListener("click",() => showLightboxImage(activeImageIndex + 1));
+    lightbox.addEventListener("click",(event) => {if(event.target === lightbox) closeLightbox();});
+
+    document.addEventListener("keydown",(event) => {
+      if(!lightbox.classList.contains("open")) return;
+      if(event.key === "Escape") closeLightbox();
+      if(event.key === "ArrowLeft") showLightboxImage(activeImageIndex - 1);
+      if(event.key === "ArrowRight") showLightboxImage(activeImageIndex + 1);
+    });
+
+    /* Formulario que abre WhatsApp */
+    const participationForm = document.getElementById("participationForm");
+    const formStatus = document.getElementById("formStatus");
+
+    participationForm.addEventListener("submit",(event) => {
+      event.preventDefault();
+      if(!participationForm.checkValidity()){
+        participationForm.reportValidity();
+        return;
+      }
+
+      const data = new FormData(participationForm);
+      const text = [
+        "Hola, quiero consultar por un stand en la Feria del Juguete 2026.",
+        "",
+        `Nombre: ${data.get("name")}`,
+        `Marca o emprendimiento: ${data.get("brand")}`,
+        `WhatsApp: ${data.get("phone")}`,
+        `Correo: ${data.get("email")}`,
+        `Rubro: ${data.get("category")}`,
+        `Propuesta: ${data.get("message") || "Sin detalle adicional"}`
+      ].join("\n");
+
+      formStatus.classList.add("visible");
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      setTimeout(() => window.open(whatsappUrl,"_blank","noopener"),250);
+    });
+  </script>
+</body>
+</html>
