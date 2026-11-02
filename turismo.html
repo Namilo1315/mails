@@ -1004,6 +1004,116 @@ html{scroll-padding-top:var(--header-altura)}
 }
 @media(prefers-reduced-motion:reduce){.header{transition:none!important}}
 
+/* =========================================================
+   HOLA MAIPÚ · AJUSTES DE NOVIEMBRE 2026
+   Galería WebP · cuatro tarjetas · chatbot conversacional
+   ========================================================= */
+/* Botonera bajo video, tarjetas y fotografías: microinteracciones accesibles. */
+.quick-button{transition:transform .24s ease,color .24s ease!important}
+.quick-circle{position:relative;transition:transform .25s ease,box-shadow .25s ease,filter .25s ease!important}
+.quick-circle:after{content:"";position:absolute;inset:-6px;border:1px solid color-mix(in srgb,var(--c) 32%,transparent);border-radius:50%;opacity:0;transform:scale(.8);transition:.23s ease}
+.topcat img,.exp-card img,.intent img{transition:transform .38s ease,filter .38s ease}
+.topcat,.exp-card,.intent,.agenda-item{transition:transform .26s ease,box-shadow .26s ease,border-color .26s ease!important}
+.topcat{isolation:isolate}
+.topcat img{transform-origin:center center}
+.topcat .category-cta{transition:background .22s,color .22s,transform .22s}
+@media(hover:hover){
+ .quick-button:hover{transform:translateY(-6px)!important;color:var(--c)}
+ .quick-button:hover .quick-circle{transform:scale(1.11);box-shadow:0 13px 26px color-mix(in srgb,var(--c) 33%,transparent);filter:saturate(1.16)}
+ .quick-button:hover .quick-circle:after{opacity:1;transform:scale(1)}
+ .topcat:hover,.exp-card:hover,.intent:hover{transform:translateY(-6px)!important;box-shadow:0 17px 35px #15384a25!important}
+ .topcat:hover img,.exp-card:hover img,.intent:hover img{transform:scale(1.055);filter:saturate(1.13)}
+ .topcat:hover .category-cta{background:var(--c);color:#fff;transform:translateY(-2px)}
+}
+.quick-button:focus-visible,.agenda-item:focus-visible,.topcat:focus-visible{outline:3px solid #058ec4!important;outline-offset:4px!important}
+
+/* Agenda: 4 cards llenas de color al estilo de la referencia. */
+.agenda-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:17px!important;align-items:stretch}
+.agenda-grid .agenda-item{
+ display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;
+ text-align:center!important;gap:14px!important;min-width:0;min-height:318px!important;padding:25px 16px!important;
+ border:1px solid #ffffff4a!important;border-radius:25px!important;
+ background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 90%,white),var(--accent) 55%,color-mix(in srgb,var(--accent) 80%,black))!important;
+ color:white!important;box-shadow:0 13px 28px color-mix(in srgb,var(--accent) 18%,transparent)!important;isolation:isolate;
+}
+.agenda-grid .agenda-item:before{content:""!important;position:absolute;top:auto!important;bottom:-96px!important;right:-57px!important;width:195px!important;height:195px!important;border:2px solid #ffffff35!important;border-radius:50%;pointer-events:none}
+.agenda-grid .agenda-item:after{content:"";position:absolute;width:140px;height:140px;right:-66px;bottom:-61px;border:2px solid #ffffff16;border-radius:50%;pointer-events:none}
+.agenda-grid .agenda-icon{display:grid!important;place-items:center!important;width:66px!important;height:66px!important;background:#ffffff25!important;border:1px solid #ffffff56!important;border-radius:20px!important;color:#fff!important;box-shadow:0 6px 16px #15293a16!important;margin:0 auto 7px!important}
+.agenda-grid .agenda-icon svg{height:34px!important;width:34px!important;color:#fff!important}
+.agenda-grid .agenda-item-title{display:block!important;font-family:'Manrope','DM Sans',Arial,sans-serif!important;font-weight:900!important;font-size:clamp(20px,1.9vw,27px)!important;line-height:1.19!important;letter-spacing:-.6px!important;color:#fff!important;margin:0!important;text-align:center}
+.agenda-grid .agenda-item-desc{color:#fff!important;opacity:.94;font-size:13px!important;line-height:1.5!important;font-weight:650!important;min-height:58px;max-width:220px;text-align:center}
+.agenda-grid .agenda-item-go{color:#fff!important;font-family:'DM Sans',Arial,sans-serif;font-size:12px!important;margin:0!important;display:inline-flex!important;gap:8px!important;align-items:center!important;justify-content:center!important;background:#ffffff22;border:1px solid #ffffff4f;border-radius:999px;padding:9px 12px}
+@media(hover:hover){.agenda-grid .agenda-item:hover{transform:translateY(-7px) scale(1.012)!important;box-shadow:0 22px 40px color-mix(in srgb,var(--accent) 31%,transparent)!important;filter:saturate(1.09)}.agenda-grid .agenda-item:hover .agenda-item-go{background:#ffffff40}}
+@media(max-width:950px){.agenda-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.agenda-grid .agenda-item{min-height:270px!important}}
+@media(max-width:560px){.agenda-grid{gap:11px!important}.agenda-grid .agenda-item{min-height:230px!important;padding:18px 9px!important;gap:9px!important;border-radius:20px!important}.agenda-grid .agenda-icon{width:53px!important;height:53px!important;border-radius:16px!important;margin:0 auto 5px!important}.agenda-grid .agenda-icon svg{width:27px!important;height:27px!important}.agenda-grid .agenda-item-title{font-size:clamp(16px,4.3vw,21px)!important;letter-spacing:-.4px!important}.agenda-grid .agenda-item-desc{font-size:11px!important;line-height:1.4!important;min-height:62px}.agenda-grid .agenda-item-go{font-size:10px!important;padding:7px 8px!important}}
+
+/* Marca del asistente: multicolor como el logotipo Hola Maipú. */
+.assist{z-index:1350!important}
+.assist .assistant-label{background:#fff!important;border:2px solid #09a1b7!important;color:#163a4b!important;font-size:13px!important;font-weight:900!important;padding:12px 17px!important;box-shadow:0 7px 23px #0b344532!important;transition:background .2s,transform .2s}
+.assist .assistant-badge{width:70px!important;height:70px!important;border:3px solid #f9a623!important;box-shadow:0 0 0 3px #2f9a6b50,0 10px 25px #1035483b!important;background:#fff!important}
+.assist:hover .assistant-label{background:#eefaf8!important}
+.chat{
+ z-index:1400!important;left:auto!important;right:18px!important;top:auto;bottom:102px!important;
+ width:min(440px,calc(100vw - 26px))!important;height:630px!important;max-height:calc(100dvh - 126px)!important;
+ background:white;border:1px solid #d7e8ea!important;border-radius:22px!important;
+ display:flex!important;flex-direction:column!important;overflow:hidden!important;
+ box-shadow:0 18px 60px #09253d40!important;
+}
+.chat.hide{display:none!important}
+.chat:before{content:"";height:5px;flex:0 0 5px;background:linear-gradient(90deg,#07914c,#e8b126,#06a4c8,#ca2b70,#7947b9)}
+.chat .chat-head{flex:0 0 auto;background:linear-gradient(115deg,#087f8d 0%,#087ba4 58%,#225f9e 100%)!important;padding:14px 17px!important;color:white;min-height:79px}
+.chat-identity strong{font-family:'Manrope',Arial,sans-serif;font-size:15px!important;font-weight:900;line-height:1.2}
+.chat-identity small{font-size:11px;color:#e1faff!important;margin-top:5px!important}
+.chat .chat-avatar{width:49px!important;height:49px!important;background:#fff!important;border:2px solid #ffe293!important;border-radius:15px!important}
+.chat .chat-avatar img{width:100%;height:100%;object-fit:cover}
+.chat-online{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7bdb90;box-shadow:0 0 0 3px #78d99128;margin-right:5px}
+.chat-close{font-weight:500;font-size:30px!important;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.chat-close:hover{background:#ffffff28}
+.chat .chat-main{flex:1!important;min-height:0!important;display:flex!important;flex-direction:column!important;overflow:hidden!important;padding:0!important;background:linear-gradient(180deg,#f3faf7 0%,#fff 55%)!important}
+.chat-history{flex:1 1 auto!important;min-height:120px!important;max-height:none!important;overflow-y:auto!important;overflow-x:hidden;scroll-behavior:smooth;display:flex!important;flex-direction:column!important;gap:11px!important;margin:0!important;padding:18px 16px 12px!important;overscroll-behavior:contain}
+.chat-message{display:flex;flex-direction:column;max-width:91%;gap:4px;flex:0 0 auto}
+.chat-message.bot{align-self:flex-start;align-items:flex-start}
+.chat-message.visitor{align-self:flex-end;align-items:flex-end}
+.chat-message .chat-line{max-width:100%!important;width:auto!important;padding:12px 14px!important;font-size:13px!important;line-height:1.53!important;border-radius:16px!important;box-shadow:0 4px 12px #163c4d0b;overflow-wrap:anywhere}
+.chat-message.bot .chat-line{background:#fff!important;color:#213e50!important;border:1px solid #deeaeb;border-bottom-left-radius:4px!important}
+.chat-message.visitor .chat-line{background:linear-gradient(125deg,#087eaa,#0b9ab6)!important;color:#fff!important;border:0;border-bottom-right-radius:4px!important}
+.chat-msg-time{font-size:10px;color:#84939b;font-weight:600;padding:0 3px}
+.chat-message .chat-results{display:grid!important;gap:6px!important;margin:9px 0 5px!important}
+.chat-message .chat-results button{background:#f4fafa;border-radius:11px;border:1px solid #d5e5e9;transition:background .2s}
+.chat-message .chat-results button:hover{background:#eaf7f7}
+.chat-message .chat-directory{display:block;margin-top:9px;padding:9px 12px;border-radius:999px;color:#096c82;background:#eef8fa;font-size:12px;border:1px solid #b7dde4}
+.chat-message .chat-directory:hover{background:#d6f1f3}
+.chat-links{margin-top:11px}.chat-links .answer-link{color:#067d95;text-decoration:none;border-bottom:1px solid #0b9ab2}
+.chat-actions{flex:0 0 auto;padding:9px 15px 6px;border-top:1px solid #e1ebea;background:#fff}
+.chat-actions-title{display:block;color:#536d76;font-size:11px;letter-spacing:.01em;font-weight:800;margin-bottom:7px}
+.chat-suggestions{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important;margin:0!important}
+.chat-suggestions button{background:#f5f9fa!important;border:1px solid #dce9ec!important;color:#22566b!important;min-height:37px!important;padding:7px 4px!important;font-size:11px!important;line-height:1.25!important;font-weight:800!important;border-radius:10px!important;text-align:center!important}
+.chat-suggestions button:hover{background:#e6f5f6!important;border-color:#7ec6cf!important}
+.chat .chat-form{flex:0 0 auto;display:flex!important;gap:8px;align-items:center;padding:12px 14px 7px!important;margin:0!important;background:#fff}
+.chat .chat-form input{flex:1;min-width:0;border:1px solid #cddfe3!important;border-radius:13px!important;height:47px!important;font-size:13px!important;padding:12px!important;background:white}
+.chat .chat-submit{width:47px!important;height:47px!important;border-radius:13px!important;background:#078faf!important}
+.chat .chat-submit:hover{background:#056d8b!important}
+.chat-footnote{flex:0 0 auto;text-align:center;background:#fff;padding:0 10px 11px;color:#84969c;font-size:10px;line-height:1.35}
+#chatAnswer{display:none!important}
+/* Mantener el chat debajo del header fijo en celulares y aprovechar la altura disponible. */
+@media(max-width:710px){
+ .assist{right:12px!important;bottom:14px!important;max-width:calc(100vw - 85px)!important}
+ .assist .assistant-label{font-size:12px!important;padding:11px 12px!important}
+ .assist .assistant-badge{height:68px!important;width:68px!important}
+ .chat{position:fixed!important;left:8px!important;right:8px!important;top:calc(var(--header-altura) + 7px)!important;bottom:8px!important;width:auto!important;height:auto!important;max-height:none!important;border-radius:20px!important;z-index:1400!important}
+ .chat .chat-head{min-height:73px!important;padding:10px 13px!important}
+ .chat-history{padding:13px 12px 9px!important;min-height:90px!important}
+ .chat-message .chat-line{font-size:13.5px!important}
+ .chat-actions{padding:8px 10px 6px!important}
+ .chat-suggestions{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important}
+ .chat-suggestions button{font-size:10.5px!important;min-height:35px!important;padding:6px 3px!important}
+ .chat .chat-form{padding:9px 10px 6px!important}
+ .chat .chat-form input{font-size:14px!important;height:46px!important}
+ .chat-footnote{font-size:9px;padding-bottom:8px}
+}
+@media(max-width:365px){.assist .assistant-label{font-size:11px!important;padding:9px 10px!important}.assist .assistant-badge{height:59px!important;width:59px!important}.chat-identity strong{font-size:13px!important}.chat-identity small{font-size:10px!important}}
+@media(prefers-reduced-motion:reduce){.quick-button,.quick-circle,.topcat img,.exp-card img,.intent img,.agenda-item{transition:none!important}.chat-history{scroll-behavior:auto}}
+
 </style><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&amp;family=Kalam:wght@400;700&amp;display=swap" rel="stylesheet"/></head><body><a class="skip" href="#app">Saltar al contenido</a>
 <header class="header"><div class="container nav">
 <button aria-controls="menu" aria-expanded="false" aria-label="Abrir menú de navegación" class="hamb" id="hamb"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
@@ -1067,8 +1177,40 @@ html{scroll-padding-top:var(--header-altura)}
     </div>
   </div>
   <div class="footer-bottom-v12"><div class="container"><span>© 2026 Hola Maipú · Turismo · Mendoza</span><span>Un lugar, mil formas de vivirlo.</span></div></div>
-</footer><button aria-controls="chat" aria-expanded="false" aria-label="Abrir asistente turístico de Hola Maipú" class="assist" id="assistant" onclick="toggleChat()" title="Asistente turístico · Hola Maipú"><span class="assistant-label">Asistente turístico</span><span class="assistant-badge"><img alt="" aria-hidden="true" id="assistantAvatar" src="imagenes/ia.png" onerror="this.src='imagenes/logoturismo.png'"/></span></button><div aria-label="Asistente turístico" class="chat hide" id="chat" role="region"><div class="chat-head"><span class="chat-identity"><span class="chat-avatar"><img src="imagenes/ia.png" onerror="this.src='imagenes/logoturismo.png'" alt="Asistente virtual de Maipú"/></span><span><strong>¡Hola! Soy tu asistente virtual</strong><small>Turismo Maipú · Consultas y lugares</small></span></span><button aria-label="Cerrar asistente" class="chat-close" onclick="toggleChat()">×</button></div><div class="chat-main"><div class="chat-welcome"><strong>¿Qué te gustaría conocer de Maipú?</strong><p>Te ayudo a buscar bodegas, olivícolas, restaurantes, lugares para visitar y cómo llegar. Elegí una consulta o escribime.</p></div><div class="chat-history" id="chatHistory" aria-live="polite"></div><div class="chat-suggestions"><button onclick="sendPreset('bodegas')" type="button">Bodegas</button><button onclick="sendPreset('olivos')" type="button">Olivícolas</button><button onclick="sendPreset('gastronomia')" type="button">Gastronomía</button><button onclick="sendPreset('cultura')" type="button">Cultura</button><button onclick="sendPreset('rural')" type="button">Turismo rural</button><button onclick="sendPreset('colectivos')" type="button">Transporte</button><button onclick="sendPreset('salud')" type="button">Hospitales</button><button onclick="sendPreset('experiencias')" type="button">Experiencias</button><button onclick="sendPreset('horarios')" type="button">Horarios y reservas</button><button onclick="sendPreset('mapa')" type="button">Mapa</button></div><form class="chat-form" onsubmit="event.preventDefault();askChat()"><label class="sr-only" for="chatInput">Consulta turística</label><input autocomplete="off" id="chatInput" placeholder="Escribí tu consulta…"/><button aria-label="Enviar consulta" class="chat-submit" type="submit"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="m4 12 16-8-5 16-3-7-8-1z"></path></svg></button></form><p aria-live="polite" id="chatAnswer" role="status"></p></div></div><div id="modalRoot"></div><script>
-const IMGS=["imagenes/Maipú Enoturístico.jpg", "imagenes/Maipú Entretenimiento.jpg", "imagenes/Maipú Gastronómico.jpg", "imagenes/Maipú Oleoturismo.png", "imagenes/Maipú Turismo de Romance.jpg", "imagenes/Turismo Rural.jpg"];
+</footer>
+<button aria-controls="chat" aria-expanded="false" aria-label="Abrir asistente turístico de Hola Maipú" class="assist" id="assistant" onclick="toggleChat()" title="¡Hola, soy tu asistente!">
+ <span class="assistant-label">¡Hola, soy tu asistente!</span>
+ <span class="assistant-badge"><img alt="" aria-hidden="true" id="assistantAvatar" src="imagenes/ia.png" onerror="this.src='imagenes/logoturismo.png'"/></span>
+</button>
+<div aria-label="Chat de orientación turística" aria-hidden="true" class="chat hide" id="chat" role="region">
+ <div class="chat-head">
+  <span class="chat-identity"><span class="chat-avatar"><img src="imagenes/ia.png" onerror="this.src='imagenes/logoturismo.png'" alt=""/></span><span><strong>¡Hola! Soy tu asistente</strong><small><span class="chat-online"></span> Hola Maipú · Guía turística</small></span></span>
+  <button type="button" aria-label="Cerrar el chat" class="chat-close" onclick="toggleChat()">×</button>
+ </div>
+ <div class="chat-main">
+  <div class="chat-history" id="chatHistory" aria-label="Conversación con el asistente" aria-live="polite" aria-relevant="additions text"></div>
+  <div class="chat-actions">
+   <span class="chat-actions-title">¿Sobre qué querés consultar?</span>
+   <div class="chat-suggestions">
+    <button onclick="sendPreset('bodegas')" type="button">🍇 Bodegas</button>
+    <button onclick="sendPreset('gastronomia')" type="button">🍽️ Dónde comer</button>
+    <button onclick="sendPreset('experiencias')" type="button">🚲 Experiencias</button>
+    <button onclick="sendPreset('colectivos')" type="button">🚌 Transporte</button>
+    <button onclick="sendPreset('horarios')" type="button">🕒 Horarios</button>
+    <button onclick="sendPreset('mapa')" type="button">📍 Mapa</button>
+   </div>
+  </div>
+  <form class="chat-form" onsubmit="event.preventDefault();askChat()">
+   <label class="sr-only" for="chatInput">Escribí tu consulta turística</label>
+   <input autocomplete="off" id="chatInput" maxlength="350" placeholder="Escribí tu consulta…" />
+   <button aria-label="Enviar mensaje" class="chat-submit" type="submit"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="m4 12 16-8-5 16-3-7-8-1z"></path></svg></button>
+  </form>
+  <div class="chat-footnote">Respuestas orientativas · Confirmá horarios y reservas con cada prestador.</div>
+  <p aria-live="polite" id="chatAnswer" role="status"></p>
+ </div>
+</div>
+<div id="modalRoot"></div><script>
+const IMGS=["imagenes/Maipú Enoturístico.webp", "imagenes/Maipú Entretenimiento.webp", "imagenes/Maipú Gastronómico.webp", "imagenes/Maipú Oleoturismo.webp", "imagenes/Maipú Turismo de Romance.webp", "imagenes/Turismo Rural.webp"];
 const LOGO="imagenes/logoturismo.png";
 const HEROPHOTO="imagenes/portada-maipu.jpg";
 const BRAND_BANNER="imagenes/banner-maipu.jpg";
@@ -1166,19 +1308,16 @@ function home(){
  <section class="homesec weather-full-section"><div class="container">${head('Planificá tu día',lang==='es'?'Así está el clima en Maipú':t('visit'),'Temperatura actual y pronóstico para organizar tu visita.')}</div><div class="weather-box"><div class="weather-main"><span class="weather-sun">${icon('sun')}</span><div class="weather-info"><span class="weather-head">Maipú, Mendoza · <span class="liveTime">--:--</span></span><b id="weatherNow">—°</b><small id="weatherDescription">Consultando el clima…</small></div></div><div class="weather-days" id="weatherDays"><div>—</div><div>—</div><div>—</div></div></div></section>`;
 }
 const AGENDA_TEMAS=[
- {t:'Cine y teatro',d:'Cartelera, funciones y espectáculos.',icon:'movie',c:'#b71e5d',bg:'#fff0f5'},
- {t:'Música en vivo',d:'Conciertos y encuentros musicales.',icon:'music',c:'#6d4bb7',bg:'#f4efff'},
- {t:'Ferias y mercados',d:'Diseño, emprendedores y productos locales.',icon:'fair',c:'#e88b13',bg:'#fff6e7'},
- {t:'Sabores y vinos',d:'Gastronomía, tradición y propuestas regionales.',icon:'food',c:'#d66024',bg:'#fff1eb'},
- {t:'Aire libre',d:'Actividades deportivas y recreativas.',icon:'bike',c:'#0a9695',bg:'#eafbf7'},
- {t:'Familias y cultura',d:'Museos, arte y propuestas para compartir.',icon:'culture',c:'#3d8f47',bg:'#edfaef'}
+ {t:'Teatro Imperial',d:'Cartelera, cine y espectáculos para disfrutar.',icon:'movie',c:'#6634c1',bg:'#f0e9ff'},
+ {t:'Sabores y vinos',d:'Cocina local, bodegas y tradiciones de Maipú.',icon:'food',c:'#ef8a0c',bg:'#fff3e7'},
+ {t:'Aire libre',d:'Paseos, bicis, naturaleza y aventura.',icon:'bike',c:'#09a6cb',bg:'#eafaff'},
+ {t:'Ferias y mercados',d:'Emprendedores, diseño y productos regionales.',icon:'fair',c:'#d71c78',bg:'#fff0f7'}
 ];
 function agendaGo(i){
  if(i===0){window.open('https://test.maipu.gob.ar/teatroimperial.php','_blank','noopener');return}
- if(i===3){filter='Gastronomía';routeTo('dondeir');return}
- if(i===4){filter='Entretenimiento';routeTo('experiencias');return}
- if(i===5){filter='Cultura';routeTo('dondeir');return}
- modal(`<div class="modal-body"><span class="overline">Agenda Maipú</span><h2>${AGENDA_TEMAS[i].t}</h2><p>Explorá la programación de Maipú. Las fechas y horarios deben confirmarse en los canales oficiales.</p><a class="btn" target="_blank" rel="noopener" href="https://www.maipu.gob.ar/">Consultar programación oficial →</a></div>`);
+ if(i===1){filter='Gastronomía';zone='';term='';routeTo('dondeir');return}
+ if(i===2){filter='Entretenimiento';zone='';term='';routeTo('experiencias');return}
+ if(i===3){modal(`<div class="modal-body"><span class="overline">Agenda Maipú</span><h2>Ferias y mercados</h2><p>Conocé propuestas de emprendedores, ferias y mercados de Maipú. Consultá las fechas confirmadas en los canales oficiales antes de acercarte.</p><a class="btn" target="_blank" rel="noopener" href="https://www.maipu.gob.ar/">Consultar programación municipal →</a></div>`)}
 }
 function eventsSection(title='Agenda cultural',landing=false){
  const h=landing?`<div class="section-head"><div><span class="overline">Cultura para todos</span><h2>Encontrá tu plan</h2><p>Teatro, música, ferias, sabores y actividades para disfrutar Maipú todo el año.</p></div></div>`:head('Cultura, encuentros y diversión','Agenda cultural','Conocé todo lo que se vive en Maipú.','Ver agenda completa','agenda');
@@ -1249,56 +1388,90 @@ function openExperience(name){let e=EXPERIENCES.find(x=>x.n===name);if(!e)return
 function shareItem(x){if(navigator.share)navigator.share({title:x,url:location.href});else if(navigator.clipboard)navigator.clipboard.writeText(location.href).then(()=>alert('Enlace copiado'));else alert('Copiá el enlace de la barra del navegador')}
 function planInfo(i){if(i===1||i===2){modal(`<div class="modal-body"><h2>${i===1?'Colectivos':'Metrotranvía de Mendoza'}</h2><p>Consultá horarios, paradas, líneas y combinaciones en la plataforma provincial de transporte público.</p><div class="action-row"><a class="btn" target="_blank" rel="noopener" href="https://mendotran.mendoza.gov.ar/">Ir a MendoTran ↗</a><a class="outline" target="_blank" rel="noopener" href="https://mendotran.mendoza.gov.ar/site/recorridos">Ver recorridos ↗</a></div></div>`);return}if(i===6){modal(`<div class="modal-body"><h2>Clima en Maipú</h2><p>Consultá el pronóstico actualizado antes de planificar actividades al aire libre.</p><a class="btn" target="_blank" rel="noopener" href="https://www.smn.gob.ar/">Servicio Meteorológico Nacional ↗</a></div>`);return}if(i===4){modal(`<div class="modal-body"><h2>Preguntas frecuentes</h2>${faq()}</div>`);return}let title=['Cómo llegar a Maipú','','','Información turística','','Accesibilidad turística'][i];modal(`<div class="modal-body"><h2>${title}</h2><p>${i===5?'Contactá al prestador para confirmar rampas, sanitarios, recorridos y asistencia.':i===3?'Encontrá los puntos de información y consultá los canales oficiales de Maipú.':'Encontrá rutas e indicaciones para llegar a Maipú, Mendoza.'}</p><a class="btn" target="_blank" rel="noopener" href="${i===3?'https://test.maipu.gob.ar/':'https://www.google.com/maps/search/?api=1&query=Maip%C3%BA+Mendoza'}">Consultar ↗</a></div>`)}
 function toggleChat(){
- let panel=$('#chat'),isOpen=panel.classList.toggle('hide')===false;
- let trigger=$('#assistant');trigger.setAttribute('aria-expanded',String(isOpen));
- if(isOpen)$('#chatInput').focus();
+ const panel=$('#chat');
+ const isOpen=panel.classList.toggle('hide')===false;
+ panel.setAttribute('aria-hidden',String(!isOpen));
+ $('#assistant').setAttribute('aria-expanded',String(isOpen));
+ if(isOpen){
+  initTourismChat();
+  const hist=$('#chatHistory');hist.scrollTop=hist.scrollHeight;
+  if(window.matchMedia('(min-width: 711px)').matches)$('#chatInput').focus();
+ }else $('#assistant').focus();
+}
+function chatTime(){return new Intl.DateTimeFormat('es-AR',{hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date())}
+function chatBubble(kind,html,plain=false){
+ const historyBox=$('#chatHistory');if(!historyBox)return;
+ const row=document.createElement('div');row.className='chat-message '+kind;
+ const bubble=document.createElement('div');bubble.className='chat-line '+(kind==='visitor'?'visitor':'toribio');
+ if(plain)bubble.textContent=html;else bubble.innerHTML=html;
+ const time=document.createElement('small');time.className='chat-msg-time';time.textContent=chatTime();
+ row.append(bubble,time);historyBox.appendChild(row);
+ historyBox.scrollTop=historyBox.scrollHeight;
+}
+let chatStarted=false;
+function initTourismChat(){
+ if(chatStarted)return;
+ chatStarted=true;
+ chatBubble('bot','¡Hola! 👋 Bienvenido a <strong>Hola Maipú</strong>. Soy tu asistente turístico. ¿Buscás una bodega, dónde comer, qué hacer o cómo llegar? Podés escribirme como en una conversación.');
 }
 function sendPreset(topic){
  const qs={bodegas:'Quiero conocer bodegas',olivos:'¿Qué olivícolas hay en Maipú?',gastronomia:'¿Dónde comer?',cultura:'Museos y cultura',rural:'Turismo rural',colectivos:'¿Dónde consulto colectivos y Metrotranvía?',mapa:'¿Cómo veo el mapa?',salud:'¿Dónde hay hospitales?',experiencias:'¿Qué experiencias puedo hacer?',horarios:'¿Cómo consulto horarios y reservas?'};
  $('#chatInput').value=qs[topic]||topic;askChat();
 }
 function chatGo(placeId){closeChatOnly();openPlace(placeId)}
-function closeChatOnly(){const panel=$('#chat');if(panel)panel.classList.add('hide');$('#assistant').setAttribute('aria-expanded','false')}
+function closeChatOnly(){const panel=$('#chat');if(panel){panel.classList.add('hide');panel.setAttribute('aria-hidden','true')}$('#assistant').setAttribute('aria-expanded','false')}
 function askChat(){
- const raw=$('#chatInput').value.trim(), q=norm(raw);
- if(!q){$('#chatAnswer').textContent='Escribí tu consulta o elegí una de las opciones.';return}
- const link=(url,label)=>`<a class="answer-link" href="${url}" target="_blank" rel="noopener">${escapeHtml(label)} →</a>`;
+ initTourismChat();
+ const raw=$('#chatInput').value.trim(),q=norm(raw);
+ if(!raw){$('#chatInput').focus();return}
+ chatBubble('visitor',raw,true);
+ $('#chatInput').value='';
+ const link=(url,label)=>`<a class="answer-link" href="${url}" target="_blank" rel="noopener">${escapeHtml(label)} ↗</a>`;
+ const button=(label,routeName)=>`<button class="chat-directory" type="button" onclick="closeChatOnly();routeTo('${routeName}')">${label} →</button>`;
  let answer='';
  const matchZones=[...new Set(PLACES.map(p=>p.z))].filter(z=>z&&z!=='Distrito por confirmar').sort((a,b)=>b.length-a.length);
- const z=matchZones.find(z=>norm(q).includes(norm(z)));
- const isWine=/bodega|vino|vi[ñn]edo|degust|enoturi/.test(q);
+ const z=matchZones.find(z=>q.includes(norm(z)));
+ const isWine=/bodega|vino|vi[nñ]edo|degust|enoturi/.test(q);
  const isOlive=/oliv|aceite|oleotu/.test(q);
- const isFood=/gastronom|comer|restaur|almorz|cenar|comida|cafe|bar\b/.test(q);
+ const isFood=/gastronom|comer|restaur|almorz|cenar|comida|cafe|bares?\b/.test(q);
  const isRural=/rural|campo|granja|finca|naturaleza/.test(q);
  const isCulture=/museo|teatro|imperial|cultur|cine/.test(q);
  const isStay=/hotel|aloj|dormir|hostel|posada/.test(q);
- let cats=isWine?['Bodegas']:isOlive?['Olivícolas']:isFood?['Gastronomía']:isRural?['Rural']:isCulture?['Cultura']:isStay?['Alojamientos']:null;
- const tokens=q.split(/\s+/).filter(w=>w.length>=4&&!['donde','quiero','puedo','cuales','maipu','mendoza','tienen','visitar','cerca','lugar','saber','lugares','hacer','favor','para','como','dime','informacion','conocer','buscar','listado','recomienda','algunas','alguna','algunos','algun'].includes(w));
+ const isAdventure=/biciclet|bici|aire libre|aventura|experiencia/.test(q);
+ const cats=isWine?['Bodegas']:isOlive?['Olivícolas']:isFood?['Gastronomía']:isRural?['Rural']:isCulture?['Cultura']:isStay?['Alojamientos']:isAdventure?['Aventura','Entretenimiento']:null;
+ const stop=['donde','quiero','puedo','cuales','maipu','mendoza','tienen','visitar','cerca','lugar','saber','lugares','hacer','favor','para','como','dime','informacion','conocer','buscar','listado','recomienda','algunas','alguna','algunos','algun','experiencias','turismo','bodega','bodegas','restaurante','restaurantes'];
+ const tokens=q.split(/\s+/).filter(w=>w.length>=4&&!stop.includes(w));
  const direct=PLACES.filter(p=>tokens.some(w=>norm(p.n).includes(w)));
  const matches=PLACES.filter(p=>(!cats||cats.includes(p.t))&&(!z||norm(p.z)===norm(z)));
  const list=direct.length?direct:matches;
- if(/micro|colect|metro|tren|transporte|mendotran|bondi/.test(q))answer='Consultá los recorridos, líneas, paradas y combinaciones en el sistema oficial de transporte de Mendoza. '+link('https://mendotran.mendoza.gov.ar/','Abrir MendoTran');
- else if(/hospital|salud|medic|emergen|farmacia|guardia/.test(q))answer='Podés buscar hospitales y centros de salud de Maipú. Confirmá horarios y guardias antes de trasladarte. '+link('https://www.google.com/maps/search/?api=1&query=Hospitales+Maipu+Mendoza','Buscar atención de salud');
- else if(/mapa|ubicacion|llegar|donde queda/.test(q)&&!direct.length)answer='Explorá el mapa turístico y elegí un prestador de la lista. Para conocer su dirección exacta, abrí la ficha y usá “Cómo llegar”. <a class="answer-link" href="#mapa" onclick="closeChatOnly();routeTo(\'mapa\')">Ver mapa →</a>';
- else if(/horari|reserv|entrad|precio|cost/.test(q)&&!direct.length)answer='Cada prestador establece sus horarios, visitas y reservas. En las fichas vas a encontrar la ubicación cuando esté informada; confirmá condiciones directamente antes de salir.';
- else if(/municip|tramite|licencia/.test(q))answer='Encontrá trámites y servicios en el portal municipal. '+link('https://test.maipu.gob.ar/','Ir a Maipú Municipio');
- else if(/clima|temperatura|pronostico|tiempo/.test(q))answer='El clima actual aparece en el encabezado y al final de la portada. Si el servicio meteorológico no está disponible, consultá el pronóstico oficial. '+link('https://www.smn.gob.ar/','Servicio Meteorológico Nacional');
+ if(/^(hola|buenas|buen dia|buenos dias|hey|que tal)(\b|\W|$)/.test(q))
+  answer='¡Hola! 😊 Me alegra acompañarte. Contame qué te gustaría hacer en Maipú: recorrer bodegas, conocer lugares, disfrutar de la gastronomía o planificar tu traslado.';
+ else if(/^(gracias|muchas gracias|genial|perfecto)(\b|\W|$)/.test(q))
+  answer='¡Un gusto ayudarte! Si querés, podemos seguir buscando lugares o armar ideas para tu visita a Maipú.';
+ else if(/micro|colect|metro|tren|transporte|mendotran|bondi/.test(q))
+  answer='Para moverte por Maipú podés consultar los colectivos y el Metrotranvía en MendoTran. Allí vas a encontrar recorridos y horarios actualizados.<div class="chat-links">'+link('https://mendotran.mendoza.gov.ar/','Consultar MendoTran')+'</div>';
+ else if(/hospital|salud|medic|emergen|farmacia|guardia/.test(q))
+  answer='Para encontrar hospitales, centros de salud y farmacias cercanos podés usar este mapa. Si necesitás atención, verificá primero horarios y guardias.<div class="chat-links">'+link('https://www.google.com/maps/search/?api=1&query=Hospitales+Maipu+Mendoza','Ver centros de salud')+'</div>';
+ else if(/mapa|ubicacion|llegar|donde queda/.test(q)&&!direct.length)
+  answer='¡Claro! 🗺️ En el mapa turístico podés explorar Maipú y abrir fichas de los prestadores para consultar cómo llegar.'+button('Abrir mapa turístico','mapa');
+ else if(/horari|reserv|entrad|precio|cost/.test(q)&&!direct.length)
+  answer='Los horarios, precios y reservas dependen de cada lugar. Desde nuestro directorio podés consultar prestadores; confirmá siempre los datos directamente antes de visitarlos.'+button('Explorar prestadores','dondeir');
+ else if(/municip|tramite|licencia/.test(q))
+  answer='Para turnos, licencias y otros trámites podés consultar el sitio del municipio.<div class="chat-links">'+link('https://test.maipu.gob.ar/','Maipú Municipio')+'</div>';
+ else if(/clima|temperatura|pronostico|tiempo/.test(q))
+  answer='La temperatura de Maipú aparece en el encabezado del portal y el pronóstico está al final de la página de inicio. También podés ver el pronóstico oficial.<div class="chat-links">'+link('https://www.smn.gob.ar/','Pronóstico del SMN')+'</div>';
+ else if(/teatro imperial|cartelera|cine|pelicula|espectaculo/.test(q))
+  answer='¡Una muy buena opción! 🎭 El Teatro Imperial tiene cartelera y actividades culturales. Te dejo el acceso para conocer la programación.<div class="chat-links">'+link('https://test.maipu.gob.ar/teatroimperial.php','Conocer Teatro Imperial')+'</div>';
  else if(direct.length||cats||z){
   const names=list.slice(0,5);
-  let header=direct.length?`Encontré ${direct.length} coincidencia(s) con ese nombre.`:`Encontré ${list.length} prestador(es)${z?' en '+escapeHtml(z):''}${cats?' de '+escapeHtml(cats[0]):''}.`;
-  answer=`<strong>${header}</strong>${names.length?'<div class="chat-results">'+names.map(p=>`<button onclick="chatGo(${p.id})"><span class="chat-place-ico" style="background:${markerColor(p)}">${icon(markerIcon(p))}</span><span><strong>${escapeHtml(p.n)}</strong><small>${escapeHtml(p.z||'Maipú')}</small></span><span aria-hidden="true">→</span></button>`).join('')+'</div>':'<p>Probá quitando el distrito o cambiando de categoría.</p>'}<button class="chat-directory" onclick="filter=${cats?'\''+cats[0]+'\'':"''"};zone='${z||''}';term='';closeChatOnly();routeTo('dondeir')">Ver directorio completo →</button>`;
+  const intro=direct.length?`Encontré ${direct.length} lugar(es) relacionado(s) con tu consulta.`:`Encontré ${list.length} opción(es)${z?' en '+escapeHtml(z):''}${cats?' para '+escapeHtml(cats[0]):''}.`;
+  answer=`<strong>${intro}</strong>`+(names.length?'<div class="chat-results">'+names.map(p=>`<button type="button" onclick="chatGo(${p.id})"><span class="chat-place-ico" style="background:${markerColor(p)}">${icon(markerIcon(p))}</span><span><strong>${escapeHtml(p.n)}</strong><small>${escapeHtml(p.z||'Maipú')}</small></span><span aria-hidden="true">→</span></button>`).join('')+'</div>':'<p>Probá otra categoría o quitá el distrito.</p>')+`<button type="button" class="chat-directory" onclick="filter=${JSON.stringify(cats?cats[0]:'')};zone=${JSON.stringify(z||'')};term='';closeChatOnly();routeTo('dondeir')">Ver directorio completo →</button>`;
  }
- else answer=`Puedo orientarte en el directorio de <strong>${PLACES.length} fichas</strong> con bodegas, olivícolas, gastronomía, cultura, alojamiento, servicios y turismo rural. Probá escribir el nombre de un lugar, una categoría o un distrito. <button class="chat-directory" onclick="closeChatOnly();routeTo('dondeir')">Explorar todos los prestadores →</button>`;
- const historyBox=$('#chatHistory');
- if(historyBox){
-  const userMessage=document.createElement('div');userMessage.className='chat-line visitor';userMessage.textContent=raw;historyBox.appendChild(userMessage);
-  const reply=document.createElement('div');reply.className='chat-line toribio';reply.innerHTML=answer;historyBox.appendChild(reply);
-  historyBox.scrollTop=historyBox.scrollHeight;
-  $('#chatInput').value='';
- }else $('#chatAnswer').innerHTML=answer;
+ else answer='Puedo ayudarte a encontrar bodegas, olivícolas, gastronomía, cultura, actividades y transporte. Decime qué buscás, o empezá por el listado de prestadores.'+button('Conocer los lugares','dondeir');
+ chatBubble('bot',answer);
 }
 function playVideo(){
- modal(`<div class="modal-body"><span class="overline">Descubrí nuestro destino</span><h2>Vení a vivir Maipú</h2><div style="position:relative;overflow:hidden;border-radius:18px;background:#153a38;margin:14px 0"><video id="modalVideoTurismo" style="width:100%;max-height:55vh;display:block;object-fit:cover" src="imagenes/turismo.mp4" controls playsinline preload="metadata">Tu navegador no puede reproducir el video.</video></div><p class="note">Turismo, experiencias y paisajes. Video oficial cuando esté ubicado como <strong>turismo.mp4</strong> junto al HTML.</p></div>`);
+ modal(`<div class="modal-body"><span class="overline">Descubrí nuestro destino</span><h2>Vení a vivir Maipú</h2><div style="position:relative;overflow:hidden;border-radius:18px;background:#153a38;margin:14px 0"><video id="modalVideoTurismo" style="width:100%;max-height:55vh;display:block;object-fit:cover" src="imagenes/turismo.mp4" controls playsinline preload="metadata">Tu navegador no puede reproducir el video.</video></div><p class="note">Turismo, experiencias y paisajes. Video turístico guardado en <strong>imagenes/turismo.mp4</strong>.</p></div>`);
  const v=$('#modalVideoTurismo');if(v)v.play().catch(()=>{});
 }
 function quickGo(arg){if(arg==='agenda'){filter='';routeTo('agenda');return}if(arg==='experiencias'){filter='';routeTo('experiencias');return}filter=arg;routeTo('dondeir')}
