@@ -3871,6 +3871,190 @@ setTimeout(hmOpenFestivalPopup,5000);
         }
     }
     </style>
-      
+
+<!-- HOLA MAIPÚ - ETIQUETAS Y BOTONES CON LATIDO -->
+
+<style>
+  @media (max-width: 760px) {
+  
+      /* Mantener los círculos a la derecha */
+      #hm-accesos-fijos {
+          right: 12px !important;
+          left: auto !important;
+          bottom: 210px !important;
+          top: auto !important;
+          transform: none !important;
+          overflow: visible !important;
+      }
+  
+      /* Animación suave de latido */
+      #hm-accesos-fijos a {
+          position: relative !important;
+          overflow: visible !important;
+          animation: hm-latido 3.5s ease-in-out infinite !important;
+      }
+  
+      #hm-accesos-fijos a:nth-child(2) {
+          animation-delay: .5s !important;
+      }
+  
+      #hm-accesos-fijos a:nth-child(3) {
+          animation-delay: 1s !important;
+      }
+  
+      @keyframes hm-latido {
+          0%, 70%, 100% {
+              transform: scale(1);
+          }
+          78% {
+              transform: scale(1.10);
+          }
+          85% {
+              transform: scale(1);
+          }
+          91% {
+              transform: scale(1.05);
+          }
+      }
+  
+      /* Ocultar las leyendas largas anteriores */
+      #hm-accesos-fijos .hm-quick-hint {
+          display: none !important;
+      }
+  
+      /* Etiqueta moderna hacia la IZQUIERDA */
+      #hm-accesos-fijos a.hm-info-activa::after {
+          position: absolute !important;
+  
+          right: 60px !important;
+          left: auto !important;
+          top: 50% !important;
+  
+          display: block !important;
+          width: max-content !important;
+          max-width: 140px !important;
+  
+          padding: 9px 15px !important;
+          background: rgba(255,255,255,.98) !important;
+          border: 1px solid #e8edf1 !important;
+          border-radius: 14px !important;
+  
+          color: #173247 !important;
+          font-family: 'Manrope', Arial, sans-serif !important;
+          font-size: 12px !important;
+          font-weight: 800 !important;
+          letter-spacing: .1px !important;
+          white-space: nowrap !important;
+  
+          box-shadow: 0 6px 22px rgba(0,0,0,.18) !important;
+          pointer-events: none !important;
+          z-index: 10001 !important;
+  
+          animation: hm-leyenda-entrar .4s
+              cubic-bezier(.2,1.2,.4,1) both !important;
+      }
+  
+      /* Color distintivo de cada etiqueta */
+      #hm-accesos-fijos .hm-a.hm-info-activa::after {
+          content: "Agenda" !important;
+          color: #c12565 !important;
+          border-left: 4px solid #c12565 !important;
+      }
+  
+      #hm-accesos-fijos .hm-b.hm-info-activa::after {
+          content: "Dónde ir" !important;
+          color: #079bc8 !important;
+          border-left: 4px solid #079bc8 !important;
+      }
+  
+      #hm-accesos-fijos .hm-c.hm-info-activa::after {
+          content: "Qué hacer" !important;
+          color: #d47b05 !important;
+          border-left: 4px solid #f29215 !important;
+      }
+  
+      /* Sale suavemente desde el círculo */
+      @keyframes hm-leyenda-entrar {
+          0% {
+              opacity: 0;
+              transform: translate(15px,-50%) scale(.85);
+          }
+          75% {
+              opacity: 1;
+              transform: translate(-3px,-50%) scale(1.04);
+          }
+          100% {
+              opacity: 1;
+              transform: translate(0,-50%) scale(1);
+          }
+      }
+  
+      /* Al seleccionar se detiene el latido */
+      #hm-accesos-fijos a.hm-info-activa {
+          animation-play-state: paused !important;
+      }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+      #hm-accesos-fijos a,
+      #hm-accesos-fijos a::after {
+          animation: none !important;
+      }
+  }
+  </style>
+  
+  <script>
+  /* Evita la etiqueta gris del navegador */
+  (function () {
+      const nav = document.getElementById('hm-accesos-fijos');
+  
+      if (!nav || nav.dataset.etiquetasNuevas) return;
+  
+      nav.dataset.etiquetasNuevas = '1';
+  
+      const botones = [...nav.querySelectorAll('a')];
+  
+      botones.forEach(boton => {
+          boton.removeAttribute('title');
+      });
+  
+      /* Primer toque: muestra la etiqueta.
+         Segundo toque: entra a la sección. */
+      nav.addEventListener('click', function (evento) {
+          if (!window.matchMedia('(max-width:760px)').matches) {
+              return;
+          }
+  
+          const boton = evento.target.closest('a');
+  
+          if (!boton || !nav.contains(boton)) return;
+  
+          if (!boton.classList.contains('hm-info-activa')) {
+              evento.preventDefault();
+              evento.stopImmediatePropagation();
+  
+              botones.forEach(b => {
+                  b.classList.remove('hm-info-activa');
+              });
+  
+              boton.classList.add('hm-info-activa');
+          } else {
+              boton.classList.remove('hm-info-activa');
+              evento.stopImmediatePropagation();
+          }
+      }, true);
+  
+      document.addEventListener('click', function (evento) {
+          if (!nav.contains(evento.target)) {
+              botones.forEach(b => {
+                  b.classList.remove('hm-info-activa');
+              });
+          }
+      });
+  })();
+  </script>
+  
+  <!-- FIN DE ANIMACIONES -->
+        
 
 </body></html>
